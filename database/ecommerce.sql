@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : ven. 01 avr. 2022 à 09:44
+-- Généré le : ven. 01 avr. 2022 à 14:02
 -- Version du serveur :  5.7.36
 -- Version de PHP : 5.6.40
 
@@ -31,9 +31,22 @@ SET time_zone = "+00:00";
 DROP TABLE IF EXISTS `categorie_prod`;
 CREATE TABLE IF NOT EXISTS `categorie_prod` (
   `id_cat` int(11) NOT NULL AUTO_INCREMENT,
-  `cat_libelle` varchar(20) NOT NULL,
+  `cat_libelle` varchar(30) NOT NULL,
   PRIMARY KEY (`id_cat`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `categorie_prod`
+--
+
+INSERT INTO `categorie_prod` (`id_cat`, `cat_libelle`) VALUES
+(1, 'chemis'),
+(2, 'polos'),
+(3, 'pantalons'),
+(4, 'pantalons de survetement'),
+(5, 'shorts'),
+(6, 'jeans'),
+(7, 'chaussures');
 
 -- --------------------------------------------------------
 
@@ -101,6 +114,21 @@ CREATE TABLE IF NOT EXISTS `produit` (
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `produit_images`
+--
+
+DROP TABLE IF EXISTS `produit_images`;
+CREATE TABLE IF NOT EXISTS `produit_images` (
+  `id_image` int(11) NOT NULL AUTO_INCREMENT,
+  `image_name` varchar(20) NOT NULL,
+  `produit_id` int(11) NOT NULL,
+  PRIMARY KEY (`id_image`),
+  KEY `foreign4` (`produit_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `utilisateur`
 --
 
@@ -155,6 +183,12 @@ ALTER TABLE `ligne_commande`
 --
 ALTER TABLE `produit`
   ADD CONSTRAINT `etrangeree` FOREIGN KEY (`id_cat`) REFERENCES `categorie_prod` (`id_cat`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Contraintes pour la table `produit_images`
+--
+ALTER TABLE `produit_images`
+  ADD CONSTRAINT `foreign4` FOREIGN KEY (`produit_id`) REFERENCES `produit` (`id_produit`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Contraintes pour la table `utilisateur`
