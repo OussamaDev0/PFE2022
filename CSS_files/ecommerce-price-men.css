@@ -27,7 +27,7 @@ html,body{overflow-x: hidden;overflow-y: auto;}
 *:focus {
     outline: none;
 }
-.show-two-hundred-page,.show-three-hundred-page,.show-four-hundred-page,.show-five-hundred-page,.show-six-hundred-page{display:none;}
+.show-two-hundred-page,.show-three-hundred-page,.show-four-hundred-page,.show-five-hundred-page,.show-six-hundred-page,.show-chemis-categorie-page,.show-polos-categorie-page,.show-pantalons-categorie-page,.show-pantalonssur-categorie-page,.show-shorts-categorie-page,.show-jeans-categorie-page,.show-chaussures-categorie-page{display:none;}
 .other-page-link{border:1px solid transparent;background-color:rgb(148, 142, 142);padding:0.5% 1.2%;border-radius:20px;}
 .text-bold{text-transform:uppercase;font-weight:700;font-size:15px;padding-left:3%;}
 .show-two-hundred-small-page,.show-three-hundred-small-page,.show-four-hundred-small-page,.show-five-hundred-small-page,.show-six-hundred-small-page,.for-small-devices,.hide-me-for-font{display:none;}

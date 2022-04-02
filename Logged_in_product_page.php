@@ -1,3 +1,10 @@
+<?php
+    require_once('dbconn.php'); //inclusion de connexion avec data base
+    $req ="SELECT * FROM produit LIMIT 16";
+    $ps=$pdo->prepare($req);
+    $ps->execute();
+?>
+
 <html>
     <head>
         <meta charset="utf-8">
@@ -41,7 +48,7 @@
                   <li class="pre-profile-1 pt-2 pb-2"><a href="ecommerce.html" class="color" style="font-weight:600">Log Out</a></li>
                 </ul>
                 <span class="menu-1"><a href="login-ecommerce.html" class="color">home</a></span>
-                <span class="menu"><a href="Logged_in_product_page.html" class="color">products</a></span>
+                <span class="menu"><a href="Logged_in_product_page.php" class="color">products</a></span>
                 <span class="menu"><a href="logged_in_about_us.html" class="color">about</a></span>
                 <span class="menu"><a href="contact-form.html" class="color">contact</a></span>
                 <span class="menu-bar text-right"><a href="#/" class="color">&#9776;</a></span>
@@ -55,7 +62,7 @@
               </div>
                 <ul class="pt-5 pre-side-bar">
                   <li class="pt-4" style="margin-left:-5%;"><a href="login-ecommerce.html" class="color">home</a></li>
-                  <li class="pt-3"style="margin-left:-5%"><a href="Logged_in_product_page.html" class="color">products</a></li>
+                  <li class="pt-3"style="margin-left:-5%"><a href="Logged_in_product_page.php" class="color">products</a></li>
                   <li class="pt-3"style="margin-left:-5%"><a href="logged_in_about_us.html" class="color">about</a></li>
                   <li class="pt-3"style="margin-left:-5%"><a href="contact-form.html" class="color">contact</a></li>
                   <li class="pt-3"style="margin-left:-5%"><a href="#/" class="color">Update profile</a></li>
@@ -109,84 +116,16 @@
 <!--front look-->
 <div class="col-xl-9 col-lg-9 col-md-9 col-sm-12 col-12 pl-0" style="border-left:1px solid grey">
   <div class="container large-right-sider">
+
     <div class="row pt-5 hide-front-page">
+        <?php while($produit=$ps->fetch()) { ?>
           <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6  text-center">
-             <a href="logged_in_for-each-image.html#\"><img src="Images/girl.jpg" class="img-men" data-aos="fade-up" style="border-radius:20px;height:180px"></a> 
-             <a href="logged_in_for-each-image.html#\"><span class="image-lable" data-aos="fade-up">tradesional dress<br>&#8377;303.00</span></a>
+             <a href="logged_in_for-each-image.html#\"><img src="productimages/<?php echo($produit['prod_img']);?>" class="img-men" data-aos="fade-up" style="border-radius:20px;height:180px"></a><br>
+             <a href="logged_in_for-each-image.html#\"><span class="image-lable" data-aos="fade-up"><?php echo($produit['prod_nom']); ?><br>&#8377;<?php echo($produit['prod_prix']); ?></span></a>
           </div>
-          <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6  text-center">
-            <a href="logged_in_for-each-image.html#\"><img src="Images/men.jpg" class="img-men" data-aos="fade-up" style="border-radius:20px;height:180px"><br></a>
-            <a href="logged_in_for-each-image.html#\"><span class="image-lable" data-aos="fade-up">pink saree<br>&#8377;232.00</span></a>
-          </div>
-          <div class="col-xl-3 col-lg-4 col-md-4 text-center hide-containt-tablate">
-            <a href="logged_in_for-each-image.html#\"><img src="Images/girl.jpg" class="img-men" data-aos="fade-up" style="border-radius:20px;height:180px"></a>
-            <a href="logged_in_for-each-image.html#\"><span class="image-lable" data-aos="fade-up">tradesional dress<br>&#8377;303.00</span></a>
-          </div>
-          <div class="col-xl-3 col-lg-3 col-md-3 text-center hide-containt-small-device">
-            <a href="logged_in_for-each-image.html#\"><img src="Images/men.jpg" class="img-men" data-aos="fade-up" style="border-radius:20px;height:180px"><br></a>
-            <a href="logged_in_for-each-image.html#\"><span class="image-lable" data-aos="fade-up">pink saree<br>&#8377;232.00</span></a>
-          </div>
+        <?php } ?>
         </div>
-        
-        <!--second-->
-        <div class="row pt-5 hide-front-page">
-          <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6  text-center">
-             <a href="logged_in_for-each-image.html#\"><img src="Images/men-1.jpg" class="img-men" data-aos="fade-up" style="border-radius:20px;height:180px"></a> 
-             <a href="logged_in_for-each-image.html#\"><span class="image-lable" data-aos="fade-up">accessories dress<br>&#8377;340.00</span></a>
-          </div>
-          <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6  text-center">
-            <a href="logged_in_for-each-image.html#\"><img src="Images/blazers.jpg" class="img-men" data-aos="fade-up" style="height:180px"><br></a>
-            <a href="logged_in_for-each-image.html#\"><span class="image-lable" data-aos="fade-up">black shirt<br>&#8377;210.00</span></a>
-          </div>
-          <div class="col-xl-3 col-lg-4 col-md-4 text-center hide-containt-tablate">
-            <a href="logged_in_for-each-image.html#\"><img src="Images/men-1.jpg" class="img-men" data-aos="fade-up" style="border-radius:20px;height:180px"></a>
-            <a href="logged_in_for-each-image.html#\"><span class="image-lable" data-aos="fade-up">accessories dress<br>&#8377;340.00</span></a>
-          </div>
-          <div class="col-xl-3 col-lg-3 col-md-3 text-center hide-containt-small-device">
-            <a href="logged_in_for-each-image.html#\"><img src="Images/blazers.jpg" class="img-men" data-aos="fade-up" style="height:180px"><br></a>
-            <a href="logged_in_for-each-image.html#\"><span class="image-lable" data-aos="fade-up">black shirt<br>&#8377;210.00</span></a>
-          </div>
-        </div>
-        
-        <!--third-->
-        <div class="row pt-5 hide-front-page">
-          <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6  text-center">
-             <a href="logged_in_for-each-image.html#\"><img src="Images/kids.jpg" class="img-men" data-aos="fade-up" style="border-radius:20px;height:180px"></a> 
-             <a href="logged_in_for-each-image.html#\"><span class="image-lable" data-aos="fade-up">toddler dress<br>&#8377;150.00</span></a>
-          </div>
-          <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6  text-center">
-            <a href="logged_in_for-each-image.html#\"><img src="Images/boys-kids.jpg" class="img-men" data-aos="fade-up" style="border-radius:20px;height:180px"><br></a>
-            <a href="logged_in_for-each-image.html#\"><span class="image-lable" data-aos="fade-up">flower print shirt<br>&#8377;335.00</span></a>
-          </div>
-          <div class="col-xl-3 col-lg-4 col-md-4 text-center hide-containt-tablate">
-            <a href="logged_in_for-each-image.html#\"><img src="Images/kids.jpg" class="img-men" data-aos="fade-up" style="border-radius:20px;height:180px"></a>
-            <a href="logged_in_for-each-image.html#\"><span class="image-lable" data-aos="fade-up">toddler dress<br>&#8377;150.00</span></a>
-          </div>
-          <div class="col-xl-3 col-lg-3 col-md-3 text-center hide-containt-small-device">
-            <a href="logged_in_for-each-image.html#\"><img src="Images/boys-kids.jpg" class="img-men" data-aos="fade-up" style="border-radius:20px;height:180px"></a>
-            <a href="logged_in_for-each-image.html#\"><span class="image-lable" data-aos="fade-up">flower print shirt<br>&#8377;335.00</span></a>
-          </div>
-        </div>
-        
-        <!--fourth-->
-        <div class="row pt-5 pb-5 hide-front-page">
-          <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6  text-center">
-             <a href="logged_in_for-each-image.html#\"><img src="Images/girl.jpg" class="img-men" data-aos="fade-up" style="border-radius:20px;height:180px"></a> 
-             <a href="logged_in_for-each-image.html#\"><span class="image-lable" data-aos="fade-up">tradesional dress<br>&#8377;303.00</span></a>
-          </div>
-          <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6  text-center">
-            <a href="logged_in_for-each-image.html#\"><img src="Images/kids.jpg" class="img-men" data-aos="fade-up" style="border-radius:20px;height:180px"><br></a>
-            <a href="logged_in_for-each-image.html#\"><span class="image-lable" data-aos="fade-up">toddler dress<br>&#8377;150.00</span></a>
-          </div>
-          <div class="col-xl-3 col-lg-4 col-md-4 text-center hide-containt-tablate">
-            <a href="logged_in_for-each-image.html#\"><img src="Images/blazers.jpg" class="img-men" data-aos="fade-up" style="border-radius:20px;height:180px"><br></a>
-            <a href="logged_in_for-each-image.html#\"><span class="image-lable" data-aos="fade-up">black shirt<br>&#8377;340.00</span></a>
-          </div>
-          <div class="col-xl-3 col-lg-3 col-md-3 text-center hide-containt-small-device">
-            <a href="logged_in_for-each-image.html#\"><img src="Images/boys-kids.jpg" class="img-men" data-aos="fade-up" style="border-radius:20px;height:180px"></a>
-            <a href="logged_in_for-each-image.html#\"><span class="image-lable" data-aos="fade-up">flower print shirt<br>&#8377;335.00</span></a>
-          </div>
-        </div>
+
         <!--font look end-->
         
         <!--100-200 page start-->
@@ -196,18 +135,6 @@
             <div class="col-xl-3 col-lg-4 col-md-4 text-center">
               <a href="logged_in_for-each-image.html#\"><img src="Images/mens-dress-1.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
               <a href="logged_in_for-each-image.html#\"><span class="image-lable">tradesional dress<br>&#8377;130.00</span></a>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-md-4 text-center">
-              <a href="logged_in_for-each-image.html#\"><img src="Images/ladies-dress-1.jpg" class="img-men" style="border-radius:20px;height:180px"></a>
-              <a href="logged_in_for-each-image.html#\"><span class="image-lable">tradesional dress<br>&#8377;120.00</span></a>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-md-4 text-center">
-              <a href="logged_in_for-each-image.html#\"><img src="Images/kids-dress-1.jpg" class="img-men" style="border-radius:20px;height:180px"></a>
-              <a href="logged_in_for-each-image.html#\"><span class="image-lable">tradesional dress<br>&#8377;.150.00</span></a>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-md-4 text-center hide-containt-small-device">
-              <a href="logged_in_for-each-image.html#\"><img src="Images/ladies-dress-2.jpg" class="img-men" style="border-radius:20px;height:180px"></a>
-              <a href="logged_in_for-each-image.html#\"><span class="image-lable">tradesional dress<br>&#8377;170.00</span></a>
             </div>
           </div>
           <!--second row-->
@@ -362,7 +289,7 @@
           <div class="row pt-5">
             <div class="col-xl-3 col-lg-4 col-md-4 text-center">
               <a href="logged_in_for-each-image.html#\"><img src="Images/three-hundred-boys.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
-              <a href="logged_in_for-each-image.html#\"><span class="image-lable">tradesional dress<br>&#8377;130.00</span></a>
+              <a href="logged_in_for-each-image.html#\"><span class="image-lable">tradesional dress2<br>&#8377;130.00</span></a>
             </div>
             <div class="col-xl-3 col-lg-4 col-md-4 text-center">
               <a href="logged_in_for-each-image.html#\"><img src="Images/three-hundred-men.jpg" class="img-men" style="border-radius:20px;height:180px"></a>

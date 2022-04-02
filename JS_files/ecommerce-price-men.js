@@ -7,37 +7,86 @@ $(document).ready(function(){
     //for one to two hundred page//
     $(".open-content-one-hundred").click(function(){
       $(".show-two-hundred-page").css("display","block");
-      $(".hide-front-page,.show-three-hundred-page,.show-four-hundred-page,.show-five-hundred-page,.show-six-hundred-page").css("display","none");
+      $(".hide-front-page,.show-three-hundred-page,.show-four-hundred-page,.show-five-hundred-page,.show-six-hundred-page,.show-chemis-categorie-page,.show-polos-categorie-page,.show-pantalons-categorie-page,.show-pantalonssur-categorie-page,.show-shorts-categorie-page,.show-jeans-categorie-page,.show-chaussures-categorie-page").css("display","none");
     });
     //one to two hundred page end//
 
     //for one to three hundred page//
     $(".open-content-two-hundred").click(function(){
       $(".show-three-hundred-page").css("display","block");
-      $(".hide-front-page,.show-two-hundred-page,.show-four-hundred-page,.show-five-hundred-page,.show-six-hundred-page").css("display","none");
+      $(".hide-front-page,.show-two-hundred-page,.show-four-hundred-page,.show-five-hundred-page,.show-six-hundred-page,.show-chemis-categorie-page,.show-polos-categorie-page,.show-pantalons-categorie-page,.show-pantalonssur-categorie-page,.show-shorts-categorie-page,.show-jeans-categorie-page,.show-chaussures-categorie-page").css("display","none");
     });
     //one to three hundred page end//
 
     //for one to four hundred page//
     $(".open-content-three-hundred").click(function(){
       $(".show-four-hundred-page").css("display","block");
-      $(".hide-front-page,.show-two-hundred-page,.show-three-hundred-page,.show-five-hundred-page,.show-six-hundred-page").css("display","none");
+      $(".hide-front-page,.show-two-hundred-page,.show-three-hundred-page,.show-five-hundred-page,.show-six-hundred-page,.show-chemis-categorie-page,.show-polos-categorie-page,.show-pantalons-categorie-page,.show-pantalonssur-categorie-page,.show-shorts-categorie-page,.show-jeans-categorie-page,.show-chaussures-categorie-page").css("display","none");
     });
     //one to four hundred page end//
 
      //for one to five hundred page//
      $(".open-content-four-hundred").click(function(){
       $(".show-five-hundred-page").css("display","block");
-      $(".hide-front-page,.show-two-hundred-page,.show-three-hundred-page,.show-four-hundred-page,.show-six-hundred-page").css("display","none");
+      $(".hide-front-page,.show-two-hundred-page,.show-three-hundred-page,.show-four-hundred-page,.show-six-hundred-page,.show-chemis-categorie-page.show-polos-categorie-page,.show-pantalons-categorie-page,.show-pantalonssur-categorie-page,.show-shorts-categorie-page,.show-jeans-categorie-page,.show-chaussures-categorie-page").css("display","none");
     });
     //one to five hundred page end//
 
     //for one to six  hundred page//
     $(".open-content-five-hundred").click(function(){
     $(".show-six-hundred-page").css("display","block");
-    $(".hide-front-page,.show-two-hundred-page,.show-three-hundred-page,.show-four-hundred-page,.show-five-hundred-page").css("display","none");
+    $(".hide-front-page,.show-two-hundred-page,.show-three-hundred-page,.show-four-hundred-page,.show-five-hundred-page,.show-chemis-categorie-page,.show-polos-categorie-page,.show-pantalons-categorie-page,.show-pantalonssur-categorie-page,.show-shorts-categorie-page,.show-jeans-categorie-page,.show-chaussures-categorie-page").css("display","none");
     });
     //one to six hundred page end//
+
+    //for one to chemis-categorie page//
+    $(".open-content-chemis-categorie").click(function(){
+        $(".show-chemis-categorie-page").css("display","block");
+        $(".hide-front-page,.show-two-hundred-page,.show-three-hundred-page,.show-four-hundred-page,.show-five-hundred-page,.show-six-hundred-page,.show-polos-categorie-page,.show-pantalons-categorie-page,.show-pantalonssur-categorie-page,.show-shorts-categorie-page,.show-jeans-categorie-page,.show-chaussures-categorie-page").css("display","none");
+    });
+    //one to chemis-categorie page end//
+
+    //for one to polos-categorie page//
+    $(".open-content-polos-categorie").click(function(){
+        $(".show-polos-categorie-page").css("display","block");
+        $(".hide-front-page,.show-two-hundred-page,.show-three-hundred-page,.show-four-hundred-page,.show-five-hundred-page,.show-six-hundred-page,.show-chemis-categorie-page,.show-pantalons-categorie-page,.show-pantalonssur-categorie-page,.show-shorts-categorie-page,.show-jeans-categorie-page,.show-chaussures-categorie-page").css("display","none");
+    });
+    //one to polos-categorie page end//
+
+    //for one to pantalons-categorie page//
+    $(".open-content-pantalons-categorie").click(function(){
+        $(".show-pantalons-categorie-page").css("display","block");
+        $(".hide-front-page,.show-two-hundred-page,.show-three-hundred-page,.show-four-hundred-page,.show-five-hundred-page,.show-six-hundred-page,.show-polos-categorie-page,.show-pantalonssur-categorie-page,.show-shorts-categorie-page,.show-jeans-categorie-page,.show-chaussures-categorie-page").css("display","none");
+    });
+    //one to pantalons-categorie page end//
+
+    //for one to pantalonssur-categorie page//
+    $(".open-content-pantalonssur-categorie").click(function(){
+        $(".show-pantalonssur-categorie-page").css("display","block");
+        $(".hide-front-page,.show-two-hundred-page,.show-three-hundred-page,.show-four-hundred-page,.show-five-hundred-page,.show-six-hundred-page,.show-chemis-categorie-page,.show-polos-categorie-page,.show-pantalons-categorie-page,.show-shorts-categorie-page,.show-jeans-categorie-page,.show-chaussures-categorie-page").css("display","none");
+    });
+    //one to pantalonssur-categorie page end//
+
+    //for one to shorts-categorie page//
+    $(".open-content-shorts-categorie").click(function(){
+        $(".show-shorts-categorie-page").css("display","block");
+        $(".hide-front-page,.show-two-hundred-page,.show-three-hundred-page,.show-four-hundred-page,.show-five-hundred-page,.show-six-hundred-page,.show-chemis-categorie-page,.show-polos-categorie-page,.show-pantalons-categorie-page,.show-pantalonssur-categorie-page,.show-jeans-categorie-page,.show-chaussures-categorie-page").css("display","none");
+    });
+    //one to shorts-categorie page end//
+
+    //for one to jeans-categorie page//
+    $(".open-content-jeans-categorie").click(function(){
+        $(".show-jeans-categorie-page").css("display","block");
+        $(".hide-front-page,.show-two-hundred-page,.show-three-hundred-page,.show-four-hundred-page,.show-five-hundred-page,.show-six-hundred-page,.show-chemis-categorie-page,.show-polos-categorie-page,.show-pantalons-categorie-page,.show-pantalonssur-categorie-page,.show-shorts-categorie-page,.show-chaussures-categorie-page").css("display","none");
+    });
+    //one to Jeans-categorie page end//
+
+    //for one to chaussures-categorie page//
+    $(".open-content-chaussures-categorie").click(function(){
+        $(".show-chaussures-categorie-page").css("display","block");
+        $(".hide-front-page,.show-two-hundred-page,.show-three-hundred-page,.show-four-hundred-page,.show-five-hundred-page,.show-six-hundred-page,.show-chemis-categorie-page,.show-polos-categorie-page,.show-pantalons-categorie-page,.show-pantalonssur-categorie-page,.show-shorts-categorie-page,.show-jeans-categorie-page").css("display","none");
+    });
+    //one to chaussures-categorie page end//
 
        //for one to two hundred small page//
        $(".open-small-content-one-hundred").click(function(){
