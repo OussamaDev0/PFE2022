@@ -1,4 +1,4 @@
-<tml>
+<html>
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -53,7 +53,7 @@
                     </div>
                     <div class="row mt-4">
                         <div class="col pl-5 pr-5">
-                            <a href="login-ecommerce.html"><span class="btn btn-block text-white login-button">login</span></a>
+                            <a href="login-ecommerce.php"><span class="btn btn-block text-white login-button">login</span></a>
                         </div>
                     </div>
                     <div class="row mt-5">
@@ -162,7 +162,7 @@
                 </div>
                 <div class="row mt-4 show-me">
                     <div class="col pl-5 pr-5">
-                        <a href="login-ecomarce.html"><span class="btn btn-block text-white signup-button">sign up</span></a>
+                        <a href="login-ecomarce.php"><span class="btn btn-block text-white signup-button">sign up</span></a>
                     </div>
                 </div>
                 <div class="row mt-5 show-me">

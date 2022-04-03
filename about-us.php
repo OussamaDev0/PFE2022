@@ -17,8 +17,8 @@
      <div class="container-fluid text-white" id="change-color">
         <div class="row" id="top-containt">
           <div class="col-4 text-center">
-              <a href="ecommerce.html"><img src="Images/shopping-logo.png" style="width:150px;height:150px;" class="color logo-1 logo-sift"></a>
-            <a href="ecommerce.html"><img src="Images/pinterest_icon.png" height="70px" class=" color logo-2 mt-1 ml-2"></a>
+              <a href="ecommerce.php"><img src="Images/shopping-logo.png" style="width:150px;height:150px;" class="color logo-1 logo-sift"></a>
+            <a href="ecommerce.php"><img src="Images/pinterest_icon.png" height="70px" class=" color logo-2 mt-1 ml-2"></a>
           </div>
           <div class="col-8 pt-4 mt-1 text-center">
             <span class="dropdown dropdown-toggle profile" data-toggle="dropdown" style="color:black" >
@@ -28,12 +28,12 @@
               <li class="pre-profile-1 pt-2 pb-2"><a href="#/" class="color" style="font-weight:600">Historique des commandes</a></li>
               <li class="pre-profile-1 pt-2 pb-2"><a href="#/" class="color" style="font-weight:600">Changer le mot de passe</a></li>
               <li class="pre-profile-1 pt-2 pb-2"><a href="#/" class="color" style="font-weight:600">Mettre à jour le profil</a></li>
-              <li class="pre-profile-1 pt-2 pb-2"><a href="login-form.html" class="color" style="font-weight:600">Connexion</a></li>
+              <li class="pre-profile-1 pt-2 pb-2"><a href="login-form.php" class="color" style="font-weight:600">Connexion</a></li>
             </ul>
-            <span class="menu-1"><a href="ecommerce.html" class="color">accueil</a></span>
-            <span class="menu"><a href="ecommerce-price-men.html" class="color">produits</a></span>
+            <span class="menu-1"><a href="ecommerce.php" class="color">accueil</a></span>
+            <span class="menu"><a href="ecommerce-price-men.php" class="color">produits</a></span>
             <span class="menu"><a href="#/" class="color">à propos </a></span>
-            <span class="menu"><a href="contact-form.html" class="color">contact</a></span>
+            <span class="menu"><a href="contact-form.php" class="color">contact</a></span>
             <span class="menu-bar text-right"><a href="#/" class="color">&#9776;</a></span>
             <span class="menu-bar-1 text-right"><a href="#/" class="color">&#9776;</a></span>
             <span class="menu-bar-2 text-right"><a href="#/" class="color">&#9776;</a></span>
@@ -44,12 +44,12 @@
             <span class="close"><a href="#/" class="color">&times;</a></span>
           </div>
             <ul class="pt-5 pre-side-bar">
-              <li class="pt-4" style="margin-left:-5%;"><a href="ecommerce.html" class="color">home</a></li>
-              <li class="pt-3"style="margin-left:-5%"><a href="ecommerce-price-men.html" class="color">produits</a></li>
+              <li class="pt-4" style="margin-left:-5%;"><a href="ecommerce.php" class="color">home</a></li>
+              <li class="pt-3"style="margin-left:-5%"><a href="ecommerce-price-men.php" class="color">produits</a></li>
               <li class="pt-3"style="margin-left:-5%"><a href="#/" class="color">à propos </a></li>
-              <li class="pt-3"style="margin-left:-5%"><a href="contact-form.html" class="color">contact</a></li>
+              <li class="pt-3"style="margin-left:-5%"><a href="contact-form.php" class="color">contact</a></li>
               <li class="pt-3"style="margin-left:-5%"><a href="#/" class="color">Mettre à jour le profil</a></li>
-              <li class="pt-3"style="margin-left:-5%"><a href="login-form.html" class="color">Connexion</a><span><a href="#" class="color"><img src="log-in..png" class="log-in"></a></span></li>
+              <li class="pt-3"style="margin-left:-5%"><a href="login-form.php" class="color">Connexion</a><span><a href="#" class="color"><img src="log-in..png" class="log-in"></a></span></li>
             </ul>
         </div>
     </div>
