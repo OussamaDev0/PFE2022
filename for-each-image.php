@@ -1,3 +1,17 @@
+<?php
+    require_once('dbconn.php');
+?>
+<?php
+    if(!isset($_GET['productID'])){
+        $code=(int)rand(1,80);
+    }else{
+        $code=$_GET['productID'];
+    }
+    $psProduit=$pdo->prepare("SELECT * FROM produit WHERE id_produit=?");
+    $params=array($code);
+    $psProduit->execute($params);
+    $produit=$psProduit->fetch();
+?>
 <html>
     <head>
         <meta charset="utf-8">
@@ -306,67 +320,59 @@
             <div class="col-1">
                 <div class="row pt-3 pb-2">
                     <div class="col-xl-12 text-center">
-                        <a href="#/"><img src="Images/for-each-image-1.jpg" height="50px" width="100%" class="zooming"></a>
+                        <a href="#/"><img src="productimages/<?php echo($produit['prod_img']); ?>" height="400px" width="95px" class="zooming"></a>
                     </div>
                     <div class="col-xl-12 mt-3">
-                       <a href="#/"><img src="Images/for-each-image-2.jpg" height="50px" width="100%" class="zooming-1"></a> 
+                       <a href="#/"><img src="productimages/<?php echo($produit['prod_img']); ?>" height="50px" width="100px" class="zooming"></a>
                     </div>
                     <div class="col-xl-12 mt-3 front-show">
-                      <a href="#/"><img src="Images/for-each-image-3.jpg" height="55px" width="75%" class="zooming-2"></a>
+                      <a href="#/"><img src="productimages/<?php echo($produit['prod_img']); ?>" height="55px" width="75px" class="zooming-2"></a>
                       <a href="#/"><div style="font-size:25px;z-index:1;color:black;position: absolute;padding-left:20%;" class="pt-1 front-show">+3</div></a>  
                     </div>
                     <div class="col-xl-12 mt-3 front-hide">
-                        <a href="#/"><img src="Images/for-each-image-3.jpg" height="50px" width="100%" class="zooming-5"></a> 
+                        <a href="#/"><img src="productimages/<?php echo($produit['prod_img']); ?>" height="50px" width="100px" class="zooming-5"></a>
                     </div>
                     <div class="col-xl-12 mt-3 front-hide">
-                     <a href="#/"><img src="Images/for-each-image-5.jpg" height="50px" width="100%" class="zooming-3"></a>  
+                     <a href="#/"><img src="productimages/<?php echo($produit['prod_img']); ?>" height="50px" width="100px" class="zooming-3"></a>
                     </div>
                     <div class="col-xl-12 mt-3 front-hide">
-                      <a href="#/"><img src="Images/for-each-image-6.jpg" height="50px" width="100%" class="zooming-4"></a>  
+                      <a href="#/"><img src="productimages/<?php echo($produit['prod_img']); ?>" height="50px" width="100px" class="zooming-4"></a>
                     </div>
                 </div>
             </div>
             <div class="col-5 text-center zooming-open-head wm-zoom-container my-zoom-1">
               <div class="wm-zoom-box">
-                <img src="Images/for-each-image-1.jpg" height="400px" width="405px" class="wm-zoom-default-img" alt="alternative text" data-hight-src="for-each-image-1.jpg">
+                <img src="productimages/<?php echo($produit['prod_img']); ?>" height="400px" width="405px" class="wm-zoom-default-img" alt="alternative text" data-hight-src="for-each-image-1.jpg">
               </div>
             </div>
 <!--hidden--> <div class="col-5 text-center zooming-open-1 wm-zoom-container my-zoom-1">
               <div class="wm-zoom-box">
-                <img src="Images/for-each-image-2.jpg" height="400px" width="405px" class="wm-zoom-default-img" alt="alternative text" data-hight-src="for-each-image-2.jpg">
+                <img src="productimages/<?php echo($produit['prod_img']); ?>" height="400px" width="405px" class="wm-zoom-default-img" alt="alternative text" data-hight-src="for-each-image-2.jpg">
               </div>
             </div>
 <!--hidden--> <div class="col-5 text-center zooming-open-2">
-                <img src="Images/for-each-image-3.jpg" height="400px" width="95%">
+                <img src="productimages/<?php echo($produit['prod_img']); ?>" height="400px" width="95%">
               </div>
 <!--hidden--> <div class="col-5 text-center zooming-open-3">
-                <img src="Images/for-each-image-5.jpg" height="400px" width="95%">
+                <img src="productimages/<?php echo($produit['prod_img']); ?>" height="400px" width="95%">
             </div>
 <!--hidden--> <div class="col-5 text-center zooming-open-4">
-                <img src="Images/for-each-image-6.jpg" height="400px" width="95%">
+                <img src="productimages/<?php echo($produit['prod_img']); ?>" height="400px" width="95%">
             </div>
             <div class="col-5">
                 <div class="row">
                     <div class="col-12 pt-3">
-                        <p style="font-size:25px;font-weight:600">Symbol Men's Solid Regular fit Half Sleeve Polo</p>
+                        <p style="font-size:25px;font-weight:600"><?php echo($produit['prod_nom']) ?></p>
                     </div>
                     <div class="col-12 pl-5">
-                        <p style="font-weight:600;font-size:20px;"> Price:<span style="color:red">&#8377;200.00-&#8377;300.00</span></p>
+                        <p style="font-weight:600;font-size:20px;"> Price:<span style="color:red"> <?php echo($produit['prod_prix']) ?> MAD</span></p>
                     </div>
                     <div class="col-12 pl-5">
                         <p style="font-weight:600;font-size:20px;">size: <span style="border:1px solid;padding:1% 3%" class="ml-3">M</span> <span style="border:1px solid;padding:1% 4%" class="ml-2">L</span> <span style="border:1px solid;padding:1% 3%" class="ml-2">XL</span> <br class="break"><a href="#/" style="color:black" class="ml-3 open-pop-container">size chart <img src="Images/size-icon.png" height="20px"></a></p>
                     </div>
                     <div class="col-12">
-                        <ul>
-                            <li>Care Instructions: hand wash</li>
-                            <li>Fit Type: regular fit</li>
-                            <li>Color:Blue Radiance</li>
-                            <li>60% Polyester and 40% Cotton</li>
-                            <li>Regular fit</li>
-                            <li>Half sleeve</li>
-                            <li>Polo with classic collar</li>
-                            <li>Hand wash</li>
-                        </ul>
+                        <p style="font-weight:600;font-size:20px;"> Description :</p><br>
+                        <p><?php echo($produit['prod_description']) ?></p>
                     </div>
                 </div>
             </div>  
@@ -394,7 +400,7 @@
                 <a href="#/"><img src="Images/for-each-image-1.jpg" class="zooming"></a>
             </div>
             <div class="col-xl-12 mt-3">
-               <a href="#/"><img src="Images/for-each-image-2.jpg" class="zooming-1"></a> 
+               <a href="#/"><img src="Images/for-each-image-2.jpg" class="zooming-1"></a>
             </div>
             <div class="col-xl-12 mt-3 front-show">
               <a href="#/"><img src="Images/for-each-image-3.jpg" height="55px" width="75%" class="zooming-2"></a>
