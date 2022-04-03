@@ -1,10 +1,3 @@
-<?php
-    require_once('dbconn.php'); //inclusion de connexion avec data base
-    $req ="SELECT * FROM produit LIMIT 16";
-    $ps=$pdo->prepare($req);
-    $ps->execute();
-?>
-
 <html>
     <head>
         <meta charset="utf-8">
@@ -46,15 +39,9 @@
                   <li class="pre-profile-1 pt-2 pb-2"><a href="#/" class="color" style="font-weight:600">Mettre à jour le profil</a></li>
                   <li class="pre-profile-1 pt-2 pb-2"><a href="ecommerce.html" class="color" style="font-weight:600">Se déconnecter</a></li>
                 </ul>
-<<<<<<< HEAD:Logged_in_product_page.php
-                <span class="menu-1"><a href="login-ecommerce.html" class="color">home</a></span>
-                <span class="menu"><a href="Logged_in_product_page.php" class="color">products</a></span>
-                <span class="menu"><a href="logged_in_about_us.html" class="color">about</a></span>
-=======
                 <span class="menu-1"><a href="login-ecommerce.html" class="color">accueil</a></span>
                 <span class="menu"><a href="Logged_in_product_page.html" class="color">produits</a></span>
                 <span class="menu"><a href="logged_in_about_us.html" class="color">à propos </a></span>
->>>>>>> 49eb4349442fe39a83ab13f60e4ab997cf7d755e:Logged_in_product_page.html
                 <span class="menu"><a href="contact-form.html" class="color">contact</a></span>
                 <span class="menu-bar text-right"><a href="#/" class="color">&#9776;</a></span>
                 <span class="menu-bar-1 text-right"><a href="#/" class="color">&#9776;</a></span>
@@ -65,16 +52,6 @@
               <div class="col-12 text-right bg-danger"> 
                 <span class="close"><a href="#/" class="color">&times;</a></span>
               </div>
-<<<<<<< HEAD:Logged_in_product_page.php
-                <ul class="pt-5 pre-side-bar">
-                  <li class="pt-4" style="margin-left:-5%;"><a href="login-ecommerce.html" class="color">home</a></li>
-                  <li class="pt-3"style="margin-left:-5%"><a href="Logged_in_product_page.php" class="color">products</a></li>
-                  <li class="pt-3"style="margin-left:-5%"><a href="logged_in_about_us.html" class="color">about</a></li>
-                  <li class="pt-3"style="margin-left:-5%"><a href="contact-form.html" class="color">contact</a></li>
-                  <li class="pt-3"style="margin-left:-5%"><a href="#/" class="color">Update profile</a></li>
-                  <li class="pt-3"style="margin-left:-5%"><a href="ecommerce.html" class="color">log out</a><span><a href="#" class="color"><img src="Images/log-in..png" class="log-in"></a></span></li>
-                </ul>
-=======
               <ul class="pt-5 pre-side-bar">
                 <li class="pt-4" style="margin-left:-5%;"><a href="login-ecommerce.html" class="color">accueil</a></li>
                 <li class="pt-3"style="margin-left:-5%"><a href="Logged_in_product_page.html" class="color">produits</a></li>
@@ -83,7 +60,6 @@
                 <li class="pt-3"style="margin-left:-5%"><a href="#/" class="color">Mettre à jour le profil</a></li>
                 <li class="pt-3"style="margin-left:-5%"><a href="ecommerce.html" class="color">Se déconnecter</a><span><a href="#" class="color"><img src="log-in..png" class="log-in"></a></span></li>
               </ul>
->>>>>>> 49eb4349442fe39a83ab13f60e4ab997cf7d755e:Logged_in_product_page.html
             </div>
         </div>
         <!--header part end-->
@@ -132,14 +108,8 @@
 <!--front look-->
 <div class="col-xl-9 col-lg-9 col-md-9 col-sm-12 col-12 pl-0" style="border-left:1px solid grey">
   <div class="container large-right-sider">
-
     <div class="row pt-5 hide-front-page">
-        <?php while($produit=$ps->fetch()) { ?>
           <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6  text-center">
-<<<<<<< HEAD:Logged_in_product_page.php
-             <a href="logged_in_for-each-image.html#\"><img src="productimages/<?php echo($produit['prod_img']);?>" class="img-men" data-aos="fade-up" style="border-radius:20px;height:180px"></a><br>
-             <a href="logged_in_for-each-image.html#\"><span class="image-lable" data-aos="fade-up"><?php echo($produit['prod_nom']); ?><br>&#8377;<?php echo($produit['prod_prix']); ?></span></a>
-=======
              <a href="logged_in_for-each-image.html#\"><img src="Images/girl.jpg" class="img-men" data-aos="fade-up" style="border-radius:20px;height:180px"></a> 
              <a href="logged_in_for-each-image.html#\"><span class="image-lable" data-aos="fade-up">tradesional dress<br>303MAD</span></a>
           </div>
@@ -214,11 +184,8 @@
           <div class="col-xl-3 col-lg-3 col-md-3 text-center hide-containt-small-device">
             <a href="logged_in_for-each-image.html#\"><img src="Images/boys-kids.jpg" class="img-men" data-aos="fade-up" style="border-radius:20px;height:180px"></a>
             <a href="logged_in_for-each-image.html#\"><span class="image-lable" data-aos="fade-up">flower print shirt<br>335MAD</span></a>
->>>>>>> 49eb4349442fe39a83ab13f60e4ab997cf7d755e:Logged_in_product_page.html
           </div>
-        <?php } ?>
         </div>
-
         <!--font look end-->
         
         <!--100-200 page start-->
@@ -229,8 +196,6 @@
               <a href="logged_in_for-each-image.html#\"><img src="Images/mens-dress-1.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
               <a href="logged_in_for-each-image.html#\"><span class="image-lable">tradesional dress<br>130MAD</span></a>
             </div>
-<<<<<<< HEAD:Logged_in_product_page.php
-=======
             <div class="col-xl-3 col-lg-4 col-md-4 text-center">
               <a href="logged_in_for-each-image.html#\"><img src="Images/ladies-dress-1.jpg" class="img-men" style="border-radius:20px;height:180px"></a>
               <a href="logged_in_for-each-image.html#\"><span class="image-lable">tradesional dress<br>120MAD</span></a>
@@ -243,7 +208,6 @@
               <a href="logged_in_for-each-image.html#\"><img src="Images/ladies-dress-2.jpg" class="img-men" style="border-radius:20px;height:180px"></a>
               <a href="logged_in_for-each-image.html#\"><span class="image-lable">tradesional dress<br>170MAD</span></a>
             </div>
->>>>>>> 49eb4349442fe39a83ab13f60e4ab997cf7d755e:Logged_in_product_page.html
           </div>
           <!--second row-->
           <div class="row pt-5">
@@ -397,11 +361,7 @@
           <div class="row pt-5">
             <div class="col-xl-3 col-lg-4 col-md-4 text-center">
               <a href="logged_in_for-each-image.html#\"><img src="Images/three-hundred-boys.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
-<<<<<<< HEAD:Logged_in_product_page.php
-              <a href="logged_in_for-each-image.html#\"><span class="image-lable">tradesional dress2<br>&#8377;130.00</span></a>
-=======
               <a href="logged_in_for-each-image.html#\"><span class="image-lable">tradesional dress<br>130MAD</span></a>
->>>>>>> 49eb4349442fe39a83ab13f60e4ab997cf7d755e:Logged_in_product_page.html
             </div>
             <div class="col-xl-3 col-lg-4 col-md-4 text-center">
               <a href="logged_in_for-each-image.html#\"><img src="Images/three-hundred-men.jpg" class="img-men" style="border-radius:20px;height:180px"></a>
