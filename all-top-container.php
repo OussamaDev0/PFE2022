@@ -47,7 +47,11 @@ $psChaussures->execute();
 //select aliatoirement les produits
 $psAliatoire=$pdo->prepare("SELECT * FROM produit ORDER BY RAND() LIMIT 7");
 $psAliatoire->execute();
-
+?>
+<?php
+    if(isset($_GET['cat'])){
+        $cat=$_GET['cat'];
+    }else { $cat=200;}
 ?>
 <html>
 <head>
@@ -147,13 +151,13 @@ $psAliatoire->execute();
                     </div>
                     <div class=" col-12 pt-5">
                         <p style="font-size:20px;text-transform: uppercase;font-weight: 600;">CATÉGORIE</p>
-                        <span class="text-bold"><input type="radio" name="price-cat" class="open-content-chemis-categorie"> &nbsp;Chemis</span><br>
-                        <span class="text-bold"><input type="radio" name="price-cat" class="open-content-polos-categorie"> &nbsp;Polos</span><br>
-                        <span class="text-bold"><input type="radio" name="price-cat" class="open-content-pantalons-categorie"> &nbsp;Pantalons</span><br>
-                        <span class="text-bold"><input type="radio" name="price-cat" class="open-content-pantalonssur-categorie"> &nbsp;Pantalons de surêtement</span><br>
-                        <span  class="text-bold"><input type="radio" name="price-cat" class="open-content-shorts-categorie"> &nbsp;Shorts</span><br>
-                        <span  class="text-bold"><input type="radio" name="price-cat" class="open-content-jeans-categorie"> &nbsp;Jeans</span><br>
-                        <span  class="text-bold"><input type="radio" name="price-cat" class="open-content-chaussures-categorie"> &nbsp; Chaussures</span><br>
+                        <span class="text-bold"><input type="radio" name="price-cat" class="open-content-chemis-categorie" <?php if($cat==1) echo("checked");else echo("unchecked"); ?> > &nbsp;Chemis</span><br>
+                        <span class="text-bold"><input type="radio" name="price-cat" class="open-content-polos-categorie" <?php if($cat==2) echo("checked");else echo("unchecked"); ?> > &nbsp;Polos</span><br>
+                        <span class="text-bold"><input type="radio" name="price-cat" class="open-content-pantalons-categorie" <?php if($cat==3) echo("checked");else echo("unchecked"); ?>  > &nbsp;Pantalons</span><br>
+                        <span class="text-bold"><input type="radio" name="price-cat" class="open-content-pantalonssur-categorie" <?php if($cat==4) echo("checked");else echo("unchecked"); ?>  > &nbsp;Pantalons de surêtement</span><br>
+                        <span  class="text-bold"><input type="radio" name="price-cat" class="open-content-shorts-categorie" <?php if($cat==5) echo("checked");else echo("unchecked"); ?>  > &nbsp;Shorts</span><br>
+                        <span  class="text-bold"><input type="radio" name="price-cat" class="open-content-jeans-categorie" <?php if($cat==6) echo("checked");else echo("unchecked"); ?>  > &nbsp;Jeans</span><br>
+                        <span  class="text-bold"><input type="radio" name="price-cat" class="open-content-chaussures-categorie" <?php if($cat==7) echo("checked");else echo("unchecked"); ?>  > &nbsp; Chaussures</span><br>
                     </div>
                 </div>
             </div>
