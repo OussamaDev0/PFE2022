@@ -1,3 +1,4 @@
+<?php require_once('dbconn.php');?>
 <html>
     <head>
         <meta charset="utf-8">
@@ -13,7 +14,8 @@
     <body style="background-image:url('Images/login-background.jpg');background-size: cover;">
         <div class="container">
             <div class="container form bg-white pt-5 mt-4 mb-3">
-                                                            <!--change after click on sign up-->
+                                                               <!--change after click on sign up-->
+                <form action="authentifier.php" method="POST">
                 <p class="text-center login-heading hide-me">login</p>
                 <div class="container hide-me">
                     <div class="row">
@@ -24,7 +26,7 @@
                                     <i class="fa fa-user-o" aria-hidden="true" id="user"></i>
                                 </div>
                                 <div class="col-10 pl-0">
-                                    <input type="text" placeholder="Type your username" class='input-1'>
+                                    <input name="EMAIL" type="text" placeholder="Type your username" class='email'>
                                 </div>
                             </div>
                             <hr class="hr-1">
@@ -39,7 +41,7 @@
                                     <i class="fa fa-lock" aria-hidden="true" id="lock"></i>
                                 </div>
                                 <div class="col-10 pl-0">
-                                    <input type="password" placeholder="Type your password" class="input-2">
+                                    <input name="PASSWORD" type="password" placeholder="Type your password" class="input-2">
                                 </div>
                             </div>
                             <hr class="hr-2">
@@ -53,9 +55,10 @@
                     </div>
                     <div class="row mt-4">
                         <div class="col pl-5 pr-5">
-                            <a href="login-ecommerce.php"><span class="btn btn-block text-white login-button">login</span></a>
+                            <button type="submit" class="btn btn-block text-white login-button">login</button>
                         </div>
                     </div>
+                </form>
                     <div class="row mt-5">
                         <div class="col text-center">
                             <span style="text-transform: capitalize;font-family: Arial, Helvetica, sans-serif;font-size:15px;font-weight:600;color:rgb(148, 141, 141)">or sign up using</span>
@@ -78,6 +81,7 @@
                     </div>
                 </div>
                                                                         <!--change it-->
+                <form action="inscriptionconf.php" method="post">
                 <p class="text-center login-heading show-me">sign up</p>
                 <div class="row show-me">
                     <div class="col mt-4 pl-5 pr-5">
@@ -87,7 +91,7 @@
                                 <i class="fa fa-user-o" aria-hidden="true" id="user"></i>
                             </div>
                             <div class="col-10 pl-0">
-                                <input type="text" placeholder="Type your username" class='first-name'>
+                                <input type="text" placeholder="Type your username" class='first-name' name="PRENOM">
                             </div>
                         </div>
                         <hr class="hr-1">
@@ -102,7 +106,7 @@
                                 <i class="fa fa-user-o" aria-hidden="true" id="user"></i>
                             </div>
                             <div class="col-10 pl-0">
-                                <input type="text" placeholder="Type your username" class='last-name'>
+                                <input type="text" placeholder="Type your username" class='last-name' name="NOM">
                             </div>
                         </div>
                         <hr class="hr-1">
@@ -117,7 +121,7 @@
                                 <i class="fa fa-envelope-o" aria-hidden="true" id="user"></i>
                             </div>
                             <div class="col-10 pl-0">
-                                <input type="text" placeholder="Type your username" class='email'>
+                                <input type="text" placeholder="Type your email" class='email' name="EMAIL">
                             </div>
                         </div>
                         <hr class="hr-1">
@@ -132,7 +136,7 @@
                                 <i class="fa fa-lock" aria-hidden="true" id="lock"></i>
                             </div>
                             <div class="col-10 pl-0">
-                                <input type="password" placeholder="Type your password" class="password-signup">
+                                <input type="password" placeholder="Type your password" class="password-signup" name="PASSWORD">
                             </div>
                         </div>
                         <hr class="hr-2">
@@ -154,6 +158,7 @@
                         <div class="confirm-password-signup-hide"></div>
                     </div>
                 </div>
+
                 <div class="row show-me">
                     <div class="col pl-5">
                         <a href="#"><span class="forget-password">I accept the <span style="text-transform:capitalize;color:blue">terms of use</span>&
@@ -162,9 +167,10 @@
                 </div>
                 <div class="row mt-4 show-me">
                     <div class="col pl-5 pr-5">
-                        <a href="login-ecomarce.php"><span class="btn btn-block text-white signup-button">sign up</span></a>
+                        <button type="submit" class="btn btn-block text-white signup-button" >sign up</button>
                     </div>
                 </div>
+                </form>
                 <div class="row mt-5 show-me">
                     <div class="col text-center">
                         <span style="text-transform: capitalize;font-family: Arial, Helvetica, sans-serif;font-size:15px;font-weight:600;color:rgb(148, 141, 141)">or sign up using</span>
