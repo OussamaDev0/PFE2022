@@ -26,7 +26,7 @@
                                     <i class="fa fa-user-o" aria-hidden="true" id="user"></i>
                                 </div>
                                 <div class="col-10 pl-0">
-                                    <input name="EMAIL" type="text" placeholder="Type your username" class='email'>
+                                    <input name="EMAIL" type="text" placeholder="Type your username" class='input-1'>
                                 </div>
                             </div>
                             <hr class="hr-1">
@@ -81,8 +81,9 @@
                     </div>
                 </div>
                                                                         <!--change it-->
+            <p class="text-center login-heading show-me">sign up</p>
                 <form action="inscriptionconf.php" method="post">
-                <p class="text-center login-heading show-me">sign up</p>
+
                 <div class="row show-me">
                     <div class="col mt-4 pl-5 pr-5">
                         <p class="username">First name</p>
@@ -113,21 +114,21 @@
                         <div class="last-name-hide"></div>
                     </div>
                 </div>
-                <div class="row show-me">
-                    <div class="col mt-4 pl-5 pr-5">
-                        <p class="username">Email-id</p>
-                        <div class="row mt-4">
-                            <div class="col-2 text-center pt-1 pr-0">
-                                <i class="fa fa-envelope-o" aria-hidden="true" id="user"></i>
+                    <div class="row show-me">
+                        <div class="col mt-4 pl-5 pr-5">
+                            <p class="username">Email-id</p>
+                            <div class="row mt-4">
+                                <div class="col-2 text-center pt-1 pr-0">
+                                    <i class="fa fa-envelope-o" aria-hidden="true" id="user"></i>
+                                </div>
+                                <div class="col-10 pl-0">
+                                    <input type="text" name="EMAIL" placeholder="Type your username" class='email'>
+                                </div>
                             </div>
-                            <div class="col-10 pl-0">
-                                <input type="text" placeholder="Type your email" class='email' name="EMAIL">
-                            </div>
+                            <hr class="hr-1">
+                            <div class="email-hide"></div>
                         </div>
-                        <hr class="hr-1">
-                        <div class="email-hide"></div>
                     </div>
-                </div>
                 <div class="row show-me">
                     <div class="col mt-4 pl-5 pr-5">
                         <p class="username">Password</p>

@@ -24,7 +24,7 @@ $(document).ready(function(){
     })
     $(".login-button").click(function(){
     var name= $(".input-1").val();                   
-    var check= /^[a-zA-Z\s]+$/;
+    var check= /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     //username for login
     if(name==""){
         $(".hide").text("Enter your name");
@@ -90,20 +90,20 @@ $(document).ready(function(){
         }
         else{ $(".last-name-hide").text("");}
     //lastname for sign-up
-    //email-id for sign-up
-    var check_email=/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-    var email=$(".email").val();
-    if(email==""){
-        $(".email-hide").text("Enter your email id");
-        return false;
-    }
-    else{true}
-    if(!email.match(check_email)){
-        $(".email-hide").text("Enter your valid email id");
-        return false;
-    }
-    else{ $(".email-hide").text("");}
-    //email-id for sign-up
+        //email-id for sign-up
+        var check_email=/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        var email=$(".email").val();
+        if(email==""){
+            $(".email-hide").text("Enter your email id");
+            return false;
+        }
+        else{true}
+        if(!email.match(check_email)){
+            $(".email-hide").text("Enter your valid email id");
+            return false;
+        }
+        else{ $(".email-hide").text("");}
+        //email-id for sign-up
      //pass for sign-up
     var password = $(".password-signup").val();
     if(password==""){
