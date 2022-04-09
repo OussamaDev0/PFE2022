@@ -27,20 +27,15 @@ $(document).ready(function(){
     var check= /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     //username for login
     if(name==""){
-        $(".hide").text("Enter your name");
+        $(".hide").text("Enter your email");
         return false;
     }
     else{true;}
     if(!name.match(check)){
-        $(".hide").text("Enter your valid name");
+        $(".hide").text("Enter your valid email");
             return false;
     }
     else{true;}
-    if(name.length>20){
-        $(".hide").text("More than 20 char. is not allowed");
-        return false;
-        }
-        else{ $(".hide").text("");}
     //username for login
     //pass for login
     var pass= $(".input-2").val();

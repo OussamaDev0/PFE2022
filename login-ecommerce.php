@@ -1,3 +1,14 @@
+<?php require_once('dbconn.php'); ?>
+<?php
+$psPopulaire=$pdo->prepare("SELECT * FROM produit ORDER BY RAND() LIMIT 8");
+$psPopulaire->execute();
+$psPolos=$pdo->prepare("SELECT * FROM produit WHERE id_cat=2 ORDER BY RAND() LIMIT 5");
+$psPolos->execute();
+$psChaussures=$pdo->prepare("SELECT * FROM produit WHERE id_cat=7 ORDER BY RAND() LIMIT 5");
+$psChaussures->execute();
+$psPantalons=$pdo->prepare("SELECT * FROM produit WHERE id_cat=3 ORDER BY RAND() LIMIT 4");
+$psPantalons->execute();
+?>
 <html>
 <head>
     <meta charset="utf-8">
@@ -102,67 +113,75 @@
 <div class='container-fluid pb-3'>
     <div class="row">
         <div class="col text-center">
-            <a href="Logged_in_product_page.php"><span style="font-size:30px;text-transform:uppercase;font-weight:bold" data-aos="zoom-in">populaire</span></a>
+            <a href="logged_in_all_top_container.php"><span style="font-size:30px;text-transform:uppercase;font-weight:bold" data-aos="zoom-in">populaire</span></a>
         </div>
     </div>
 </div>
 <div class="container-fluid pt-5" style="background-color:white">
     <div class="container">
         <div class="row text-center">
+            <?php $Populaire=$psPopulaire->fetch();?>
             <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 text-center">
                 <div class="container pl-0" height="250px" width="250px" style="overflow:hidden">
-                    <a href="Logged_in_product_page.php"><img src="Images/girl.jpg" class="img-men" data-aos="fade-up" style="border-radius:20px;"><br></a>
-                    <a href="Logged_in_product_page.php"><span class="image-lable" data-aos="fade-up">afordable & tradesional dress<br>101MAD</span></a>
+                    <a href="logged_in_for-each-image.php?productID=<?php echo($Populaire['id_produit']);?>"><img src="productimages/<?php echo($Populaire['prod_img']);?>" class="img-men" data-aos="fade-up" style="border-radius:20px;"><br></a>
+                    <a href="logged_in_for-each-image.php?productID=<?php echo($Populaire['id_produit']);?>"><span class="image-lable" data-aos="fade-up"><?php echo($Populaire['prod_nom']);?><br><?php echo($Populaire['prod_prix']);?> MAD</span></a>
                 </div>
             </div>
+            <?php $Populaire=$psPopulaire->fetch();?>
             <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 text-center popular-sift-down">
                 <div class="container pl-0" height="250px" width="250px" style="overflow:hidden">
-                    <a href="Logged_in_product_page.php"><img src="Images/kids.jpg" class="img-men" style="border-radius:20px;" data-aos="fade-up"><br></a>
-                    <a href="Logged_in_product_page.php"><span class="image-lable" data-aos="fade-up" >toddler children's dress<br>203MAD</span></a>
+                    <a href="logged_in_for-each-image.php?productID=<?php echo($Populaire['id_produit']);?>"><img src="productimages/<?php echo($Populaire['prod_img']);?>" class="img-men" data-aos="fade-up" style="border-radius:20px;"><br></a>
+                    <a href="logged_in_for-each-image.php?productID=<?php echo($Populaire['id_produit']);?>"><span class="image-lable" data-aos="fade-up"><?php echo($Populaire['prod_nom']);?><br><?php echo($Populaire['prod_prix']);?> MAD</span></a>
                 </div>
             </div>
+            <?php $Populaire=$psPopulaire->fetch();?>
             <div class="col-xl-3 col-lg-4 hide-lady-1">
                 <div class="container pl-0 text-center" height="250px" width="250px" style="overflow:hidden">
-                    <a href="Logged_in_product_page.php"><img src="Images/blazers.jpg" class="img-men" style="border-radius:20px;" data-aos="fade-up"></a>
-                    <a href="Logged_in_product_page.php"><span class="image-lable" data-aos="fade-up">men's black sweatshirt<br>60MAD</span></a>
+                    <a href="logged_in_for-each-image.php?productID=<?php echo($Populaire['id_produit']);?>"><img src="productimages/<?php echo($Populaire['prod_img']);?>" class="img-men" data-aos="fade-up" style="border-radius:20px;"><br></a>
+                    <a href="logged_in_for-each-image.php?productID=<?php echo($Populaire['id_produit']);?>"><span class="image-lable" data-aos="fade-up"><?php echo($Populaire['prod_nom']);?><br><?php echo($Populaire['prod_prix']);?> MAD</span></a>
                 </div>
             </div>
+            <?php $Populaire=$psPopulaire->fetch();?>
             <div class="col-xl-3 hide-lady">
                 <div class="container pl-0 text-center" height="250px" width="250px" style="overflow:hidden">
-                    <a href="Logged_in_product_page.php"><img src="Images/boys-kids.jpg" class="img-men" style="border-radius:20px;" data-aos="fade-up"></a>
-                    <a href="Logged_in_product_page.php"><span class="image-lable pl-3" data-aos="fade-up">boys flower print shirt<br>320MAD</span></a>
+                    <a href="logged_in_for-each-image.php?productID=<?php echo($Populaire['id_produit']);?>"><img src="productimages/<?php echo($Populaire['prod_img']);?>" class="img-men" data-aos="fade-up" style="border-radius:20px;"><br></a>
+                    <a href="logged_in_for-each-image.php?productID=<?php echo($Populaire['id_produit']);?>"><span class="image-lable" data-aos="fade-up"><?php echo($Populaire['prod_nom']);?><br><?php echo($Populaire['prod_prix']);?> MAD</span></a>
                 </div>
             </div>
         </div>
         <div class="row pt-5 pb-4 text-center">
+            <?php $Populaire=$psPopulaire->fetch();?>
             <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 text-center">
                 <div class="container pl-0" height="250px" width="250px" style="overflow:hidden">
-                    <a href="Logged_in_product_page.php"><img src="Images/boys-kids-1.jpg" class="img-men" style="border-radius:20px;" data-aos="fade-up"><br></a>
-                    <a href="Logged_in_product_page.php"><span class="image-lable" data-aos="fade-up">formal toxedo dress suits<br>117MAD</span></a>
+                    <a href="logged_in_for-each-image.php?productID=<?php echo($Populaire['id_produit']);?>"><img src="productimages/<?php echo($Populaire['prod_img']);?>" class="img-men" data-aos="fade-up" style="border-radius:20px;"><br></a>
+                    <a href="logged_in_for-each-image.php?productID=<?php echo($Populaire['id_produit']);?>"><span class="image-lable" data-aos="fade-up"><?php echo($Populaire['prod_nom']);?><br><?php echo($Populaire['prod_prix']);?> MAD</span></a>
                 </div>
             </div>
+            <?php $Populaire=$psPopulaire->fetch();?>
             <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 text-center popular-sift-down">
                 <div class="container pl-0" height="250px" width="250px" style="overflow:hidden">
-                    <a href="Logged_in_product_page.php"><img src="Images/girl (2).jpg" class="img-men" style="border-radius:20px;" data-aos="fade-up"><br></a>
-                    <a href="Logged_in_product_page.php"><span class="image-lable" data-aos="fade-up">girls flower print skirt<br>400MAD</span></a>
+                    <a href="logged_in_for-each-image.php?productID=<?php echo($Populaire['id_produit']);?>"><img src="productimages/<?php echo($Populaire['prod_img']);?>" class="img-men" data-aos="fade-up" style="border-radius:20px;"><br></a>
+                    <a href="logged_in_for-each-image.php?productID=<?php echo($Populaire['id_produit']);?>"><span class="image-lable" data-aos="fade-up"><?php echo($Populaire['prod_nom']);?><br><?php echo($Populaire['prod_prix']);?> MAD</span></a>
                 </div>
             </div>
+            <?php $Populaire=$psPopulaire->fetch();?>
             <div class="col-xl-3 col-lg-4 text-center hide-lady-1">
                 <div class="container pl-0" height="250px" width="250px" style="overflow:hidden">
-                    <a href="Logged_in_product_page.php"><img src="Images/men.jpg" class="img-men" style="border-radius:20px;" data-aos="fade-up"></a>
-                    <a href="Logged_in_product_page.php"><span class="image-lable" data-aos="fade-up">plain pink cotton saree<br>400MAD</span></a>
+                    <a href="logged_in_for-each-image.php?productID=<?php echo($Populaire['id_produit']);?>"><img src="productimages/<?php echo($Populaire['prod_img']);?>" class="img-men" data-aos="fade-up" style="border-radius:20px;"><br></a>
+                    <a href="logged_in_for-each-image.php?productID=<?php echo($Populaire['id_produit']);?>"><span class="image-lable" data-aos="fade-up"><?php echo($Populaire['prod_nom']);?><br><?php echo($Populaire['prod_prix']);?> MAD</span></a>
                 </div>
             </div>
+            <?php $Populaire=$psPopulaire->fetch();?>
             <div class="col-xl-3 text-center hide-lady">
                 <div class="container pl-0" height="250px" width="250px" style="overflow:hidden">
-                    <a href="Logged_in_product_page.php"><img src="Images/men-1.jpg" class="img-men" style="border-radius:20px;" data-aos="fade-up"></a>
-                    <a href="Logged_in_product_page.php"><span class="image-lable" data-aos="fade-up">accessories & tradesional dress<br>117MAD</span></a>
+                    <a href="logged_in_for-each-image.php?productID=<?php echo($Populaire['id_produit']);?>"><img src="productimages/<?php echo($Populaire['prod_img']);?>" class="img-men" data-aos="fade-up" style="border-radius:20px;"><br></a>
+                    <a href="logged_in_for-each-image.php?productID=<?php echo($Populaire['id_produit']);?>"><span class="image-lable" data-aos="fade-up"><?php echo($Populaire['prod_nom']);?><br><?php echo($Populaire['prod_prix']);?> MAD</span></a>
                 </div>
             </div>
         </div>
         <div class="row mb-1 pb-3">
             <div class="col-12 pb-5 text-center">
-                <a href="Logged_in_product_page.php"><span style="font-weight:700;font-size:20px;color:blue" data-aos="zoom-in">voir plus</span><span class="pl-3" style="color:blue"><i class="fa fa-arrow-right" aria-hidden="true" data-aos="zoom-in"></i></span></a>
+                <a href="logged_in_all_top_container.php"><span style="font-weight:700;font-size:20px;color:blue" data-aos="zoom-in">voir plus</span><span class="pl-3" style="color:blue"><i class="fa fa-arrow-right" aria-hidden="true" data-aos="zoom-in"></i></span></a>
             </div>
         </div>
     </div>
@@ -177,7 +196,7 @@
                   <span style="font-weight:700;font-size:20px;" data-aos="zoom-in">La plateforme vous propose de nombreux modes pour les occasions et les fêtes
                     et il y en a beaucoup,si vous voulez convaincre quelqu'un d'entre eux,
                     veuillez cliquer sur le lien ci-dessous pour rechercher a votre style
-                  </span><br><br><a href="Logged_in_product_page.php"><span style="font-size:20px;color:rgb(180, 69, 69);font-weight: 800;text-transform: uppercase;" data-aos="zoom-in">ici</span></a>
+                  </span><br><br><a href="logged_in_all_top_container.php"><span style="font-size:20px;color:rgb(180, 69, 69);font-weight: 800;text-transform: uppercase;" data-aos="zoom-in">ici</span></a>
             </div>
         </div>
     </div>
