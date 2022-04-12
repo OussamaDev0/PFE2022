@@ -15,7 +15,7 @@
                 <li class="pre-profile-1 pt-2 pb-2"><a href="login-form.php" class="color" style="font-weight:600">Connexion</a></li>
             </ul>
             <span class="menu-1"><a href="ecommerce.php" class="color">accueil</a></span>
-            <span class="menu"><a href="ecommerce-price-men.php" class="color">produits</a></span>
+            <span class="menu"><a href="all-top-container.php" class="color">produits</a></span>
             <span class="menu"><a href="about-us.php" class="color">à propos </a></span>
             <span class="menu"><a href="contact-form.php" class="color">contact</a></span>
             <span class="menu-bar text-right"><a href="#/" class="color">&#9776;</a></span>
@@ -29,7 +29,7 @@
         </div>
         <ul class="pt-5 pre-side-bar">
             <li class="pt-4" style="margin-left:-5%;"><a href="ecommerce.php" class="color">home</a></li>
-            <li class="pt-3"style="margin-left:-5%"><a href="ecommerce-price-men.php" class="color">produits</a></li>
+            <li class="pt-3"style="margin-left:-5%"><a href="all-top-container.php" class="color">produits</a></li>
             <li class="pt-3"style="margin-left:-5%"><a href="about-us.php" class="color">à propos </a></li>
             <li class="pt-3"style="margin-left:-5%"><a href="contact-form.php" class="color">contact</a></li>
             <li class="pt-3"style="margin-left:-5%"><a href="#/" class="color">Mettre à jour le profil</a></li>
