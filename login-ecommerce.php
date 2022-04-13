@@ -1,13 +1,15 @@
 <?php require_once('dbconn.php'); ?>
 <?php
-$psPopulaire=$pdo->prepare("SELECT * FROM produit ORDER BY RAND() LIMIT 8");
-$psPopulaire->execute();
-$psPolos=$pdo->prepare("SELECT * FROM produit WHERE id_cat=2 ORDER BY RAND() LIMIT 5");
-$psPolos->execute();
-$psChaussures=$pdo->prepare("SELECT * FROM produit WHERE id_cat=7 ORDER BY RAND() LIMIT 5");
-$psChaussures->execute();
-$psPantalons=$pdo->prepare("SELECT * FROM produit WHERE id_cat=3 ORDER BY RAND() LIMIT 4");
-$psPantalons->execute();
+    $psPopulaire=$pdo->prepare("SELECT * FROM produit ORDER BY RAND() LIMIT 8");
+    $psPopulaire->execute();
+    $psRecommander=$pdo->prepare("SELECT * FROM produit  ORDER BY RAND() LIMIT 12");
+    $psRecommander->execute();
+    $psMieux=$pdo->prepare("SELECT * FROM produit ORDER BY RAND() LIMIT 5");
+    $psMieux->execute();
+    $psPantalons=$pdo->prepare("SELECT * FROM produit WHERE id_cat=3 ORDER BY RAND() LIMIT 4");
+    $psPantalons->execute();
+    $psChaussures=$pdo->prepare("SELECT * FROM produit WHERE id_cat=7 ORDER BY RAND() LIMIT 5");
+    $psChaussures->execute();
 ?>
 <html>
 <head>
@@ -212,28 +214,32 @@ $psPantalons->execute();
             <!--first slider-->
             <div class="carousel-item text-center">
                 <div class="row">
+                        <?php $Recommander=$psRecommander->fetch(); ?>
                     <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
                         <div class="container" height="250px" width="250px" style="overflow:hidden">
-                            <a href="logged_in_for-each-image.php#\"><img src="Images/girl.jpg" class="img-men" data-aos="fade-up" style="border-radius:20px;"><br></a>
-                            <a href="logged_in_for-each-image.php#\"><span class="image-lable" data-aos="fade-up">afordable & tradesional dress<br>101MAD</span></a>
+                            <a href="logged_in_for-each-image.php?productID=<?php echo($Recommander['id_produit']); ?>"><img src="productimages/<?php echo($Recommander['prod_img']); ?>" class="img-men" data-aos="fade-up" style="border-radius:20px;"><br></a>
+                            <a href="logged_in_for-each-image.php?productID=<?php echo($Recommander['id_produit']); ?>"><span class="image-lable" data-aos="fade-up"><?php echo($Recommander['prod_nom']); ?><br><?php echo($Recommander['prod_prix']); ?> MAD</span></a>
                         </div>
                     </div>
+                    <?php $Recommander=$psRecommander->fetch(); ?>
                     <div class="col-xl-3 col-lg-4 col-md-6 hide-kids-dress text-center">
                         <div class="container pl-0" height="250px" width="250px" style="overflow:hidden">
-                            <a href="logged_in_for-each-image.php#\"><img src="Images/men.jpg" class="img-men" style="border-radius:20px;" data-aos="fade-up"><br></a>
-                            <a href="logged_in_for-each-image.php#\"><span class="image-lable" data-aos="fade-up">plain pink cotton saree<br>400MAD</span></a>
+                            <a href="logged_in_for-each-image.php?productID=<?php echo($Recommander['id_produit']); ?>"><img src="productimages/<?php echo($Recommander['prod_img']); ?>" class="img-men" style="border-radius:20px;" data-aos="fade-up"><br></a>
+                            <a href="logged_in_for-each-image.php?productID=<?php echo($Recommander['id_produit']); ?>"><span class="image-lable" data-aos="fade-up"><?php echo($Recommander['prod_nom']); ?><br><?php echo($Recommander['prod_prix']); ?> MAD</span></a>
                         </div>
                     </div>
+                    <?php $Recommander=$psRecommander->fetch(); ?>
                     <div class="col-xl-3 col-lg-4 hide-lady-1">
                         <div class="container pl-0" height="250px" width="250px" style="overflow:hidden">
-                            <a href="logged_in_for-each-image.php#\"><img src="Images/girl.jpg" class="img-men" style="border-radius:20px;" data-aos="fade-up"></a>
-                            <a href="logged_in_for-each-image.php#\"><span class="image-lable" data-aos="fade-up">plain pink cotton saree<br>101MAD</span></a>
+                            <a href="logged_in_for-each-image.php?productID=<?php echo($Recommander['id_produit']); ?>"><img src="productimages/<?php echo($Recommander['prod_img']); ?>" class="img-men" style="border-radius:20px;" data-aos="fade-up"></a>
+                            <a href="logged_in_for-each-image.php?productID=<?php echo($Recommander['id_produit']); ?>"><span class="image-lable" data-aos="fade-up"><?php echo($Recommander['prod_nom']); ?><br><?php echo($Recommander['prod_prix']); ?> MAD</span></a>
                         </div>
                     </div>
+                    <?php $Recommander=$psRecommander->fetch(); ?>
                     <div class="col-xl-3 hide-lady">
                         <div class="container pl-0" height="250px" width="250px" style="overflow:hidden">
-                            <a href="logged_in_for-each-image.php#\"><img src="Images/men.jpg" class="img-men" style="border-radius:20px;" data-aos="fade-up"></a>
-                            <a href="logged_in_for-each-image.php#\"><span class="image-lable" data-aos="fade-up">plain pink cotton saree<br>400MAD</span></a>
+                            <a href="logged_in_for-each-image.php?productID=<?php echo($Recommander['id_produit']); ?>"><img src="productimages/<?php echo($Recommander['prod_img']); ?>" class="img-men" style="border-radius:20px;" data-aos="fade-up"></a>
+                            <a href="logged_in_for-each-image.php?productID=<?php echo($Recommander['id_produit']); ?>"><span class="image-lable" data-aos="fade-up"><?php echo($Recommander['prod_nom']); ?><br><?php echo($Recommander['prod_prix']); ?> MAD</span></a>
                         </div>
                     </div>
                 </div>
@@ -241,28 +247,32 @@ $psPantalons->execute();
             <!--second-slider-->
             <div class="carousel-item text-center">
                 <div class="row">
+                    <?php $Recommander=$psRecommander->fetch(); ?>
                     <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
                         <div class="container" height="250px" width="250px" style="overflow:hidden">
-                            <a href="logged_in_for-each-image.php#\"><img src="Images/men-1.jpg" class="img-men" data-aos="fade-up" style="border-radius:20px;"><br></a>
-                            <a href="logged_in_for-each-image.php#\"><span class="image-lable" data-aos="fade-up">accessories & tradesional dress<br>117MAD</span></a>
+                            <a href="logged_in_for-each-image.php?productID=<?php echo($Recommander['id_produit']); ?>"><img src="productimages/<?php echo($Recommander['prod_img']); ?>" class="img-men" data-aos="fade-up" style="border-radius:20px;"><br></a>
+                            <a href="logged_in_for-each-image.php?productID=<?php echo($Recommander['id_produit']); ?>"><span class="image-lable" data-aos="fade-up"><?php echo($Recommander['prod_nom']); ?><br><?php echo($Recommander['prod_prix']); ?> MAD</span></a>
                         </div>
                     </div>
+                    <?php $Recommander=$psRecommander->fetch(); ?>
                     <div class="col-xl-3 col-lg-4 col-md-6 hide-kids-dress text-center">
                         <div class="container pl-0" height="250px" width="250px" style="overflow:hidden">
-                            <a href="logged_in_for-each-image.php#\"><img src="Images/blazers.jpg" class="img-men" style="border-radius:20px;" data-aos="fade-up"><br></a>
-                            <a href="logged_in_for-each-image.php#\"><span class="image-lable" data-aos="fade-up">men's black sweatshirt<br>60MAD</span></a>
+                            <a href="logged_in_for-each-image.php?productID=<?php echo($Recommander['id_produit']); ?>"><img src="productimages/<?php echo($Recommander['prod_img']); ?>" class="img-men" data-aos="fade-up" style="border-radius:20px;"><br></a>
+                            <a href="logged_in_for-each-image.php?productID=<?php echo($Recommander['id_produit']); ?>"><span class="image-lable" data-aos="fade-up"><?php echo($Recommander['prod_nom']); ?><br><?php echo($Recommander['prod_prix']); ?> MAD</span></a>
                         </div>
                     </div>
+                    <?php $Recommander=$psRecommander->fetch(); ?>
                     <div class="col-xl-3 col-lg-4 hide-lady-1">
                         <div class="container pl-0" height="250px" width="250px" style="overflow:hidden">
-                            <a href="logged_in_for-each-image.php#\"><img src="Images/men-1.jpg" class="img-men" style="border-radius:20px;" data-aos="fade-up"></a>
-                            <a href="logged_in_for-each-image.php#\"><span class="image-lable" data-aos="fade-up">accessories & tradesional dress<br>117MAD</span></a>
+                            <a href="logged_in_for-each-image.php?productID=<?php echo($Recommander['id_produit']); ?>"><img src="productimages/<?php echo($Recommander['prod_img']); ?>" class="img-men" data-aos="fade-up" style="border-radius:20px;"><br></a>
+                            <a href="logged_in_for-each-image.php?productID=<?php echo($Recommander['id_produit']); ?>"><span class="image-lable" data-aos="fade-up"><?php echo($Recommander['prod_nom']); ?><br><?php echo($Recommander['prod_prix']); ?> MAD</span></a>
                         </div>
                     </div>
+                    <?php $Recommander=$psRecommander->fetch(); ?>
                     <div class="col-xl-3 hide-lady">
                         <div class="container pl-0" height="250px" width="250px" style="overflow:hidden">
-                            <a href="logged_in_for-each-image.php#\"><img src="Images/blazers.jpg" class="img-men" style="border-radius:20px;" data-aos="fade-up"></a>
-                            <a href="logged_in_for-each-image.php#\"><span class="image-lable" data-aos="fade-up">men's black sweatshirt<br>60MAD</span></a>
+                            <a href="logged_in_for-each-image.php?productID=<?php echo($Recommander['id_produit']); ?>"><img src="productimages/<?php echo($Recommander['prod_img']); ?>" class="img-men" data-aos="fade-up" style="border-radius:20px;"><br></a>
+                            <a href="logged_in_for-each-image.php?productID=<?php echo($Recommander['id_produit']); ?>"><span class="image-lable" data-aos="fade-up"><?php echo($Recommander['prod_nom']); ?><br><?php echo($Recommander['prod_prix']); ?> MAD</span></a>
                         </div>
                     </div>
                 </div>
@@ -270,28 +280,32 @@ $psPantalons->execute();
             <!--third slider-->
             <div class="carousel-item active text-center">
                 <div class="row">
+                    <?php $Recommander=$psRecommander->fetch(); ?>
                     <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
                         <div class="container" height="250px" width="250px" style="overflow:hidden">
-                            <a href="logged_in_for-each-image.php#\"><img src="Images/kids.jpg" class="img-men" data-aos="fade-up" style="border-radius:20px;"><br></a>
-                            <a href="logged_in_for-each-image.php#\"><span class="image-lable" data-aos="fade-up">toddler children's dress<br>203MAD</span></a>
+                            <a href="logged_in_for-each-image.php?productID=<?php echo($Recommander['id_produit']); ?>"><img src="productimages/<?php echo($Recommander['prod_img']); ?>" class="img-men" data-aos="fade-up" style="border-radius:20px;"><br></a>
+                            <a href="logged_in_for-each-image.php?productID=<?php echo($Recommander['id_produit']); ?>"><span class="image-lable" data-aos="fade-up"><?php echo($Recommander['prod_nom']); ?><br><?php echo($Recommander['prod_prix']); ?> MAD</span></a>
                         </div>
                     </div>
+                    <?php $Recommander=$psRecommander->fetch(); ?>
                     <div class="col-xl-3 col-lg-4 col-md-6 hide-kids-dress text-center">
                         <div class="container pl-0" height="250px" width="250px" style="overflow:hidden">
-                            <a href="logged_in_for-each-image.php#\"><img src="Images/boys-kids.jpg" class="img-men" style="border-radius:20px;" data-aos="fade-up"><br></a>
-                            <a href="logged_in_for-each-image.php#\"><span class="image-lable" data-aos="fade-up">boys flower print shirt<br>320MAD</span></a>
+                            <a href="logged_in_for-each-image.php?productID=<?php echo($Recommander['id_produit']); ?>"><img src="productimages/<?php echo($Recommander['prod_img']); ?>" class="img-men" data-aos="fade-up" style="border-radius:20px;"><br></a>
+                            <a href="logged_in_for-each-image.php?productID=<?php echo($Recommander['id_produit']); ?>"><span class="image-lable" data-aos="fade-up"><?php echo($Recommander['prod_nom']); ?><br><?php echo($Recommander['prod_prix']); ?> MAD</span></a>
                         </div>
                     </div>
+                    <?php $Recommander=$psRecommander->fetch(); ?>
                     <div class="col-xl-3 col-lg-4 hide-lady-1">
                         <div class="container pl-0" height="250px" width="250px" style="overflow:hidden">
-                            <a href="logged_in_for-each-image.php#\"><img src="Images/girl (2).jpg" class="img-men" style="border-radius:20px;" data-aos="fade-up"></a>
-                            <a href="logged_in_for-each-image.php#\"><span class="image-lable" data-aos="fade-up">girls flower print skirt<br>400MAD</span></a>
+                            <a href="logged_in_for-each-image.php?productID=<?php echo($Recommander['id_produit']); ?>"><img src="productimages/<?php echo($Recommander['prod_img']); ?>" class="img-men" data-aos="fade-up" style="border-radius:20px;"><br></a>
+                            <a href="logged_in_for-each-image.php?productID=<?php echo($Recommander['id_produit']); ?>"><span class="image-lable" data-aos="fade-up"><?php echo($Recommander['prod_nom']); ?><br><?php echo($Recommander['prod_prix']); ?> MAD</span></a>
                         </div>
                     </div>
+                    <?php $Recommander=$psRecommander->fetch(); ?>
                     <div class="col-xl-3 hide-lady">
                         <div class="container pl-0" height="250px" width="250px" style="overflow:hidden">
-                            <a href="logged_in_for-each-image.php#\"><img src="Images/boys-kids-1.jpg" class="img-men" style="border-radius:20px;" data-aos="fade-up"></a>
-                            <a href="logged_in_for-each-image.php#\"><span class="image-lable" data-aos="fade-up">formal black toxedo dress suits<br>117MAD</span></a>
+                            <a href="logged_in_for-each-image.php?productID=<?php echo($Recommander['id_produit']); ?>"><img src="productimages/<?php echo($Recommander['prod_img']); ?>" class="img-men" data-aos="fade-up" style="border-radius:20px;"><br></a>
+                            <a href="logged_in_for-each-image.php?productID=<?php echo($Recommander['id_produit']); ?>"><span class="image-lable" data-aos="fade-up"><?php echo($Recommander['prod_nom']); ?><br><?php echo($Recommander['prod_prix']); ?> MAD</span></a>
                         </div>
                     </div>
                 </div>
@@ -303,33 +317,39 @@ $psPantalons->execute();
     <div class="container pt-3 pb-3">
         <div class="row">
             <div class="col-sm-12 text-center pb-4 pt-4">
-                <span style="text-transform: uppercase;font-weight: 700;font-size:30px;" data-aos="zoom-in"><a href="file:///C:/Users/Ujjwal/Documents/website_3/Logged_in_product_page.php">LE MIEUX POUR VOUS</a></span>
+                <span style="text-transform: uppercase;font-weight: 700;font-size:30px;" data-aos="zoom-in"><a href="logged_in_all_top_container.php">LE MIEUX POUR VOUS</a></span>
             </div>
         </div>
+
         <div class="row pt-1">
+            <?php $Mieux=$psMieux->fetch(); ?>
             <div class="col-xl-5 col-lg-5 text-center pt-5 hide-popular">
-                <a href="Logged_in_product_page.php"><img src="Images/mens-dress.jpg" height="400px" data-aos="fade-up"><br></a>
-                <a href="Logged_in_product_page.php"><span class="image-lable" data-aos="zoom-in">accessories & tradesional dress<br>117MAD</span></a>
+                <a href="logged_in_for-each-image.php?productID=<?php echo($Mieux['id_produit']);?>"><img src="productimages/<?php echo($Mieux['prod_img']);?>" height="400px" data-aos="fade-up"><br></a>
+                <a href="logged_in_for-each-image.php?productID=<?php echo($Mieux['id_produit']);?>"><span class="image-lable" data-aos="zoom-in"><?php echo($Mieux['prod_nom']);?><br><?php echo($Mieux['prod_prix']);?> MAD</span></a>
             </div>
             <div class="col-xl-7 col-lg-7 col-md-12 col-sm-12 col-12">
                 <div class="row">
+                    <?php $Mieux=$psMieux->fetch(); ?>
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 text-center pt-3">
-                        <a href="Logged_in_product_page.php"><img src="Images/mens-dress-1.jpg" height="200px" data-aos="fade-up"><br></a>
-                        <a href="Logged_in_product_page.php"><span class="image-lable" data-aos="zoom-in">accessories & tradesional dress<br>117MAD</span></a>
+                        <a href="logged_in_for-each-image.php?productID=<?php echo($Mieux['id_produit']); ?>"><img src="productimages/<?php echo($Mieux['prod_img']); ?>" class="img-men" data-aos="fade-up" style="border-radius:20px;"><br></a>
+                        <a href="logged_in_for-each-image.php?productID=<?php echo($Mieux['id_produit']); ?>"><span class="image-lable" data-aos="fade-up"><?php echo($Mieux['prod_nom']); ?><br><?php echo($Mieux['prod_prix']); ?> MAD</span></a>
                     </div>
+                    <?php $Mieux=$psMieux->fetch(); ?>
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 text-center pt-3">
-                        <a href="Logged_in_product_page.php"><img src="Images/mens-dress-2.jpg" height="200px" data-aos="fade-up"><br></a>
-                        <a href="Logged_in_product_page.php"><span class="image-lable" data-aos="zoom-in">accessories & tradesional dress<br>117MAD</span></a>
+                        <a href="logged_in_for-each-image.php?productID=<?php echo($Mieux['id_produit']); ?>"><img src="productimages/<?php echo($Mieux['prod_img']); ?>" class="img-men" data-aos="fade-up" style="border-radius:20px;"><br></a>
+                        <a href="logged_in_for-each-image.php?productID=<?php echo($Mieux['id_produit']); ?>"><span class="image-lable" data-aos="fade-up"><?php echo($Mieux['prod_nom']); ?><br><?php echo($Mieux['prod_prix']); ?> MAD</span></a>
                     </div>
                 </div>
                 <div class="row">
+                    <?php $Mieux=$psMieux->fetch(); ?>
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 text-center pt-3">
-                        <a href="Logged_in_product_page.php"><img src="Images/mens-dress-3.jpg" height="200px" data-aos="fade-up"><br></a>
-                        <a href="Logged_in_product_page.php"><span class="image-lable" data-aos="zoom-in">accessories & tradesional dress<br>117MAD</span></a>
+                        <a href="logged_in_for-each-image.php?productID=<?php echo($Mieux['id_produit']); ?>"><img src="productimages/<?php echo($Mieux['prod_img']); ?>" class="img-men" data-aos="fade-up" style="border-radius:20px;"><br></a>
+                        <a href="logged_in_for-each-image.php?productID=<?php echo($Mieux['id_produit']); ?>"><span class="image-lable" data-aos="fade-up"><?php echo($Mieux['prod_nom']); ?><br><?php echo($Mieux['prod_prix']); ?> MAD</span></a>
                     </div>
+                    <?php $Mieux=$psMieux->fetch(); ?>
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 text-center pt-3">
-                        <a href="Logged_in_product_page.php"><img src="Images/mens-dress-4.jpg" height="200px" data-aos="fade-up"><br></a>
-                        <a href="Logged_in_product_page.php"><span class="image-lable" data-aos="zoom-in">accessories & tradesional dress<br>117MAD</span></a>
+                        <a href="logged_in_for-each-image.php?productID=<?php echo($Mieux['id_produit']); ?>"><img src="productimages/<?php echo($Mieux['prod_img']); ?>" class="img-men" data-aos="fade-up" style="border-radius:20px;"><br></a>
+                        <a href="logged_in_for-each-image.php?productID=<?php echo($Mieux['id_produit']); ?>"><span class="image-lable" data-aos="fade-up"><?php echo($Mieux['prod_nom']); ?><br><?php echo($Mieux['prod_prix']); ?> MAD</span></a>
                     </div>
                 </div>
             </div>
@@ -347,33 +367,38 @@ $psPantalons->execute();
     <div class="container pt-4 pb-4">
         <div class="row">
             <div class="col-sm-12 text-center pb-4">
-                <a href="Logged_in_product_page.php"><span style="text-transform: uppercase;font-weight: 700;font-size:30px;" data-aos="zoom-in">CHAUSSURES</span></a>
+                <a href="Logged_in_product_page.php?cat=7"><span style="text-transform: uppercase;font-weight: 700;font-size:30px;" data-aos="zoom-in">CHAUSSURES</span></a>
             </div>
         </div>
         <div class="row">
+            <?php $Chaussures=$psChaussures->fetch(); ?>
             <div class="col-xl-5 col-lg-5 text-center pt-5 hide-popular">
-                <a href="Logged_in_product_page.php"><img src="Images/ladies-dress.jpg" height="400px" data-aos="fade-up"><br></a>
-                <a href="Logged_in_product_page.php"><span class="image-lable" data-aos="zoom-in">accessories & tradesional dress<br>117MAD</span></a>
+                <a href="for-each-image.php?productID=<?php echo($Chaussures['id_produit']);?>"><img src="productimages/<?php echo($Chaussures['prod_img']);?>" height="400px" data-aos="fade-up"><br></a>
+                <a href="for-each-image.php?productID=<?php echo($Chaussures['id_produit']);?>"><span class="image-lable" data-aos="zoom-in"><?php echo($Chaussures['prod_nom']);?><br><?php echo($Chaussures['prod_prix']);?> MAD</span></a>
             </div>
             <div class="col-xl-7 col-lg-7 col-md-12 col-sm-12 col-12">
                 <div class="row">
+                    <?php $Chaussures=$psChaussures->fetch(); ?>
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 text-center pt-3">
-                        <a href="Logged_in_product_page.php"><img src="Images/ladies-dress-1.jpg" height="200px" data-aos="fade-up"><br></a>
-                        <a href="Logged_in_product_page.php"><span class="image-lable" data-aos="zoom-in">accessories & tradesional dress<br>117MAD</span></a>
+                        <a href="logged_in_for-each-image.php?productID=<?php echo($Chaussures['id_produit']); ?>"><img src="productimages/<?php echo($Chaussures['prod_img']); ?>" class="img-men" data-aos="fade-up" style="border-radius:20px;"><br></a>
+                        <a href="logged_in_for-each-image.php?productID=<?php echo($Chaussures['id_produit']); ?>"><span class="image-lable" data-aos="fade-up"><?php echo($Chaussures['prod_nom']); ?><br><?php echo($Chaussures['prod_prix']); ?> MAD</span></a>
                     </div>
+                    <?php $Chaussures=$psChaussures->fetch(); ?>
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 text-center pt-3">
-                        <a href="Logged_in_product_page.php"><img src="Images/ladies-dress-2.jpg" height="200px" data-aos="fade-up"><br></a>
-                        <a href="Logged_in_product_page.php"><span class="image-lable" data-aos="zoom-in">accessories & tradesional dress<br>117MAD</span></a>
+                        <a href="logged_in_for-each-image.php?productID=<?php echo($Chaussures['id_produit']); ?>"><img src="productimages/<?php echo($Chaussures['prod_img']); ?>" class="img-men" data-aos="fade-up" style="border-radius:20px;"><br></a>
+                        <a href="logged_in_for-each-image.php?productID=<?php echo($Chaussures['id_produit']); ?>"><span class="image-lable" data-aos="fade-up"><?php echo($Chaussures['prod_nom']); ?><br><?php echo($Chaussures['prod_prix']); ?> MAD</span></a>
                     </div>
                 </div>
                 <div class="row">
+                    <?php $Chaussures=$psChaussures->fetch(); ?>
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 text-center pt-3">
-                        <a href="Logged_in_product_page.php"><img src="Images/ladies-dress-3.jpg" height="200px" data-aos="fade-up"><br></a>
-                        <a href="Logged_in_product_page.php"><span class="image-lable" data-aos="zoom-in">accessories & tradesional dress<br>117MAD</span></a>
+                        <a href="logged_in_for-each-image.php?productID=<?php echo($Chaussures['id_produit']); ?>"><img src="productimages/<?php echo($Chaussures['prod_img']); ?>" class="img-men" data-aos="fade-up" style="border-radius:20px;"><br></a>
+                        <a href="logged_in_for-each-image.php?productID=<?php echo($Chaussures['id_produit']); ?>"><span class="image-lable" data-aos="fade-up"><?php echo($Chaussures['prod_nom']); ?><br><?php echo($Chaussures['prod_prix']); ?> MAD</span></a>
                     </div>
+                    <?php $Chaussures=$psChaussures->fetch(); ?>
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 text-center pt-3">
-                        <a href="Logged_in_product_page.php"><img src="Images/ladies-dress-4.jpg" height="200px" data-aos="fade-up"><br></a>
-                        <a href="Logged_in_product_page.php"><span class="image-lable" data-aos="zoom-in">accessories & tradesional dress<br>117MAD</span></a>
+                        <a href="logged_in_for-each-image.php?productID=<?php echo($Chaussures['id_produit']); ?>"><img src="productimages/<?php echo($Chaussures['prod_img']); ?>" class="img-men" data-aos="fade-up" style="border-radius:20px;"><br></a>
+                        <a href="logged_in_for-each-image.php?productID=<?php echo($Chaussures['id_produit']); ?>"><span class="image-lable" data-aos="fade-up"><?php echo($Chaussures['prod_nom']); ?><br><?php echo($Chaussures['prod_prix']); ?> MAD</span></a>
                     </div>
                 </div>
             </div>
@@ -382,7 +407,7 @@ $psPantalons->execute();
     <div class="container pr-5 text-center mt-4 pb-5">
         <div class="row pt-2 pb-3">
             <div class="col">
-                <a href="Logged_in_product_page.php"><span style="border:3px solid rgb(180, 69, 69);border-radius:10px;padding:1% 2%;background-color:rgb(177, 84, 84);" class="ml-4" data-aos="zoom-in"><span style="font-weight:700;font-size:20px;color:white;text-transform: uppercase;">plus</span><span class="pl-3" style="color:white;"><i class="fa fa-arrow-right" aria-hidden="true"></i></span></span></a>
+                <a href="Logged_in_product_page.php?cat=7"><span style="border:3px solid rgb(180, 69, 69);border-radius:10px;padding:1% 2%;background-color:rgb(177, 84, 84);" class="ml-4" data-aos="zoom-in"><span style="font-weight:700;font-size:20px;color:white;text-transform: uppercase;">plus</span><span class="pl-3" style="color:white;"><i class="fa fa-arrow-right" aria-hidden="true"></i></span></span></a>
             </div>
         </div>
     </div>
@@ -390,34 +415,38 @@ $psPantalons->execute();
 <div class="container pt-4 pb-5">
     <div class="row">
         <div class="col-sm-12 text-center">
-            <a href="Logged_in_product_page.php"><span style="text-transform: uppercase;font-weight: 700;font-size:30px;" data-aos="zoom-in">pantalons</span></a>
+            <a href="Logged_in_product_page.php?cat=3"><span style="text-transform: uppercase;font-weight: 700;font-size:30px;" data-aos="zoom-in">pantalons</span></a>
         </div>
     </div>
 </div>
 <div class="container-fluid pt-5 pb-3 px-0" id = "parallax2" style="background-image:url('Images/desktop-1.jpg');background-size:cover;background-attachment: fixed;">
     <div class="container" height="200px">
         <div class="row pt-1">
+            <?php $Pantalons=$psPantalons->fetch(); ?>
             <div class="col-xl-3 col-lg-3  col-md-4 col-sm-6 col-12 pb-3 text-center">
-                <a href="Logged_in_product_page.php"><img src="Images/kids-dress-1.jpg" height="200px" style="border-radius:20px;" data-aos="fade-up"><br></a>
-                <a href="Logged_in_product_page.php"><span class="image-lable" data-aos="zoom-in">accessories & tradesional dress<br>117MAD</span></a>
+                <a href="logged_in_for-each-image.php?productID=<?php echo($Pantalons['id_produit']);?>"><img src="productimages/<?php echo($Pantalons['prod_img']);?>" height="200px" style="border-radius:20px;" data-aos="fade-up"><br></a>
+                <a href="logged_in_for-each-image.php?productID=<?php echo($Pantalons['id_produit']);?>"><span class="image-lable" data-aos="zoom-in"><?php echo($Pantalons['prod_nom']); ?><br><?php echo($Pantalons['prod_prix']);?> MAD</span></a>
             </div>
+            <?php $Pantalons=$psPantalons->fetch(); ?>
             <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-12 text-center">
-                <a href="Logged_in_product_page.php"><img src="Images/boys-dress-1.jpeg" height="200px" style="border-radius:20px;" data-aos="fade-up"><br></a>
-                <a href="Logged_in_product_page.php"><span class="image-lable" data-aos="zoom-in">accessories & tradesional dress<br>117MAD</span></a>
+                <a href="logged_in_for-each-image.php?productID=<?php echo($Pantalons['id_produit']);?>"><img src="productimages/<?php echo($Pantalons['prod_img']);?>" height="200px" style="border-radius:20px;" data-aos="fade-up"><br></a>
+                <a href="logged_in_for-each-image.php?productID=<?php echo($Pantalons['id_produit']);?>"><span class="image-lable" data-aos="zoom-in"><?php echo($Pantalons['prod_nom']); ?><br><?php echo($Pantalons['prod_prix']);?> MAD</span></a>
             </div>
+            <?php $Pantalons=$psPantalons->fetch(); ?>
             <div class="col-xl-3 col-lg-3 col-md-4 hide-kids-dress text-center">
-                <a href="Logged_in_product_page.php"><img src="Images/kids-dress-2.jpg" height="200px" style="border-radius:20px;" data-aos="fade-up"><br></a>
-                <a href="Logged_in_product_page.php"><span class="image-lable" data-aos="zoom-in">accessories & tradesional dress<br>117MAD</span></a>
+                <a href="logged_in_for-each-image.php?productID=<?php echo($Pantalons['id_produit']);?>"><img src="productimages/<?php echo($Pantalons['prod_img']);?>" height="200px" style="border-radius:20px;" data-aos="fade-up"><br></a>
+                <a href="logged_in_for-each-image.php?productID=<?php echo($Pantalons['id_produit']);?>"><span class="image-lable" data-aos="zoom-in"><?php echo($Pantalons['prod_nom']); ?><br><?php echo($Pantalons['prod_prix']);?> MAD</span></a>
             </div>
+            <?php $Pantalons=$psPantalons->fetch(); ?>
             <div class="col-xl-3 col-lg-3 hide-popular text-center">
-                <a href="Logged_in_product_page.php"><img src="Images/boys-dress-2.jpeg" height="200px" style="border-radius:20px;" data-aos="fade-up"><br></a>
-                <a href="Logged_in_product_page.php"><span class="image-lable" data-aos="zoom-in">accessories & tradesional dress<br>117MAD</span></a>
+                <a href="logged_in_for-each-image.php?productID=<?php echo($Pantalons['id_produit']);?>"><img src="productimages/<?php echo($Pantalons['prod_img']);?>" height="200px" style="border-radius:20px;" data-aos="fade-up"><br></a>
+                <a href="logged_in_for-each-image.php?productID=<?php echo($Pantalons['id_produit']);?>"><span class="image-lable" data-aos="zoom-in"><?php echo($Pantalons['prod_nom']); ?><br><?php echo($Pantalons['prod_prix']);?> MAD</span></a>
             </div>
         </div>
     </div>
     <div class="row">
         <div class="col pt-4 pb-5 text-center">
-            <a href="Logged_in_product_page.php"><span style="border:3px solid rgb(180, 69, 69);border-radius:10px;padding:1% 2%;background-color:rgb(177, 84, 84);" class="ml-4" data-aos="zoom-in"><span style="font-weight:700;font-size:20px;color:white;text-transform: uppercase;">plus</span><span class="pl-3" style="color:white;"><i class="fa fa-arrow-right" aria-hidden="true"></i></span></span></a>
+            <a href="Logged_in_product_page.php?cat=3"><span style="border:3px solid rgb(180, 69, 69);border-radius:10px;padding:1% 2%;background-color:rgb(177, 84, 84);" class="ml-4" data-aos="zoom-in"><span style="font-weight:700;font-size:20px;color:white;text-transform: uppercase;">plus</span><span class="pl-3" style="color:white;"><i class="fa fa-arrow-right" aria-hidden="true"></i></span></span></a>
         </div>
     </div>
 </div>
