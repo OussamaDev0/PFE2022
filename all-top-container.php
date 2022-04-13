@@ -88,45 +88,7 @@ $psAliatoire->execute();
 <body>
 
 <!--header part start-->
-<div class="container-fluid text-white" id="change-color">
-    <div class="row" id="top-containt">
-        <div class="col-4 text-center">
-            <a href="ecommerce.php"><img src="Images/shopping-logo.png" style="width:150px;height:150px;" class="color logo-1 logo-sift"></a>
-            <a href="ecommerce.php"><img src="Images/pinterest_icon.png" height="70px" class=" color logo-2 mt-1 ml-2"></a>
-        </div>
-        <div class="col-8 pt-4 mt-1 text-center">
-                <span class="dropdown dropdown-toggle profile" data-toggle="dropdown" style="color:black" >
-                  <a href="#/"><img src="Images/profile-icon.png" class="profile-icon color"></a>
-               </span>
-            <ul class="dropdown-menu mt-4 text-center" style="margin-left:-6%;border-radius:10px;">
-                <li class="pre-profile-1 pt-2 pb-2"><a href="#/" class="color" style="font-weight:600">Historique des commandes</a></li>
-                <li class="pre-profile-1 pt-2 pb-2"><a href="#/" class="color" style="font-weight:600">Changer le mot de passe</a></li>
-                <li class="pre-profile-1 pt-2 pb-2"><a href="#/" class="color" style="font-weight:600">Mettre à jour le profil</a></li>
-                <li class="pre-profile-1 pt-2 pb-2"><a href="login-form.php" class="color" style="font-weight:600">Connexion</a></li>
-            </ul>
-            <span class="menu-1"><a href="ecommerce.php" class="color">accueil</a></span>
-            <span class="menu"><a href="ecommerce-price-men.php" class="color">produits</a></span>
-            <span class="menu"><a href="#/" class="color">à propos </a></span>
-            <span class="menu"><a href="contact-form.php" class="color">contact</a></span>
-            <span class="menu-bar text-right"><a href="#/" class="color">&#9776;</a></span>
-            <span class="menu-bar-1 text-right"><a href="#/" class="color">&#9776;</a></span>
-            <span class="menu-bar-2 text-right"><a href="#/" class="color">&#9776;</a></span>
-        </div>
-    </div>
-    <div class="container-fluid side-bar px-0">
-        <div class="col-12 text-right bg-danger">
-            <span class="close"><a href="#/" class="color">&times;</a></span>
-        </div>
-        <ul class="pt-5 pre-side-bar">
-            <li class="pt-4" style="margin-left:-5%;"><a href="ecommerce.php" class="color">home</a></li>
-            <li class="pt-3"style="margin-left:-5%"><a href="ecommerce-price-men.php" class="color">produits</a></li>
-            <li class="pt-3"style="margin-left:-5%"><a href="#/" class="color">à propos </a></li>
-            <li class="pt-3"style="margin-left:-5%"><a href="contact-form.php" class="color">contact</a></li>
-            <li class="pt-3"style="margin-left:-5%"><a href="#/" class="color">Mettre à jour le profil</a></li>
-            <li class="pt-3"style="margin-left:-5%"><a href="login-form.php" class="color">Connexion</a><span><a href="#" class="color"><img src="log-in..png" class="log-in"></a></span></li>
-        </ul>
-    </div>
-</div>
+<?php require_once('hps.php');?>
 <!--header part end-->
 <!--middle-->
 <div class="container-fluid mt-5 pt-5">
@@ -137,8 +99,9 @@ $psAliatoire->execute();
             <div class="container large-left-sider">
                 <div class="row">
                     <div class="col-12 px-0 pt-5 pb-4 text-center pl-0">
-                        <input class="search-box" type="text" placeholder="Search.." ><span><button class="search-button"><i class="fa fa-search" id="search-icon"></i></button></span>
-                    </div>
+                        <form method="get" action="logged_in_all_top_container.php">
+                            <input class="search-box" type="text" name="motcle" placeholder="Search.." ><span><button class="search-button"><i class="fa fa-search" id="search-icon"></i></button></span>
+                        </form> </div>
                 </div>
                 <div class="row pl-3">
                     <div class="col-12 pt-3">
@@ -370,27 +333,22 @@ $psAliatoire->execute();
                 </div>
 
                 <!--Catégorie: Chaussures end -->
-
-
-
                 <!--pagination-->
                 <div class="row next-page-header pt-5">
                     <div class="col next-page" style="z-index: 0;">
                         <ul class="pagination" style="display: flex;justify-content: center;">
                             <li class="page-item prev"><a class="page-link" href="#/"  style="color:black">Previous</a></li>
-
                             <li class="page-item open-content-one-hundred" id="one-hundred"><a class="page-link" href="#/"  style="color:black">1</a></li>
                             <li class="page-item open-content-two-hundred active"><a class="page-link" href="#/"  style="color:black">2</a></li>
                             <li class="page-item open-content-three-hundred"><a class="page-link" href="#/"  style="color:black">3</a></li>
                             <li class="page-item open-content-four-hundred"><a class="page-link" href="#/"  style="color:black">4</a></li>
                             <li class="page-item open-content-five-hundred"><a class="page-link" href="#/"  style="color:black">5</a></li>
-
                             <li class="page-item next"><a class="page-link" href="#/"  style="color:black">Next</a></li>
                         </ul>
                     </div>
                 </div>
                 <!--pagination-->
-
+                <!--500-600 page end-->
             </div>
         </div>
         <!--right side col end-->
@@ -410,20 +368,26 @@ $psAliatoire->execute();
                     <div class="row">
                         <div class="col-12 text-left pt-3">
                             <span style="font-size:18px;text-transform: uppercase;font-weight: 600;" class="pl-4">price</span><br>
-                            <span  class="text-bold" name="select-price"><input type="radio" name="price" class="open-small-content-one-hundred"> &nbsp; 100-200</span><br>
-                            <span  class="text-bold" name="select-price"><input type="radio" name="price" class="open-small-content-two-hundred"> &nbsp; 200-300</span><br>
-                            <span  class="text-bold" name="select-price"><input type="radio" name="price" class="open-small-content-three-hundred"> &nbsp; 300-400</span><br>
-                            <span  class="text-bold" name="select-price"><input type="radio"  name="price" class="open-small-content-four-hundred"> &nbsp; 400-500</span><br>
-                            <span  class="text-bold" name="select-price"><input type="radio"  name="price" class="open-small-content-five-hundred"> &nbsp; 500-600</span><br>
+                            <span  class="text-bold" name="select-price"><input type="radio" name="price" class="open-small-content-one-hundred"> &nbsp;100-200</span><br>
+                            <span  class="text-bold" name="select-price"><input type="radio" name="price" class="open-small-content-two-hundred"> &nbsp;200-300</span><br>
+                            <span  class="text-bold" name="select-price"><input type="radio" name="price" class="open-small-content-three-hundred"> &nbsp;300-400</span><br>
+                            <span  class="text-bold" name="select-price"><input type="radio"  name="price" class="open-small-content-four-hundred"> &nbsp;400-500</span><br>
+                            <span  class="text-bold" name="select-price"><input type="radio"  name="price" class="open-small-content-five-hundred"> &nbsp;500-600</span><br>
                         </div>
                         <div class="col-12  text-left pt-3 pb-3">
-                            <span style="font-size:18px;text-transform: uppercase;font-weight: 600;" class="pl-4">catégorie</span><br>
-                            <span class="text-bold"><input type="radio" name="color" class="open-small-content-three-hundred"> &nbsp;bleu</span><br>
-                            <span class="text-bold"><input type="radio" name="color" class="open-small-content-five-hundred"> &nbsp;vert</span><br>
-                            <span class="text-bold"><input type="radio" name="color" class="open-small-content-two-hundred"> &nbsp;jaune</span><br>
-                            <span class="text-bold"><input type="radio" name="color" class="open-small-content-four-hundred"> &nbsp;noir</span><br>
+                            <span style="font-size:18px;text-transform: uppercase;font-weight: 600;" class="pl-4">colour</span><br>
+                            <span class="text-bold"><input type="radio" name="color" class="open-small-content-three-hundred"> &nbsp;blue</span><br>
+                            <span class="text-bold"><input type="radio" name="color" class="open-small-content-five-hundred"> &nbsp;green</span><br>
+                            <span class="text-bold"><input type="radio" name="color" class="open-small-content-two-hundred"> &nbsp;yellow</span><br>
+                            <span class="text-bold"><input type="radio" name="color" class="open-small-content-four-hundred"> &nbsp;black</span><br>
                         </div>
-                        <!-- pour inserer new  -->
+                        <div class="col-12  text-left pb-3">
+                            <span style="font-size:18px;text-transform: uppercase;font-weight: 600;" class="pl-4">brand</span><br>
+                            <span  class="text-bold"><input type="radio" name="brand" class="open-small-content-two-hundred"> &nbsp;LOUIS VUITTON</span><br>
+                            <span  class="text-bold"><input type="radio" name="brand" class="open-small-content-three-hundred"> &nbsp;GUCCI</span><br>
+                            <span  class="text-bold"><input type="radio" name="brand" class="open-small-content-four-hundred">  <span class="ml-1">HERMES</span></span><br>
+                            <span  class="text-bold"><input type="radio" name="brand" class="open-small-content-five-hundred"> &nbsp;PRADA</span><br>
+                        </div>
                     </div>
                 </div>
                 <!--The Modal-->
@@ -436,53 +400,53 @@ $psAliatoire->execute();
 <div class="container-fluid for-small-devices-2">
     <div class="row">
         <div class="col-12 text-center">
-            <span><img src="Images/big-sale.jpg" height="150px"></span>
+            <span><img src="big-sale.jpg" height="150px"></span>
         </div>
     </div>
 </div>
 <div class="container mt-5 pt-2 for-small-devices">
     <div class="row">
         <div class="col-md-4 col-sm-6 col-12 text-center pb-5">
-            <a href="for-each-image.php"><img src="Images/mens-dress.jpg" class="img-men" data-aos="fade-up" style="border-radius:20px;height:180px"><br></a>
-            <a href="for-each-image.php"><span class="image-lable" data-aos="fade-up">tradesional dress<br> 150.00 MAD</span></a>
+            <a href="logged_in_for-each-image.php#\"><img src="Images/mens-dress.jpg" class="img-men" data-aos="fade-up" style="border-radius:20px;height:180px"><br></a>
+            <a href="logged_in_for-each-image.php#\"><span class="image-lable" data-aos="fade-up">tradesional dress<br>150MAD</span></a>
         </div>
         <div class="col-md-4 col-sm-6 col-12 text-center">
-            <a href="for-each-image.php"><img src="Images/boys-kids.jpg" class="img-men" data-aos="fade-up" style="border-radius:20px;height:180px"><br></a>
-            <a href="for-each-image.php"><span class="image-lable" data-aos="fade-up">tradesional dress<br> 120.00 MAD</span></a>
+            <a href="logged_in_for-each-image.php#\"><img src="Images/boys-kids.jpg" class="img-men" data-aos="fade-up" style="border-radius:20px;height:180px"><br></a>
+            <a href="logged_in_for-each-image.php#\"><span class="image-lable" data-aos="fade-up">tradesional dress<br>120MAD</span></a>
         </div>
         <div class="col-md-4 col-sm-6 col-12 text-center hide-content">
-            <a href="for-each-image.php"><img src="Images/ladies-dress.jpg" class="img-men" data-aos="fade-up" style="border-radius:20px;height:180px"></a>
-            <a href="for-each-image.php"><span class="image-lable" data-aos="fade-up">tradesional dress<br> 180.00 MAD</span></a>
+            <a href="logged_in_for-each-image.php#\"><img src="Images/ladies-dress.jpg" class="img-men" data-aos="fade-up" style="border-radius:20px;height:180px"></a>
+            <a href="logged_in_for-each-image.php#\"><span class="image-lable" data-aos="fade-up">tradesional dress<br>180MAD</span></a>
         </div>
     </div>
     <!--second row-->
     <div class="row pt-5">
         <div class="col-md-4 col-sm-6 col-12 text-center pb-5">
-            <a href="for-each-image.php"><img src="Images/girl.jpg" class="img-men" data-aos="fade-up" style="border-radius:20px;height:180px"><br></a>
-            <a href="for-each-image.php"><span class="image-lable" data-aos="fade-up">tradesional dress<br> 100.00 MAD</span></a>
+            <a href="logged_in_for-each-image.php#\"><img src="Images/girl.jpg" class="img-men" data-aos="fade-up" style="border-radius:20px;height:180px"><br></a>
+            <a href="logged_in_for-each-image.php#\"><span class="image-lable" data-aos="fade-up">tradesional dress<br>100MAD</span></a>
         </div>
         <div class="col-md-4 col-sm-6 col-12 text-center">
-            <a href="for-each-image.php"><img src="Images/men.jpg" class="img-men" data-aos="fade-up" style="border-radius:20px;height:180px"><br></a>
-            <a href="for-each-image.php"><span class="image-lable" data-aos="fade-up">tradesional dress<br> 180.00 MAD</span></a>
+            <a href="logged_in_for-each-image.php#\"><img src="Images/men.jpg" class="img-men" data-aos="fade-up" style="border-radius:20px;height:180px"><br></a>
+            <a href="logged_in_for-each-image.php#\"><span class="image-lable" data-aos="fade-up">tradesional dress<br>180MAD</span></a>
         </div>
         <div class="col-md-4 col-sm-6 col-12 text-center hide-content">
-            <a href="for-each-image.php"><img src="Images/kids.jpg" class="img-men" data-aos="fade-up" style="border-radius:20px;height:180px"></a>
-            <a href="for-each-image.php"><span class="image-lable" data-aos="fade-up">tradesional dress<br> 120.00 MAD</span></a>
+            <a href="logged_in_for-each-image.php#\"><img src="Images/kids.jpg" class="img-men" data-aos="fade-up" style="border-radius:20px;height:180px"></a>
+            <a href="logged_in_for-each-image.php#\"><span class="image-lable" data-aos="fade-up">tradesional dress<br>120MAD</span></a>
         </div>
     </div>
     <!--third row-->
     <div class="row pt-5">
         <div class="col-md-4 col-sm-6 col-12 text-center pb-5">
-            <a href="for-each-image.php"><img src="Images/men-1.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
-            <a href="for-each-image.php"><span class="image-lable">tradesional dress<br> 180.00 MAD</span></a>
+            <a href="logged_in_for-each-image.php#\"><img src="Images/men-1.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
+            <a href="logged_in_for-each-image.php#\"><span class="image-lable">tradesional dress<br>180MAD</span></a>
         </div>
         <div class="col-md-4 col-sm-6 col-12 text-center">
-            <a href="for-each-image.php"><img src="Images/men.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
-            <a href="for-each-image.php"><span class="image-lable">tradesional dress<br> 120.00 MAD</span></a>
+            <a href="logged_in_for-each-image.php#\"><img src="Images/men.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
+            <a href="logged_in_for-each-image.php#\"><span class="image-lable">tradesional dress<br>120MAD</span></a>
         </div>
         <div class="col-md-4 col-sm-6 col-12 text-center hide-content">
-            <a href="for-each-image.php"><img src="Images/boys-kids-1.jpg" class="img-men" style="border-radius:20px;height:180px"></a>
-            <a href="for-each-image.php"><span class="image-lable">tradesional dress<br> 100.00 MAD</span></a>
+            <a href="logged_in_for-each-image.php#\"><img src="Images/boys-kids-1.jpg" class="img-men" style="border-radius:20px;height:180px"></a>
+            <a href="logged_in_for-each-image.php#\"><span class="image-lable">tradesional dress<br>100MAD</span></a>
         </div>
     </div>
 </div>
@@ -496,46 +460,46 @@ $psAliatoire->execute();
         <!--first row-->
         <div class="row pt-5">
             <div class="col-md-4 col-sm-6 col-12 text-center pb-5">
-                <a href="for-each-image.php"><img src="Images/mens-dress-1.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
-                <a href="for-each-image.php"><span class="image-lable">tradesional dress<br> 130.00 MAD</span></a>
+                <a href="logged_in_for-each-image.php#\"><img src="Images/mens-dress-1.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
+                <a href="logged_in_for-each-image.php#\"><span class="image-lable">tradesional dress<br>130MAD</span></a>
             </div>
             <div class="col-md-4 col-sm-6 col-12 text-center">
-                <a href="for-each-image.php"><img src="Images/ladies-dress-1.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
-                <a href="for-each-image.php"><span class="image-lable">tradesional dress<br> 120.00 MAD</span></a>
+                <a href="logged_in_for-each-image.php#\"><img src="Images/ladies-dress-1.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
+                <a href="logged_in_for-each-image.php#\"><span class="image-lable">tradesional dress<br>120MAD</span></a>
             </div>
             <div class="col-md-4 col-sm-6 col-12 text-center hide-content">
-                <a href="for-each-image.php"><img src="Images/kids-dress-1.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
-                <a href="for-each-image.php"><span class="image-lable">tradesional dress<br> .150.00 MAD</span></a>
+                <a href="logged_in_for-each-image.php#\"><img src="Images/kids-dress-1.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
+                <a href="logged_in_for-each-image.php#\"><span class="image-lable">tradesional dress<br>.150MAD</span></a>
             </div>
         </div>
         <!--second row-->
         <div class="row pt-5">
             <div class="col-md-4 col-sm-6 col-12 text-center pb-5">
-                <a href="for-each-image.php"><img src="Images/kids-dress-2.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
-                <a href="for-each-image.php"><span class="image-lable">tradesional dress<br> 180.00 MAD</span></a>
+                <a href="logged_in_for-each-image.php#\"><img src="Images/kids-dress-2.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
+                <a href="logged_in_for-each-image.php#\"><span class="image-lable">tradesional dress<br>180MAD</span></a>
             </div>
             <div class="col-md-4 col-sm-6 col-12 text-center">
-                <a href="for-each-image.php"><img src="Images/mens-dress-2.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
-                <a href="for-each-image.php"><span class="image-lable">tradesional dress<br> 100.00 MAD</span></a>
+                <a href="logged_in_for-each-image.php#\"><img src="Images/mens-dress-2.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
+                <a href="logged_in_for-each-image.php#\"><span class="image-lable">tradesional dress<br>100MAD</span></a>
             </div>
             <div class="col-md-4 col-sm-6 col-12 text-center hide-content">
-                <a href="for-each-image.php"><img src="Images/ladies-dress-3.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
-                <a href="for-each-image.php"><span class="image-lable">tradesional dress<br> 135.00 MAD</span></a>
+                <a href="logged_in_for-each-image.php#\"><img src="Images/ladies-dress-3.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
+                <a href="logged_in_for-each-image.php#\"><span class="image-lable">tradesional dress<br>135MAD</span></a>
             </div>
         </div>
         <!--third row-->
         <div class="row pt-5">
             <div class="col-md-4 col-sm-6 col-12 text-center pb-5">
-                <a href="for-each-image.php"><img src="Images/ladies-dress-4.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
-                <a href="for-each-image.php"><span class="image-lable">tradesional dress<br> 155.00 MAD</span></a>
+                <a href="logged_in_for-each-image.php#\"><img src="Images/ladies-dress-4.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
+                <a href="logged_in_for-each-image.php#\"><span class="image-lable">tradesional dress<br>155MAD</span></a>
             </div>
             <div class="col-md-4 col-sm-6 col-12 text-center">
-                <a href="for-each-image.php"><img src="Images/mens-dress-4.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
-                <a href="for-each-image.php"><span class="image-lable">tradesional dress<br> 176.00 MAD</span></a>
+                <a href="logged_in_for-each-image.php#\"><img src="Images/mens-dress-4.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
+                <a href="logged_in_for-each-image.php#\"><span class="image-lable">tradesional dress<br>176MAD</span></a>
             </div>
             <div class="col-md-4 col-sm-6 col-12 text-center hide-content">
-                <a href="for-each-image.php"><img src="Images/boys-dress-1.jpeg" class="img-men" style="border-radius:20px;height:180px"><br></a>
-                <a href="for-each-image.php"><span class="image-lable">tradesional dress<br> 133.00 MAD</span></a>
+                <a href="logged_in_for-each-image.php#\"><img src="Images/boys-dress-1.jpeg" class="img-men" style="border-radius:20px;height:180px"><br></a>
+                <a href="logged_in_for-each-image.php#\"><span class="image-lable">tradesional dress<br>133MAD</span></a>
             </div>
         </div>
     </div>
@@ -548,49 +512,50 @@ $psAliatoire->execute();
         <!--first row-->
         <div class="row pt-5">
             <div class="col-md-4 col-sm-6 col-12 text-center pb-5">
-                <a href="for-each-image.php"><img src="Images/hundred-men.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
-                <a href="for-each-image.php"><span class="image-lable">tradesional dress<br> 130.00 MAD</span></a>
+                <a href="logged_in_for-each-image.php#\"><img src="Images/hundred-men.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
+                <a href="logged_in_for-each-image.php#\"><span class="image-lable">tradesional dress<br>130MAD</span></a>
             </div>
             <div class="col-md-4 col-sm-6 col-12 text-center">
-                <a href="for-each-image.php"><img src="Images/two-hundred-ladies.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
-                <a href="for-each-image.php"><span class="image-lable">tradesional dress<br> 120.00 MAD</span></a>
+                <a href="logged_in_for-each-image.php#\"><img src="Images/two-hundred-ladies.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
+                <a href="logged_in_for-each-image.php#\"><span class="image-lable">tradesional dress<br>120MAD</span></a>
             </div>
             <div class="col-md-4 col-sm-6 col-12 text-center hide-content">
-                <a href="for-each-image.php"><img src="Images/two-hundred.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
-                <a href="for-each-image.php"><span class="image-lable">tradesional dress<br> 150.00 MAD</span></a>
+                <a href="logged_in_for-each-image.php#\"><img src="Images/two-hundred.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
+                <a href="logged_in_for-each-image.php#\"><span class="image-lable">tradesional dress<br>.150MAD</span></a>
             </div>
         </div>
         <!--second row-->
         <div class="row pt-5">
             <div class="col-md-4 col-sm-6 col-12 text-center pb-5">
-                <a href="for-each-image.php"><img src="Images/two-hundred-men.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
-                <a href="for-each-image.php"><span class="image-lable">tradesional dress<br> 180.00 MAD</span></a>
+                <a href="logged_in_for-each-image.php#\"><img src="Images/two-hundred-men.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
+                <a href="logged_in_for-each-image.php#\"><span class="image-lable">tradesional dress<br>180MAD</span></a>
             </div>
             <div class="col-md-4 col-sm-6 col-12 text-center">
-                <a href="for-each-image.php"><img src="Images/two-hundred-boys.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
-                <a href="for-each-image.php"><span class="image-lable">tradesional dress<br> 100.00 MAD</span></a>
+                <a href="logged_in_for-each-image.php#\"><img src="Images/two-hundred-boys.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
+                <a href="logged_in_for-each-image.php#\"><span class="image-lable">tradesional dress<br>100MAD</span></a>
             </div>
             <div class="col-md-4 col-sm-6 col-12 text-center hide-content">
-                <a href="for-each-image.php"><img src="Images/two-hundred-ladies-1.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
-                <a href="for-each-image.php"><span class="image-lable">tradesional dress<br> 135.00 MAD</span></a>
+                <a href="logged_in_for-each-image.php#\"><img src="Images/two-hundred-ladies-1.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
+                <a href="logged_in_for-each-image.php#\"><span class="image-lable">tradesional dress<br>135MAD</span></a>
             </div>
         </div>
         <!--third row-->
         <div class="row pt-5">
             <div class="col-md-4 col-sm-6 col-12 text-center pb-5">
-                <a href="for-each-image.php"><img src="Images/two-hundred-girls-1.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
-                <a href="for-each-image.php"><span class="image-lable">tradesional dress<br> 155.00 MAD</span></a>
+                <a href="logged_in_for-each-image.php#\"><img src="Images/two-hundred-girls-1.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
+                <a href="logged_in_for-each-image.php#\"><span class="image-lable">tradesional dress<br>155MAD</span></a>
             </div>
             <div class="col-md-4 col-sm-6 col-12 text-center">
-                <a href="for-each-image.php"><img src="Images/two-hundred-ladies-2.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
-                <a href="for-each-image.php"><span class="image-lable">tradesional dress<br> 176.00 MAD</span></a>
+                <a href="logged_in_for-each-image.php#\"><img src="Images/two-hundred-ladies-2.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
+                <a href="logged_in_for-each-image.php#\"><span class="image-lable">tradesional dress<br>176MAD</span></a>
             </div>
             <div class="col-md-4 col-sm-6 col-12 text-center hide-content">
-                <a href="for-each-image.php"><img src="Images/two-hundred-men-2.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
-                <a href="for-each-image.php"><span class="image-lable">tradesional dress<br> 133.00 MAD</span>
+                <a href="logged_in_for-each-image.php#\"><img src="Images/two-hundred-men-2.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
+                <a href="logged_in_for-each-image.php#\"><span class="image-lable">tradesional dress<br>133MAD</span>
             </div>
         </div>
     </div>
+
 
     <!--200-300 page end-->
 
@@ -600,46 +565,46 @@ $psAliatoire->execute();
         <!--first row-->
         <div class="row pt-5">
             <div class="col-md-4 col-sm-6 col-12 text-center pb-5">
-                <a href="for-each-image.php"></a><img src="Images/three-hundred-boys.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
-                <a href="for-each-image.php"></a><span class="image-lable">tradesional dress<br> 130.00 MAD</span></a>
+                <a href="logged_in_for-each-image.php#\"></a><img src="Images/three-hundred-boys.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
+                <a href="logged_in_for-each-image.php#\"></a><span class="image-lable">tradesional dress<br>130MAD</span></a>
             </div>
             <div class="col-md-4 col-sm-6 col-12 text-center">
-                <a href="for-each-image.php"></a><img src="Images/three-hundred-men.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
-                <a href="for-each-image.php"></a><span class="image-lable">tradesional dress<br> 120.00 MAD</span></a>
+                <a href="logged_in_for-each-image.php#\"></a><img src="Images/three-hundred-men.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
+                <a href="logged_in_for-each-image.php#\"></a><span class="image-lable">tradesional dress<br>120MAD</span></a>
             </div>
             <div class="col-md-4 col-sm-6 col-12 text-center hide-content">
-                <a href="for-each-image.php"></a><img src="Images/three-hundred-ladies.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
-                <a href="for-each-image.php"></a><span class="image-lable">tradesional dress<br> 150.00 MAD</span></a>
+                <a href="logged_in_for-each-image.php#\"></a><img src="Images/three-hundred-ladies.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
+                <a href="logged_in_for-each-image.php#\"></a><span class="image-lable">tradesional dress<br>.150MAD</span></a>
             </div>
         </div>
         <!--second row-->
         <div class="row pt-5">
             <div class="col-md-4 col-sm-6 col-12 text-center pb-5">
-                <a href="for-each-image.php"></a><img src="Images/three-hundred-men-1.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
-                <a href="for-each-image.php"></a><span class="image-lable">tradesional dress<br> 180.00 MAD</span></a>
+                <a href="logged_in_for-each-image.php#\"></a><img src="Images/three-hundred-men-1.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
+                <a href="logged_in_for-each-image.php#\"></a><span class="image-lable">tradesional dress<br>180MAD</span></a>
             </div>
             <div class="col-md-4 col-sm-6 col-12 text-center">
-                <a href="for-each-image.php"></a><img src="Images/three-hundred-ladies-1.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
-                <a href="for-each-image.php"></a><span class="image-lable">tradesional dress<br> 100.00 MAD</span></a>
+                <a href="logged_in_for-each-image.php#\"></a><img src="Images/three-hundred-ladies-1.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
+                <a href="logged_in_for-each-image.php#\"></a><span class="image-lable">tradesional dress<br>100MAD</span></a>
             </div>
             <div class="col-md-4 col-sm-6 col-12 text-center hide-content">
-                <a href="for-each-image.php"></a><img src="Images/three-hundred-boys-1.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
-                <a href="for-each-image.php"></a><span class="image-lable">tradesional dress<br> 135.00 MAD</span></a>
+                <a href="logged_in_for-each-image.php#\"></a><img src="Images/three-hundred-boys-1.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
+                <a href="logged_in_for-each-image.php#\"></a><span class="image-lable">tradesional dress<br>135MAD</span></a>
             </div>
         </div>
         <!--third row-->
         <div class="row pt-5">
             <div class="col-md-4 col-sm-6 col-12 text-center pb-5">
-                <a href="for-each-image.php"></a><img src="Images/three-hundred-ladies-2.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
-                <a href="for-each-image.php"></a><span class="image-lable">tradesional dress<br> 155.00 MAD</span></a>
+                <a href="logged_in_for-each-image.php#\"></a><img src="Images/three-hundred-ladies-2.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
+                <a href="logged_in_for-each-image.php#\"></a><span class="image-lable">tradesional dress<br>155MAD</span></a>
             </div>
             <div class="col-md-4 col-sm-6 col-12 text-center">
-                <a href="for-each-image.php"></a><img src="Images/three-hundred-men-3.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
-                <a href="for-each-image.php"></a><span class="image-lable">tradesional dress<br> 176.00 MAD</span></a>
+                <a href="logged_in_for-each-image.php#\"></a><img src="Images/three-hundred-men-3.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
+                <a href="logged_in_for-each-image.php#\"></a><span class="image-lable">tradesional dress<br>176MAD</span></a>
             </div>
             <div class="col-md-4 col-sm-6 col-12 text-center hide-content">
-                <a href="for-each-image.php"></a><img src="Images/three-hundred-boys-2.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
-                <a href="for-each-image.php"></a><span class="image-lable">tradesional dress<br> 133.00 MAD</span></a>
+                <a href="logged_in_for-each-image.php#\"></a><img src="Images/three-hundred-boys-2.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
+                <a href="logged_in_for-each-image.php#\"></a><span class="image-lable">tradesional dress<br>133MAD</span></a>
             </div>
         </div>
     </div>
@@ -652,46 +617,46 @@ $psAliatoire->execute();
         <!--first row-->
         <div class="row pt-5">
             <div class="col-md-4 col-sm-6 col-12 text-center pb-5">
-                <a href="for-each-image.php"></a><img src="Images/four-hundred-men.jpeg" class="img-men" style="border-radius:20px;height:180px"><br></a>
-                <a href="for-each-image.php"></a><span class="image-lable">tradesional dress<br> 130.00 MAD</span></a>
+                <a href="logged_in_for-each-image.php#\"></a><img src="Images/four-hundred-men.jpeg" class="img-men" style="border-radius:20px;height:180px"><br></a>
+                <a href="logged_in_for-each-image.php#\"></a><span class="image-lable">tradesional dress<br>130MAD</span></a>
             </div>
             <div class="col-md-4 col-sm-6 col-12 text-center">
-                <a href="for-each-image.php"></a><img src="Images/four-hundred-boys.jpeg" class="img-men" style="border-radius:20px;height:180px"><br></a>
-                <a href="for-each-image.php"></a><span class="image-lable">tradesional dress<br> 120.00 MAD</span></a>
+                <a href="logged_in_for-each-image.php#\"></a><img src="Images/four-hundred-boys.jpeg" class="img-men" style="border-radius:20px;height:180px"><br></a>
+                <a href="logged_in_for-each-image.php#\"></a><span class="image-lable">tradesional dress<br>120MAD</span></a>
             </div>
             <div class="col-md-4 col-sm-6 col-12 text-center hide-content">
-                <a href="for-each-image.php"></a><img src="Images/four-hundred-men-1.jpeg" class="img-men" style="border-radius:20px;height:180px"><br></a>
-                <a href="for-each-image.php"></a><span class="image-lable">tradesional dress<br> 150.00 MAD</span></a>
+                <a href="logged_in_for-each-image.php#\"></a><img src="Images/four-hundred-men-1.jpeg" class="img-men" style="border-radius:20px;height:180px"><br></a>
+                <a href="logged_in_for-each-image.php#\"></a><span class="image-lable">tradesional dress<br>.150MAD</span></a>
             </div>
         </div>
         <!--second row-->
         <div class="row pt-5">
             <div class="col-md-4 col-sm-6 col-12 text-center pb-5">
-                <a href="for-each-image.php"></a><img src="Images/four-hundred-boys-1.jpeg" class="img-men" style="border-radius:20px;height:180px"><br></a>
-                <a href="for-each-image.php"></a><span class="image-lable">tradesional dress<br> 180.00 MAD</span></a>
+                <a href="logged_in_for-each-image.php#\"></a><img src="Images/four-hundred-boys-1.jpeg" class="img-men" style="border-radius:20px;height:180px"><br></a>
+                <a href="logged_in_for-each-image.php#\"></a><span class="image-lable">tradesional dress<br>180MAD</span></a>
             </div>
             <div class="col-md-4 col-sm-6 col-12 text-center">
                 <a href="#/"></a><img src="Images/four-hundred-ladies.jpeg" class="img-men" style="border-radius:20px;height:180px"><br></a>
-                <a href="for-each-image.php"></a><span class="image-lable">tradesional dress<br> 100.00 MAD</span></a>
+                <a href="logged_in_for-each-image.php#\"></a><span class="image-lable">tradesional dress<br>100MAD</span></a>
             </div>
             <div class="col-md-4 col-sm-6 col-12 text-center hide-content">
-                <a href="for-each-image.php"></a><img src="Images/four-hundred-men-2.jpeg" class="img-men" style="border-radius:20px;height:180px"><br></a>
-                <a href="for-each-image.php"></a><span class="image-lable">tradesional dress<br> 135.00 MAD</span></a>
+                <a href="logged_in_for-each-image.php#\"></a><img src="Images/four-hundred-men-2.jpeg" class="img-men" style="border-radius:20px;height:180px"><br></a>
+                <a href="logged_in_for-each-image.php#\"></a><span class="image-lable">tradesional dress<br>135MAD</span></a>
             </div>
         </div>
         <!--third row-->
         <div class="row pt-5">
             <div class="col-md-4 col-sm-6 col-12 text-center pb-5">
-                <a href="for-each-image.php"></a><img src="Images/four-hundred-girls-1.jpeg" class="img-men" style="border-radius:20px;height:180px"><br></a>
-                <a href="for-each-image.php"></a><span class="image-lable">tradesional dress<br> 155.00 MAD</span></a>
+                <a href="logged_in_for-each-image.php#\"></a><img src="Images/four-hundred-girls-1.jpeg" class="img-men" style="border-radius:20px;height:180px"><br></a>
+                <a href="logged_in_for-each-image.php#\"></a><span class="image-lable">tradesional dress<br>155MAD</span></a>
             </div>
             <div class="col-md-4 col-sm-6 col-12 text-center">
-                <a href="for-each-image.php"></a><img src="Images/four-hundred-men-3.jpeg" class="img-men" style="border-radius:20px;height:180px"><br></a>
-                <a href="for-each-image.php"></a><span class="image-lable">tradesional dress<br> 176.00 MAD</span></a>
+                <a href="logged_in_for-each-image.php#\"></a><img src="Images/four-hundred-men-3.jpeg" class="img-men" style="border-radius:20px;height:180px"><br></a>
+                <a href="logged_in_for-each-image.php#\"></a><span class="image-lable">tradesional dress<br>176MAD</span></a>
             </div>
             <div class="col-md-4 col-sm-6 col-12 text-center hide-content">
-                <a href="for-each-image.php"></a><img src="Images/four-hundred-men-4.jpeg" class="img-men" style="border-radius:20px;height:180px"><br></a>
-                <a href="for-each-image.php"></a><span class="image-lable">tradesional dress<br> 133.00 MAD</span></a>
+                <a href="logged_in_for-each-image.php#\"></a><img src="Images/four-hundred-men-4.jpeg" class="img-men" style="border-radius:20px;height:180px"><br></a>
+                <a href="logged_in_for-each-image.php#\"></a><span class="image-lable">tradesional dress<br>133MAD</span></a>
             </div>
         </div>
     </div>
@@ -704,46 +669,46 @@ $psAliatoire->execute();
         <!--first row-->
         <div class="row pt-5">
             <div class="col-md-4 col-sm-6 col-12 text-center pb-5">
-                <a href="for-each-image.php"></a><img src="Images/five-hundred-men.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
-                <a href="for-each-image.php"></a><span class="image-lable">tradesional dress<br> 130.00 MAD</span></a>
+                <a href="logged_in_for-each-image.php#\"></a><img src="Images/five-hundred-men.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
+                <a href="logged_in_for-each-image.php#\"></a><span class="image-lable">tradesional dress<br>130MAD</span></a>
             </div>
             <div class="col-md-4 col-sm-6 col-12 text-center">
-                <a href="for-each-image.php"></a><img src="Images/five-hundred-boys.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
-                <a href="for-each-image.php"></a><span class="image-lable">tradesional dress<br> 120.00 MAD</span></a>
+                <a href="logged_in_for-each-image.php#\"></a><img src="Images/five-hundred-boys.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
+                <a href="logged_in_for-each-image.php#\"></a><span class="image-lable">tradesional dress<br>120MAD</span></a>
             </div>
             <div class="col-md-4 col-sm-6 col-12 text-center hide-content">
-                <a href="for-each-image.php"></a><img src="Images/five-hundred-men-1.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
-                <a href="for-each-image.php"></a><span class="image-lable">tradesional dress<br> 150.00 MAD</span></a>
+                <a href="logged_in_for-each-image.php#\"></a><img src="Images/five-hundred-men-1.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
+                <a href="logged_in_for-each-image.php#\"></a><span class="image-lable">tradesional dress<br>.150MAD</span></a>
             </div>
         </div>
         <!--second row-->
         <div class="row pt-5">
             <div class="col-md-4 col-sm-6 col-12 text-center pb-5">
-                <a href="for-each-image.php"></a><img src="Images/five-hundred-men-2.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
-                <a href="for-each-image.php"></a><span class="image-lable">tradesional dress<br> 180.00 MAD</span></a>
+                <a href="logged_in_for-each-image.php#\"></a><img src="Images/five-hundred-men-2.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
+                <a href="logged_in_for-each-image.php#\"></a><span class="image-lable">tradesional dress<br>180MAD</span></a>
             </div>
             <div class="col-md-4 col-sm-6 col-12 text-center">
-                <a href="for-each-image.php"></a><img src="Images/five-hundred-boys-1.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
-                <a href="for-each-image.php"></a><span class="image-lable">tradesional dress<br> 100.00 MAD</span></a>
+                <a href="logged_in_for-each-image.php#\"></a><img src="Images/five-hundred-boys-1.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
+                <a href="logged_in_for-each-image.php#\"></a><span class="image-lable">tradesional dress<br>100MAD</span></a>
             </div>
             <div class="col-md-4 col-sm-6 col-12 text-center hide-content">
-                <a href="for-each-image.php"></a><img src="Images/five-hundred-ladies.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
-                <a href="for-each-image.php"></a><span class="image-lable">tradesional dress<br> 135.00 MAD</span></a>
+                <a href="logged_in_for-each-image.php#\"></a><img src="Images/five-hundred-ladies.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
+                <a href="logged_in_for-each-image.php#\"></a><span class="image-lable">tradesional dress<br>135MAD</span></a>
             </div>
         </div>
         <!--third row-->
         <div class="row pt-5">
             <div class="col-md-4 col-sm-6 col-12 text-center pb-5">
-                <a href="for-each-image.php"></a><img src="Images/five-hundred-girls-2.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
-                <a href="for-each-image.php"></a><span class="image-lable">tradesional dress<br> 155.00 MAD</span></a>
+                <a href="logged_in_for-each-image.php#\"></a><img src="Images/five-hundred-girls-2.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
+                <a href="logged_in_for-each-image.php#\"></a><span class="image-lable">tradesional dress<br>155MAD</span></a>
             </div>
             <div class="col-md-4 col-sm-6 col-12 text-center">
-                <a href="for-each-image.php"></a><img src="Images/five-hundred-men-3.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
-                <a href="for-each-image.php"></a><span class="image-lable">tradesional dress<br> 176.00 MAD</span></a>
+                <a href="logged_in_for-each-image.php#\"></a><img src="Images/five-hundred-men-3.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
+                <a href="logged_in_for-each-image.php#\"></a><span class="image-lable">tradesional dress<br>176MAD</span></a>
             </div>
             <div class="col-md-4 col-sm-6 col-12 text-center hide-content">
-                <a href="for-each-image.php"></a><img src="Images/five-hundred-men-4.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
-                <a href="for-each-image.php"></a><span class="image-lable">tradesional dress<br> 133.00 MAD</span></a>
+                <a href="logged_in_for-each-image.php#\"></a><img src="Images/five-hundred-men-4.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
+                <a href="logged_in_for-each-image.php#\"></a><span class="image-lable">tradesional dress<br>133MAD</span></a>
             </div>
         </div>
     </div>
@@ -786,55 +751,7 @@ $psAliatoire->execute();
 </div>
 <!--recommend end-->
 <!--footer-->
-<div class="container-fluid bg-dark text-white">
-    <div class="container">
-        <div class="row ">
-            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12 footer pt-5">
-                <p style="font-size:20px;text-transform: uppercase;font-weight: 800;" data-aos="slide-right">ShopMen</p>
-                <p data-aos="slide-right">une entreprise de vente les vêtements<br>
-                    pour les hommes en ligne cette plateforme<br>
-                    doit bien évidemment comporter une boutique<br>
-                    pour faciliter a vos d'acheter plus vite en ligne.<br>
-                </p>
-            </div>
-            <div class="col-xl-3 pt-5 hide-girl">
-                <span style="font-size:20px;text-transform: uppercase;font-weight: 800;" data-aos="zoom-in-left">products</span><br>
-                <p style="margin-top:3%" data-aos="slide-up">Chaussures</p>
-                <p style="margin-top:-3%" data-aos="slide-up">pantalons</p>
-                <p style="margin-top:-3%" data-aos="slide-up">chemises</p>
-                <p style="margin-top:-3%" data-aos="slide-up">Autre</p>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-md-4 col-sm-12 col-12 footer  pt-5">
-                <span style="font-size:20px;text-transform: uppercase;font-weight: 800;" class="text-center" data-aos="zoom-in-left">Nous Accepetons</span><br>
-                <p style="margin-top:3%;margin-left:1%;"data-aos="fade-up">Visa card</p>
-                <p style="margin-top:-3%;margin-left:1%;"data-aos="fade-up">MasterCard</p>
-                <p style="margin-top:-3%;margin-left:1%;"data-aos="fade-up">paypal</p>
-                <p style="margin-top:-3%;margin-left:1%;"data-aos="fade-up">skrill</p>
-            </div>
-            <div class="col-xl-2 col-lg-4 col-md-4 col-sm-12 col-12 footer pt-5 pb-3">
-                <p style="font-size:20px;text-transform: uppercase;font-weight: 800;" data-aos="slide-left">contact</p>
-                <p data-aos="fade-up"><i class="fa fa-home" aria-hidden="true" style="font-size:20px;"></i>&nbsp; Aklim,berkane</p>
-                <p data-aos="fade-up"><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp; PFE@gmail.com</p>
-                <p data-aos="fade-up"><i class="fa fa-phone" aria-hidden="true"></i>&nbsp; + 212 76 68 62 809</p>
-                <p data-aos="fade-up"><i class="fa fa-print" aria-hidden="true"></i>&nbsp; + 212 76 68 62 809</p>
-            </div>
-        </div>
-    </div>
-    <hr style="color:white;width:100%;border:1px solid">
-    <div class="container mt-4 pb-4">
-        <div class="row">
-            <div class="col-12 col-xl-6 col-lg-6 col-md-6 col-sm-6 ">
-                <p>© 2020 Copyright:<span style="font-weight:600">MDBootstrap</span></p>
-            </div>
-            <div class="col-12 col-xl-6 col-lg-6 col-md-6 col-sm-6 icon-head">
-                <span class="icons-2"><i class="fa fa-facebook" aria-hidden="true"></i></span>
-                <span class="icons-3"><i class="fa fa-twitter" aria-hidden="true"></i></span>
-                <span class="icons-1"><i class="fa fa-google-plus" aria-hidden="true"></i></span>
-                <span class="icons"><i class="fa fa-instagram" aria-hidden="true"></i></span>
-            </div>
-        </div>
-    </div>
-</div>
+<?php require_once('footer.php');?>
 <!--footer-->
 
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
