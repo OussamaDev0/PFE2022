@@ -160,8 +160,8 @@ require_once('dbconn.php');
                 <div class="row pt-5 hide-front-page">
                     <?php while($produit=$ps->fetch()) { ?>
                         <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6  text-center">
-                            <a href="for-each-image.php?productID=<?php echo($produit['id_produit']);?>"><img src="productimages/<?php echo($produit['prod_img']); ?>" class="img-men" data-aos="fade-up" style="border-radius:20px;height:180px"></a><br/>
-                            <a href="for-each-image.php?productID=<?php echo($produit['id_produit']);?>"><span class="image-lable" data-aos="fade-up"><?php echo($produit['prod_nom']); ?><br><?php echo($produit['prod_prix']); ?> MAD</span></a>
+                            <a href="logged_in_for-each-image.php?productID=<?php echo($produit['id_produit']);?>"><img src="productimages/<?php echo($produit['prod_img']); ?>" class="img-men" data-aos="fade-up" style="border-radius:20px;height:180px"></a><br/>
+                            <a href="logged_in_for-each-image.php?productID=<?php echo($produit['id_produit']);?>"><span class="image-lable" data-aos="fade-up"><?php echo($produit['prod_nom']); ?><br><?php echo($produit['prod_prix']); ?> MAD</span></a>
                         </div>
                     <?php } ?>
                 </div>
@@ -173,8 +173,8 @@ require_once('dbconn.php');
                     <div class="row pt-5">
                         <?php while($produit2=$ps2->fetch()) { ?>
                             <div class="col-xl-3 col-lg-4 col-md-4 text-center">
-                                <a href="for-each-image.php?productID=<?php echo($produit2['id_produit']);?>"><img src="productimages/<?php echo($produit2['prod_img']); ?>" class="img-men" style="border-radius:20px;height:180px"><br></a>
-                                <a href="for-each-image.php?productID=<?php echo($produit2['id_produit']);?>"><span class="image-lable"><?php echo($produit2['prod_nom']); ?><br> <?php echo($produit2['prod_prix']); ?> MAD</span></a>
+                                <a href="logged_in_for-each-image.php?productID=<?php echo($produit2['id_produit']);?>"><img src="productimages/<?php echo($produit2['prod_img']); ?>" class="img-men" style="border-radius:20px;height:180px"><br></a>
+                                <a href="logged_in_for-each-image.php?productID=<?php echo($produit2['id_produit']);?>"><span class="image-lable"><?php echo($produit2['prod_nom']); ?><br> <?php echo($produit2['prod_prix']); ?> MAD</span></a>
                             </div>
                         <?php } ?>
                     </div>
@@ -190,8 +190,8 @@ require_once('dbconn.php');
                     <div class="row pt-5">
                         <?php while($produit3=$ps3->fetch()){ ?>
                             <div class="col-xl-3 col-lg-4 col-md-4 text-center">
-                                <a href="for-each-image.php?productID=<?php echo($produit3['id_produit']);?>"><img src="productimages/<?php echo($produit3['prod_img']); ?>" class="img-men" style="border-radius:20px;height:180px"><br></a>
-                                <a href="for-each-image.php?productID=<?php echo($produit3['id_produit']);?>"><span class="image-lable"><?php echo($produit3['prod_nom']) ?><br> <?php echo($produit3['prod_prix']); ?> MAD</span></a>
+                                <a href="logged_in_for-each-image.php?productID=<?php echo($produit3['id_produit']);?>"><img src="productimages/<?php echo($produit3['prod_img']); ?>" class="img-men" style="border-radius:20px;height:180px"><br></a>
+                                <a href="logged_in_for-each-image.php?productID=<?php echo($produit3['id_produit']);?>"><span class="image-lable"><?php echo($produit3['prod_nom']) ?><br> <?php echo($produit3['prod_prix']); ?> MAD</span></a>
                             </div>
                         <?php } ?>
                     </div>
@@ -207,8 +207,8 @@ require_once('dbconn.php');
                     <div class="row pt-5">
                         <?php while($produit4=$ps4->fetch()) { ?>
                             <div class="col-xl-3 col-lg-4 col-md-4 text-center">
-                                <a href="for-each-image.php?productID=<?php echo($produit4['id_produit']);?>"><img src="productimages/<?php echo($produit4['prod_img']); ?>" class="img-men" style="border-radius:20px;height:180px"><br></a>
-                                <a href="for-each-image.php?productID=<?php echo($produit4['id_produit']);?>"><span class="image-lable"><?php echo($produit4['prod_nom']) ?><br> <?php echo($produit4['prod_prix']); ?> MAD</span></a>
+                                <a href="logged_in_for-each-image.php?productID=<?php echo($produit4['id_produit']);?>"><img src="productimages/<?php echo($produit4['prod_img']); ?>" class="img-men" style="border-radius:20px;height:180px"><br></a>
+                                <a href="logged_in_for-each-image.php?productID=<?php echo($produit4['id_produit']);?>"><span class="image-lable"><?php echo($produit4['prod_nom']) ?><br> <?php echo($produit4['prod_prix']); ?> MAD</span></a>
                             </div>
                         <?php } ?>
                     </div>
@@ -224,8 +224,8 @@ require_once('dbconn.php');
                     <div class="row pt-5">
                         <?php while($produit5=$ps5->fetch()) { ?>
                             <div class="col-xl-3 col-lg-4 col-md-4 text-center">
-                                <a href="for-each-image.php?productID=<?php echo($produit5['id_produit']);?>"><img src="productimages/<?php echo($produit5['prod_img']); ?>" class="img-men" style="border-radius:20px;height:180px"><br></a>
-                                <a href="for-each-image.php?productID=<?php echo($produit5['id_produit']);?>"><span class="image-lable"><?php echo($produit5['prod_nom']) ?><br> <?php echo($produit5['prod_prix']); ?> MAD</span></a>
+                                <a href="logged_in_for-each-image.php?productID=<?php echo($produit5['id_produit']);?>"><img src="productimages/<?php echo($produit5['prod_img']); ?>" class="img-men" style="border-radius:20px;height:180px"><br></a>
+                                <a href="logged_in_for-each-image.php?productID=<?php echo($produit5['id_produit']);?>"><span class="image-lable"><?php echo($produit5['prod_nom']) ?><br> <?php echo($produit5['prod_prix']); ?> MAD</span></a>
                             </div>
                         <?php } ?>
                     </div>
@@ -239,8 +239,8 @@ require_once('dbconn.php');
                     <div class="row pt-5">
                         <?php while($produit6=$ps6->fetch()) { ?>
                             <div class="col-xl-3 col-lg-4 col-md-4 text-center">
-                                <a href="for-each-image.php?productID=<?php echo($produit6['id_produit']);?>"><img src="productimages/<?php echo($produit6['prod_img']); ?>" class="img-men" style="border-radius:20px;height:180px"><br></a>
-                                <a href="for-each-image.php?productID=<?php echo($produit6['id_produit']);?>"><span class="image-lable"><?php echo($produit6['prod_nom']) ?><br> <?php echo($produit6['prod_prix']); ?> MAD</span></a>
+                                <a href="logged_in_for-each-image.php?productID=<?php echo($produit6['id_produit']);?>"><img src="productimages/<?php echo($produit6['prod_img']); ?>" class="img-men" style="border-radius:20px;height:180px"><br></a>
+                                <a href="logged_in_for-each-image.php?productID=<?php echo($produit6['id_produit']);?>"><span class="image-lable"><?php echo($produit6['prod_nom']) ?><br> <?php echo($produit6['prod_prix']); ?> MAD</span></a>
                             </div>
                         <?php } ?>
                     </div>
@@ -253,8 +253,8 @@ require_once('dbconn.php');
                     <div class="row pt-5">
                         <?php while($Chemis=$psChemis->fetch()) { ?>
                             <div class="col-xl-3 col-lg-4 col-md-4 text-center">
-                                <a href="for-each-image.php?productID=<?php echo($Chemis['id_produit']);?>"><img src="productimages/<?php echo($Chemis['prod_img']); ?>" class="img-men" style="border-radius:20px;height:180px"><br></a>
-                                <a href="for-each-image.php?productID=<?php echo($Chemis['id_produit']);?>"><span class="image-lable"><?php echo($Chemis['prod_nom']) ?><br> <?php echo($Chemis['prod_prix']); ?> MAD</span></a>
+                                <a href="logged_in_for-each-image.php?productID=<?php echo($Chemis['id_produit']);?>"><img src="productimages/<?php echo($Chemis['prod_img']); ?>" class="img-men" style="border-radius:20px;height:180px"><br></a>
+                                <a href="logged_in_for-each-image.php?productID=<?php echo($Chemis['id_produit']);?>"><span class="image-lable"><?php echo($Chemis['prod_nom']) ?><br> <?php echo($Chemis['prod_prix']); ?> MAD</span></a>
                             </div>
                         <?php } ?>
                     </div>
@@ -267,8 +267,8 @@ require_once('dbconn.php');
                     <div class="row pt-5">
                         <?php while($Polos=$psPolos->fetch()) { ?>
                             <div class="col-xl-3 col-lg-4 col-md-4 text-center">
-                                <a href="for-each-image.php?productID=<?php echo($Polos['id_produit']);?>"><img src="productimages/<?php echo($Polos['prod_img']); ?>" class="img-men" style="border-radius:20px;height:180px"><br></a>
-                                <a href="for-each-image.php?productID=<?php echo($Polos['id_produit']);?>"><span class="image-lable"><?php echo($Polos['prod_nom']) ?><br> <?php echo($Polos['prod_prix']); ?> MAD</span></a>
+                                <a href="logged_in_for-each-image.php?productID=<?php echo($Polos['id_produit']);?>"><img src="productimages/<?php echo($Polos['prod_img']); ?>" class="img-men" style="border-radius:20px;height:180px"><br></a>
+                                <a href="logged_in_for-each-image.php?productID=<?php echo($Polos['id_produit']);?>"><span class="image-lable"><?php echo($Polos['prod_nom']) ?><br> <?php echo($Polos['prod_prix']); ?> MAD</span></a>
                             </div>
                         <?php } ?>
                     </div>
@@ -281,8 +281,8 @@ require_once('dbconn.php');
                     <div class="row pt-5">
                         <?php while($Pantalons=$psPantalons->fetch()) { ?>
                             <div class="col-xl-3 col-lg-4 col-md-4 text-center">
-                                <a href="for-each-image.php?productID=<?php echo($Pantalons['id_produit']);?>"><img src="productimages/<?php echo($Pantalons['prod_img']); ?>" class="img-men" style="border-radius:20px;height:180px"><br></a>
-                                <a href="for-each-image.php?productID=<?php echo($Pantalons['id_produit']);?>"><span class="image-lable"><?php echo($Pantalons['prod_nom']) ?><br> <?php echo($Pantalons['prod_prix']); ?> MAD</span></a>
+                                <a href="logged_in_for-each-image.php?productID=<?php echo($Pantalons['id_produit']);?>"><img src="productimages/<?php echo($Pantalons['prod_img']); ?>" class="img-men" style="border-radius:20px;height:180px"><br></a>
+                                <a href="logged_in_for-each-image.php?productID=<?php echo($Pantalons['id_produit']);?>"><span class="image-lable"><?php echo($Pantalons['prod_nom']) ?><br> <?php echo($Pantalons['prod_prix']); ?> MAD</span></a>
                             </div>
                         <?php } ?>
                     </div>
@@ -295,8 +295,8 @@ require_once('dbconn.php');
                     <div class="row pt-5">
                         <?php while($PantalonsSur=$psPantalonsSur->fetch()) { ?>
                             <div class="col-xl-3 col-lg-4 col-md-4 text-center">
-                                <a href="for-each-image.php?productID=<?php echo($PantalonsSur['id_produit']);?>"><img src="productimages/<?php echo($PantalonsSur['prod_img']); ?>" class="img-men" style="border-radius:20px;height:180px"><br></a>
-                                <a href="for-each-image.php?productID=<?php echo($PantalonsSur['id_produit']);?>"><span class="image-lable"><?php echo($PantalonsSur['prod_nom']) ?><br> <?php echo($PantalonsSur['prod_prix']); ?> MAD</span></a>
+                                <a href="logged_in_for-each-image.php?productID=<?php echo($PantalonsSur['id_produit']);?>"><img src="productimages/<?php echo($PantalonsSur['prod_img']); ?>" class="img-men" style="border-radius:20px;height:180px"><br></a>
+                                <a href="logged_in_for-each-image.php?productID=<?php echo($PantalonsSur['id_produit']);?>"><span class="image-lable"><?php echo($PantalonsSur['prod_nom']) ?><br> <?php echo($PantalonsSur['prod_prix']); ?> MAD</span></a>
                             </div>
                         <?php } ?>
                     </div>
@@ -309,8 +309,8 @@ require_once('dbconn.php');
                     <div class="row pt-5">
                         <?php while($Shorts=$psShorts->fetch()) { ?>
                             <div class="col-xl-3 col-lg-4 col-md-4 text-center">
-                                <a href="for-each-image.php?productID=<?php echo($Shorts['id_produit']);?>"><img src="productimages/<?php echo($Shorts['prod_img']); ?>" class="img-men" style="border-radius:20px;height:180px"><br></a>
-                                <a href="for-each-image.php?productID=<?php echo($Shorts['id_produit']);?>"><span class="image-lable"><?php echo($Shorts['prod_nom']) ?><br> <?php echo($Shorts['prod_prix']); ?> MAD</span></a>
+                                <a href="logged_in_for-each-image.php?productID=<?php echo($Shorts['id_produit']);?>"><img src="productimages/<?php echo($Shorts['prod_img']); ?>" class="img-men" style="border-radius:20px;height:180px"><br></a>
+                                <a href="logged_in_for-each-image.php?productID=<?php echo($Shorts['id_produit']);?>"><span class="image-lable"><?php echo($Shorts['prod_nom']) ?><br> <?php echo($Shorts['prod_prix']); ?> MAD</span></a>
                             </div>
                         <?php } ?>
                     </div>
@@ -323,8 +323,8 @@ require_once('dbconn.php');
                     <div class="row pt-5">
                         <?php while($Jeans=$psJeans->fetch()) { ?>
                             <div class="col-xl-3 col-lg-4 col-md-4 text-center">
-                                <a href="for-each-image.php?productID=<?php echo($Jeans['id_produit']);?>"><img src="productimages/<?php echo($Jeans['prod_img']); ?>" class="img-men" style="border-radius:20px;height:180px"><br></a>
-                                <a href="for-each-image.php?productID=<?php echo($Jeans['id_produit']);?>"><span class="image-lable"><?php echo($Jeans['prod_nom']) ?><br> <?php echo($Jeans['prod_prix']); ?> MAD</span></a>
+                                <a href="logged_in_for-each-image.php?productID=<?php echo($Jeans['id_produit']);?>"><img src="productimages/<?php echo($Jeans['prod_img']); ?>" class="img-men" style="border-radius:20px;height:180px"><br></a>
+                                <a href="logged_in_for-each-image.php?productID=<?php echo($Jeans['id_produit']);?>"><span class="image-lable"><?php echo($Jeans['prod_nom']) ?><br> <?php echo($Jeans['prod_prix']); ?> MAD</span></a>
                             </div>
                         <?php } ?>
                     </div>
@@ -337,8 +337,8 @@ require_once('dbconn.php');
                     <div class="row pt-5">
                         <?php while($Chaussures=$psChaussures->fetch()) { ?>
                             <div class="col-xl-3 col-lg-4 col-md-4 text-center">
-                                <a href="for-each-image.php?productID=<?php echo($Chaussures['id_produit']);?>"><img src="productimages/<?php echo($Chaussures['prod_img']); ?>" class="img-men" style="border-radius:20px;height:180px"><br></a>
-                                <a href="for-each-image.php?productID=<?php echo($Chaussures['id_produit']);?>"><span class="image-lable"><?php echo($Chaussures['prod_nom']) ?><br> <?php echo($Chaussures['prod_prix']); ?> MAD</span></a>
+                                <a href="logged_in_for-each-image.php?productID=<?php echo($Chaussures['id_produit']);?>"><img src="productimages/<?php echo($Chaussures['prod_img']); ?>" class="img-men" style="border-radius:20px;height:180px"><br></a>
+                                <a href="logged_in_for-each-image.php?productID=<?php echo($Chaussures['id_produit']);?>"><span class="image-lable"><?php echo($Chaussures['prod_nom']) ?><br> <?php echo($Chaussures['prod_prix']); ?> MAD</span></a>
                             </div>
                         <?php } ?>
                     </div>

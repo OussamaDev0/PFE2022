@@ -317,85 +317,39 @@
     <div class="container pt-3 pb-3">
         <div class="row">
             <div class="col-sm-12 text-center pb-4 pt-4">
-<<<<<<< HEAD
                 <span style="text-transform: uppercase;font-weight: 700;font-size:30px;" data-aos="zoom-in"><a href="logged_in_all_top_container.php">LE MIEUX POUR VOUS</a></span>
-||||||| 6ad8c94
-                <span style="text-transform: uppercase;font-weight: 700;font-size:30px;" data-aos="zoom-in"><a href="file:///C:/Users/Ujjwal/Documents/website_3/Logged_in_product_page.php">LE MIEUX POUR VOUS</a></span>
-=======
-                <span style="text-transform: uppercase;font-weight: 700;font-size:30px;" data-aos="zoom-in"><a href="file:///C:/Users/Ujjwal/Documents/website_3/logged_in_all_top_container.php">LE MIEUX POUR VOUS</a></span>
->>>>>>> 93925a8108cb7bec1c893122fc707e8914efd388
             </div>
         </div>
 
         <div class="row pt-1">
             <?php $Mieux=$psMieux->fetch(); ?>
             <div class="col-xl-5 col-lg-5 text-center pt-5 hide-popular">
-<<<<<<< HEAD
                 <a href="logged_in_for-each-image.php?productID=<?php echo($Mieux['id_produit']);?>"><img src="productimages/<?php echo($Mieux['prod_img']);?>" height="400px" data-aos="fade-up"><br></a>
                 <a href="logged_in_for-each-image.php?productID=<?php echo($Mieux['id_produit']);?>"><span class="image-lable" data-aos="zoom-in"><?php echo($Mieux['prod_nom']);?><br><?php echo($Mieux['prod_prix']);?> MAD</span></a>
-||||||| 6ad8c94
-                <a href="Logged_in_product_page.php"><img src="Images/mens-dress.jpg" height="400px" data-aos="fade-up"><br></a>
-                <a href="Logged_in_product_page.php"><span class="image-lable" data-aos="zoom-in">accessories & tradesional dress<br>117MAD</span></a>
-=======
-                <a href="logged_in_all_top_container.php"><img src="Images/mens-dress.jpg" height="400px" data-aos="fade-up"><br></a>
-                <a href="logged_in_all_top_container.php"><span class="image-lable" data-aos="zoom-in">accessories & tradesional dress<br>117MAD</span></a>
->>>>>>> 93925a8108cb7bec1c893122fc707e8914efd388
             </div>
             <div class="col-xl-7 col-lg-7 col-md-12 col-sm-12 col-12">
                 <div class="row">
                     <?php $Mieux=$psMieux->fetch(); ?>
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 text-center pt-3">
-<<<<<<< HEAD
                         <a href="logged_in_for-each-image.php?productID=<?php echo($Mieux['id_produit']); ?>"><img src="productimages/<?php echo($Mieux['prod_img']); ?>" class="img-men" data-aos="fade-up" style="border-radius:20px;"><br></a>
                         <a href="logged_in_for-each-image.php?productID=<?php echo($Mieux['id_produit']); ?>"><span class="image-lable" data-aos="fade-up"><?php echo($Mieux['prod_nom']); ?><br><?php echo($Mieux['prod_prix']); ?> MAD</span></a>
-||||||| 6ad8c94
-                        <a href="Logged_in_product_page.php"><img src="Images/mens-dress-1.jpg" height="200px" data-aos="fade-up"><br></a>
-                        <a href="Logged_in_product_page.php"><span class="image-lable" data-aos="zoom-in">accessories & tradesional dress<br>117MAD</span></a>
-=======
-                        <a href="logged_in_all_top_container.php"><img src="Images/mens-dress-1.jpg" height="200px" data-aos="fade-up"><br></a>
-                        <a href="logged_in_all_top_container.php"><span class="image-lable" data-aos="zoom-in">accessories & tradesional dress<br>117MAD</span></a>
->>>>>>> 93925a8108cb7bec1c893122fc707e8914efd388
                     </div>
                     <?php $Mieux=$psMieux->fetch(); ?>
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 text-center pt-3">
-<<<<<<< HEAD
                         <a href="logged_in_for-each-image.php?productID=<?php echo($Mieux['id_produit']); ?>"><img src="productimages/<?php echo($Mieux['prod_img']); ?>" class="img-men" data-aos="fade-up" style="border-radius:20px;"><br></a>
                         <a href="logged_in_for-each-image.php?productID=<?php echo($Mieux['id_produit']); ?>"><span class="image-lable" data-aos="fade-up"><?php echo($Mieux['prod_nom']); ?><br><?php echo($Mieux['prod_prix']); ?> MAD</span></a>
-||||||| 6ad8c94
-                        <a href="Logged_in_product_page.php"><img src="Images/mens-dress-2.jpg" height="200px" data-aos="fade-up"><br></a>
-                        <a href="Logged_in_product_page.php"><span class="image-lable" data-aos="zoom-in">accessories & tradesional dress<br>117MAD</span></a>
-=======
-                        <a href="logged_in_all_top_container.php"><img src="Images/mens-dress-2.jpg" height="200px" data-aos="fade-up"><br></a>
-                        <a href="logged_in_all_top_container.php"><span class="image-lable" data-aos="zoom-in">accessories & tradesional dress<br>117MAD</span></a>
->>>>>>> 93925a8108cb7bec1c893122fc707e8914efd388
                     </div>
                 </div>
                 <div class="row">
                     <?php $Mieux=$psMieux->fetch(); ?>
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 text-center pt-3">
-<<<<<<< HEAD
                         <a href="logged_in_for-each-image.php?productID=<?php echo($Mieux['id_produit']); ?>"><img src="productimages/<?php echo($Mieux['prod_img']); ?>" class="img-men" data-aos="fade-up" style="border-radius:20px;"><br></a>
                         <a href="logged_in_for-each-image.php?productID=<?php echo($Mieux['id_produit']); ?>"><span class="image-lable" data-aos="fade-up"><?php echo($Mieux['prod_nom']); ?><br><?php echo($Mieux['prod_prix']); ?> MAD</span></a>
-||||||| 6ad8c94
-                        <a href="Logged_in_product_page.php"><img src="Images/mens-dress-3.jpg" height="200px" data-aos="fade-up"><br></a>
-                        <a href="Logged_in_product_page.php"><span class="image-lable" data-aos="zoom-in">accessories & tradesional dress<br>117MAD</span></a>
-=======
-                        <a href="logged_in_all_top_container.php"><img src="Images/mens-dress-3.jpg" height="200px" data-aos="fade-up"><br></a>
-                        <a href="logged_in_all_top_container.php"><span class="image-lable" data-aos="zoom-in">accessories & tradesional dress<br>117MAD</span></a>
->>>>>>> 93925a8108cb7bec1c893122fc707e8914efd388
                     </div>
                     <?php $Mieux=$psMieux->fetch(); ?>
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 text-center pt-3">
-<<<<<<< HEAD
                         <a href="logged_in_for-each-image.php?productID=<?php echo($Mieux['id_produit']); ?>"><img src="productimages/<?php echo($Mieux['prod_img']); ?>" class="img-men" data-aos="fade-up" style="border-radius:20px;"><br></a>
                         <a href="logged_in_for-each-image.php?productID=<?php echo($Mieux['id_produit']); ?>"><span class="image-lable" data-aos="fade-up"><?php echo($Mieux['prod_nom']); ?><br><?php echo($Mieux['prod_prix']); ?> MAD</span></a>
-||||||| 6ad8c94
-                        <a href="Logged_in_product_page.php"><img src="Images/mens-dress-4.jpg" height="200px" data-aos="fade-up"><br></a>
-                        <a href="Logged_in_product_page.php"><span class="image-lable" data-aos="zoom-in">accessories & tradesional dress<br>117MAD</span></a>
-=======
-                        <a href="logged_in_all_top_container.php"><img src="Images/mens-dress-4.jpg" height="200px" data-aos="fade-up"><br></a>
-                        <a href="logged_in_all_top_container.php"><span class="image-lable" data-aos="zoom-in">accessories & tradesional dress<br>117MAD</span></a>
->>>>>>> 93925a8108cb7bec1c893122fc707e8914efd388
                     </div>
                 </div>
             </div>
@@ -413,84 +367,38 @@
     <div class="container pt-4 pb-4">
         <div class="row">
             <div class="col-sm-12 text-center pb-4">
-<<<<<<< HEAD
                 <a href="Logged_in_product_page.php?cat=7"><span style="text-transform: uppercase;font-weight: 700;font-size:30px;" data-aos="zoom-in">CHAUSSURES</span></a>
-||||||| 6ad8c94
-                <a href="Logged_in_product_page.php"><span style="text-transform: uppercase;font-weight: 700;font-size:30px;" data-aos="zoom-in">CHAUSSURES</span></a>
-=======
-                <a href="logged_in_all_top_container.php"><span style="text-transform: uppercase;font-weight: 700;font-size:30px;" data-aos="zoom-in">CHAUSSURES</span></a>
->>>>>>> 93925a8108cb7bec1c893122fc707e8914efd388
             </div>
         </div>
         <div class="row">
             <?php $Chaussures=$psChaussures->fetch(); ?>
             <div class="col-xl-5 col-lg-5 text-center pt-5 hide-popular">
-<<<<<<< HEAD
                 <a href="for-each-image.php?productID=<?php echo($Chaussures['id_produit']);?>"><img src="productimages/<?php echo($Chaussures['prod_img']);?>" height="400px" data-aos="fade-up"><br></a>
                 <a href="for-each-image.php?productID=<?php echo($Chaussures['id_produit']);?>"><span class="image-lable" data-aos="zoom-in"><?php echo($Chaussures['prod_nom']);?><br><?php echo($Chaussures['prod_prix']);?> MAD</span></a>
-||||||| 6ad8c94
-                <a href="Logged_in_product_page.php"><img src="Images/ladies-dress.jpg" height="400px" data-aos="fade-up"><br></a>
-                <a href="Logged_in_product_page.php"><span class="image-lable" data-aos="zoom-in">accessories & tradesional dress<br>117MAD</span></a>
-=======
-                <a href="logged_in_all_top_container.php"><img src="Images/ladies-dress.jpg" height="400px" data-aos="fade-up"><br></a>
-                <a href="logged_in_all_top_container.php"><span class="image-lable" data-aos="zoom-in">accessories & tradesional dress<br>117MAD</span></a>
->>>>>>> 93925a8108cb7bec1c893122fc707e8914efd388
             </div>
             <div class="col-xl-7 col-lg-7 col-md-12 col-sm-12 col-12">
                 <div class="row">
                     <?php $Chaussures=$psChaussures->fetch(); ?>
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 text-center pt-3">
-<<<<<<< HEAD
                         <a href="logged_in_for-each-image.php?productID=<?php echo($Chaussures['id_produit']); ?>"><img src="productimages/<?php echo($Chaussures['prod_img']); ?>" class="img-men" data-aos="fade-up" style="border-radius:20px;"><br></a>
                         <a href="logged_in_for-each-image.php?productID=<?php echo($Chaussures['id_produit']); ?>"><span class="image-lable" data-aos="fade-up"><?php echo($Chaussures['prod_nom']); ?><br><?php echo($Chaussures['prod_prix']); ?> MAD</span></a>
-||||||| 6ad8c94
-                        <a href="Logged_in_product_page.php"><img src="Images/ladies-dress-1.jpg" height="200px" data-aos="fade-up"><br></a>
-                        <a href="Logged_in_product_page.php"><span class="image-lable" data-aos="zoom-in">accessories & tradesional dress<br>117MAD</span></a>
-=======
-                        <a href="logged_in_all_top_container.php"><img src="Images/ladies-dress-1.jpg" height="200px" data-aos="fade-up"><br></a>
-                        <a href="logged_in_all_top_container.php"><span class="image-lable" data-aos="zoom-in">accessories & tradesional dress<br>117MAD</span></a>
->>>>>>> 93925a8108cb7bec1c893122fc707e8914efd388
                     </div>
                     <?php $Chaussures=$psChaussures->fetch(); ?>
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 text-center pt-3">
-<<<<<<< HEAD
                         <a href="logged_in_for-each-image.php?productID=<?php echo($Chaussures['id_produit']); ?>"><img src="productimages/<?php echo($Chaussures['prod_img']); ?>" class="img-men" data-aos="fade-up" style="border-radius:20px;"><br></a>
                         <a href="logged_in_for-each-image.php?productID=<?php echo($Chaussures['id_produit']); ?>"><span class="image-lable" data-aos="fade-up"><?php echo($Chaussures['prod_nom']); ?><br><?php echo($Chaussures['prod_prix']); ?> MAD</span></a>
-||||||| 6ad8c94
-                        <a href="Logged_in_product_page.php"><img src="Images/ladies-dress-2.jpg" height="200px" data-aos="fade-up"><br></a>
-                        <a href="Logged_in_product_page.php"><span class="image-lable" data-aos="zoom-in">accessories & tradesional dress<br>117MAD</span></a>
-=======
-                        <a href="logged_in_all_top_container.php"><img src="Images/ladies-dress-2.jpg" height="200px" data-aos="fade-up"><br></a>
-                        <a href="logged_in_all_top_container.php"><span class="image-lable" data-aos="zoom-in">accessories & tradesional dress<br>117MAD</span></a>
->>>>>>> 93925a8108cb7bec1c893122fc707e8914efd388
                     </div>
                 </div>
                 <div class="row">
                     <?php $Chaussures=$psChaussures->fetch(); ?>
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 text-center pt-3">
-<<<<<<< HEAD
                         <a href="logged_in_for-each-image.php?productID=<?php echo($Chaussures['id_produit']); ?>"><img src="productimages/<?php echo($Chaussures['prod_img']); ?>" class="img-men" data-aos="fade-up" style="border-radius:20px;"><br></a>
                         <a href="logged_in_for-each-image.php?productID=<?php echo($Chaussures['id_produit']); ?>"><span class="image-lable" data-aos="fade-up"><?php echo($Chaussures['prod_nom']); ?><br><?php echo($Chaussures['prod_prix']); ?> MAD</span></a>
-||||||| 6ad8c94
-                        <a href="Logged_in_product_page.php"><img src="Images/ladies-dress-3.jpg" height="200px" data-aos="fade-up"><br></a>
-                        <a href="Logged_in_product_page.php"><span class="image-lable" data-aos="zoom-in">accessories & tradesional dress<br>117MAD</span></a>
-=======
-                        <a href="logged_in_all_top_container.php"><img src="Images/ladies-dress-3.jpg" height="200px" data-aos="fade-up"><br></a>
-                        <a href="logged_in_all_top_container.php"><span class="image-lable" data-aos="zoom-in">accessories & tradesional dress<br>117MAD</span></a>
->>>>>>> 93925a8108cb7bec1c893122fc707e8914efd388
                     </div>
                     <?php $Chaussures=$psChaussures->fetch(); ?>
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 text-center pt-3">
-<<<<<<< HEAD
                         <a href="logged_in_for-each-image.php?productID=<?php echo($Chaussures['id_produit']); ?>"><img src="productimages/<?php echo($Chaussures['prod_img']); ?>" class="img-men" data-aos="fade-up" style="border-radius:20px;"><br></a>
                         <a href="logged_in_for-each-image.php?productID=<?php echo($Chaussures['id_produit']); ?>"><span class="image-lable" data-aos="fade-up"><?php echo($Chaussures['prod_nom']); ?><br><?php echo($Chaussures['prod_prix']); ?> MAD</span></a>
-||||||| 6ad8c94
-                        <a href="Logged_in_product_page.php"><img src="Images/ladies-dress-4.jpg" height="200px" data-aos="fade-up"><br></a>
-                        <a href="Logged_in_product_page.php"><span class="image-lable" data-aos="zoom-in">accessories & tradesional dress<br>117MAD</span></a>
-=======
-                        <a href="logged_in_all_top_container.php"><img src="Images/ladies-dress-4.jpg" height="200px" data-aos="fade-up"><br></a>
-                        <a href="logged_in_all_top_container.php"><span class="image-lable" data-aos="zoom-in">accessories & tradesional dress<br>117MAD</span></a>
->>>>>>> 93925a8108cb7bec1c893122fc707e8914efd388
                     </div>
                 </div>
             </div>
@@ -499,13 +407,7 @@
     <div class="container pr-5 text-center mt-4 pb-5">
         <div class="row pt-2 pb-3">
             <div class="col">
-<<<<<<< HEAD
                 <a href="Logged_in_product_page.php?cat=7"><span style="border:3px solid rgb(180, 69, 69);border-radius:10px;padding:1% 2%;background-color:rgb(177, 84, 84);" class="ml-4" data-aos="zoom-in"><span style="font-weight:700;font-size:20px;color:white;text-transform: uppercase;">plus</span><span class="pl-3" style="color:white;"><i class="fa fa-arrow-right" aria-hidden="true"></i></span></span></a>
-||||||| 6ad8c94
-                <a href="Logged_in_product_page.php"><span style="border:3px solid rgb(180, 69, 69);border-radius:10px;padding:1% 2%;background-color:rgb(177, 84, 84);" class="ml-4" data-aos="zoom-in"><span style="font-weight:700;font-size:20px;color:white;text-transform: uppercase;">plus</span><span class="pl-3" style="color:white;"><i class="fa fa-arrow-right" aria-hidden="true"></i></span></span></a>
-=======
-                <a href="logged_in_all_top_container.php"><span style="border:3px solid rgb(180, 69, 69);border-radius:10px;padding:1% 2%;background-color:rgb(177, 84, 84);" class="ml-4" data-aos="zoom-in"><span style="font-weight:700;font-size:20px;color:white;text-transform: uppercase;">plus</span><span class="pl-3" style="color:white;"><i class="fa fa-arrow-right" aria-hidden="true"></i></span></span></a>
->>>>>>> 93925a8108cb7bec1c893122fc707e8914efd388
             </div>
         </div>
     </div>
@@ -513,13 +415,7 @@
 <div class="container pt-4 pb-5">
     <div class="row">
         <div class="col-sm-12 text-center">
-<<<<<<< HEAD
             <a href="Logged_in_product_page.php?cat=3"><span style="text-transform: uppercase;font-weight: 700;font-size:30px;" data-aos="zoom-in">pantalons</span></a>
-||||||| 6ad8c94
-            <a href="Logged_in_product_page.php"><span style="text-transform: uppercase;font-weight: 700;font-size:30px;" data-aos="zoom-in">pantalons</span></a>
-=======
-            <a href="logged_in_all_top_container.php"><span style="text-transform: uppercase;font-weight: 700;font-size:30px;" data-aos="zoom-in">pantalons</span></a>
->>>>>>> 93925a8108cb7bec1c893122fc707e8914efd388
         </div>
     </div>
 </div>
@@ -528,67 +424,29 @@
         <div class="row pt-1">
             <?php $Pantalons=$psPantalons->fetch(); ?>
             <div class="col-xl-3 col-lg-3  col-md-4 col-sm-6 col-12 pb-3 text-center">
-<<<<<<< HEAD
                 <a href="logged_in_for-each-image.php?productID=<?php echo($Pantalons['id_produit']);?>"><img src="productimages/<?php echo($Pantalons['prod_img']);?>" height="200px" style="border-radius:20px;" data-aos="fade-up"><br></a>
                 <a href="logged_in_for-each-image.php?productID=<?php echo($Pantalons['id_produit']);?>"><span class="image-lable" data-aos="zoom-in"><?php echo($Pantalons['prod_nom']); ?><br><?php echo($Pantalons['prod_prix']);?> MAD</span></a>
-||||||| 6ad8c94
-                <a href="Logged_in_product_page.php"><img src="Images/kids-dress-1.jpg" height="200px" style="border-radius:20px;" data-aos="fade-up"><br></a>
-                <a href="Logged_in_product_page.php"><span class="image-lable" data-aos="zoom-in">accessories & tradesional dress<br>117MAD</span></a>
-=======
-                <a href="logged_in_all_top_container.php"><img src="Images/kids-dress-1.jpg" height="200px" style="border-radius:20px;" data-aos="fade-up"><br></a>
-                <a href="logged_in_all_top_container.php"><span class="image-lable" data-aos="zoom-in">accessories & tradesional dress<br>117MAD</span></a>
->>>>>>> 93925a8108cb7bec1c893122fc707e8914efd388
             </div>
             <?php $Pantalons=$psPantalons->fetch(); ?>
             <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-12 text-center">
-<<<<<<< HEAD
                 <a href="logged_in_for-each-image.php?productID=<?php echo($Pantalons['id_produit']);?>"><img src="productimages/<?php echo($Pantalons['prod_img']);?>" height="200px" style="border-radius:20px;" data-aos="fade-up"><br></a>
                 <a href="logged_in_for-each-image.php?productID=<?php echo($Pantalons['id_produit']);?>"><span class="image-lable" data-aos="zoom-in"><?php echo($Pantalons['prod_nom']); ?><br><?php echo($Pantalons['prod_prix']);?> MAD</span></a>
-||||||| 6ad8c94
-                <a href="Logged_in_product_page.php"><img src="Images/boys-dress-1.jpeg" height="200px" style="border-radius:20px;" data-aos="fade-up"><br></a>
-                <a href="Logged_in_product_page.php"><span class="image-lable" data-aos="zoom-in">accessories & tradesional dress<br>117MAD</span></a>
-=======
-                <a href="logged_in_all_top_container.php"><img src="Images/boys-dress-1.jpeg" height="200px" style="border-radius:20px;" data-aos="fade-up"><br></a>
-                <a href="logged_in_all_top_container.php"><span class="image-lable" data-aos="zoom-in">accessories & tradesional dress<br>117MAD</span></a>
->>>>>>> 93925a8108cb7bec1c893122fc707e8914efd388
             </div>
             <?php $Pantalons=$psPantalons->fetch(); ?>
             <div class="col-xl-3 col-lg-3 col-md-4 hide-kids-dress text-center">
-<<<<<<< HEAD
                 <a href="logged_in_for-each-image.php?productID=<?php echo($Pantalons['id_produit']);?>"><img src="productimages/<?php echo($Pantalons['prod_img']);?>" height="200px" style="border-radius:20px;" data-aos="fade-up"><br></a>
                 <a href="logged_in_for-each-image.php?productID=<?php echo($Pantalons['id_produit']);?>"><span class="image-lable" data-aos="zoom-in"><?php echo($Pantalons['prod_nom']); ?><br><?php echo($Pantalons['prod_prix']);?> MAD</span></a>
-||||||| 6ad8c94
-                <a href="Logged_in_product_page.php"><img src="Images/kids-dress-2.jpg" height="200px" style="border-radius:20px;" data-aos="fade-up"><br></a>
-                <a href="Logged_in_product_page.php"><span class="image-lable" data-aos="zoom-in">accessories & tradesional dress<br>117MAD</span></a>
-=======
-                <a href="logged_in_all_top_container.php"><img src="Images/kids-dress-2.jpg" height="200px" style="border-radius:20px;" data-aos="fade-up"><br></a>
-                <a href="logged_in_all_top_container.php"><span class="image-lable" data-aos="zoom-in">accessories & tradesional dress<br>117MAD</span></a>
->>>>>>> 93925a8108cb7bec1c893122fc707e8914efd388
             </div>
             <?php $Pantalons=$psPantalons->fetch(); ?>
             <div class="col-xl-3 col-lg-3 hide-popular text-center">
-<<<<<<< HEAD
                 <a href="logged_in_for-each-image.php?productID=<?php echo($Pantalons['id_produit']);?>"><img src="productimages/<?php echo($Pantalons['prod_img']);?>" height="200px" style="border-radius:20px;" data-aos="fade-up"><br></a>
                 <a href="logged_in_for-each-image.php?productID=<?php echo($Pantalons['id_produit']);?>"><span class="image-lable" data-aos="zoom-in"><?php echo($Pantalons['prod_nom']); ?><br><?php echo($Pantalons['prod_prix']);?> MAD</span></a>
-||||||| 6ad8c94
-                <a href="Logged_in_product_page.php"><img src="Images/boys-dress-2.jpeg" height="200px" style="border-radius:20px;" data-aos="fade-up"><br></a>
-                <a href="Logged_in_product_page.php"><span class="image-lable" data-aos="zoom-in">accessories & tradesional dress<br>117MAD</span></a>
-=======
-                <a href="logged_in_all_top_container.php"><img src="Images/boys-dress-2.jpeg" height="200px" style="border-radius:20px;" data-aos="fade-up"><br></a>
-                <a href="logged_in_all_top_container.php"><span class="image-lable" data-aos="zoom-in">accessories & tradesional dress<br>117MAD</span></a>
->>>>>>> 93925a8108cb7bec1c893122fc707e8914efd388
             </div>
         </div>
     </div>
     <div class="row">
         <div class="col pt-4 pb-5 text-center">
-<<<<<<< HEAD
             <a href="Logged_in_product_page.php?cat=3"><span style="border:3px solid rgb(180, 69, 69);border-radius:10px;padding:1% 2%;background-color:rgb(177, 84, 84);" class="ml-4" data-aos="zoom-in"><span style="font-weight:700;font-size:20px;color:white;text-transform: uppercase;">plus</span><span class="pl-3" style="color:white;"><i class="fa fa-arrow-right" aria-hidden="true"></i></span></span></a>
-||||||| 6ad8c94
-            <a href="Logged_in_product_page.php"><span style="border:3px solid rgb(180, 69, 69);border-radius:10px;padding:1% 2%;background-color:rgb(177, 84, 84);" class="ml-4" data-aos="zoom-in"><span style="font-weight:700;font-size:20px;color:white;text-transform: uppercase;">plus</span><span class="pl-3" style="color:white;"><i class="fa fa-arrow-right" aria-hidden="true"></i></span></span></a>
-=======
-            <a href="logged_in_all_top_container.php"><span style="border:3px solid rgb(180, 69, 69);border-radius:10px;padding:1% 2%;background-color:rgb(177, 84, 84);" class="ml-4" data-aos="zoom-in"><span style="font-weight:700;font-size:20px;color:white;text-transform: uppercase;">plus</span><span class="pl-3" style="color:white;"><i class="fa fa-arrow-right" aria-hidden="true"></i></span></span></a>
->>>>>>> 93925a8108cb7bec1c893122fc707e8914efd388
         </div>
     </div>
 </div>

@@ -36,7 +36,7 @@
     <div class="container mt-4 pb-4">
         <div class="row">
             <div class="col-12 col-xl-6 col-lg-6 col-md-6 col-sm-6 ">
-                <p>© 2020 Copyright:<span style="font-weight:600">MDBootstrap</span></p>
+                <p>© 2022 Copyright:<span style="font-weight:600"> SHOPMEN</span></p>
             </div>
             <div class="col-12 col-xl-6 col-lg-6 col-md-6 col-sm-6 icon-head">
                 <span class="icons-2"><i class="fa fa-facebook" aria-hidden="true"></i></span>

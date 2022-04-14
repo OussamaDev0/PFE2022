@@ -1,3 +1,24 @@
+<?php
+require_once('dbconn.php');
+?>
+<?php
+if(!isset($_GET['productID'])){
+    $code=(int)rand(1,80);
+}else{
+    $code=$_GET['productID'];
+}
+$psProduit=$pdo->prepare("SELECT * FROM produit WHERE id_produit=?");
+$params=array($code);
+$psProduit->execute($params);
+$produit=$psProduit->fetch();
+?>
+<?php
+$categorieProduit=$produit['id_cat'];
+$psCategorie=$pdo->prepare("SELECT * FROM produit ORDER BY RAND() LIMIT 12");//WHERE id_cat=$categorieProduit
+$psCategorie->execute();
+$psRecommande=$pdo->prepare("SELECT * FROM produit ORDER BY RAND() LIMIT 7 ");
+$psRecommande->execute();
+?>
 <html>
 <head>
     <meta charset="utf-8">
@@ -267,67 +288,59 @@
         <div class="col-1">
             <div class="row pt-3 pb-2">
                 <div class="col-xl-12 text-center">
-                    <a href="#/"><img src="Images/for-each-image-1.jpg" height="50px" width="100%" class="zooming"></a>
+                    <a href="#/"><img src="productimages/<?php echo($produit['prod_img']); ?>" height="400px" width="95px" class="zooming"></a>
                 </div>
                 <div class="col-xl-12 mt-3">
-                    <a href="#/"><img src="Images/for-each-image-2.jpg" height="50px" width="100%" class="zooming-1"></a>
+                    <a href="#/"><img src="productimages/<?php echo($produit['prod_img']); ?>" height="50px" width="100px" class="zooming"></a>
                 </div>
                 <div class="col-xl-12 mt-3 front-show">
-                    <a href="#/"><img src="Images/for-each-image-3.jpg" height="55px" width="75%" class="zooming-2"></a>
+                    <a href="#/"><img src="productimages/<?php echo($produit['prod_img']); ?>" height="55px" width="75px" class="zooming-2"></a>
                     <a href="#/"><div style="font-size:25px;z-index:1;color:black;position: absolute;padding-left:20%;" class="pt-1 front-show">+3</div></a>
                 </div>
                 <div class="col-xl-12 mt-3 front-hide">
-                    <a href="#/"><img src="Images/for-each-image-3.jpg" height="50px" width="100%" class="zooming-5"></a>
+                    <a href="#/"><img src="productimages/<?php echo($produit['prod_img']); ?>" height="50px" width="100px" class="zooming-5"></a>
                 </div>
                 <div class="col-xl-12 mt-3 front-hide">
-                    <a href="#/"><img src="Images/for-each-image-5.jpg" height="50px" width="100%" class="zooming-3"></a>
+                    <a href="#/"><img src="productimages/<?php echo($produit['prod_img']); ?>" height="50px" width="100px" class="zooming-3"></a>
                 </div>
                 <div class="col-xl-12 mt-3 front-hide">
-                    <a href="#/"><img src="Images/for-each-image-6.jpg" height="50px" width="100%" class="zooming-4"></a>
+                    <a href="#/"><img src="productimages/<?php echo($produit['prod_img']); ?>" height="50px" width="100px" class="zooming-4"></a>
                 </div>
             </div>
         </div>
         <div class="col-5 text-center zooming-open-head wm-zoom-container my-zoom-1">
             <div class="wm-zoom-box">
-                <img src="Images/for-each-image-1.jpg" height="400px" width="405px" class="wm-zoom-default-img" alt="alternative text" data-hight-src="for-each-image-1.jpg">
+                <img src="productimages/<?php echo($produit['prod_img']); ?>" height="400px" width="405px" class="wm-zoom-default-img" alt="alternative text" data-hight-src="for-each-image-1.jpg">
             </div>
         </div>
         <!--hidden--> <div class="col-5 text-center zooming-open-1 wm-zoom-container my-zoom-1">
             <div class="wm-zoom-box">
-                <img src="Images/for-each-image-2.jpg" height="400px" width="405px" class="wm-zoom-default-img" alt="alternative text" data-hight-src="for-each-image-2.jpg">
+                <img src="productimages/<?php echo($produit['prod_img']); ?>" height="400px" width="405px" class="wm-zoom-default-img" alt="alternative text" data-hight-src="for-each-image-2.jpg">
             </div>
         </div>
         <!--hidden--> <div class="col-5 text-center zooming-open-2">
-            <img src="Images/for-each-image-3.jpg" height="400px" width="95%">
+            <img src="productimages/<?php echo($produit['prod_img']); ?>" height="400px" width="95%">
         </div>
         <!--hidden--> <div class="col-5 text-center zooming-open-3">
-            <img src="Images/for-each-image-5.jpg" height="400px" width="95%">
+            <img src="productimages/<?php echo($produit['prod_img']); ?>" height="400px" width="95%">
         </div>
         <!--hidden--> <div class="col-5 text-center zooming-open-4">
-            <img src="Images/for-each-image-6.jpg" height="400px" width="95%">
+            <img src="productimages/<?php echo($produit['prod_img']); ?>" height="400px" width="95%">
         </div>
         <div class="col-5">
             <div class="row">
                 <div class="col-12 pt-3">
-                    <p style="font-size:25px;font-weight:600">Symbol Men's Solid Regular fit Half Sleeve Polo</p>
+                    <p style="font-size:25px;font-weight:600"><?php echo($produit['prod_nom']) ?></p>
                 </div>
                 <div class="col-12 pl-5">
-                    <p style="font-weight:600;font-size:20px;"> Price:<span style="color:red">&#8377;200.00-&#8377;300.00</span></p>
+                    <p style="font-weight:600;font-size:20px;"> Price:<span style="color:red"> <?php echo($produit['prod_prix']) ?> MAD</span></p>
                 </div>
                 <div class="col-12 pl-5">
                     <p style="font-weight:600;font-size:20px;">size: <span style="border:1px solid;padding:1% 3%" class="ml-3">M</span> <span style="border:1px solid;padding:1% 4%" class="ml-2">L</span> <span style="border:1px solid;padding:1% 3%" class="ml-2">XL</span> <br class="break"><a href="#/" style="color:black" class="ml-3 open-pop-container">size chart <img src="Images/size-icon.png" height="20px"></a></p>
                 </div>
                 <div class="col-12">
-                    <ul>
-                        <li>Care Instructions: hand wash</li>
-                        <li>Fit Type: regular fit</li>
-                        <li>Color:Blue Radiance</li>
-                        <li>60% Polyester and 40% Cotton</li>
-                        <li>Regular fit</li>
-                        <li>Half sleeve</li>
-                        <li>Polo with classic collar</li>
-                        <li>Hand wash</li>
-                    </ul>
+                    <p style="font-weight:600;font-size:20px;"> Description :</p><br>
+                    <p><?php echo($produit['prod_description']) ?></p>
                 </div>
             </div>
         </div>
@@ -434,28 +447,32 @@
             <!--first slider-->
             <div class="carousel-item text-center">
                 <div class="row">
+                    <?php $similar=$psCategorie->fetch(); ?>
                     <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
                         <div class="container" height="250px" width="250px" style="overflow:hidden">
-                            <a href="logged_in_for-each-image.php"><img src="Images/girl.jpg" class="img-men" data-aos="fade-up" style="border-radius:20px;"><br></a>
-                            <a href="logged_in_for-each-image.php"><span class="image-lable" data-aos="fade-up">afordable & tradesional dress<br>$101.00</span></a>
+                            <a href="logged_in_for-each-image.php?productID=<?php echo($similar['id_produit']);?>"><img src="productimages/<?php echo($similar['prod_img']);?>" class="img-men" data-aos="fade-up" style="border-radius:20px;"><br></a>
+                            <a href="logged_in_for-each-image.php?productID=<?php echo($similar['id_produit']);?>"><span class="image-lable" data-aos="fade-up"><?php echo($similar['prod_nom']);?><br><?php echo($similar['prod_prix']);?> MAD</span></a>
                         </div>
                     </div>
+                    <?php $similar=$psCategorie->fetch();?>
                     <div class="col-xl-3 col-lg-4 col-md-6 hide-kids-dress text-center">
                         <div class="container pl-0" height="250px" width="250px" style="overflow:hidden">
-                            <a href="logged_in_for-each-image.php"><img src="Images/men.jpg" class="img-men" style="border-radius:20px;" data-aos="fade-up"><br></a>
-                            <a href="logged_in_for-each-image.php"><span class="image-lable" data-aos="fade-up">plain pink cotton saree<br>$400.00</span></a>
+                            <a href="logged_in_for-each-image.php?productID=<?php echo($similar['id_produit']);?>"><img src="productimages/<?php echo($similar['prod_img']);?>" class="img-men" style="border-radius:20px;" data-aos="fade-up"><br></a>
+                            <a href="logged_in_for-each-image.php?productID=<?php echo($similar['id_produit']);?>"><span class="image-lable" data-aos="fade-up"><?php echo($similar['prod_nom']);?><br><?php echo($similar['prod_prix']);?> MAD</span></a>
                         </div>
                     </div>
+                    <?php $similar=$psCategorie->fetch();?>
                     <div class="col-xl-3 col-lg-4 hide-lady-1">
                         <div class="container pl-0" height="250px" width="250px" style="overflow:hidden">
-                            <a href="logged_in_for-each-image.php"><img src="Images/girl.jpg" class="img-men" style="border-radius:20px;" data-aos="fade-up"></a>
-                            <a href="logged_in_for-each-image.php"><span class="image-lable" data-aos="fade-up">plain pink cotton saree<br>$101.00</span></a>
+                            <a href="logged_in_for-each-image.php?productID=<?php echo($similar['id_produit']);?>"><img src="productimages/<?php echo($similar['prod_img']);?>" class="img-men" style="border-radius:20px;" data-aos="fade-up"></a>
+                            <a href="logged_in_for-each-image.php?productID=<?php echo($similar['id_produit']);?>"><span class="image-lable" data-aos="fade-up"><?php echo($similar['prod_nom']);?><br><?php echo($similar['prod_prix']);?> MAD</span></a>
                         </div>
                     </div>
+                    <?php $similar=$psCategorie->fetch();?>
                     <div class="col-xl-3 hide-lady">
                         <div class="container pl-0" height="250px" width="250px" style="overflow:hidden">
-                            <a href="logged_in_for-each-image.php"><img src="Images/men.jpg" class="img-men" style="border-radius:20px;" data-aos="fade-up"></a>
-                            <a href="logged_in_for-each-image.php"><span class="image-lable" data-aos="fade-up">plain pink cotton saree<br>$400.00</span></a>
+                            <a href="logged_in_for-each-image.php?productID=<?php echo($similar['id_produit']);?>"><img src="productimages/<?php echo($similar['prod_img']);?>" class="img-men" style="border-radius:20px;" data-aos="fade-up"></a>
+                            <a href="logged_in_for-each-image.php?productID=<?php echo($similar['id_produit']);?>"><span class="image-lable" data-aos="fade-up"><?php echo($similar['prod_nom']);?><br><?php echo($similar['prod_prix']);?> MAD</span></a>
                         </div>
                     </div>
                 </div>
@@ -463,28 +480,32 @@
             <!--second-slider-->
             <div class="carousel-item text-center">
                 <div class="row">
+                    <?php $similar=$psCategorie->fetch();?>
                     <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
                         <div class="container" height="250px" width="250px" style="overflow:hidden">
-                            <a href="logged_in_for-each-image.php"><img src="Images/men-1.jpg" class="img-men" data-aos="fade-up" style="border-radius:20px;"><br></a>
-                            <a href="logged_in_for-each-image.php"><span class="image-lable" data-aos="fade-up">accessories & tradesional dress<br>$117.00</span></a>
+                            <a href="logged_in_for-each-image.php?productID=<?php echo($similar['id_produit']);?>"><img src="productimages/<?php echo($similar['prod_img']);?>" class="img-men" data-aos="fade-up" style="border-radius:20px;"><br></a>
+                            <a href="logged_in_for-each-image.php?productID=<?php echo($similar['id_produit']);?>"><span class="image-lable" data-aos="fade-up"><?php echo($similar['prod_nom']);?><br><?php echo($similar['prod_prix']);?> MAD</span></a>
                         </div>
                     </div>
+                    <?php $similar=$psCategorie->fetch();?>
                     <div class="col-xl-3 col-lg-4 col-md-6 hide-kids-dress text-center">
                         <div class="container pl-0" height="250px" width="250px" style="overflow:hidden">
-                            <a href="logged_in_for-each-image.php"><img src="Images/blazers.jpg" class="img-men" style="border-radius:20px;" data-aos="fade-up"><br></a>
-                            <a href="logged_in_for-each-image.php"><span class="image-lable" data-aos="fade-up">men's black sweatshirt<br>$60.00</span></a>
+                            <a href="logged_in_for-each-image.php?productID=<?php echo($similar['id_produit']);?>"><img src="productimages/<?php echo($similar['prod_img']);?>" class="img-men" style="border-radius:20px;" data-aos="fade-up"><br></a>
+                            <a href="logged_in_for-each-image.php?productID=<?php echo($similar['id_produit']);?>"><span class="image-lable" data-aos="fade-up"><?php echo($similar['prod_nom']);?><br><?php echo($similar['prod_prix']);?> MAD</span></a>
                         </div>
                     </div>
+                    <?php $similar=$psCategorie->fetch();?>
                     <div class="col-xl-3 col-lg-4 hide-lady-1">
                         <div class="container pl-0" height="250px" width="250px" style="overflow:hidden">
-                            <a href="logged_in_for-each-image.php"><img src="Images/men-1.jpg" class="img-men" style="border-radius:20px;" data-aos="fade-up"></a>
-                            <a href="logged_in_for-each-image.php"><span class="image-lable" data-aos="fade-up">accessories & tradesional dress<br>$117.00</span></a>
+                            <a href="logged_in_for-each-image.php?productID=<?php echo($similar['id_produit']);?>"><img src="productimages/<?php echo($similar['prod_img']);?>" class="img-men" style="border-radius:20px;" data-aos="fade-up"><br></a>
+                            <a href="logged_in_for-each-image.php?productID=<?php echo($similar['id_produit']);?>"><span class="image-lable" data-aos="fade-up"><?php echo($similar['prod_nom']);?><br><?php echo($similar['prod_prix']);?> MAD</span></a>
                         </div>
                     </div>
+                    <?php $similar=$psCategorie->fetch();?>
                     <div class="col-xl-3 hide-lady">
                         <div class="container pl-0" height="250px" width="250px" style="overflow:hidden">
-                            <a href="logged_in_for-each-image.php"><img src="Images/blazers.jpg" class="img-men" style="border-radius:20px;" data-aos="fade-up"></a>
-                            <a href="logged_in_for-each-image.php"><span class="image-lable" data-aos="fade-up">men's black sweatshirt<br>$60.00</span></a>
+                            <a href="logged_in_for-each-image.php?productID=<?php echo($similar['id_produit']);?>"><img src="productimages/<?php echo($similar['prod_img']);?>" class="img-men" style="border-radius:20px;" data-aos="fade-up"><br></a>
+                            <a href="logged_in_for-each-image.php?productID=<?php echo($similar['id_produit']);?>"><span class="image-lable" data-aos="fade-up"><?php echo($similar['prod_nom']);?><br><?php echo($similar['prod_prix']);?> MAD</span></a>
                         </div>
                     </div>
                 </div>
@@ -492,28 +513,32 @@
             <!--third slider-->
             <div class="carousel-item active text-center">
                 <div class="row">
+                    <?php $similar=$psCategorie->fetch();?>
                     <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
                         <div class="container" height="250px" width="250px" style="overflow:hidden">
-                            <a href="logged_in_for-each-image.php"><img src="Images/kids.jpg" class="img-men" data-aos="fade-up" style="border-radius:20px;"><br></a>
-                            <a href="logged_in_for-each-image.php"><span class="image-lable" data-aos="fade-up">toddler children's dress<br>$203.00</span></a>
+                            <a href="logged_in_for-each-image.php?productID=<?php echo($similar['id_produit']);?>"><img src="productimages/<?php echo($similar['prod_img']);?>" class="img-men" style="border-radius:20px;" data-aos="fade-up"><br></a>
+                            <a href="logged_in_for-each-image.php?productID=<?php echo($similar['id_produit']);?>"><span class="image-lable" data-aos="fade-up"><?php echo($similar['prod_nom']);?><br><?php echo($similar['prod_prix']);?> MAD</span></a>
                         </div>
                     </div>
+                    <?php $similar=$psCategorie->fetch();?>
                     <div class="col-xl-3 col-lg-4 col-md-6 hide-kids-dress text-center">
                         <div class="container pl-0" height="250px" width="250px" style="overflow:hidden">
-                            <a href="logged_in_for-each-image.php"><img src="Images/boys-kids.jpg" class="img-men" style="border-radius:20px;" data-aos="fade-up"><br></a>
-                            <a href="logged_in_for-each-image.php"><span class="image-lable" data-aos="fade-up">boys flower print shirt<br>$320.00</span></a>
+                            <a href="logged_in_for-each-image.php?productID=<?php echo($similar['id_produit']);?>"><img src="productimages/<?php echo($similar['prod_img']);?>" class="img-men" style="border-radius:20px;" data-aos="fade-up"><br></a>
+                            <a href="logged_in_for-each-image.php?productID=<?php echo($similar['id_produit']);?>"><span class="image-lable" data-aos="fade-up"><?php echo($similar['prod_nom']);?><br><?php echo($similar['prod_prix']);?> MAD</span></a>
                         </div>
                     </div>
+                    <?php $similar=$psCategorie->fetch();?>
                     <div class="col-xl-3 col-lg-4 hide-lady-1">
                         <div class="container pl-0" height="250px" width="250px" style="overflow:hidden">
-                            <a href="logged_in_for-each-image.php"><img src="Images/girl (2).jpg" class="img-men" style="border-radius:20px;" data-aos="fade-up"></a>
-                            <a href="logged_in_for-each-image.php"><span class="image-lable" data-aos="fade-up">girls flower print skirt<br>$400.00</span></a>
+                            <a href="logged_in_for-each-image.php?productID=<?php echo($similar['id_produit']);?>"><img src="productimages/<?php echo($similar['prod_img']);?>" class="img-men" style="border-radius:20px;" data-aos="fade-up"><br></a>
+                            <a href="logged_in_for-each-image.php?productID=<?php echo($similar['id_produit']);?>"><span class="image-lable" data-aos="fade-up"><?php echo($similar['prod_nom']);?><br><?php echo($similar['prod_prix']);?> MAD</span></a>
                         </div>
                     </div>
+                    <?php $similar=$psCategorie->fetch();?>
                     <div class="col-xl-3 hide-lady">
                         <div class="container pl-0" height="250px" width="250px" style="overflow:hidden">
-                            <a href="logged_in_for-each-image.php"><img src="Images/boys-kids-1.jpg" class="img-men" style="border-radius:20px;" data-aos="fade-up"></a>
-                            <a href="logged_in_for-each-image.php"><span class="image-lable" data-aos="fade-up">formal black toxedo dress suits<br>$117.00</span></a>
+                            <a href="logged_in_for-each-image.php?productID=<?php echo($similar['id_produit']);?>"><img src="productimages/<?php echo($similar['prod_img']);?>" class="img-men" style="border-radius:20px;" data-aos="fade-up"><br></a>
+                            <a href="logged_in_for-each-image.php?productID=<?php echo($similar['id_produit']);?>"><span class="image-lable" data-aos="fade-up"><?php echo($similar['prod_nom']);?><br><?php echo($similar['prod_prix']);?> MAD</span></a>
                         </div>
                     </div>
                 </div>
@@ -525,38 +550,16 @@
 <div class="container" style="height:80vh">
     <div class="row">
         <div class="col-sm-12 text-center pt-5">
-            <a href="logged_in_for-each-image.php"><span style="text-transform: uppercase;font-weight: 700;font-size:30px;">recommend</span></a>
+            <a href="for-each-image.php"><span style="text-transform: uppercase;font-weight: 700;font-size:30px;">recommend</span></a>
         </div>
     </div>
     <div class="row single-slider pt-5">
-        <div class="col text-center">
-            <a href="logged_in_for-each-image.php"><span style="display:flex;justify-content: center;"><img src="Images/boys-dress-1.jpeg" height="250px" style="background-color:black"></span></a>
-            <a href="logged_in_for-each-image.php"><span class="image-lable">tradesional dress<br>&#8377;180.00</span></a>
-        </div>
-        <div class="col  text-center">
-            <a href="logged_in_for-each-image.php"><span style="display:flex;justify-content: center;"><img src="Images/mens-dress-2.jpg" height="250px"></span></a>
-            <a href="logged_in_for-each-image.php"><span class="image-lable">tradesional dress<br>&#8377;180.00</span></a>
-        </div>
-        <div class="col  text-center">
-            <a href="logged_in_for-each-image.php"><span style="display:flex;justify-content: center;"><img src="Images/ladies-dress-1.jpg" height="250px"></span></a>
-            <a href="logged_in_for-each-image.php"><span class="image-lable">tradesional dress<br>&#8377;180.00</span></a>
-        </div>
-        <div class="col text-center">
-            <a href="logged_in_for-each-image.php"><span style="display:flex;justify-content: center;"><img src="Images/mens-dress-4.jpg" height="250px"></span></a>
-            <a href="logged_in_for-each-image.php"><span class="image-lable">tradesional dress<br>&#8377;180.00</span></a>
-        </div>
-        <div class="col  text-center">
-            <a href="logged_in_for-each-image.php"><span style="display:flex;justify-content: center;"><img src="Images/ladies-dress-2.jpg" height="250px"></span></a>
-            <a href="logged_in_for-each-image.php"><span class="image-lable">tradesional dress<br>&#8377;180.00</span></a>
-        </div>
-        <div class="col text-center">
-            <a href="logged_in_for-each-image.php"><span style="display:flex;justify-content: center;"><img src="Images/mens-dress-3.jpg" height="250px"></span></a>
-            <a href="logged_in_for-each-image.php"><span class="image-lable">tradesional dress<br>&#8377;180.00</span></a>
-        </div>
-        <div class="col  text-center">
-            <a href="logged_in_for-each-image.php"><span style="display:flex;justify-content: center;"><img src="Images/ladies-dress-3.jpg" height="250px"></span></a>
-            <a href="logged_in_for-each-image.php"><span class="image-lable">tradesional dress<br>&#8377;180.00</span></a>
-        </div>
+        <?php while($recommande=$psRecommande->fetch()) { ?>
+            <div class="col text-center">
+                <a href="logged_in_for-each-image.php?productID=<?php echo($recommande['id_produit']);?>"><span style="display:flex;justify-content: center;"><img src="productimages/<?php echo($recommande['prod_img']);?>" height="250px" style="background-color:black"></span></a>
+                <a href="logged_in_for-each-image.php?productID=<?php echo($recommande['id_produit']);?>"><span class="image-lable"><?php echo($recommande['prod_nom']);?><br><?php echo($recommande['prod_prix']);?> MAD</span></a>
+            </div>
+        <?php } ?>
     </div>
 </div>
 <!--recommend end-->
