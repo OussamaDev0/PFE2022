@@ -1,3 +1,7 @@
+<?php
+require_once ('dbconn.php');
+
+?>
 <html>
 <head>
     <meta charset="utf-8">

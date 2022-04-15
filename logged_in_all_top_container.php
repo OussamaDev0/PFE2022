@@ -55,15 +55,34 @@ if(isset($_GET['cat'])){
 ?>
 <?php
 require_once('dbconn.php');
-    if(isset($_GET['motcle'])){
+$mc="";
+$size=10;
+if(isset($_GET['page'])){
+    $page=$_GET['page'];
+}
+else{
+    $page=0;
+}
+$offset=$size*$page;
+if(isset($_GET['motcle'])){
         $mc=$_GET['motcle'];
-        $req="SELECT * FROM produit WHERE prod_nom LIKE '%$mc%'";
+        $req="SELECT * FROM produit WHERE prod_nom LIKE '%$mc%' LIMIT $size OFFSET $offset ";
     }
     else{
-        $req="SELECT * FROM produit ";
+        $req="SELECT * FROM produit LIMIT $size OFFSET $offset ";
     }
     $ps=$pdo->prepare($req);
     $ps->execute();
+    if(isset($_GET['motcle']))
+    $pss=$pdo->prepare("SELECT COUNT(*) AS NB FROM produit where prod_nom LIKE '%$mc%' ");
+    else
+        $pss=$pdo->prepare("SELECT COUNT(*) AS NB FROM produit");
+    $pss->execute();
+    $ligne=$pss->fetch(PDO::FETCH_ASSOC);
+    $NBP=$ligne['NB'];
+    if(($NBP % $size)==0)  $Nbpages=floor($NBP / $size);
+    else $Nbpages=floor($NBP / $size) + 1;
+
 ?>
 <html>
 <head>
@@ -346,18 +365,17 @@ require_once('dbconn.php');
 
                 <!--Catégorie: Chaussures end -->
                 <!--pagination-->
-                <div class="row next-page-header pt-5">
-                    <div class="col next-page" style="z-index: 0;">
-                        <ul class="pagination" style="display: flex;justify-content: center;">
-                            <li class="page-item prev"><a class="page-link" href="#/"  style="color:black">Previous</a></li>
-                            <li class="page-item open-content-one-hundred" id="one-hundred"><a class="page-link" href="#/"  style="color:black">1</a></li>
-                            <li class="page-item open-content-two-hundred active"><a class="page-link" href="#/"  style="color:black">2</a></li>
-                            <li class="page-item open-content-three-hundred"><a class="page-link" href="#/"  style="color:black">3</a></li>
-                            <li class="page-item open-content-four-hundred"><a class="page-link" href="#/"  style="color:black">4</a></li>
-                            <li class="page-item open-content-five-hundred"><a class="page-link" href="#/"  style="color:black">5</a></li>
-                            <li class="page-item next"><a class="page-link" href="#/"  style="color:black">Next</a></li>
-                        </ul>
-                    </div>
+                <div id="pagination">
+                    <div >
+                        <div >
+                            <ul class="nav nav-pills" style="display: flex;justify-content: center;">
+                                <?php for ($i=0;$i<$Nbpages;$i++) { ?>
+                                    <li class="<?php echo(($i==$page)?'active':'')?>"
+                                    <a  href="logged_in_all_top_container.php?page=<?php echo($i)?>&motcle=<?php echo($mc)?>"  style="color:black"><?php echo($i)?></a>
+                                    </li>
+                                <?php } ?>
+                            </ul>
+                        </div>
                 </div>
                 <!--pagination-->
                 <!--500-600 page end-->
@@ -728,13 +746,11 @@ require_once('dbconn.php');
     <div class="row next-page-header pt-5">
         <div class="col next-page" style="z-index: 0;">
             <ul class="pagination" style="display: flex;justify-content: center;">
-                <li class="page-item prev"><a class="page-link" href="#/"  style="color:black">Previous</a></li>
-                <li class="page-item open-small-content-one-hundred "><a class="page-link" href="#/"  style="color:black">1</a></li>
-                <li class="page-item open-small-content-five-hundred active "><a class="page-link" href="#/"  style="color:black">2</a></li>
-                <li class="page-item open-small-content-three-hundred"><a class="page-link" href="#/"  style="color:black">3</a></li>
-                <li class="page-item open-small-content-four-hundred "><a class="page-link" href="#/"  style="color:black">4</a></li>
-                <li class="page-item open-small-content-five-hundred "><a class="page-link" href="#/"  style="color:black">5</a></li>
-                <li class="page-item next"><a class="page-link" href="#/"  style="color:black">Next</a></li>
+                <?php for ($i=0;$i<$Nbpages;$i++) { ?>
+                <li class="<?php echo(($i==$page)?'page-item open-small-content-five-hundred active':'page-item open-small-content-one-hundred ')?>"
+                    <a class="page-link" href="logged_in_all_top_container.php?page=<?php echo($i)?>&motcle=<?php echo($mc)?>"  style="color:black"><?php echo($i)?></a>
+                </li>
+                <?php } ?>
             </ul>
         </div>
     </div>
