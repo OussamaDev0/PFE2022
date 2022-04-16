@@ -350,7 +350,12 @@ $produit=$psProduit->fetch();
             <span style="visibility: hidden;;">hello user</span>
         </div>
         <div class="col-6 pl-5 text-white">
+            <form method="post" action="AddCaddie.php">
+                <input type="hidden" name="prod_img" value="<?php echo($produit['prod_img']); ?>">
+                <input type="hidden" name="prod_nom" value="<?php echo($produit['prod_nom']); ?>">
+                <input type="hidden" name="prod_prix" value="<?php echo($produit['prod_prix']); ?>">
             <a href="login-form.php" style="color:white"><span style="width:30%;border:1px solid;padding:2% 5%;text-transform: uppercase;font-size:15px;font-weight:600;background-color:rgb(255, 174, 0);border-radius:10px;"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span class="ml-2">add to card</span></span></a>
+            </form>
             <a href="login-form.php" style="color:white"><span style="width:30%;border:1px solid;padding:2% 5%;text-transform: uppercase;font-size:15px;font-weight:600;background-color:orangered;border-radius:10px;" class="ml-3"><i class="fa fa-bolt" aria-hidden="true"></i><span class="ml-2"> buy now</span></span></a>
         </div>
     </div>

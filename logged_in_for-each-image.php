@@ -345,15 +345,40 @@ $psRecommande->execute();
             </div>
         </div>
     </div>
+    <form action="AddCaddie.php" method="post">
+        <div class="col-6 pl-5 text-bold">
+        <label>Quantité : </label>
+        <select name="qte" class="custom-select mt-2 third text-center">
+            <option selected>1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+        </select>
+            <input type="hidden" name="id" value="<?php echo $code; ?>">
+        </div>
     <div class="row pt-2">
         <div class="col-6">
             <span style="visibility: hidden;;">hello user</span>
         </div>
+
+
         <div class="col-6 pl-5 text-white">
-            <a href="cart.php" style="color:white"><span style="width:30%;border:1px solid;padding:2% 5%;text-transform: uppercase;font-size:15px;font-weight:600;background-color:rgb(255, 174, 0);border-radius:10px;"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span class="ml-2">add to card</span></span></a>
+
+            <button style="color:white" type="submit"> <span style="width:30%;border:1px solid;padding:2% 5%;text-transform: uppercase;font-size:15px;font-weight:600;background-color:rgb(255, 174, 0);border-radius:10px;"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span class="ml-2">add to card</span></span> </button>
+
+
+       <!--     <a href="cart.php" style="color:white"><span style="width:30%;border:1px solid;padding:2% 5%;text-transform: uppercase;font-size:15px;font-weight:600;background-color:rgb(255, 174, 0);border-radius:10px;"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span class="ml-2">add to card</span></span></a> -->
             <a href="payment.php" style="color:white"><span style="width:30%;border:1px solid;padding:2% 5%;text-transform: uppercase;font-size:15px;font-weight:600;background-color:orangered;border-radius:10px;" class="ml-3"><i class="fa fa-bolt" aria-hidden="true"></i><span class="ml-2"> buy now</span></span></a>
         </div>
+
     </div>
+    </form>
     <div class="rows pb-5">
         <div class="col">
             <span style="visibility:hidden;">hello user</span>

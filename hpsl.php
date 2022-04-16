@@ -1,3 +1,4 @@
+<?php //session_start(); ?>
 <div class="container-fluid text-white" id="change-color">
     <div class="row" id="top-containt">
         <div class="col-4 text-center">
@@ -10,7 +11,8 @@
             </span>
             <ul class="dropdown-menu mt-4 text-center" style="margin-left:-6%;border-radius:10px;">
                 <li class="pre-profile-1 pt-2 pb-2"><a href="#/" class="color" style="font-weight:600">Historique des commandes</a></li>
-                <li class="pre-profile-1 pt-2 pb-2"><a href="#/" class="color" style="font-weight:600">Changer le mot de passe</a></li>
+                <li class="pre-profile-1 pt-2 pb-2"><a href="cart.php?panier=1" class="color" style="font-weight:600">Panier</a></li>
+                <?php if(isset($_SESSION['ROLE_USER'])){} ?>
                 <li class="pre-profile-1 pt-2 pb-2"><a href="#/" class="color" style="font-weight:600">Mettre à jour le profil</a></li>
                 <li class="pre-profile-1 pt-2 pb-2"><a href="ecommerce.php" class="color" style="font-weight:600">Se déconnecter</a></li>
             </ul>

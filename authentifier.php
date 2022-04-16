@@ -1,4 +1,6 @@
-<?php require_once('dbconn.php'); ?>
+<?php require_once('dbconn.php');
+    require_once 'Classes/Panier.php';
+?>
 <?php
     if ($_SERVER["REQUEST_METHOD"] == "POST"){
             $login=$_POST['EMAIL'];
@@ -9,6 +11,7 @@
                 if($user=$ps->fetch()){
                     session_start();
                     $_SESSION['PROFILE']=$user;
+                   // $_SESSION['Panier']= new Panier("Produits",$user['id_user']);
                     header("location:login-ecommerce.php");
                 }
                 else{

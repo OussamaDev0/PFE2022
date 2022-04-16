@@ -1,1 +1,9 @@
-commpilllleeerrrrr
+       <div >
+            <ul class="nav nav-pills" style="display: flex;justify-content: center;">
+                <?php for ($i=0;$i<$Nbpages;$i++) { ?>
+                <li class="<?php echo(($i==$page)?'active':'')?>"
+                    <a  href="logged_in_all_top_container.php?page=<?php echo($i)?>&motcle=<?php echo($mc)?>"  style="color:black"><?php echo($i)?></a>
+                </li>
+                <?php } ?>
+            </ul>
+        </div>
