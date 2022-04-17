@@ -1,4 +1,5 @@
 <?php
+require_once 'securityProfile.php';
 session_start();
 require_once ('dbconn.php');
 require_once 'Classes/Panier.php';

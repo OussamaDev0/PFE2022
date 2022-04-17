@@ -1,3 +1,4 @@
+<?php require_once 'securityProfile.php'; ?>
 <?php require_once('dbconn.php'); ?>
 <?php
     $psPopulaire=$pdo->prepare("SELECT * FROM produit ORDER BY RAND() LIMIT 8");
@@ -11,6 +12,7 @@
     $psChaussures=$pdo->prepare("SELECT * FROM produit WHERE id_cat=7 ORDER BY RAND() LIMIT 5");
     $psChaussures->execute();
 ?>
+
 <html>
 <head>
     <meta charset="utf-8">

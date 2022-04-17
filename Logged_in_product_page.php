@@ -1,3 +1,4 @@
+<?php require_once 'securityProfile.php'; ?>
 <?php
 require_once('dbconn.php'); //inclusion de connexion avec data base
 $req ="SELECT * FROM produit LIMIT 16";

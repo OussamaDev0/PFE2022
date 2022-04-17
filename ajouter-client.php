@@ -1,3 +1,4 @@
+<?php require_once 'securityProfile.php'; ?>
 <?php
     require_once 'dbconn.php';
     session_start();

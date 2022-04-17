@@ -1,3 +1,4 @@
+<?php require_once 'securityProfile.php'; ?>
 <?php
     session_start();
     $iduser=$_SESSION['PROFILE']['id_user'];
@@ -80,7 +81,7 @@
                         <?php } } ?>
                         <div class="row">
                             <div class="col pr-5 text-right">
-                                <p><button style="text-transform: uppercase;padding:2% 5%;background-color: tomato;color:white;border-color:transparent" data-toggle="collapse" data-target="#collapseTwo,#payment-option"><a href="payment.html" style="color: white;">Passer la commande</a></button></p>
+                                <p><button style="text-transform: uppercase;padding:2% 5%;background-color: tomato;color:white;border-color:transparent" data-toggle="collapse" data-target="#collapseTwo,#payment-option"><a href="payment.php" style="color: white;">Passer la commande</a></button></p>
                             </div>
                         </div>
                     </div>

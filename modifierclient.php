@@ -1,3 +1,4 @@
+<?php require_once 'securityProfile.php'; ?>
 <?php
     if(isset($_GET['id'])){
         require_once 'dbconn.php';

@@ -1,3 +1,11 @@
+<?php require_once 'securityProfile.php'; ?>
+<?php
+    session_start();
+    require_once 'dbconn.php';
+    $idUser=$_SESSION['PROFILE']['id_user'];
+    $requetClient=$pdo->prepare("SELECT * FROM client WHERE id_user=?");
+    $requetClient->execute([$idUser]);
+?>
 <html>
 <head>
     <meta charset="utf-8">
@@ -36,6 +44,7 @@
                     </div>
                     <div id="collapseOne" class="collapse" data-parent="#accordion">
                         <div class="card-body">
+
                             <div class="row pl-3 ">
                                 <div class="col-6 ">
                                     <input type="radio" class="hide-for-front" name="address" checked>&nbsp;&nbsp;&nbsp;&nbsp;<span style="text-transform:uppercase;font-size:15px;">username</span>
