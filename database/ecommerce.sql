@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : sam. 02 avr. 2022 à 18:59
+-- Généré le : dim. 17 avr. 2022 à 21:42
 -- Version du serveur : 5.7.36
 -- Version de PHP : 7.4.26
 
@@ -46,6 +46,33 @@ INSERT INTO `categorie_prod` (`id_cat`, `cat_libelle`) VALUES
 (5, 'shorts'),
 (6, 'jeans'),
 (7, 'chaussures');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `client`
+--
+
+DROP TABLE IF EXISTS `client`;
+CREATE TABLE IF NOT EXISTS `client` (
+  `id_client` int(11) NOT NULL AUTO_INCREMENT,
+  `cli_nom` varchar(20) NOT NULL,
+  `cli_prenom` varchar(20) NOT NULL,
+  `cli_adresse` varchar(50) NOT NULL,
+  `cli_tel` varchar(12) NOT NULL,
+  `id_ville` int(10) NOT NULL,
+  `id_user` int(10) NOT NULL,
+  PRIMARY KEY (`id_client`),
+  KEY `foreign5` (`id_user`),
+  KEY `foreign6` (`id_ville`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `client`
+--
+
+INSERT INTO `client` (`id_client`, `cli_nom`, `cli_prenom`, `cli_adresse`, `cli_tel`, `id_ville`, `id_user`) VALUES
+(2, 'Kharkhach', 'Ahmed', '111 Rue 6 Alqods', '0623655637', 6, 2);
 
 -- --------------------------------------------------------
 
@@ -214,12 +241,16 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
   `user_password` varchar(120) NOT NULL,
   `user_nom` varchar(20) NOT NULL,
   `user_prenom` varchar(20) NOT NULL,
-  `user_adresse` varchar(40) NOT NULL,
-  `user_tel` varchar(12) NOT NULL,
-  `id_ville` int(11) NOT NULL,
-  PRIMARY KEY (`id_user`),
-  KEY `etrangere` (`id_ville`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  PRIMARY KEY (`id_user`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `utilisateur`
+--
+
+INSERT INTO `utilisateur` (`id_user`, `user_email`, `user_password`, `user_nom`, `user_prenom`) VALUES
+(2, 'ossamakharkhach@gmail.com', 'b3311005b6b7843c34df8c3e32a98d7f', 'KHARKHACH', 'OSSAMA'),
+(3, 'karimkasmi@gmail.com', '2167a6ac80340b69f3b05b800417d6c7', 'kasmi', 'karim');
 
 -- --------------------------------------------------------
 
@@ -234,11 +265,26 @@ CREATE TABLE IF NOT EXISTS `ville` (
   `ville_nom` varchar(20) NOT NULL,
   `ville_nom_reg` varchar(20) NOT NULL,
   PRIMARY KEY (`id_ville`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `ville`
+--
+
+INSERT INTO `ville` (`id_ville`, `ville_cp`, `ville_nom`, `ville_nom_reg`) VALUES
+(5, '63254', 'BERKANE', 'Oriental'),
+(6, '20092', 'Oujda', 'Oriental');
 
 --
 -- Contraintes pour les tables déchargées
 --
+
+--
+-- Contraintes pour la table `client`
+--
+ALTER TABLE `client`
+  ADD CONSTRAINT `foreign5` FOREIGN KEY (`id_user`) REFERENCES `utilisateur` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `foreign6` FOREIGN KEY (`id_ville`) REFERENCES `ville` (`id_ville`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Contraintes pour la table `commande`
@@ -264,12 +310,6 @@ ALTER TABLE `produit`
 --
 ALTER TABLE `produit_images`
   ADD CONSTRAINT `foreign4` FOREIGN KEY (`produit_id`) REFERENCES `produit` (`id_produit`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Contraintes pour la table `utilisateur`
---
-ALTER TABLE `utilisateur`
-  ADD CONSTRAINT `etrangere` FOREIGN KEY (`id_ville`) REFERENCES `ville` (`id_ville`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
