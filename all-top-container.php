@@ -53,6 +53,36 @@ $psAliatoire->execute();
         $cat=$_GET['cat'];
     }else { $cat=200;}
 ?>
+<?php
+$mc="";
+$size=10;
+if(isset($_GET['page'])){
+    $page=$_GET['page'];
+}
+else{
+    $page=0;
+}
+$offset=$size*$page;
+if(isset($_GET['motcle'])){
+    $mc=$_GET['motcle'];
+    $req="SELECT * FROM produit WHERE prod_nom LIKE '%$mc%' LIMIT $size OFFSET $offset ";
+}
+else{
+    $req="SELECT * FROM produit LIMIT $size OFFSET $offset ";
+}
+$ps=$pdo->prepare($req);
+$ps->execute();
+if(isset($_GET['motcle']))
+    $pss=$pdo->prepare("SELECT COUNT(*) AS NB FROM produit where prod_nom LIKE '%$mc%' ");
+else
+    $pss=$pdo->prepare("SELECT COUNT(*) AS NB FROM produit");
+$pss->execute();
+$ligne=$pss->fetch(PDO::FETCH_ASSOC);
+$NBP=$ligne['NB'];
+if(($NBP % $size)==0)  $Nbpages=floor($NBP / $size);
+else $Nbpages=floor($NBP / $size) + 1;
+
+?>
 <html>
 <head>
     <meta charset="utf-8">
@@ -334,20 +364,19 @@ $psAliatoire->execute();
 
                 <!--Catégorie: Chaussures end -->
                 <!--pagination-->
-                <div class="row next-page-header pt-5">
-                    <div class="col next-page" style="z-index: 0;">
-                        <ul class="pagination" style="display: flex;justify-content: center;">
-                            <li class="page-item prev"><a class="page-link" href="#/"  style="color:black">Previous</a></li>
-                            <li class="page-item open-content-one-hundred" id="one-hundred"><a class="page-link" href="#/"  style="color:black">1</a></li>
-                            <li class="page-item open-content-two-hundred active"><a class="page-link" href="#/"  style="color:black">2</a></li>
-                            <li class="page-item open-content-three-hundred"><a class="page-link" href="#/"  style="color:black">3</a></li>
-                            <li class="page-item open-content-four-hundred"><a class="page-link" href="#/"  style="color:black">4</a></li>
-                            <li class="page-item open-content-five-hundred"><a class="page-link" href="#/"  style="color:black">5</a></li>
-                            <li class="page-item next"><a class="page-link" href="#/"  style="color:black">Next</a></li>
-                        </ul>
+                <div id="pagination">
+                    <div >
+                        <div >
+                            <ul class="pagination" style="display: flex;justify-content: center;">
+                                <?php for ($i=0;$i<$Nbpages;$i++) { ?>
+                                    <li class="page-item <?php if($page==$i) echo("active") ?>">
+                                        <a class="page-link"  href="logged_in_all_top_container.php?page=<?php echo($i)?>&motcle=<?php echo($mc)?>"  style="color:black"><?php echo($i)?></a>
+                                    </li>
+                                <?php } ?>
+                            </ul>
+                        </div>
                     </div>
-                </div>
-                <!--pagination-->
+                    <!--pagination-->
                 <!--500-600 page end-->
             </div>
         </div>

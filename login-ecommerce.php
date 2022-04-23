@@ -27,8 +27,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="Plugins/slick-master/slick/slick.css"/>
     <link rel="stylesheet" type="text/css" href="Plugins/slick-master/slick/slick-theme.css"/>
+
     <script type="text/javascript" src="Plugins/slick-master/slick/slick.min.js"></script>
     <style>
+        #change-color {
+            position: absolute;
+        }
         .hide-slider{display:none}
         @media screen and (max-width:991px){
             .hide-slider{display:block}

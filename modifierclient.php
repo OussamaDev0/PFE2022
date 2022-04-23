@@ -56,7 +56,7 @@
         <div class="col-md-5 border-right">
             <div class="p-3 py-5">
                 <div class="d-flex justify-content-between align-items-center mb-3">
-                    <h4 class="text-right">Modifier Un Client</h4>
+                    <h4 class="text-right">Modifier Un Adresse</h4>
                 </div>
                 <form action="update-client.php" method="post">
                     <div class="row mt-2">

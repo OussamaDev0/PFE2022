@@ -23,6 +23,8 @@
     <meta charset="utf-8">
     <title>profile: <?php echo $profilPrenom." ".$profilNom ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="CSS_files/login-form.css">
+    <script src="JS_files/profile.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -35,6 +37,7 @@
     <link rel="stylesheet" type="text/css" href="Plugins/slick-master/slick/slick.css"/>
     <link rel="stylesheet" type="text/css" href="Plugins/slick-master/slick/slick-theme.css"/>
     <script type="text/javascript" src="Plugins/slick-master/slick/slick.min.js"></script>
+    <script src="JS_files/profile.js"></script>
     <style>
         .hide-slider{display:none}
         @media screen and (max-width:991px){
@@ -58,12 +61,18 @@
                 </div>
                 <form action="save-profile-settings.php" method="post">
                 <div class="row mt-2">
-                    <div class="col-md-6"><label class="labels">Prénom</label><input name="PRENOM" type="text" class="form-control" placeholder="Prenom" value="<?php echo $profilPrenom ;?>"></div>
-                    <div class="col-md-6"><label class="labels">Nom</label><input name="NOM" type="text" class="form-control" value="<?php echo $profilNom ;?>" placeholder="Nom"></div>
+                    <div class="col-md-6"><label class="labels">Prénom</label><input name="PRENOM" type="text" class="form-control first-name" placeholder="Prenom" value="<?php echo $profilPrenom ;?>"></div>
+                    <div class="col-md-6"><label class="labels">Nom</label><input name="NOM" type="text" class="form-control last-name" value="<?php echo $profilNom ;?>" placeholder="Nom"></div>
                 </div>
                 <div class="row mt-3">
-                    <div class="col-md-12"><label class="labels">Email</label><input name="EMAIL" type="text" class="form-control" placeholder="Votre E-mail" value="<?php echo $profilEmail; ?>"></div>
+                    <div class="col-md-12"><label class="labels">Email</label><input name="EMAIL" type="text" class="form-control email" placeholder="Votre E-mail" value="<?php echo $profilEmail; ?>"></div>
                 </div>
+                    <br/>
+                    <div class="hide-text">
+                    <div class="first-name-hide"></div>
+                    <div class="last-name-hide"></div>
+                    <div class="email-hide"></div>
+                    </div>
                 <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="submit">Save Profile</button></div>
                 </form>
             </div>
@@ -73,15 +82,20 @@
         <div class="col-md-5 border-right show-two-hundred-page">
             <div class="p-3 py-5">
                 <div class="d-flex justify-content-between align-items-center mb-3">
-                    <h4 class="text-right">Change le mot de passe</h4>
+                    <h4 class="text-right">Changer le mot de passe</h4>
                 </div>
                 <form action="changer-mot-de-passe.php" method="post">
                 <div class="row mt-3">
-                    <div class="col-md-12"><label name="PASSWORD" class="labels">Mot De Passe</label><input type="text" class="form-control" placeholder="entrer votre mot de passe" value=""></div>
-                    <div class="col-md-12"><label name="NEWPASSWORD" class="labels">Nouveau Mot De Passe</label><input type="text" class="form-control" placeholder="entrer nouveau mot de passe" value=""></div>
-                    <div class="col-md-12"><label class="labels">Repéter N. Mot De Passe</label><input type="text" class="form-control" placeholder="repéter nouveau mot de passe" value=""></div>
+                    <div class="col-md-12"><label class="labels">Mot De Passe</label><input name="PASSWORD" type="password" class="form-control" placeholder="entrer votre mot de passe" value=""></div>
+                    <div class="col-md-12"><label class="labels">Nouveau Mot De Passe</label><input name="NEWPASSWORD" type="password" class="form-control password" placeholder="entrer nouveau mot de passe" value=""></div>
+                    <div class="col-md-12"><label class="labels">Repéter N. Mot De Passe</label><input type="password" class="form-control confirm-password" placeholder="repéter nouveau mot de passe" value=""></div>
+                </div><br/>
+                <div class="hide-text">
+                    <div class="password-hide"></div>
+                    <div class="confirm-password-hide"></div>
+
                 </div>
-                <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button">confirmer</button></div>
+                <div class="mt-5 text-center"><button class="btn btn-primary password-change" type="submit">confirmer</button></div>
                 </form>
             </div>
         </div>
@@ -90,7 +104,7 @@
         <div class="col-md-5 border-right show-three-hundred-page">
             <div class="p-3 py-5">
                 <div class="d-flex justify-content-between align-items-center mb-3">
-                    <h4 class="text-right">Ajoute Un Client</h4>
+                    <h4 class="text-right">Ajouter Un Adresse</h4>
                 </div>
                 <form action="ajouter-client.php" method="post">
                 <div class="row mt-2">
@@ -143,9 +157,9 @@
             <div class="p-3 py-5">
                 <div class="col-12 pt-3">
                     <span  class="text-bold"><button class="button-choix" onclick="one_page();">&nbsp; Profile</button></span><br><br>
-                    <span  class="text-bold"><button class="button-choix" onclick="two_page();">&nbsp; Changée Mot De Passe</button></span><br><br>
-                    <span  class="text-bold"><button class="button-choix" onclick="three_page();" >&nbsp; Ajoute Un Client</button></span><br><br>
-                    <span  class="text-bold"><button class="button-choix" onclick="four_page();" >&nbsp; Liste des Clients</button></span><br><br>
+                    <span  class="text-bold"><button class="button-choix" onclick="two_page();">&nbsp; Changer Mot De Passe</button></span><br><br>
+                    <span  class="text-bold"><button class="button-choix" onclick="three_page();" >&nbsp; Ajouter Un Adresse</button></span><br><br>
+                    <span  class="text-bold"><button class="button-choix" onclick="four_page();" >&nbsp; Adresse de livraison</button></span><br><br>
                 <!--    <span  class="text-bold" name="select-price"><button name="price-cat" class="open-content-five-hundred">&nbsp; plus de 500 MAD</button></span><br> -->
                 </div>
 

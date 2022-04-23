@@ -55,7 +55,6 @@ if(isset($_GET['cat'])){
 }else { $cat=200;}
 ?>
 <?php
-require_once('dbconn.php');
 $mc="";
 $size=10;
 if(isset($_GET['page'])){
@@ -369,10 +368,10 @@ if(isset($_GET['motcle'])){
                 <div id="pagination">
                     <div >
                         <div >
-                            <ul class="nav nav-pills" style="display: flex;justify-content: center;">
+                            <ul class="pagination" style="display: flex;justify-content: center;">
                                 <?php for ($i=0;$i<$Nbpages;$i++) { ?>
-                                    <li class="<?php echo(($i==$page)?'active':'')?>"
-                                    <a  href="logged_in_all_top_container.php?page=<?php echo($i)?>&motcle=<?php echo($mc)?>"  style="color:black"><?php echo($i)?></a>
+                                    <li class="page-item <?php if($page==$i) echo("active") ?>">
+                                    <a class="page-link"  href="logged_in_all_top_container.php?page=<?php echo($i)?>&motcle=<?php echo($mc)?>"  style="color:black"><?php echo($i)?></a>
                                     </li>
                                 <?php } ?>
                             </ul>
