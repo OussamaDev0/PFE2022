@@ -1,8 +1,25 @@
-<?php //session_start(); ?>
+<?php require_once 'dbconn.php';
+    session_start();
+    $iduser=$_SESSION['PROFILE']['id_user'];
+    require_once 'Classes/Panier.php';
+    $Panier= new Panier($iduser);
+    $listProduits=$Panier->getPanier();
+?>
 <head>
     <style>
         #change-color {
             position: absolute;
+        }
+        #number-panier {
+            background: #ff4747;
+            max-width: 24px;
+            min-width: 15px;
+            height: 17px;
+            color: #fff;
+            border-radius: 7px;
+            position: absolute;
+            text-align: center;
+            font-size: smaller;
         }
     </style>
 </head>
@@ -20,7 +37,7 @@
                 <li class="pre-profile-1 pt-2 pb-2"><a href="#/" class="color" style="font-weight:600">Historique des commandes</a></li>
                 <li class="pre-profile-1 pt-2 pb-2"><a href="cart.php" class="color" style="font-weight:600">Panier</a></li>
                 <li class="pre-profile-1 pt-2 pb-2"><a href="profile.php" class="color" style="font-weight:600">Mettre à jour le profil</a></li>
-                <li class="pre-profile-1 pt-2 pb-2"><a href="ecommerce.php" class="color" style="font-weight:600">Se déconnecter</a></li>
+                <li class="pre-profile-1 pt-2 pb-2"><a href="LougOut.php" class="color" style="font-weight:600">Se déconnecter</a></li>
             </ul>
             <span class="menu-1"><a href="login-ecommerce.php" class="color">accueil</a></span>
             <span class="menu"><a href="logged_in_all_top_container.php" class="color">produits</a></span>
@@ -28,8 +45,12 @@
             <span class="menu"><a href="contact-form.php" class="color">contact</a></span>
             <span class="menu-bar text-right"><a href="#/" class="color">&#9776;</a></span>
             <span class="menu-bar-1 text-right"><a href="#/" class="color">&#9776;</a></span>
-            <span class="menu-bar-2 text-right"><a href="#/" class="color">&#9776;</a></span>
-            <span class="menu">  <i class="fa-solid fa-cart-shopping"></i>   </span>
+            <span class="menu-bar-2 text-right"><a href="#/" class="color">&#9776;</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span style="color:black" >
+              <a href="cart.php"><img src="Images/panier-icone.png" class="profile-icon color"><span id="number-panier"><?php echo(count($listProduits)) ?></span></a>
+
+            </span>
+
         </div>
     </div>
     <div class="container-fluid side-bar px-0">
@@ -42,7 +63,7 @@
             <li class="pt-3"style="margin-left:-5%"><a href="logged_in_about_us.php" class="color">à propos </a></li>
             <li class="pt-3"style="margin-left:-5%"><a href="contact-form.php" class="color">contact</a></li>
             <li class="pt-3"style="margin-left:-5%"><a href="profile.php" class="color">Mettre à jour le profil</a></li>
-            <li class="pt-3"style="margin-left:-5%"><a href="ecommerce.php" class="color">Se déconnecter</a><span><a href="#" class="color"><img src="log-in..png" class="log-in"></a></span></li>
+            <li class="pt-3"style="margin-left:-5%"><a href="LougOut.php" class="color">Se déconnecter</a><span><a href="#" class="color"><img src="log-in..png" class="log-in"></a></span></li>
         </ul>
     </div>
 </div>

@@ -11,7 +11,9 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
     <body style="background-image:url('Images/login-background.jpg');background-size: cover;">
+
         <div class="container">
+
             <div class="container form bg-white pt-5 mt-4 mb-3">
                 <p class="text-center contact-heading"> contacter Nous</p>
                 <div class="container">
