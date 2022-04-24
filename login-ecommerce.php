@@ -12,6 +12,11 @@
     $psChaussures=$pdo->prepare("SELECT * FROM produit WHERE id_cat=7 ORDER BY RAND() LIMIT 5");
     $psChaussures->execute();
 ?>
+<?php
+    //exécute la requete de l'historique..
+    $requeteHisto=$pdo->prepare("SELECT DISTINCT id_produit FROM historique WHERE id_user=? ORDER BY date_vi DESC LIMIT 8");
+    $requeteHisto->execute([$_SESSION['PROFILE']['id_user']]);
+?>
 
 <html>
 <head>
@@ -341,8 +346,8 @@
         <div class="row">
             <?php $Chaussures=$psChaussures->fetch(); ?>
             <div class="col-xl-5 col-lg-5 text-center pt-5 hide-popular">
-                <a href="for-each-image.php?productID=<?php echo($Chaussures['id_produit']);?>"><img src="productimages/<?php echo($Chaussures['prod_img']);?>" height="400px" data-aos="fade-up"><br></a>
-                <a href="for-each-image.php?productID=<?php echo($Chaussures['id_produit']);?>"><span class="image-lable" data-aos="zoom-in"><?php echo($Chaussures['prod_nom']);?><br><?php echo($Chaussures['prod_prix']);?> MAD</span></a>
+                <a href="logged_in_for-each-image.php?productID=<?php echo($Chaussures['id_produit']);?>"><img src="productimages/<?php echo($Chaussures['prod_img']);?>" height="400px" data-aos="fade-up"><br></a>
+                <a href="logged_in_for-each-image.php?productID=<?php echo($Chaussures['id_produit']);?>"><span class="image-lable" data-aos="zoom-in"><?php echo($Chaussures['prod_nom']);?><br><?php echo($Chaussures['prod_prix']);?> MAD</span></a>
             </div>
             <div class="col-xl-7 col-lg-7 col-md-12 col-sm-12 col-12">
                 <div class="row">
@@ -424,7 +429,7 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-12 text-center pb-4 pt-4">
-                <a href="#/"><span style="text-transform: uppercase;font-weight: 700;font-size:30px;" data-aos="zoom-in">history</span></a>
+                <a href="#/"><span style="text-transform: uppercase;font-weight: 700;font-size:30px;" data-aos="zoom-in">L'HISTORIQUE*</span></a>
             </div>
         </div>
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -527,58 +532,29 @@
     <div class="container pt-2 pb-5" style="height:70vh;padding-left:5%;">
         <div class="row">
             <div class="col-sm-12 text-center pb-4 pt-4">
-                <a href="logged_in_for-each-image.php#\"><span style="text-transform: uppercase;font-weight: 700;font-size:30px;" data-aos="zoom-in">l'histoire</span></a>
+                <a href="logged_in_for-each-image.php#\"><span style="text-transform: uppercase;font-weight: 700;font-size:30px;" data-aos="zoom-in">L'HISTORIQUE</span></a>
             </div>
         </div>
         <div class="row history pt-5">
+            <?php
+                if($requeteHisto->fetch()!=NULL){
+            while($historique=$requeteHisto->fetch()){
+                $requeteProduit=$pdo->prepare("SELECT * FROM produit WHERE id_produit=?");
+                $requeteProduit->execute([$historique['id_produit']]);
+                $Produithisto=$requeteProduit->fetch();
+
+                ?>
             <div class="col">
                 <div class="container text-center" height="50px" width="250px" style="overflow:hidden">
-                    <a href="logged_in_for-each-image.php#\"><img src="Images/girl.jpg" class="img-men" data-aos="fade-up" style="border-radius:20px;"><br></a>
-                    <a href="logged_in_for-each-image.php#\"><span class="image-lable" data-aos="fade-up">afordable & tradesional dress<br>&nbsp;101MAD</span></a>
+                    <a href="logged_in_for-each-image.php?productID=<?php echo($Produithisto['id_produit']); ?>"><img src="productimages/<?php echo($Produithisto['prod_img']); ?>" class="img-men" data-aos="fade-up" style="border-radius:20px;"><br></a>
+                    <a href="logged_in_for-each-image.php?productID=<?php echo($Produithisto['id_produit']); ?>"><span class="image-lable" data-aos="fade-up"><?php echo($Produithisto['prod_nom']);?><br>&nbsp;<?php echo($Produithisto['prod_prix']); ?> MAD</span></a>
                 </div>
             </div>
-            <div class="col">
-                <div class="container" height="30px" width="250px" style="overflow:hidden">
-                    <a href="logged_in_for-each-image.php#\"><img src="Images/men.jpg" class="img-men" data-aos="fade-up" style="border-radius:20px;"><br></a>
-                    <a href="logged_in_for-each-image.php#\"><span class="image-lable" data-aos="fade-up">afordable & tradesional dress<br><p style="text-align: center;padding-right:20%">101MAD</p></span></a>
-                </div>
-            </div>
-            <div class="col">
-                <div class="container" height="30px" width="250px" style="overflow:hidden">
-                    <a href="logged_in_for-each-image.php#\"><img src="Images/men-1.jpg" class="img-men" data-aos="fade-up" style="border-radius:20px;"><br></a>
-                    <a href="logged_in_for-each-image.php#\"><span class="image-lable" data-aos="fade-up">afordable & tradesional dress<br><p style="text-align: center;padding-right:20%">101MAD</p></span></a>
-                </div>
-            </div>
-            <div class="col">
-                <div class="container" height="30px" width="250px" style="overflow:hidden">
-                    <a href="logged_in_for-each-image.php#\"><img src="Images/blazers.jpg" class="img-men" data-aos="fade-up" style="border-radius:20px;"><br></a>
-                    <a href="logged_in_for-each-image.php#\"><span class="image-lable" data-aos="fade-up">afordable & tradesional dress<br><p style="text-align: center;padding-right:20%">101MAD</p></span></a>
-                </div>
-            </div>
-            <div class="col">
-                <div class="container" height="30px" width="250px" style="overflow:hidden">
-                    <a href="logged_in_for-each-image.php#\"><img src="Images/kids.jpg" class="img-men" data-aos="fade-up" style="border-radius:20px;"><br></a>
-                    <a href="logged_in_for-each-image.php#\/"><span class="image-lable" data-aos="fade-up">afordable & tradesional dress<br><p style="text-align: center;padding-right:20%">101MAD</p></span></a>
-                </div>
-            </div>
-            <div class="col">
-                <div class="container" height="30px" width="250px" style="overflow:hidden">
-                    <a href="logged_in_for-each-image.php#\"><img src="Images/boys-kids.jpg" class="img-men" data-aos="fade-up" style="border-radius:20px;"><br></a>
-                    <a href="logged_in_for-each-image.php#\"><span class="image-lable" data-aos="fade-up">afordable & tradesional dress<br><p style="text-align: center;padding-right:20%">101MAD</p></span></a>
-                </div>
-            </div>
-            <div class="col">
-                <div class="container" height="30px" width="250px" style="overflow:hidden">
-                    <a href="logged_in_for-each-image.php#\"><img src="Images/girl (2).jpg" class="img-men" data-aos="fade-up" style="border-radius:20px;"><br></a>
-                    <a href="logged_in_for-each-image.php#\"><span class="image-lable" data-aos="fade-up">afordable & tradesional dress<br><p style="text-align: center;padding-right:20%">101MAD</p></span></a>
-                </div>
-            </div>
-            <div class="col">
-                <div class="container" height="30px" width="250px" style="overflow:hidden">
-                    <a href="logged_in_for-each-image.php#\"><img src="Images/boys-kids-1.jpg" class="img-men" data-aos="fade-up" style="border-radius:20px;"><br></a>
-                    <a href="logged_in_for-each-image.php#\"><span class="image-lable" data-aos="fade-up">afordable & tradesional dress<br><p style="text-align: center;padding-right:20%">101MAD</p></span></a>
-                </div>
-            </div>
+            <?php }
+                }else {
+            ?>
+                <p>Historique est vide</p>
+            <?php }?>
         </div>
     </div>
 </div>

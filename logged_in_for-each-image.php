@@ -20,6 +20,13 @@ $psCategorie->execute();
 $psRecommande=$pdo->prepare("SELECT * FROM produit ORDER BY RAND() LIMIT 7 ");
 $psRecommande->execute();
 ?>
+<?php
+//Ajouter Ce Produit a L'historique de Utilisateur
+$id_user=$_SESSION['PROFILE']['id_user'];
+$requeteHistorique=$pdo->prepare("INSERT INTO historique(id_user,id_produit) VALUES (?,?)");
+$paramsHisto=array($id_user,$code);
+$requeteHistorique->execute($paramsHisto);
+?>
 <html>
 <head>
     <meta charset="utf-8">
