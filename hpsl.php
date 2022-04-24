@@ -21,6 +21,59 @@
             text-align: center;
             font-size: smaller;
         }
+
+        .dropbtn {
+            background-color: #04AA6D;
+            color: white;
+            padding: 16px;
+            font-size: 16px;
+            border: none;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+
+        .dropdown-content a:hover {background-color: #ddd;}
+
+        .dropdown:hover .dropdown-content {display: block;}
+
+        .dropdown:hover .dropbtn {background-color: #3e8e41;}
+        .dropdown #change-color dropdown-content {
+            z-index: 2;
+            top: 38px;
+            right: 4px;
+            width: 340px;
+            -webkit-box-shadow: 0 3px 6px 0 rgb(0 0 0 / 16%);
+            box-shadow: 0 3px 6px 0 rgb(0 0 0 / 16%);
+            border-radius: 4px;
+            padding: 8px 0 24px;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f1f1f1;
+            min-width: 252px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            line-height: 1;
+            right: 0;
+            top: 63px;
+        }
+        .containerr a {
+            color: #a19696;
+        }
+        .containerr a:hover{
+            color: black;
+        }
+        .containerr {
+            background-color: white;
+        }
+        .containerr:hover {
+            background-color: #ece9e9;
+            transition: 0.5s;
+        }
     </style>
 </head>
 <div class="container-fluid text-white" id="change-color">
@@ -46,9 +99,27 @@
             <span class="menu-bar text-right"><a href="#/" class="color">&#9776;</a></span>
             <span class="menu-bar-1 text-right"><a href="#/" class="color">&#9776;</a></span>
             <span class="menu-bar-2 text-right"><a href="#/" class="color">&#9776;</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <span style="color:black" >
-              <a href="cart.php"><img src="Images/panier-icone.png" class="profile-icon color"><span id="number-panier"><?php echo(count($listProduits)) ?></span></a>
+            <span style="color:black" class="dropdown">
+                <button class="dropbtn" style="background-color: Transparent;background-repeat:no-repeat;border: none;cursor:pointer;overflow: hidden;"><img src="Images/panier-icone.png" class="profile-icon color"><span id="number-panier"><?php echo(count($listProduits)) ?></span></button>
 
+                <div class="dropdown-content">
+                    <?php foreach ($listProduits as $produitX){ ?>
+                    <!-- Start-->
+                    <div class="row pb-3 containerr">
+                        <div class="col-xl-4 col-lg-2 col-md-3 col-sm-3 col-12 pt-5 text-center">
+                            <img src="productimages/<?php echo($produitX['image']);?>" height="48px" width="48px">
+                        </div>
+                        <div class="col-xl-8 col-lg-10 col-md-8 col-sm-8 col-12 pt-5">
+                            <a href="logged_in_for-each-image.php"><p style="width: 160px;line-height: inherit;max-height: 36px;font-size: smaller;"><?php echo($produitX['nom']);?></p></a>
+                            <p style="font-size: 11px;width: 40px;">Qte : <?php echo($produitX['qte']);?></p>
+                        </div>
+
+                    </div>
+                    <!-- End -->
+                    <?php } ?>
+
+
+                </div>
             </span>
 
         </div>

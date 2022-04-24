@@ -18,5 +18,5 @@ require_once 'Classes/Panier.php';
     );
 
     $Panier->set($_POST['id'], $valeurs);
-header("location:cart.php");
+header("location:logged_in_for-each-image.php?productID=".$_POST['id']);
 ?>
