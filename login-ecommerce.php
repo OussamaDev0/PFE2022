@@ -1,11 +1,11 @@
 <?php require_once 'securityProfile.php'; ?>
 <?php require_once('dbconn.php'); ?>
 <?php
-    $psPopulaire=$pdo->prepare("SELECT * FROM produit ORDER BY RAND() LIMIT 8");
+    $psPopulaire=$pdo->prepare("SELECT * FROM produit ORDER BY nb_ventes DESC LIMIT 8");//Best-seller
     $psPopulaire->execute();
     $psRecommander=$pdo->prepare("SELECT * FROM produit  ORDER BY RAND() LIMIT 12");
     $psRecommander->execute();
-    $psMieux=$pdo->prepare("SELECT * FROM produit ORDER BY RAND() LIMIT 5");
+    $psMieux=$pdo->prepare("SELECT * FROM produit ORDER BY date_Ajoute DESC LIMIT 5");
     $psMieux->execute();
     $psPantalons=$pdo->prepare("SELECT * FROM produit WHERE id_cat=3 ORDER BY RAND() LIMIT 4");
     $psPantalons->execute();
@@ -35,9 +35,7 @@
 
     <script type="text/javascript" src="Plugins/slick-master/slick/slick.min.js"></script>
     <style>
-        #change-color {
-            position: absolute;
-        }
+
         .hide-slider{display:none}
         @media screen and (max-width:991px){
             .hide-slider{display:block}
@@ -290,7 +288,7 @@
     <div class="container pt-3 pb-3">
         <div class="row">
             <div class="col-sm-12 text-center pb-4 pt-4">
-                <span style="text-transform: uppercase;font-weight: 700;font-size:30px;" data-aos="zoom-in"><a href="logged_in_all_top_container.php">LE MIEUX POUR VOUS</a></span>
+                <span style="text-transform: uppercase;font-weight: 700;font-size:30px;" data-aos="zoom-in"><a href="logged_in_all_top_container.php">Produits recents</a></span>
             </div>
         </div>
 

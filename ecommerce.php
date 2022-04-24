@@ -1,6 +1,6 @@
 <?php require_once('dbconn.php'); ?>
 <?php
-    $psPopulaire=$pdo->prepare("SELECT * FROM produit ORDER BY RAND() LIMIT 8");
+    $psPopulaire=$pdo->prepare("SELECT * FROM produit ORDER BY nb_ventes DESC LIMIT 8");
     $psPopulaire->execute();
     $psPolos=$pdo->prepare("SELECT * FROM produit WHERE id_cat=2 ORDER BY RAND() LIMIT 5");
     $psPolos->execute();

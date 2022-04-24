@@ -1,3 +1,10 @@
+<head>
+    <style>
+        #change-color {
+            position: absolute;
+        }
+    </style>
+</head>
 <div class="container-fluid text-white" id="change-color">
     <div class="row" id="top-containt">
         <div class="col-4 text-center">
