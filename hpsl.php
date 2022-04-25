@@ -6,19 +6,23 @@
     $listProduits=$Panier->getPanier();
 ?>
 <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap" rel="stylesheet">
     <style>
         #change-color {
             position: absolute;
         }
         #number-panier {
-            background: #ff4747;
-            max-width: 24px;
-            min-width: 15px;
-            height: 17px;
-            color: #fff;
-            border-radius: 7px;
+            z-index: 1;
+            background: #ff1616;
+            min-width: 18px;
+            height: 18px;
+            line-height: 16px;
+            padding: 0 3px;
+            border-radius: 12px;
             position: absolute;
-            text-align: center;
+            left: 41px;
             font-size: smaller;
         }
 
@@ -60,19 +64,94 @@
             line-height: 1;
             right: 0;
             top: 63px;
+            width: auto;
+            font-family: 'Montserrat', sans-serif;
+
         }
         .containerr a {
-            color: #a19696;
+            color: #888686;
         }
         .containerr a:hover{
             color: black;
         }
         .containerr {
             background-color: white;
+            height: 88px;
+            width: 370px;
         }
         .containerr:hover {
             background-color: #ece9e9;
             transition: 0.5s;
+            color: black;
+        }
+
+        .productsPanier{
+            float:left;
+            overflow-y: auto;
+           /* height: 352px;*/
+            overflow-x:hidden ;
+            scrollbar-gutter: stable;
+        }
+        .view-cart button a {
+            color: white;
+            padding: 16px;
+            font-size: 16px;
+            border: none;
+
+            height: 40px;
+            line-height: 40px;
+            background: #ff1616;
+            font-weight: 700;
+            border-radius: 4px;
+        }
+        .view-cart {
+            z-index: 2;
+            top: 38px;
+            right: 4px;
+            width: 340px;
+            -webkit-box-shadow: 0 3px 6px 0 rgb(0 0 0 / 16%);
+            box-shadow: 0 3px 6px 0 rgb(0 0 0 / 16%);
+            border-radius: 4px;
+            padding: 8px 0 24px;
+            background: white;
+        }
+        .view-cart button a:hover {
+            color: white;
+            padding: 16px;
+            font-size: 16px;
+            border: none;
+            transition: 0.5s;
+            height: 40px;
+            line-height: 40px;
+            background: #ee0000;
+            font-weight: 700;
+            border-radius: 4px;
+        }
+        .button-cart {
+            border-style: none;
+            background: white;
+            margin-top: 13px;
+            border-bottom-width: 12px;
+            margin-bottom: 9px;
+            height: 21px;
+        }
+        .productsPanier::-webkit-scrollbar {
+            width: 7px;
+        }
+        .productsPanier::-webkit-scrollbar-track {
+            background-color: darkgrey;
+            border-radius: 100px;
+        }
+        .productsPanier::-webkit-scrollbar-thumb {
+            box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+            border-radius: 100px;
+        }
+        .remove-product img {
+         /*   display: none;*/
+        }
+        .remove-product img:hover {
+                background: red;
+            border-radius: 100px;
         }
     </style>
 </head>
@@ -103,23 +182,32 @@
                 <button class="dropbtn" style="background-color: Transparent;background-repeat:no-repeat;border: none;cursor:pointer;overflow: hidden;"><img src="Images/panier-icone.png" class="profile-icon color"><span id="number-panier"><?php echo(count($listProduits)) ?></span></button>
 
                 <div class="dropdown-content">
+                    <!-- test start -->
+                <div style="height: <?php if(count($listProduits)==0) echo "0";elseif(count($listProduits)==1) echo "88";elseif(count($listProduits)==2) echo "176";elseif(count($listProduits)==3) echo "264";else echo "352"; ?>px;" class="productsPanier">
                     <?php foreach ($listProduits as $produitX){ ?>
-                    <!-- Start-->
                     <div class="row pb-3 containerr">
-                        <div class="col-xl-4 col-lg-2 col-md-3 col-sm-3 col-12 pt-5 text-center">
+                        <div class="col-sm-4 pt-4 text-center">
                             <img src="productimages/<?php echo($produitX['image']);?>" height="48px" width="48px">
                         </div>
-                        <div class="col-xl-8 col-lg-10 col-md-8 col-sm-8 col-12 pt-5">
-                            <a href="logged_in_for-each-image.php"><p style="width: 160px;line-height: inherit;max-height: 36px;font-size: smaller;"><?php echo($produitX['nom']);?></p></a>
-                            <p style="font-size: 11px;width: 40px;">Qte : <?php echo($produitX['qte']);?></p>
+                        <div class="col-sm-4 pt-4">
+                            <a href="logged_in_for-each-image.php?productID=<?php echo($produitX['id']);?>"><p style="width: 160px;line-height: inherit;max-height: 36px;font-size: smaller;position: absolute;top: auto;left: -28px;"><?php echo($produitX['nom']);?></p></a>
+                            <p style="font-size: 11px;width: 40px;position: absolute;left: -21px;top: 62px;">Qte : <?php echo($produitX['qte']);?></p>
                         </div>
+                        <div class="col-sm-4 pt-4 remove-product">
+                            <i class=""><a href="suppDupanier.php?id=<?php echo($produitX['id']);?>&page=<?php echo($_SERVER['PHP_SELF']);?>"><img src="Images/remove-icone.png" height="29px" width="29px"></a></i>
+                        </div>
+                    </div>
+                    <?php } ?>
+                </div>
+                <!-- test end -->
+                    <div class="view-cart">
+                        <button class="button-cart" style="border-style: none;background: white;"><a style="padding-top: 10px;padding-bottom: 10px;padding-left: 59px;padding-right: 64px;" href="cart.php">Voir le panier (<?php echo(count($listProduits)) ?> articles)</a></button>
 
                     </div>
-                    <!-- End -->
-                    <?php } ?>
-
 
                 </div>
+
+
             </span>
 
         </div>

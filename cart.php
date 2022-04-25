@@ -73,7 +73,7 @@
                             <div class="col-xl-8 col-lg-10 col-md-8 col-sm-8 col-12 pt-5">
                                 <p>Nom de l'article :&nbsp; <?php echo($produit['nom']); ?></p>
                                 <p>Prix:&nbsp;<?php echo($produit['prix']); ?> MAD</p>
-                                <p><a href="suppDupanier.php?id=<?php echo($produit['id']); ?>" style="font-weight:700">RETIRER</a></p>
+                                <p><a href="suppDupanier.php?id=<?php echo($produit['id']);?>&page=<?php echo($_SERVER['PHP_SELF']);?>" style="font-weight:700">RETIRER</a></p>
                             </div>
                         </div>
                                 <?php $totalPrix = $totalPrix + $produit['qte']*$produit['prix']; ?>
