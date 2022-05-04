@@ -152,6 +152,7 @@
         .remove-product img:hover {
                 background: red;
             border-radius: 100px;
+            transition: 0.5s;
         }
     </style>
 </head>

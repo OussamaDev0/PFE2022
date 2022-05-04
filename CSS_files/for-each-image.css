@@ -161,3 +161,7 @@ html,body{overflow-x: hidden;overflow-y: auto;}
     .hide-girl{display:none}
 }
 /*footer*/
+
+#commentaire-form {
+    display: none;
+}

@@ -43,8 +43,33 @@ $requeteHistorique->execute($paramsHisto);
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="Plugins\jQuery-Plugin-For-Image-Hover-Zoom-WM-Zoom\wm-zoom\jquery.wm-zoom-1.0.min.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="JS_files/CommentaireScript.js"></script>
+
+
     <style>
         a:hover,a{color:black}
+
+
+         .progress-label-left {
+             float: left;
+             margin-right: 0.5em;
+             line-height: 1em;
+         }
+        .progress-label-right {
+            float: right;
+            margin-right: 0.3em;
+            line-height: 1em;
+        }
+        .star-light {
+            color: #e9ecef;
+        }
+
     </style>
 </head>
 <body>
@@ -381,11 +406,11 @@ $requeteHistorique->execute($paramsHisto);
 
         <div class="col-6 pl-5 text-white">
 
-            <button style="color:white;width:30%;border:1px solid;padding:2% 5%;text-transform: uppercase;font-size:15px;font-weight:600;background-color:rgb(255, 174, 0);border-radius:10px;padding: 8px;" type="submit"> <i class="fa fa-shopping-cart" aria-hidden="true"></i><span class="ml-2">add to card</span></span> </button>
+            <button style="color:white;width:37%;border:1px solid;padding:2% 5%;text-transform: uppercase;font-size:15px;font-weight:600;background-color:rgb(255, 174, 0);border-radius:10px;padding: 8px;" type="submit"> <i class="fa fa-shopping-cart" aria-hidden="true"></i><span class="ml-2">Ajouter au panier</span></span> </button>
 
 
        <!--     <a href="cart.php" style="color:white"><span style="width:30%;border:1px solid;padding:2% 5%;text-transform: uppercase;font-size:15px;font-weight:600;background-color:rgb(255, 174, 0);border-radius:10px;"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span class="ml-2">add to card</span></span></a> -->
-            <a href="payment.php" style="color:white;width:30%;border:1px solid;padding:2% 5%;text-transform: uppercase;font-size:15px;font-weight:600;background-color:orangered;border-radius:10px;padding: 8px;"><i class="fa fa-bolt" aria-hidden="true"></i><span class="ml-2"> buy now</span></span></a>
+            <a href="payment.php" style="color:white;width:37%;border:1px solid;padding:2% 5%;text-transform: uppercase;font-size:15px;font-weight:600;background-color:orangered;border-radius:10px;padding: 8px;"><i class="fa fa-bolt" aria-hidden="true"></i><span class="ml-2"> Acheter maintenant</span></span></a>
         </div>
 
     </div>
@@ -472,7 +497,224 @@ $requeteHistorique->execute($paramsHisto);
 </div>
 <!--middle part end-->
 
-<div class="container mb-5">
+<!---Commentaire et Review Start-->
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 text-center pb-4 pt-4">
+            <span style="text-transform: uppercase;font-weight: 700;font-size:30px;" data-aos="zoom-in">Les Commentaires</span>
+        </div>
+    </div>
+            <?php
+            $average_ratingQ=$pdo->prepare("SELECT AVG(user_rating) AS average FROM product_review WHERE id_produit=?");
+            $average_ratingQ->execute([$code]);
+            $average_rating=$average_ratingQ->fetch();
+            ?>
+    <!-- Table statique Rating start-->
+
+    <div class="card">
+        <div class="card-header">Sample Product</div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-sm-4 text-center">
+                    <?php  ?>
+                    <h1 class="text-warning mt-4 mb-4">
+                        <b><span id="average_rating"><?php echo round($average_rating['average'],1) ; ?></span> / 5</b>
+                    </h1>
+                    <div class="mb-3">
+                        <?php for($star=0;$star<=5;$star++){
+                                if($star<=$average_rating['average']){
+                            ?>
+                        <i class="fas fa-star text-warning mr-1 main_star"></i>
+                        <?php }
+                               else { ?>
+                        <i class="fas fa-star star-light mr-1 main_star"></i>
+                    <?php }
+                               } ?>
+                    </div>
+                    <?php
+                        $TotalReviewQ=$pdo->prepare("SELECT count(*) AS review FROM product_review WHERE id_produit=?");
+                        $TotalReviewQ->execute([$code]);
+                        $TotalReview =$TotalReviewQ->fetch();
+                    ?>
+                    <h3><span id="total_review"><?php echo $TotalReview['review'];?></span> Review</h3>
+                </div>
+                <div class="col-sm-4">
+                    <p>
+                        <?php
+                        $TotalReview5Q=$pdo->prepare("SELECT count(*) AS review FROM product_review WHERE(id_produit=? AND user_rating=5)");
+                        $TotalReview5Q->execute([$code]);
+                        $TotalReview5 =$TotalReview5Q->fetch();
+                        ?>
+                    <div class="progress-label-left"><b>5</b> <i class="fas fa-star text-warning"></i></div>
+
+                    <div class="progress-label-right">(<span id="total_five_star_review"><?php echo $TotalReview5['review'];?></span>)</div>
+                    <div class="progress">
+                        <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id="five_star_progress"></div>
+                    </div>
+                    </p>
+                    <p>
+                        <?php
+                        $TotalReview4Q=$pdo->prepare("SELECT count(*) AS review FROM product_review WHERE(id_produit=? AND user_rating=4)");
+                        $TotalReview4Q->execute([$code]);
+                        $TotalReview4 =$TotalReview4Q->fetch();
+                        ?>
+                    <div class="progress-label-left"><b>4</b> <i class="fas fa-star text-warning"></i></div>
+
+                    <div class="progress-label-right">(<span id="total_four_star_review"><?php echo $TotalReview4['review'];?></span>)</div>
+                    <div class="progress">
+                        <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id="four_star_progress"></div>
+                    </div>
+                    </p>
+                    <p>
+                        <?php
+                        $TotalReview3Q=$pdo->prepare("SELECT count(*) AS review FROM product_review WHERE(id_produit=? AND user_rating=3)");
+                        $TotalReview3Q->execute([$code]);
+                        $TotalReview3 =$TotalReview3Q->fetch();
+                        ?>
+                    <div class="progress-label-left"><b>3</b> <i class="fas fa-star text-warning"></i></div>
+
+                    <div class="progress-label-right">(<span id="total_three_star_review"><?php echo $TotalReview3['review'];?></span>)</div>
+                    <div class="progress">
+                        <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id="three_star_progress"></div>
+                    </div>
+                    </p>
+                    <p>
+                        <?php
+                        $TotalReview2Q=$pdo->prepare("SELECT count(*) AS review FROM product_review WHERE(id_produit=? AND user_rating=2)");
+                        $TotalReview2Q->execute([$code]);
+                        $TotalReview2 =$TotalReview2Q->fetch();
+                        ?>
+                    <div class="progress-label-left"><b>2</b> <i class="fas fa-star text-warning"></i></div>
+
+                    <div class="progress-label-right">(<span id="total_two_star_review"><?php echo $TotalReview3['review'];?></span>)</div>
+                    <div class="progress">
+                        <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id="two_star_progress"></div>
+                    </div>
+                    </p>
+                    <p>
+                        <?php
+                        $TotalReview1Q=$pdo->prepare("SELECT count(*) AS review FROM product_review WHERE(id_produit=? AND user_rating=1)");
+                        $TotalReview1Q->execute([$code]);
+                        $TotalReview1 =$TotalReview1Q->fetch();
+                        ?>
+                    <div class="progress-label-left"><b>1</b> <i class="fas fa-star text-warning"></i></div>
+
+                    <div class="progress-label-right">(<span id="total_one_star_review"><?php echo $TotalReview3['review'];?></span>)</div>
+                    <div class="progress">
+                        <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id="one_star_progress"></div>
+                    </div>
+                    </p>
+                </div>
+                <div class="col-sm-4 text-center">
+                    <h3 class="mt-4 mb-3">Write Review Here</h3>
+                    <button onclick="showCommentform();" class="btn btn-primary">Review</button>
+                </div>
+            </div>
+        </div>
+    </div>
+<script type="text/javascript">
+        function showCommentform(){
+            var x = document.getElementById("commentaire-form");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+        }
+</script>
+
+    <!-- Table statique Rating End-->
+
+    <!--Commentaire forms start-->
+    <form method="post" action="submit_rating.php">
+    <div class="commentaire" id="commentaire-form">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Submit Review</h5>
+
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h4 class="text-center mt-2 mb-4">
+                        <i class="fas fa-star star-light submit_star mr-1" id="submit_star_1" data-rating="1"></i>
+                        <i class="fas fa-star star-light submit_star mr-1" id="submit_star_2" data-rating="2"></i>
+                        <i class="fas fa-star star-light submit_star mr-1" id="submit_star_3" data-rating="3"></i>
+                        <i class="fas fa-star star-light submit_star mr-1" id="submit_star_4" data-rating="4"></i>
+                        <i class="fas fa-star star-light submit_star mr-1" id="submit_star_5" data-rating="5"></i>
+                    </h4>
+                    <input name="user_rating" value="" id="user_rating" hidden>
+                    <input name="id_user" value="<?php echo $id_user; ?>" hidden>
+                    <input name="id_produit" value="<?php echo $code ;?>" hidden>
+                    <div class="form-group">
+                        <textarea name="user_review" id="user_review" class="form-control" placeholder="Type Review Here"></textarea>
+                    </div>
+                    <div class="form-group text-center mt-4">
+                        <button type="submit" class="btn btn-primary" id="save_review">Submit</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    </form>
+    <!--Commentaire forms End-->
+
+
+
+    <!--Les commentaires start-->
+
+    <?php
+        $CommentRequet=$pdo->prepare("SELECT * FROM product_review WHERE id_produit=?");
+        $CommentRequet->execute([$code]);
+        while($Commentaire = $CommentRequet->fetch()){
+            $useridComm=$Commentaire['id_user'];
+            $userInfoReq=$pdo->prepare("SELECT * FROM utilisateur WHERE id_user=?");
+            $userInfoReq->execute([$useridComm]);
+            $userInfo=$userInfoReq->fetch();
+            $userCompNom=$userInfo['user_prenom']." ".$userInfo['user_nom'];
+    ?>
+
+
+    <div class="row mb-3 mt-5">
+        <div class="col-sm-1">
+            <div class="rounded-circle bg-danger text-white pt-2 pb-2"><h3 class="text-center"><?php echo $userCompNom[0];?></h3></div>
+        </div>
+        <div class="col-sm-11">
+            <div class="card">
+                <div class="card-header"><b><?php echo $userCompNom;?></b></div>
+                <div class="card-body">
+                    <?php
+                           $rate=$Commentaire['user_rating'];
+                           for($star=1;$star<=5;$star++){
+                               if($star<=$rate){
+                    ?>
+                    <i class="fas fa-star text-warning mr-1"></i>
+                               <?php }
+                               else {
+                               ?>
+                    <i class="fas fa-star star-light mr-1"></i>
+                    <?php }
+                               } ?>
+                    <br />
+                    <?php echo $Commentaire['user_review'] ?>
+                </div>
+                <div class="card-footer text-right">On <?php echo date('r', $Commentaire['date_time']); ?></div>
+            </div>
+        </div>
+    </div>
+
+
+    <?php } ?>
+    <!--Les commentaires end-->
+</div>
+
+<!-- Commentaire et Review End -->
+
+<div id="Reviews" class="container mb-5">
     <div class="row">
         <div class="col-sm-12 text-center pb-4 pt-4">
             <span style="text-transform: uppercase;font-weight: 700;font-size:30px;" data-aos="zoom-in">similar</span>
