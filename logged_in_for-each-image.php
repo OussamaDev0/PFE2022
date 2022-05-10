@@ -510,10 +510,16 @@ $requeteHistorique->execute($paramsHisto);
             $average_ratingQ->execute([$code]);
             $average_rating=$average_ratingQ->fetch();
             ?>
+
+            <?php
+            $TotalReviewQ=$pdo->prepare("SELECT count(*) AS review FROM product_review WHERE id_produit=?");
+            $TotalReviewQ->execute([$code]);
+            $TotalReview =$TotalReviewQ->fetch();
+            ?>
     <!-- Table statique Rating start-->
 
     <div class="card">
-        <div class="card-header">Sample Product</div>
+        <div class="card-header">Commentaires Des Clients</div>
         <div class="card-body">
             <div class="row">
                 <div class="col-sm-4 text-center">
@@ -523,7 +529,7 @@ $requeteHistorique->execute($paramsHisto);
                     </h1>
                     <div class="mb-3">
                         <?php for($star=0;$star<=5;$star++){
-                                if($star<=$average_rating['average']){
+                                if($star<$average_rating['average']){
                             ?>
                         <i class="fas fa-star text-warning mr-1 main_star"></i>
                         <?php }
@@ -532,12 +538,8 @@ $requeteHistorique->execute($paramsHisto);
                     <?php }
                                } ?>
                     </div>
-                    <?php
-                        $TotalReviewQ=$pdo->prepare("SELECT count(*) AS review FROM product_review WHERE id_produit=?");
-                        $TotalReviewQ->execute([$code]);
-                        $TotalReview =$TotalReviewQ->fetch();
-                    ?>
-                    <h3><span id="total_review"><?php echo $TotalReview['review'];?></span> Review</h3>
+
+                    <h3><span id="total_review"><?php echo $TotalReview['review'];?></span> Commentaires</h3>
                 </div>
                 <div class="col-sm-4">
                     <p>
@@ -607,8 +609,8 @@ $requeteHistorique->execute($paramsHisto);
                     </p>
                 </div>
                 <div class="col-sm-4 text-center">
-                    <h3 class="mt-4 mb-3">Write Review Here</h3>
-                    <button onclick="showCommentform();" class="btn btn-primary">Review</button>
+                    <h3 class="mt-4 mb-3">Écrire un commentaire ici</h3>
+                    <button onclick="showCommentform();" class="btn btn-primary">Écrire</button>
                 </div>
             </div>
         </div>
@@ -632,7 +634,7 @@ $requeteHistorique->execute($paramsHisto);
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Submit Review</h5>
+                    <h5 class="modal-title">Poster le commentaire</h5>
 
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
@@ -650,10 +652,10 @@ $requeteHistorique->execute($paramsHisto);
                     <input name="id_user" value="<?php echo $id_user; ?>" hidden>
                     <input name="id_produit" value="<?php echo $code ;?>" hidden>
                     <div class="form-group">
-                        <textarea name="user_review" id="user_review" class="form-control" placeholder="Type Review Here"></textarea>
+                        <textarea name="user_review" id="user_review" class="form-control" placeholder="tapez votre commentaire ici"></textarea>
                     </div>
                     <div class="form-group text-center mt-4">
-                        <button type="submit" class="btn btn-primary" id="save_review">Submit</button>
+                        <button type="submit" class="btn btn-primary" id="save_review">Poster</button>
                     </div>
                 </div>
             </div>
