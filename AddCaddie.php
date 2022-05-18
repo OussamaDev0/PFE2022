@@ -15,6 +15,7 @@ require_once 'Classes/Panier.php';
         'qte' => $_POST['qte'],
         'id'=> $produit['id_produit'],
         'image' => $produit['prod_img'],
+        'size' => $_POST['size'],
     );
 
     $Panier->set($_POST['id'], $valeurs);

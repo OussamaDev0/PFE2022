@@ -21,7 +21,7 @@ else {
 
 <li class="active" >
 
-<i class="fa fa-dashboard"></i> Dashboard / View Products
+<i class="fa fa-dashboard"></i> Tableau de bord / Voir les produits
 
 </li>
 
@@ -41,7 +41,7 @@ else {
 
 <h3 class="panel-title" ><!-- panel-title Starts -->
 
-<i class="fa fa-money fa-fw" ></i> View Products
+<i class="fa fa-money fa-fw" ></i> Voir les produits
 
 </h3><!-- panel-title Ends -->
 

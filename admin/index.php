@@ -90,7 +90,7 @@ $count_coupons = mysqli_num_rows($run_coupons);
 
 <head>
 
-<title>Admin Panel</title>
+<title>Panneau d'administration</title>
 
 <link href="css/bootstrap.min.css" rel="stylesheet">
 
@@ -234,6 +234,16 @@ include("customer_delete.php");
 if(isset($_GET['view_orders'])){
 
 include("view_orders.php");
+
+}
+if(isset($_GET['view_orders_pending'])){
+
+    include("view_orders_pending.php");
+
+}
+if(isset($_GET['view_orders_complete'])){
+
+    include("view_orders_complete.php");
 
 }
 

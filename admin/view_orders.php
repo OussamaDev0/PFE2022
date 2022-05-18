@@ -20,7 +20,7 @@ else {
 
 <li class="active">
 
-<i class="fa fa-dashboard"></i> Dashboard / View Orders
+<i class="fa fa-dashboard"></i> Tableau de bord / Afficher les commandes
 
 </li>
 
@@ -41,7 +41,7 @@ else {
 
 <h3 class="panel-title"><!-- panel-title Starts -->
 
-<i class="fa fa-money fa-fw"></i> View Orders
+<i class="fa fa-money fa-fw"></i> Afficher les commandes
 
 </h3><!-- panel-title Ends -->
 
@@ -57,15 +57,16 @@ else {
 
 <tr>
 
-<th>Order #</th>
-<th>Customer</th>
+<th>#</th>
+<th>Client</th>
 <th>Facteur N</th>
-<th>Product</th>
+<th>Produit</th>
 <th>Qty</th>
-<th>Size</th>
-<th>Order Date</th>
-<th>Total Amount</th>
-<th>Status</th>
+<th>Taille</th>
+<th>Numéro de téléphone</th>
+<th>Adresse de livraison</th>
+<th>Montant total</th>
+<th>Statut</th>
 <th>Action</th>
 
 
@@ -112,6 +113,13 @@ $row_products = mysqli_fetch_array($run_products);
 
 $product_title = $row_products['prod_nom'];
 
+$AdresseId=$row_orders['id_client'];
+$get_adresse= "SELECT * FROM client WHERE id_client='$AdresseId'";
+$run_adresse = mysqli_query($con,$get_adresse);
+$row_adresse=mysqli_fetch_array($run_adresse);
+
+$adresse=$row_adresse['cli_adresse'];
+$phone=$row_adresse['cli_tel'];
 $i++;
 
 ?>
@@ -147,12 +155,19 @@ echo $customer_email;
 <td>
 <?php
 
-echo $order_date;
+echo $phone;
 
 ?>
 </td>
+<td>
+    <?php
 
-<td>$<?php echo $due_amount; ?></td>
+    echo $adresse;
+
+    ?>
+</td>
+
+<td><?php echo $due_amount; ?> MAD</td>
 
 <td>
 <?php

@@ -25,7 +25,7 @@ else {
 
 <li class="active">
 
-<i class="fa fa-dashboard"></i> Dashboard
+<i class="fa fa-dashboard"></i> Tableau de bord
 
 </li>
 
@@ -56,7 +56,7 @@ else {
 
 <div class="huge"> <?php echo $count_products; ?> </div>
 
-<div>Products</div>
+<div>Produits</div>
 
 </div><!-- col-xs-9 text-right Ends -->
 
@@ -68,7 +68,7 @@ else {
 
 <div class="panel-footer"><!-- panel-footer Starts -->
 
-<span class="pull-left"> View Details </span>
+<span class="pull-left"> Voir les détails </span>
 
 <span class="pull-right"> <i class="fa fa-arrow-circle-right"></i> </span>
 
@@ -101,7 +101,7 @@ else {
 
 <div class="huge"> <?php echo $count_customers; ?> </div>
 
-<div>Customers</div>
+<div>Utilisateurs</div>
 
 </div><!-- col-xs-9 text-right Ends -->
 
@@ -113,7 +113,7 @@ else {
 
 <div class="panel-footer"><!-- panel-footer Starts -->
 
-<span class="pull-left"> View Details </span>
+<span class="pull-left"> Voir les détails </span>
 
 <span class="pull-right"> <i class="fa fa-arrow-circle-right"></i> </span>
 
@@ -146,7 +146,7 @@ else {
 
 <div class="huge"> <?php echo $count_p_categories; ?> </div>
 
-<div>Products Categories</div>
+<div>Catégories de produits</div>
 
 </div><!-- col-xs-9 text-right Ends -->
 
@@ -158,7 +158,7 @@ else {
 
 <div class="panel-footer"><!-- panel-footer Starts -->
 
-<span class="pull-left"> View Details </span>
+<span class="pull-left"> Voir les détails </span>
 
 <span class="pull-right"> <i class="fa fa-arrow-circle-right"></i> </span>
 
@@ -191,7 +191,7 @@ else {
 
 <div class="huge"> <?php echo $count_total_orders; ?> </div>
 
-<div>Orders</div>
+<div>Commandes</div>
 
 </div><!-- col-xs-9 text-right Ends -->
 
@@ -203,7 +203,7 @@ else {
 
 <div class="panel-footer"><!-- panel-footer Starts -->
 
-<span class="pull-left"> View Details </span>
+<span class="pull-left"> Voir les détails </span>
 
 <span class="pull-right"> <i class="fa fa-arrow-circle-right"></i> </span>
 
@@ -239,7 +239,7 @@ else {
         
         <div class="huge"> <?php echo $count_total_earnings ?> </div>
         
-        <div>Earnings</div>
+        <div>Gains</div>
         
         </div><!-- col-xs-9 text-right Ends -->
         
@@ -251,7 +251,7 @@ else {
         
         <div class="panel-footer"><!-- panel-footer Starts -->
         
-        <span class="pull-left"> View Details </span>
+        <span class="pull-left"> Voir les détails </span>
         
         <span class="pull-right"> <i class="fa fa-arrow-circle-right"></i> </span>
         
@@ -284,7 +284,7 @@ else {
             
             <div class="huge"> <?php echo $count_pending_orders ?> </div>
             
-            <div>Pending Orders</div>
+            <div>Commandes en attente</div>
             
             </div><!-- col-xs-9 text-right Ends -->
             
@@ -292,7 +292,7 @@ else {
             
             </div><!-- panel-heading Ends -->
             
-            <a href="index.php?view_orders">
+            <a href="index.php?view_orders_pending">
             
             <div class="panel-footer"><!-- panel-footer Starts -->
             
@@ -330,7 +330,7 @@ else {
                 
                 <div class="huge"> <?php echo $count_completed_orders ?> </div>
                 
-                <div>Completed Orders</div>
+                <div>Commandes terminées</div>
                 
                 </div><!-- col-xs-9 text-right Ends -->
                 
@@ -338,7 +338,7 @@ else {
                 
                 </div><!-- panel-heading Ends -->
                 
-                <a href="index.php?view_orders">
+                <a href="index.php?view_orders_complete">
                 
                 <div class="panel-footer"><!-- panel-footer Starts -->
                 
@@ -371,7 +371,7 @@ else {
 
 <h3 class="panel-title" ><!-- panel-title Starts -->
 
-<i class="fa fa-money fa-fw" ></i> New Orders
+<i class="fa fa-money fa-fw" ></i> Nouvelles commandes
 
 </h3><!-- panel-title Ends -->
 
@@ -387,11 +387,11 @@ else {
 
 <tr>
 <th>Order #</th>
-<th>Customer</th>
+<th>Utilisateur</th>
 <th>Facteur N</th>
-<th>Product ID</th>
+<th>ID Produit</th>
 <th>Qty</th>
-<th>Size</th>
+<th>Taille</th>
 <th>Status</th>
 <th>Confirmer</th>
 

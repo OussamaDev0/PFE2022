@@ -154,6 +154,18 @@
             border-radius: 100px;
             transition: 0.5s;
         }
+
+
+        @media screen and (max-width: 850px) {
+            .panierdrop {
+                visibility: hidden;
+                clear: both;
+                float: left;
+                margin: 10px auto 5px 20px;
+                width: 28%;
+                display: none;
+            }
+        }
     </style>
 </head>
 <div class="container-fluid text-white" id="change-color">
@@ -162,6 +174,8 @@
             <a href="login-ecommerce.php"><img src="Images/shopping-logo.png" style="width:150px;height:150px;" class="color logo-1 logo-sift"></a>
             <div class="small-devices-logo"><a href="login-ecommerce.php"><img src="Images/pinterest_icon.png" height="70px" class=" color logo-2 mt-1 ml-2"></a></div>
         </div>
+
+
         <div class="col-8 pt-4 mt-1 text-center">
             <span class="dropdown dropdown-toggle profile" data-toggle="dropdown" style="color:black" >
               <a href="#/"><img src="Images/profile-icon.png" class="profile-icon color"></a>
@@ -179,7 +193,7 @@
             <span class="menu-bar text-right"><a href="#/" class="color">&#9776;</a></span>
             <span class="menu-bar-1 text-right"><a href="#/" class="color">&#9776;</a></span>
             <span class="menu-bar-2 text-right"><a href="#/" class="color">&#9776;</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <span style="color:black" class="dropdown">
+            <span style="color:black" class="dropdown panierdrop">
                 <button class="dropbtn" style="background-color: Transparent;background-repeat:no-repeat;border: none;cursor:pointer;overflow: hidden;"><img src="Images/panier-icone.png" class="profile-icon color"><span id="number-panier"><?php echo(count($listProduits)) ?></span></button>
 
                 <div class="dropdown-content">
@@ -220,7 +234,7 @@
         <ul class="pt-5 pre-side-bar">
             <li class="pt-4" style="margin-left:-5%;"><a href="login-ecommerce.php" class="color">accueil</a></li>
             <li class="pt-3"style="margin-left:-5%"><a href="logged_in_all_top_container.php" class="color">produits</a></li>
-            <li class="pt-3"style="margin-left:-5%"><a href="logged_in_about_us.php" class="color">à propos </a></li>
+            <li class="pt-3"style="margin-left:-5%"><a href="cart.php" class="color">Pannier </a></li>
             <li class="pt-3"style="margin-left:-5%"><a href="contact-form.php" class="color">contact</a></li>
             <li class="pt-3"style="margin-left:-5%"><a href="profile.php" class="color">Mettre à jour le profil</a></li>
             <li class="pt-3"style="margin-left:-5%"><a href="LougOut.php" class="color">Se déconnecter</a><span><a href="#" class="color"><img src="log-in..png" class="log-in"></a></span></li>

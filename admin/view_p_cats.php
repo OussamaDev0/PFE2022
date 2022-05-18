@@ -19,7 +19,7 @@ else {
 
 <li class="active">
 
-<i class="fa fa-dashboard"></i> Dashboard / View Products Categories
+<i class="fa fa-dashboard"></i> Tableau de bord / Afficher les catégories de produits
 
 </li>
 
@@ -40,7 +40,7 @@ else {
 
 <h3 class="panel-title"><!-- panel-title Starts -->
 
-<i class="fa fa-money fa-fw"> </i> View Products Categories
+<i class="fa fa-money fa-fw"> </i> Afficher les catégories de produits
 
 </h3><!-- panel-title Ends -->
 
@@ -57,9 +57,9 @@ else {
 <tr>
 
 <th>#</th>
-<th>Name</th>
-<th>Delete</th>
-<th>Edit</th>
+<th>Nom</th>
+<th>Supprimer</th>
+<th>Modifier</th>
 
 
 </tr>

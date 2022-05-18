@@ -16,6 +16,7 @@
     //exécute la requete de l'historique..
     $requeteHisto=$pdo->prepare("SELECT DISTINCT id_produit FROM historique WHERE id_user=? ORDER BY date_vi DESC LIMIT 8");
     $requeteHisto->execute([$_SESSION['PROFILE']['id_user']]);
+    $HistoryRow=$requeteHisto;
 ?>
 
 <html>
@@ -46,6 +47,8 @@
 <!--header part start-->
 <div class="carousel slide" data-ride="carousel" style="z-index:1">
     <?php require_once ('hpsl.php');?>
+<br/>
+
     <div class="carousel-inner text-center">
         <div class="carousel-item " style="height:100vh">
             <div style="height:100vh;width:100vw" class="text-right pr-5">
@@ -159,11 +162,11 @@
         </div>
     </div>
 </div>
-<div class="container-fluid transparent pt-5 pb-5" id="parallax1" style="background-image:url('Images/desktop.jpg');background-size:cover;background-attachment:fixed;">
+<div class="container-fluid transparent pt-5 pb-5" id="parallax1" style="background-image:url('Images/1098137.jpg');background-size:cover;background-attachment:fixed;">
     <div class="container sift-couple" height="200px">
         <div class="row">
             <div class="col-xl-5 col-lg-5 col-md-6 col-sm-12 col-12 text-center">
-                <img src="Images/wedding-couple.jpg" height="230px" class="pl-5" data-aos="fade-up">
+                <img style="border-radius: 42px;" src="Images/men-1-removebg-preview.png" height="230px" class="pl-5" data-aos="fade-up">
             </div>
             <div class="col-xl-7 col-lg-7 col-md-6 col-sm-12 col-12 pt-4 text-center">
                   <span style="font-weight:700;font-size:20px;" data-aos="zoom-in">La plateforme vous propose de nombreux modes pour les occasions et les fêtes
@@ -422,110 +425,7 @@
     </div>
 </div>
 <!--history-->
-<!--multi carousel-->
-<div class="container-fluid hide-slider mt-5" style="padding-bottom:6%;">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12 text-center pb-4 pt-4">
-                <a href="#/"><span style="text-transform: uppercase;font-weight: 700;font-size:30px;" data-aos="zoom-in">L'HISTORIQUE*</span></a>
-            </div>
-        </div>
-        <div id="myCarousel" class="carousel slide" data-ride="carousel">
-            <div class="carousel slide pt-1" data-ride="carousel">
-                <div class="carousel-inner">
-                    <!--first slider-->
-                    <div class="carousel-item text-center">
-                        <div class="row">
-                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
-                                <div class="container" height="250px" width="250px" style="overflow:hidden">
-                                    <a href="logged_in_for-each-image.php#\"><img src="Images/girl.jpg" class="img-men" data-aos="fade-up" style="border-radius:20px;"><br></a>
-                                    <a href="logged_in_for-each-image.php#\"><span class="image-lable" data-aos="fade-up">afordable & tradesional dress<br>101MAD</span></a>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-lg-4 col-md-6 hide-kids-dress text-center">
-                                <div class="container pl-0" height="250px" width="250px" style="overflow:hidden">
-                                    <a href="logged_in_for-each-image.php#\"><img src="Images/men.jpg" class="img-men" style="border-radius:20px;" data-aos="fade-up"><br></a>
-                                    <a href="logged_in_for-each-image.php#\"><span class="image-lable" data-aos="fade-up">plain pink cotton saree<br>400MAD</span></a>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-lg-4 hide-lady-1">
-                                <div class="container pl-0" height="250px" width="250px" style="overflow:hidden">
-                                    <a href="logged_in_for-each-image.php#\"><img src="Images/girl.jpg" class="img-men" style="border-radius:20px;" data-aos="fade-up"></a>
-                                    <a href="logged_in_for-each-image.php#\"><span class="image-lable" data-aos="fade-up">plain pink cotton saree<br>101MAD</span></a>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 hide-lady">
-                                <div class="container pl-0" height="250px" width="250px" style="overflow:hidden">
-                                    <a href="logged_in_for-each-image.php#\"><img src="Images/men.jpg" class="img-men" style="border-radius:20px;" data-aos="fade-up"></a>
-                                    <a href="logged_in_for-each-image.php#\"><span class="image-lable" data-aos="fade-up">plain pink cotton saree<br>400MAD</span></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--second-slider-->
-                    <div class="carousel-item text-center">
-                        <div class="row">
-                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
-                                <div class="container" height="250px" width="250px" style="overflow:hidden">
-                                    <a href="logged_in_for-each-image.php#\"><img src="Images/men-1.jpg" class="img-men" data-aos="fade-up" style="border-radius:20px;"><br></a>
-                                    <a href="logged_in_for-each-image.php#\"><span class="image-lable" data-aos="fade-up">accessories & tradesional dress<br>117MAD</span></a>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-lg-4 col-md-6 hide-kids-dress text-center">
-                                <div class="container pl-0" height="250px" width="250px" style="overflow:hidden">
-                                    <a href="logged_in_for-each-image.php#\"><img src="Images/blazers.jpg" class="img-men" style="border-radius:20px;" data-aos="fade-up"><br></a>
-                                    <a href="logged_in_for-each-image.php#\"><span class="image-lable" data-aos="fade-up">men's black sweatshirt<br>60MAD</span></a>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-lg-4 hide-lady-1">
-                                <div class="container pl-0" height="250px" width="250px" style="overflow:hidden">
-                                    <a href="logged_in_for-each-image.php#\"><img src="Images/men-1.jpg" class="img-men" style="border-radius:20px;" data-aos="fade-up"></a>
-                                    <a href="logged_in_for-each-image.php#\"><span class="image-lable" data-aos="fade-up">accessories & tradesional dress<br>117MAD</span></a>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 hide-lady">
-                                <div class="container pl-0" height="250px" width="250px" style="overflow:hidden">
-                                    <a href="logged_in_for-each-image.php#\"><img src="Images/blazers.jpg" class="img-men" style="border-radius:20px;" data-aos="fade-up"></a>
-                                    <a href="logged_in_for-each-image.php#\"><span class="image-lable" data-aos="fade-up">men's black sweatshirt<br>60MAD</span></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--third slider-->
-                    <div class="carousel-item active text-center">
-                        <div class="row">
-                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
-                                <div class="container" height="250px" width="250px" style="overflow:hidden">
-                                    <a href="logged_in_for-each-image.php#\"><img src="Images/kids.jpg" class="img-men" data-aos="fade-up" style="border-radius:20px;"><br></a>
-                                    <a href="logged_in_for-each-image.php#\"><span class="image-lable" data-aos="fade-up">toddler children's dress<br>203MAD</span></a>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-lg-4 col-md-6 hide-kids-dress text-center">
-                                <div class="container pl-0" height="250px" width="250px" style="overflow:hidden">
-                                    <a href="logged_in_for-each-image.php#\"><img src="Images/boys-kids.jpg" class="img-men" style="border-radius:20px;" data-aos="fade-up"><br></a>
-                                    <a href="logged_in_for-each-image.php#\"><span class="image-lable" data-aos="fade-up">boys flower print shirt<br>320MAD</span></a>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-lg-4 hide-lady-1">
-                                <div class="container pl-0" height="250px" width="250px" style="overflow:hidden">
-                                    <a href="logged_in_for-each-image.php#\"><img src="Images/girl (2).jpg" class="img-men" style="border-radius:20px;" data-aos="fade-up"></a>
-                                    <a href="logged_in_for-each-image.php#\"><span class="image-lable" data-aos="fade-up">girls flower print skirt<br>400MAD</span></a>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 hide-lady">
-                                <div class="container pl-0" height="250px" width="250px" style="overflow:hidden">
-                                    <a href="logged_in_for-each-image.php#\"><img src="Images/boys-kids-1.jpg" class="img-men" style="border-radius:20px;" data-aos="fade-up"></a>
-                                    <a href="logged_in_for-each-image.php#\"><span class="image-lable" data-aos="fade-up">formal black toxedo dress suits<br>117MAD</span></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!--carousel each slider-->
+
 <div class="container-fluid mt-5 hide-popular" style="padding-bottom:6%;">
     <div class="container pt-2 pb-5" style="height:70vh;padding-left:5%;">
         <div class="row">
@@ -595,7 +495,7 @@
     <div class="container mt-4 pb-4">
         <div class="row">
             <div class="col-12 col-xl-6 col-lg-6 col-md-6 col-sm-6 ">
-                <p><a href="#/" style="color:white">© 2020 Copyright:</a><span style="font-weight:600"><a href="#" style="color:white">MDBootstrap</a></span></p>
+                <p><a href="#/" style="color:white">© 2020 Copyright:</a><span style="font-weight:600"><a href="#" style="color:white">SHOPMEN</a></span></p>
             </div>
             <div class="col-12 col-xl-6 col-lg-6 col-md-6 col-sm-6 icon-head">
                 <a href="#/" style="color:white"><span class="icons-2"><i class="fa fa-facebook" aria-hidden="true"></i></span></a>

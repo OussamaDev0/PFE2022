@@ -31,6 +31,7 @@ $requeteHistorique->execute($paramsHisto);
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -44,11 +45,11 @@ $requeteHistorique->execute($paramsHisto);
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="Plugins\jQuery-Plugin-For-Image-Hover-Zoom-WM-Zoom\wm-zoom\jquery.wm-zoom-1.0.min.css">
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+   <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">  -->
+  <!--  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/> -->
+  <!--   <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script> -->
+ <!--   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> -->
     <script src="JS_files/CommentaireScript.js"></script>
 
 
@@ -68,6 +69,39 @@ $requeteHistorique->execute($paramsHisto);
         }
         .star-light {
             color: #e9ecef;
+        }
+
+
+        .taille {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 5px;
+        }
+
+        .taille-label {
+            margin-right: 15px;
+            line-height: 32px;
+        }
+
+        .taille-input {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+
+            border-radius: 50%;
+            width: 16px;
+            height: 16px;
+
+            border: 2px solid #999;
+            transition: 0.2s all linear;
+            margin-right: 5px;
+
+            position: relative;
+            top: 4px;
+        }
+
+        .taille-input:checked {
+            border: 6px solid black;
         }
 
     </style>
@@ -369,13 +403,56 @@ $requeteHistorique->execute($paramsHisto);
                     <p style="font-weight:600;font-size:20px;"> Price:<span style="color:red"> <?php echo($produit['prod_prix']) ?> MAD</span></p>
                 </div>
                 <div class="col-12 pl-5">
-                    <p style="font-weight:600;font-size:20px;">size: <span style="border:1px solid;padding:1% 3%" class="ml-3">M</span> <span style="border:1px solid;padding:1% 4%" class="ml-2">L</span> <span style="border:1px solid;padding:1% 3%" class="ml-2">XL</span> <br class="break"><a href="#/" style="color:black" class="ml-3 open-pop-container">size chart <img src="Images/size-icon.png" height="20px"></a></p>
+                    <form action="AddCaddie.php" method="post">
+                    <p style="font-weight:600;font-size:20px;">size:
+                        <?php if($categorieProduit!=7){ ?>
+                    <span class="taille">
+                        <input class="taille-input" type="radio" id="contactChoice1"
+                               name="size" value="S" checked>
+                        <label class="taille-label" for="contactChoice1">S</label>
+
+                        <input class="taille-input" type="radio" id="contactChoice2"
+                               name="size" value="M">
+                        <label class="taille-label" for="contactChoice2">M</label>
+
+                        <input class="taille-input" type="radio" id="contactChoice3"
+                               name="size" value="L">
+                        <label class="taille-label" for="contactChoice3">L</label>
+                        <input class="taille-input" type="radio" id="contactChoice3"
+                               name="size" value="XL">
+                        <label class="taille-label" for="contactChoice3">XL</label>
+                        <input class="taille-input" type="radio" id="contactChoice3"
+                               name="size" value="XXL">
+                        <label class="taille-label" for="contactChoice3">XXL</label>
+                    </span>
+                        <?php }else{ ?>
+
+                        <span class="taille">
+                        <input class="taille-input" type="radio" id="contactChoice1"
+                               name="size" value="39" checked>
+                        <label class="taille-label" for="contactChoice1">39</label>
+
+                        <input class="taille-input" type="radio" id="contactChoice2"
+                               name="size" value="40">
+                        <label class="taille-label" for="contactChoice2">40</label>
+
+                        <input class="taille-input" type="radio" id="contactChoice3"
+                               name="size" value="41">
+                        <label class="taille-label" for="contactChoice3">41</label>
+                        <input class="taille-input" type="radio" id="contactChoice3"
+                               name="size" value="42">
+                        <label class="taille-label" for="contactChoice3">42</label>
+                    </span>
+                    <?php } ?>
+
+                        <br>
+                        <br class="break"><a href="#/" style="color:black" class="ml-3 open-pop-container">size chart <img src="Images/size-icon.png" height="20px"></a></p>
                 </div>
                 <div class="col-12">
                     <p style="font-weight:600;font-size:20px;"> Description :</p><br>
                     <p><?php echo($produit['prod_description']) ?></p>
                 </div><br/>
-                <form action="AddCaddie.php" method="post">
+
                 <div class="col-12 pl-5">
                     <p style="font-weight:600;font-size:20px;">Quantité :</p><br/>
                     <select name="qte" class="custom-select mt-2 third text-center">
@@ -528,8 +605,8 @@ $requeteHistorique->execute($paramsHisto);
                         <b><span id="average_rating"><?php echo round($average_rating['average'],1) ; ?></span> / 5</b>
                     </h1>
                     <div class="mb-3">
-                        <?php for($star=0;$star<=5;$star++){
-                                if($star<$average_rating['average']){
+                        <?php for($star=1;$star<=5;$star++){
+                                if($star<=$average_rating['average']){
                             ?>
                         <i class="fas fa-star text-warning mr-1 main_star"></i>
                         <?php }
@@ -670,7 +747,7 @@ $requeteHistorique->execute($paramsHisto);
     <!--Les commentaires start-->
 
     <?php
-        $CommentRequet=$pdo->prepare("SELECT * FROM product_review WHERE id_produit=?");
+        $CommentRequet=$pdo->prepare("SELECT * FROM product_review WHERE id_produit=? order by review_id desc");
         $CommentRequet->execute([$code]);
         while($Commentaire = $CommentRequet->fetch()){
             $useridComm=$Commentaire['id_user'];

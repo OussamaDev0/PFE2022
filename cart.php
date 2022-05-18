@@ -56,23 +56,14 @@
                             <div class="col-xl-4 col-lg-2 col-md-3 col-sm-3 col-12 pt-5 text-center">
                                 <img src="productimages/<?php echo $produit['image'];?>" height="200px">
                                 <div class="text-left">
-                                    <select name="Qunatity" class="custom-select mt-2 first">
-                                        <option value="1" <?php if($produit['qte']==1) echo "selected"; ?>>1</option>
-                                        <option value="2" <?php if($produit['qte']==2) echo "selected"; ?>>2</option>
-                                        <option value="3" <?php if($produit['qte']==3) echo "selected"; ?>>3</option>
-                                        <option value="4" <?php if($produit['qte']==4) echo "selected"; ?>>4</option>
-                                        <option value="5" <?php if($produit['qte']==5) echo "selected"; ?>>5</option>
-                                        <option value="6" <?php if($produit['qte']==6) echo "selected"; ?>>6</option>
-                                        <option value="7" <?php if($produit['qte']==7) echo "selected"; ?>>7</option>
-                                        <option value="8" <?php if($produit['qte']==8) echo "selected"; ?>>8</option>
-                                        <option value="9" <?php if($produit['qte']==9) echo "selected"; ?>>9</option>
-                                        <option value="10" <?php if($produit['qte']==10) echo "selected"; ?>>10</option>
-                                    </select>
+                                    <?php// echo "Qty : ".$produit['qte'] ;?>
                                 </div>
                             </div>
                             <div class="col-xl-8 col-lg-10 col-md-8 col-sm-8 col-12 pt-5">
                                 <p>Nom de l'article :&nbsp; <?php echo($produit['nom']); ?></p>
                                 <p>Prix:&nbsp;<?php echo($produit['prix']); ?> MAD</p>
+                                <p>Size:&nbsp;<?php echo($produit['size']); ?></p>
+                                <p>Quantité:&nbsp;<?php echo($produit['qte']); ?></p>
                                 <p><a href="suppDupanier.php?id=<?php echo($produit['id']);?>&page=<?php echo($_SERVER['PHP_SELF']);?>" style="font-weight:700">RETIRER</a></p>
                             </div>
                         </div>

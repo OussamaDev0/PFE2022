@@ -33,7 +33,7 @@ else {
 
 <li class="active">
 
-<i class="fa fa-dashboard"> </i> Dashboard / Insert Products
+<i class="fa fa-dashboard"> </i> Tableau de bord / Insérer des produits
 
 </li>
 
@@ -54,7 +54,7 @@ else {
 
 <h3 class="panel-title">
 
-<i class="fa fa-money fa-fw"></i> Insert Products
+<i class="fa fa-money fa-fw"></i> Insérer des produits
 
 </h3>
 
@@ -66,7 +66,7 @@ else {
 
 <div class="form-group" ><!-- form-group Starts -->
 
-<label class="col-md-3 control-label" > Product Title </label>
+<label class="col-md-3 control-label" > Titre du produit </label>
 
 <div class="col-md-6" >
 
@@ -80,7 +80,7 @@ else {
 
 <div class="form-group" ><!-- form-group Starts -->
 
-<label class="col-md-3 control-label" > Product Category </label>
+<label class="col-md-3 control-label" > catégorie de produit </label>
 
 <div class="col-md-6" >
 
@@ -118,7 +118,7 @@ echo "<option value='$p_cat_id' >$p_cat_title</option>";
 
 <div class="form-group" ><!-- form-group Starts -->
 
-<label class="col-md-3 control-label" > Product Image </label>
+<label class="col-md-3 control-label" > Image du produit </label>
 
 <div class="col-md-6" >
 
@@ -129,7 +129,7 @@ echo "<option value='$p_cat_id' >$p_cat_title</option>";
 </div><!-- form-group Ends -->
 <div class="form-group" ><!-- form-group Starts -->
 
-<label class="col-md-3 control-label" > Product Image 1 </label>
+<label class="col-md-3 control-label" > Image du produit 1 </label>
 
 <div class="col-md-6" >
 
@@ -140,7 +140,7 @@ echo "<option value='$p_cat_id' >$p_cat_title</option>";
 </div><!-- form-group Ends -->
 <div class="form-group" ><!-- form-group Starts -->
 
-<label class="col-md-3 control-label" > Product Image 2 </label>
+<label class="col-md-3 control-label" > Image du produit 2 </label>
 
 <div class="col-md-6" >
 
@@ -152,7 +152,7 @@ echo "<option value='$p_cat_id' >$p_cat_title</option>";
 
 <div class="form-group" ><!-- form-group Starts -->
 
-<label class="col-md-3 control-label" > Product Image 3 </label>
+<label class="col-md-3 control-label" > Image du produit 3 </label>
 
 <div class="col-md-6" >
 
@@ -164,7 +164,7 @@ echo "<option value='$p_cat_id' >$p_cat_title</option>";
 
 <div class="form-group" ><!-- form-group Starts -->
 
-<label class="col-md-3 control-label" > Product Image 4 </label>
+<label class="col-md-3 control-label" > Image du produit 4 </label>
 
 <div class="col-md-6" >
 
@@ -176,7 +176,7 @@ echo "<option value='$p_cat_id' >$p_cat_title</option>";
 
 <div class="form-group" ><!-- form-group Starts -->
 
-<label class="col-md-3 control-label" > Product Price </label>
+<label class="col-md-3 control-label" > Prix du produit </label>
 
 <div class="col-md-6" >
 
@@ -190,7 +190,7 @@ echo "<option value='$p_cat_id' >$p_cat_title</option>";
 
 <div class="form-group" ><!-- form-group Starts -->
 
-<label class="col-md-3 control-label" > Product Tabs </label>
+<label class="col-md-3 control-label" > Description du produit </label>
 
 <div class="col-md-6" >
 
@@ -198,7 +198,7 @@ echo "<option value='$p_cat_id' >$p_cat_title</option>";
 
 <li class="active">
 
-<a data-toggle="tab" href="#description"> Product Description </a>
+<a data-toggle="tab" href="#description">  </a>
 
 </li>
 
@@ -231,7 +231,7 @@ echo "<option value='$p_cat_id' >$p_cat_title</option>";
 
 <div class="col-md-6" >
 
-<input type="submit" name="submit" value="Insert Product" class="btn btn-primary form-control" >
+<input type="submit" name="submit" value="Insérer le produit" class="btn btn-primary form-control" >
 
 </div>
 

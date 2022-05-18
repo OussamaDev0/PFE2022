@@ -27,6 +27,7 @@
 <!--header part start-->
 <?php require_once('hpsl.php');?>
 <!--header part end-->
+<form method="post" action="addOrder.php">
 <div class="container mt-5">
     <div class="row pt-5">
         <div class="col-xl-8 col-lg-12 col-md-12 col-sm-12 col-12 mt-3">
@@ -42,7 +43,7 @@
                                 <p>Adresse de l'utilisateur</p>
                             </div>
                             <div class="col-4 pl-0">
-                                <button class="btn btn-primary" data-toggle="collapse" data-target="#collapseOne" id="button-hidder" style='text-transform: uppercase;'>Changer</button>
+                                <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#collapseOne" id="button-hidder" style='text-transform: uppercase;'>Changer</button>
                             </div>
                         </div>
                     </div>
@@ -71,7 +72,7 @@
 
                             <div class="row pl-5 hide-for-front">
                                 <div class="col">
-                                    <p><button style="text-transform: uppercase;padding:2% 5%;background-color: tomato;color:white;border-color:transparent" data-toggle="collapse" data-target="#collapseOne,#collapseTwo" id="button-hidder-1">livraison ici</button></p>
+                                    <p><button type="button" style="text-transform: uppercase;padding:2% 5%;background-color: tomato;color:white;border-color:transparent" data-toggle="collapse" data-target="#collapseOne,#collapseTwo" id="button-hidder-1">livraison ici</button></p>
                                 </div>
                             </div>
 
@@ -105,13 +106,14 @@
                                     <div class="col-xl-4 col-lg-2 col-md-3 col-sm-3 col-12 pt-5 text-center">
                                         <img src="productimages/<?php echo $produit['image'];?>" height="200px">
                                         <div class="text-left">
-                                            <p style="padding-left: 79px;padding-top: 9px;">Qte : <?php echo $produit['qte'];?></p>
                                         </div>
                                     </div>
                                     <div class="col-xl-8 col-lg-10 col-md-8 col-sm-8 col-8 pt-5">
                                         <p>Nom de l'article :&nbsp;<?php echo $produit['nom']; ?></p>
                                         <p>Prix:&nbsp;<?php echo($produit['prix']); ?> MAD</p>
-                                        <p><a href="#/" style="font-weight:700">RETIRER</a></p>
+                                        <p>Size:&nbsp;<?php echo($produit['size']); ?></p>
+                                        <p>Qte : <?php echo $produit['qte'];?></p>
+                                        <p><a href="suppDupanier.php?id=<?php echo($produit['id']);?>&page=<?php echo($_SERVER['PHP_SELF']);?>" style="font-weight:700">RETIRER</a></p>
                                     </div>
                                 </div>
                                         <?php $totalPrix = $totalPrix + $produit['qte']*$produit['prix']; ?>
@@ -120,7 +122,7 @@
 
                                 <div class="row">
                                     <div class="col pr-5 text-right">
-                                        <p><button style="text-transform: uppercase;padding:2% 5%;background-color: tomato;color:white;border-color:transparent" data-toggle="collapse" data-target="#collapseTwo,#payment-option">continue</button></p>
+                                        <p><button type="button" style="text-transform: uppercase;padding:2% 5%;background-color: tomato;color:white;border-color:transparent" data-toggle="collapse" data-target="#collapseTwo,#payment-option">continue</button></p>
                                     </div>
                                 </div>
                             </div>
@@ -141,7 +143,7 @@
                             <div class="collapse" id="payment-option">
                                 <div class="row">
                                     <div class="col pl-4" id="debit-hidder">
-                                        <p><input type="radio" name="payment-method" data-toggle="collapse" data-target="#debit">&nbsp;&nbsp;&nbsp;Carte de crédit / débit</p>
+                                        <p><input value="3" type="radio" name="payment-method" data-toggle="collapse" data-target="#debit">&nbsp;&nbsp;&nbsp;Carte de crédit / débit</p>
                                     </div>
                                 </div>
                                 <div class="collapse" id="debit">
@@ -158,13 +160,13 @@
                                             <p><input type="text" placeholder="CVV" class="pt-2 pb-2 pl-4 cvv">
                                         </div>
                                         <div class="col-xl-6 pt-1 pl-5 ">
-                                            <p><button style="text-transform: uppercase;padding:1.5% 7%;background-color: tomato;color:white;border-color:transparent" data-toggle="collapse" data-target="#payment-option" >PAYER <?php echo $totalPrix." MAD";?></button></p>
+                                            <p><button type="button" style="text-transform: uppercase;padding:1.5% 7%;background-color: tomato;color:white;border-color:transparent" data-toggle="collapse" data-target="#payment-option" >PAYER <?php echo $totalPrix." MAD";?></button></p>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col pl-4" id="net-banking-hidder">
-                                        <p><input type="radio" name="payment-method" data-target="#net-banking" data-toggle="collapse">&nbsp;&nbsp;&nbsp;PayPal</p>
+                                        <p><input value="1" type="radio" name="payment-method" data-target="#net-banking" data-toggle="collapse">&nbsp;&nbsp;&nbsp;PayPal</p>
                                     </div>
                                 </div>
                                 <div class="collapse" id="net-banking">
@@ -173,15 +175,15 @@
                                     </div>
                                     <div class="row pt-3 pl-4">
                                         <div class="col-12 pt-4">
-                                            <p><button style="text-transform: uppercase;padding:1.5% 7%;background-color: grey;color:white;border-color:transparent;font-weight: 600;" data-toggle="collapse" data-target="#payment-option">PAYER <?php echo $totalPrix." MAD";?></button></p>
+                                            <p><button type="button" style="text-transform: uppercase;padding:1.5% 7%;background-color: grey;color:white;border-color:transparent;font-weight: 600;" data-toggle="collapse" data-target="#payment-option">PAYER <?php echo $totalPrix." MAD";?></button></p>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col pl-4" id="cash-hidder">
-                                        <p><input type="radio" name="payment-method" data-toggle="collapse" data-target="#cash">&nbsp;&nbsp;&nbsp;Paiement à la livraison</p>
+                                        <p><input value="2" type="radio" name="payment-method" data-toggle="collapse" data-target="#cash">&nbsp;&nbsp;&nbsp;Paiement à la livraison</p>
                                         <div class="collapse" id="cash">
-                                            <p class="pl-3"><button style="text-transform: uppercase;padding:1.5% 7%;background-color: grey;color:white;border-color:transparent;font-weight: 600;"  data-toggle="collapse" data-target="#payment-option">confirmer</button></p>
+                                            <p class="pl-3"><button type="button" style="text-transform: uppercase;padding:1.5% 7%;background-color: grey;color:white;border-color:transparent;font-weight: 600;"  data-toggle="collapse" data-target="#payment-option">confirmer</button></p>
                                         </div>
                                     </div>
                                 </div>
@@ -189,6 +191,7 @@
                         </div>
                     </div>
                 </div>
+                <center><p><button type="submit" style="text-transform: uppercase;padding:1.5% 7%;background-color: tomato;color:white;border-color:transparent" data-toggle="collapse" data-target="#payment-option" >CONFIRMER</button></p></center>
             </div>
         </div>
         <div class="col-xl-4 col-lg-12 col-md-12 col-sm-12 col-12 mt-3 pt-4">
@@ -228,6 +231,7 @@
     </div>
 
 </div>
+</form>
 <!--footer-->
 <?php require_once('footer.php');?>
 <!--footer-->

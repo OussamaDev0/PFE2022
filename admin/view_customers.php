@@ -19,7 +19,7 @@ else {
 
 <li class="active">
 
-<i class="fa fa-dashboard"></i> Dashboard / View Customers
+<i class="fa fa-dashboard"></i> Tableau de bord / Afficher les clients
 
 </li>
 
@@ -39,7 +39,7 @@ else {
 
 <h3 class="panel-title"><!-- panel-title Starts -->
 
-<i class="fa fa-money fa-fw"></i> View Customers
+<i class="fa fa-money fa-fw"></i> Voir les clients
 
 </h3><!-- panel-title Ends -->
 
@@ -60,7 +60,7 @@ else {
 <th>Nom</th>
 <th>Prénom</th>
 <th>Email</th>
-<th>Delete</th>
+<th>Supprimer</th>
 
 
 </tr>

@@ -32,7 +32,7 @@ else {
 
 </button><!-- navbar-ex1-collapse Ends -->
 
-<a class="navbar-brand" href="index.php?dashboard" >Admin Panel</a>
+<a class="navbar-brand" href="index.php?dashboard" >Panneau d'administration</a>
 
 
 </div><!-- navbar-header Ends -->
@@ -52,22 +52,12 @@ else {
 
 <ul class="dropdown-menu" ><!-- dropdown-menu Starts -->
 
-<li><!-- li Starts -->
-
-<a href="index.php?user_profile=<?php echo $admin_id; ?>" >
-
-<i class="fa fa-fw fa-user" ></i> Profile
-
-
-</a>
-
-</li><!-- li Ends -->
 
 <li><!-- li Starts -->
 
 <a href="index.php?view_products" >
 
-<i class="fa fa-fw fa-envelope" ></i> Products 
+<i class="fa fa-fw fa-envelope" ></i> Produits
 
 <span class="badge" ><?php echo $count_products; ?></span>
 
@@ -80,7 +70,7 @@ else {
 
 <a href="index.php?view_customers" >
 
-<i class="fa fa-fw fa-gear" ></i> Customers
+<i class="fa fa-fw fa-gear" ></i> Les utilisateurs
 
 <span class="badge" ><?php echo $count_customers; ?></span>
 
@@ -93,7 +83,7 @@ else {
 
 <a href="index.php?view_p_cats" >
 
-<i class="fa fa-fw fa-gear" ></i> Product Categories
+<i class="fa fa-fw fa-gear" ></i> Catégories de produits
 
 <span class="badge" ><?php echo $count_p_categories; ?></span>
 
@@ -108,7 +98,7 @@ else {
 
 <a href="logout.php">
 
-<i class="fa fa-fw fa-power-off"> </i> Log Out
+<i class="fa fa-fw fa-power-off"> </i> Se déconnecter
 
 </a>
 
@@ -132,7 +122,7 @@ else {
 
 <a href="index.php?dashboard">
 
-<i class="fa fa-fw fa-dashboard"></i> Dashboard
+<i class="fa fa-fw fa-dashboard"></i> Tableau de bord
 
 </a>
 
@@ -142,7 +132,7 @@ else {
 
 <a href="#" data-toggle="collapse" data-target="#products">
 
-<i class="fa fa-fw fa-table"></i> Products
+<i class="fa fa-fw fa-table"></i> Produits
 
 <i class="fa fa-fw fa-caret-down"></i>
 
@@ -152,11 +142,11 @@ else {
 <ul id="products" class="collapse">
 
 <li>
-<a href="index.php?insert_product"> Insert Products </a>
+<a href="index.php?insert_product"> Insérer des produits </a>
 </li>
 
 <li>
-<a href="index.php?view_products"> View Products </a>
+<a href="index.php?view_products"> Voir les produits </a>
 </li>
 
 
@@ -174,7 +164,7 @@ else {
 
 <a href="#" data-toggle="collapse" data-target="#p_cat">
 
-<i class="fa fa-fw fa-pencil"></i> Products Categories
+<i class="fa fa-fw fa-pencil"></i> Catégories de produits
 
 <i class="fa fa-fw fa-caret-down"></i>
 
@@ -184,11 +174,11 @@ else {
 <ul id="p_cat" class="collapse">
 
 <li>
-<a href="index.php?insert_p_cat"> Insert Product Category </a>
+<a href="index.php?insert_p_cat"> Insérer la catégorie de produit </a>
 </li>
 
 <li>
-<a href="index.php?view_p_cats"> View Products Categories </a>
+<a href="index.php?view_p_cats"> Afficher les catégories de produits </a>
 </li>
 
 
@@ -206,7 +196,7 @@ else {
 
 <a href="index.php?view_customers">
 
-<i class="fa fa-fw fa-edit"></i> View Customers
+<i class="fa fa-fw fa-edit"></i> Voir les clients
 
 </a>
 
@@ -216,7 +206,7 @@ else {
 
 <a href="index.php?view_orders">
 
-<i class="fa fa-fw fa-list"></i> View Orders
+<i class="fa fa-fw fa-list"></i> Afficher les commandes
 
 </a>
 
@@ -226,7 +216,7 @@ else {
 
 <a href="index.php?view_payments">
 
-<i class="fa fa-fw fa-pencil"></i> View Payments
+<i class="fa fa-fw fa-pencil"></i> Afficher les paiements
 
 </a>
 
@@ -236,7 +226,7 @@ else {
 
 <a href="logout.php">
 
-<i class="fa fa-fw fa-power-off"></i> Log Out
+<i class="fa fa-fw fa-power-off"></i> Se déconnecter
 
 </a>
 

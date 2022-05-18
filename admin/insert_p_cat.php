@@ -19,7 +19,7 @@ else {
 
 <li>
 
-<i class="fa fa-dashboard"></i> Dashboard / Insert Products Category
+<i class="fa fa-dashboard"></i> Tableau de bord / Insérer la catégorie de produit
 
 </li>
 
@@ -39,7 +39,7 @@ else {
 
 <h3 class="panel-title" ><!-- panel-title Starts -->
 
-<i class="fa fa-money fa-fw" ></i> Insert Product Category
+<i class="fa fa-money fa-fw" ></i> Insérer la catégorie de produit
 
 </h3><!-- panel-title Ends -->
 
@@ -53,7 +53,7 @@ else {
 
 <div class="form-group" ><!-- form-group Starts -->
 
-<label class="col-md-3 control-label" >Product Category Title</label>
+<label class="col-md-3 control-label" >Titre de la catégorie</label>
 
 <div class="col-md-6" >
 
@@ -71,7 +71,7 @@ else {
 
 <div class="col-md-6" >
 
-<input type="submit" name="submit" value="Submit Now" class="btn btn-primary form-control" >
+<input type="submit" name="submit" value="Soumettre maintenant" class="btn btn-primary form-control" >
 
 </div>
 
