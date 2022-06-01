@@ -24,7 +24,7 @@ $row_edit = mysqli_fetch_array($run_edit);
 
 $p_id = $row_edit['id_produit'];
 
-$p_title = $row_edit['prod_nom'];
+$p_title = utf8_encode($row_edit['prod_nom']);
 
 $p_cat = $row_edit['id_cat'];
 
@@ -145,7 +145,7 @@ $p_cat_title = $row_p_cat['cat_libelle'];
 
 <select name="product_cat" class="form-control" >
 
-<option value="<?php echo $p_cat_title; ?>"><?php echo $p_cat_title; ?> </option>
+    <?php echo "<option value='$p_cat' >$p_cat_title</option>"; ?>
 
 
 <?php
@@ -339,52 +339,189 @@ $product_desc = $_POST['product_desc'];
 
 
 $product_img = $_FILES['product_img']['name'];
+    if($product_img!="") {
+        $characts = 'abcdefghijklmnopqrstuvwxyz';
+        $characts .= 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $characts .= '1234567890';
+        $code_aleatoire = '';
+        for ($i = 0; $i < 30; $i++) {
+            $code_aleatoire .= substr($characts, rand() % (strlen($characts)), 1);
+        }
+        if ($_FILES['product_img']['type'] == 'image/jpeg') {
+            $extention = '.jpeg';
+        }
+        if ($_FILES['product_img']['type'] == 'image/jpeg') {
+            $extention = '.jpg';
+        }
+        if ($_FILES['product_img']['type'] == 'image/png') {
+            $extention = '.png';
+        }
+        if ($_FILES['product_img']['type'] == 'image/gif') {
+            $extention = '.gif';
+        }
+        if ($_FILES['product_img']['type'] == 'image/bmp') {
+            $extention = '.bmp';
+        }
+        if ($_FILES['product_img']['type'] == 'image/jpg') {
+            $extention = '.jpg';
+        }
+        if ($_FILES['product_img']['type'] == 'image/ico') {
+            $extention = '.ico';
+        }
+        $product_img = $code_aleatoire . $extention;
+        $temp_name = $_FILES['product_img']['tmp_name'];
+        move_uploaded_file($temp_name,"../productimages/$product_img");
+    }else{
+        $product_img = $new_p_image;
+    }
+
+
+
 $product_img1 = $_FILES['product_img1']['name'];
+    if($product_img1!="") {
+        $characts = 'abcdefghijklmnopqrstuvwxyz';
+        $characts .= 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $characts .= '1234567890';
+        $code_aleatoire = '';
+        for ($i = 0; $i < 30; $i++) {
+            $code_aleatoire .= substr($characts, rand() % (strlen($characts)), 1);
+        }
+        if ($_FILES['product_img1']['type'] == 'image/jpeg') {
+            $extention = '.jpeg';
+        }
+        if ($_FILES['product_img1']['type'] == 'image/jpeg') {
+            $extention = '.jpg';
+        }
+        if ($_FILES['product_img1']['type'] == 'image/png') {
+            $extention = '.png';
+        }
+        if ($_FILES['product_img1']['type'] == 'image/gif') {
+            $extention = '.gif';
+        }
+        if ($_FILES['product_img1']['type'] == 'image/bmp') {
+            $extention = '.bmp';
+        }
+        if ($_FILES['product_img1']['type'] == 'image/jpg') {
+            $extention = '.jpg';
+        }
+        if ($_FILES['product_img1']['type'] == 'image/ico') {
+            $extention = '.ico';
+        }
+        $product_img1 = $code_aleatoire . $extention;
+        $temp_name1 = $_FILES['product_img1']['tmp_name'];
+        move_uploaded_file($temp_name1,"../productimages/$product_img1");
+    }else{
+        $product_img1 = $new_p_image1;
+    }
+
 $product_img2 = $_FILES['product_img2']['name'];
+    if($product_img2!="") {
+        $characts = 'abcdefghijklmnopqrstuvwxyz';
+        $characts .= 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $characts .= '1234567890';
+        $code_aleatoire = '';
+        for ($i = 0; $i < 30; $i++) {
+            $code_aleatoire .= substr($characts, rand() % (strlen($characts)), 1);
+        }
+        if ($_FILES['product_img2']['type'] == 'image/jpeg') {
+            $extention = '.jpeg';
+        }
+        if ($_FILES['product_img2']['type'] == 'image/jpeg') {
+            $extention = '.jpg';
+        }
+        if ($_FILES['product_img2']['type'] == 'image/png') {
+            $extention = '.png';
+        }
+        if ($_FILES['product_img2']['type'] == 'image/gif') {
+            $extention = '.gif';
+        }
+        if ($_FILES['product_img2']['type'] == 'image/bmp') {
+            $extention = '.bmp';
+        }
+        if ($_FILES['product_img2']['type'] == 'image/jpg') {
+            $extention = '.jpg';
+        }
+        if ($_FILES['product_img2']['type'] == 'image/ico') {
+            $extention = '.ico';
+        }
+        $product_img2 = $code_aleatoire . $extention;
+        $temp_name2 = $_FILES['product_img2']['tmp_name'];
+        move_uploaded_file($temp_name2,"../productimages/$product_img2");
+    }else{
+        $product_img2 = $new_p_image2;
+    }
 $product_img3 = $_FILES['product_img3']['name'];
+    if($product_img3!="") {
+        $characts = 'abcdefghijklmnopqrstuvwxyz';
+        $characts .= 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $characts .= '1234567890';
+        $code_aleatoire = '';
+        for ($i = 0; $i < 30; $i++) {
+            $code_aleatoire .= substr($characts, rand() % (strlen($characts)), 1);
+        }
+        if ($_FILES['product_img3']['type'] == 'image/jpeg') {
+            $extention = '.jpeg';
+        }
+        if ($_FILES['product_img3']['type'] == 'image/jpeg') {
+            $extention = '.jpg';
+        }
+        if ($_FILES['product_img3']['type'] == 'image/png') {
+            $extention = '.png';
+        }
+        if ($_FILES['product_img3']['type'] == 'image/gif') {
+            $extention = '.gif';
+        }
+        if ($_FILES['product_img3']['type'] == 'image/bmp') {
+            $extention = '.bmp';
+        }
+        if ($_FILES['product_img3']['type'] == 'image/jpg') {
+            $extention = '.jpg';
+        }
+        if ($_FILES['product_img3']['type'] == 'image/ico') {
+            $extention = '.ico';
+        }
+        $product_img3 = $code_aleatoire . $extention;
+        $temp_name3 = $_FILES['product_img3']['tmp_name'];
+        move_uploaded_file($temp_name3,"../productimages/$product_img3");
+    }else{
+        $product_img3 = $new_p_image3;
+    }
 $product_img4 = $_FILES['product_img4']['name'];
-
-$temp_name = $_FILES['product_img']['tmp_name'];
-$temp_name1 = $_FILES['product_img1']['tmp_name'];
-$temp_name2 = $_FILES['product_img2']['tmp_name'];
-$temp_name3 = $_FILES['product_img3']['tmp_name'];
-$temp_name4 = $_FILES['product_img4']['tmp_name'];
-
-if(empty($product_img)){
-
-$product_img = $new_p_image;
-
-}
-if(empty($product_img1)){
-
-$product_img1 = $new_p_image1;
-
-}
-if(empty($product_img2)){
-
-$product_img2 = $new_p_image2;
-
-}
-
-
-if(empty($product_img3)){
-
-$product_img3 = $new_p_image3;
-
-}
-
-if(empty($product_img4)){
-
-$product_img4 = $new_p_image4;
-
-}
-
-//$cle=rand(1000,9999);
-move_uploaded_file($temp_name,"../productimages/$product_img");
-move_uploaded_file($temp_name1,"../productimages/$product_img1");
-move_uploaded_file($temp_name2,"../productimages/$product_img2");
-move_uploaded_file($temp_name3,"../productimages/$product_img3");
-move_uploaded_file($temp_name4,"../productimages/$product_img4");
+    if($product_img4!="") {
+        $characts = 'abcdefghijklmnopqrstuvwxyz';
+        $characts .= 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $characts .= '1234567890';
+        $code_aleatoire = '';
+        for ($i = 0; $i < 30; $i++) {
+            $code_aleatoire .= substr($characts, rand() % (strlen($characts)), 1);
+        }
+        if ($_FILES['product_img4']['type'] == 'image/jpeg') {
+            $extention = '.jpeg';
+        }
+        if ($_FILES['product_img4']['type'] == 'image/jpeg') {
+            $extention = '.jpg';
+        }
+        if ($_FILES['product_img4']['type'] == 'image/png') {
+            $extention = '.png';
+        }
+        if ($_FILES['product_img4']['type'] == 'image/gif') {
+            $extention = '.gif';
+        }
+        if ($_FILES['product_img4']['type'] == 'image/bmp') {
+            $extention = '.bmp';
+        }
+        if ($_FILES['product_img4']['type'] == 'image/jpg') {
+            $extention = '.jpg';
+        }
+        if ($_FILES['product_img4']['type'] == 'image/ico') {
+            $extention = '.ico';
+        }
+        $product_img4 = $code_aleatoire . $extention;
+        $temp_name4 = $_FILES['product_img4']['tmp_name'];
+        move_uploaded_file($temp_name4,"../productimages/$product_img4");
+    }else{
+        $product_img4 = $new_p_image4;
+    }
 
 
 $update_product = "UPDATE produit SET prod_nom='$product_title',prod_description='$product_desc',prod_prix='$product_price',prod_img='$product_img',id_cat='$product_cat',prod_img1='$product_img1',prod_img2='$product_img2',prod_img3='$product_img3',prod_img4='$product_img4' WHERE id_produit='$p_id'";
@@ -393,11 +530,16 @@ $run_product = mysqli_query($con,$update_product);
 
 if($run_product){
 
-echo "<script> alert('Product has been updated successfully') </script>";
+echo "<script> alert('Product has been updated successfully:') </script>";
 
 echo "<script>window.open('index.php?view_products','_self')</script>";
 
+}else {
+
+    echo "<script> alert('Errreur.......') </script>";
 }
+
+
 
 }
 

@@ -3,7 +3,8 @@
 session_start();
 
 include("includes/db.php");
-
+mb_internal_encoding('UTF-8');
+mysqli_set_charset($conn, "utf8");
 if(!isset($_SESSION['admin_email'])){
 
 echo "<script>window.open('login.php','_self')</script>";
@@ -83,13 +84,13 @@ $count_coupons = mysqli_num_rows($run_coupons);
 **/
 
 ?>
-
+    <?php header('Content-type: text/html; charset=UTF-8'); ?>
 
 <!DOCTYPE html>
 <html>
 
 <head>
-
+<meta http-equiv="Content-type" content="text/html;charset=utf-8" />
 <title>Panneau d'administration</title>
 
 <link href="css/bootstrap.min.css" rel="stylesheet">

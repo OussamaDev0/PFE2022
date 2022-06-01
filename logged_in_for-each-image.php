@@ -27,6 +27,7 @@ $requeteHistorique=$pdo->prepare("INSERT INTO historique(id_user,id_produit) VAL
 $paramsHisto=array($id_user,$code);
 $requeteHistorique->execute($paramsHisto);
 ?>
+<?php header('Content-type: text/html; charset=UTF-8'); ?>
 <html>
 <head>
     <meta charset="utf-8">
@@ -102,6 +103,26 @@ $requeteHistorique->execute($paramsHisto);
 
         .taille-input:checked {
             border: 6px solid black;
+        }
+
+        .descriptionprod{
+            float:left;
+            overflow-y: auto;
+            height: 127px;
+            width: inherit;
+            overflow-x:hidden ;
+            scrollbar-gutter: stable;
+        }
+        .descriptionprod::-webkit-scrollbar {
+            width: 7px;
+        }
+        .descriptionprod::-webkit-scrollbar-track {
+            background-color: darkgrey;
+            border-radius: 100px;
+        }
+        .descriptionprod::-webkit-scrollbar-thumb {
+            box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+            border-radius: 100px;
         }
 
     </style>
@@ -354,46 +375,75 @@ $requeteHistorique->execute($paramsHisto);
     <div class="row pt-5">
         <div class="col-1">
             <div class="row pt-3 pb-2">
-                <div class="col-xl-12 text-center">
-                    <a href="#/"><img src="productimages/<?php echo($produit['prod_img']); ?>" height="400px" width="95px" class="zooming"></a>
-                </div>
-                <div class="col-xl-12 mt-3">
-                    <a href="#/"><img src="productimages/<?php echo($produit['prod_img']); ?>" height="50px" width="100px" class="zooming"></a>
-                </div>
-                <div class="col-xl-12 mt-3 front-show">
-                    <a href="#/"><img src="productimages/<?php echo($produit['prod_img']); ?>" height="55px" width="75px" class="zooming-2"></a>
-                    <a href="#/"><div style="font-size:25px;z-index:1;color:black;position: absolute;padding-left:20%;" class="pt-1 front-show">+3</div></a>
-                </div>
-                <div class="col-xl-12 mt-3 front-hide">
-                    <a href="#/"><img src="productimages/<?php echo($produit['prod_img']); ?>" height="50px" width="100px" class="zooming-5"></a>
-                </div>
-                <div class="col-xl-12 mt-3 front-hide">
-                    <a href="#/"><img src="productimages/<?php echo($produit['prod_img']); ?>" height="50px" width="100px" class="zooming-3"></a>
-                </div>
-                <div class="col-xl-12 mt-3 front-hide">
-                    <a href="#/"><img src="productimages/<?php echo($produit['prod_img']); ?>" height="50px" width="100px" class="zooming-4"></a>
-                </div>
+                <?php $nb_photos=1;
+                if($produit['prod_img3']!="") $nb_photos++;
+                if($produit['prod_img4']!="") $nb_photos++;
+
+                ?>
+                    <?php if($produit['prod_img']!=""){ ?>
+                        <div class="col-xl-12 text-center">
+                            <a href="#/"><img src="productimages/<?php echo $produit['prod_img'];?>" height="50px" width="100%" class="zooming"></a>
+                        </div>
+                <?php }?>
+                <?php if($produit['prod_img1']!=""){ ?>
+                    <div class="col-xl-12 mt-3">
+                        <a href="#/"><img src="productimages/<?php echo $produit['prod_img1'];?>" height="50px" width="100%" class="zooming-1"></a>
+                    </div>
+                <?php }?>
+                <!--image +3....-->
+                <?php if($produit['prod_img2']!=""){ ?>
+                    <div class="col-xl-12 mt-3 front-show">
+                        <a href="#/"><img src="productimages/<?php echo $produit['prod_img2'];?>" height="55px" width="75%" class="zooming-2"></a>
+                        <a href="#/"><div style="font-size:25px;z-index:1;color:black;position: absolute;padding-left:20%;" class="pt-1 front-show">+<?php echo $nb_photos;?></div></a>
+                    </div>
+                <?php }?>
+                <!--image +3....-->
+                <?php if($produit['prod_img2']!=""){ ?>
+                    <div class="col-xl-12 mt-3 front-hide">
+                        <a href="#/"><img src="productimages/<?php echo $produit['prod_img2'];?>" height="50px" width="100%" class="zooming-5"></a>
+                    </div>
+                <?php }?>
+                <?php if($produit['prod_img3']!=""){ ?>
+                    <div class="col-xl-12 mt-3 front-hide">
+                        <a href="#/"><img src="productimages/<?php echo $produit['prod_img3'];?>" height="50px" width="100%" class="zooming-3"></a>
+                    </div>
+                <?php }?>
+                <?php if($produit['prod_img4']!=""){ ?>
+                    <div class="col-xl-12 mt-3 front-hide">
+                        <a href="#/"><img src="productimages/<?php echo $produit['prod_img4'];?>" height="50px" width="100%" class="zooming-4"></a>
+                    </div>
+                <?php } ?>
             </div>
         </div>
+        <?php if($produit['prod_img']!=""){ ?>
         <div class="col-5 text-center zooming-open-head wm-zoom-container my-zoom-1">
             <div class="wm-zoom-box">
-                <img src="productimages/<?php echo($produit['prod_img']); ?>" height="400px" width="405px" class="wm-zoom-default-img" alt="alternative text" data-hight-src="for-each-image-1.jpg">
+                <img src="productimages/<?php echo $produit['prod_img'];?>" height="400px" width="405px" class="wm-zoom-default-img" alt="alternative text" data-hight-src="for-each-image-1.jpg">
             </div>
         </div>
+        <?php }?>
+        <?php if($produit['prod_img1']!=""){ ?>
         <!--hidden--> <div class="col-5 text-center zooming-open-1 wm-zoom-container my-zoom-1">
-            <div class="wm-zoom-box">
-                <img src="productimages/<?php echo($produit['prod_img']); ?>" height="400px" width="405px" class="wm-zoom-default-img" alt="alternative text" data-hight-src="for-each-image-2.jpg">
-            </div>
+                <div class="wm-zoom-box">
+                    <img src="productimages/<?php echo $produit['prod_img1'];?>" height="400px" width="405px" class="wm-zoom-default-img" alt="alternative text" data-hight-src="for-each-image-2.jpg">
+                </div>
         </div>
+        <?php }?>
+        <?php if($produit['prod_img2']!=""){ ?>
         <!--hidden--> <div class="col-5 text-center zooming-open-2">
-            <img src="productimages/<?php echo($produit['prod_img']); ?>" height="400px" width="95%">
-        </div>
+                <img src="productimages/<?php echo $produit['prod_img2'];?>" height="400px" width="95%">
+            </div>
+        <?php }?>
+        <?php if($produit['prod_img3']!=""){ ?>
         <!--hidden--> <div class="col-5 text-center zooming-open-3">
-            <img src="productimages/<?php echo($produit['prod_img']); ?>" height="400px" width="95%">
-        </div>
+                <img src="productimages/<?php echo $produit['prod_img3'];?>" height="400px" width="95%">
+            </div>
+        <?php }?>
+        <?php if($produit['prod_img4']!=""){ ?>
         <!--hidden--> <div class="col-5 text-center zooming-open-4">
-            <img src="productimages/<?php echo($produit['prod_img']); ?>" height="400px" width="95%">
-        </div>
+                <img src="productimages/<?php echo $produit['prod_img4'];?>" height="400px" width="95%">
+            </div>
+        <?php } ?>
         <div class="col-5">
             <div class="row">
                 <div class="col-12 pt-3">
@@ -445,16 +495,16 @@ $requeteHistorique->execute($paramsHisto);
                     </span>
                     <?php } ?>
 
-                        <br>
-                        <br class="break"><a href="#/" style="color:black" class="ml-3 open-pop-container">size chart <img src="Images/size-icon.png" height="20px"></a></p>
+
                 </div>
                 <div class="col-12">
-                    <p style="font-weight:600;font-size:20px;"> Description :</p><br>
-                    <p><?php echo($produit['prod_description']) ?></p>
-                </div><br/>
+                    <p style="font-weight:600;font-size:20px;"> Description :</p>
+                    <div class="descriptionprod">
+                        <p><?php echo($produit['prod_description']) ?></p></div>
+                </div>
 
-                <div class="col-12 pl-5">
-                    <p style="font-weight:600;font-size:20px;">Quantité :</p><br/>
+                <div class="col-12 pl-5"><br/>
+                    <p style="font-weight:600;font-size:20px;">Quantité :</p>
                     <select name="qte" class="custom-select mt-2 third text-center">
                         <option selected>1</option>
                         <option value="2">2</option>

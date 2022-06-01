@@ -106,7 +106,7 @@ $i++;
 
 <td><img src="../productimages/<?php echo $pro_image; ?>" width="60" height="60"></td>
 
-<td>$ <?php echo $pro_price; ?></td>
+<td><?php echo $pro_price; ?> MAD</td>
 
 
 
