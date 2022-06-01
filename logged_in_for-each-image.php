@@ -716,7 +716,7 @@ $requeteHistorique->execute($paramsHisto);
                         ?>
                     <div class="progress-label-left"><b>2</b> <i class="fas fa-star text-warning"></i></div>
 
-                    <div class="progress-label-right">(<span id="total_two_star_review"><?php echo $TotalReview3['review'];?></span>)</div>
+                    <div class="progress-label-right">(<span id="total_two_star_review"><?php echo $TotalReview2['review'];?></span>)</div>
                     <div class="progress">
                         <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id="two_star_progress"></div>
                     </div>
@@ -729,7 +729,7 @@ $requeteHistorique->execute($paramsHisto);
                         ?>
                     <div class="progress-label-left"><b>1</b> <i class="fas fa-star text-warning"></i></div>
 
-                    <div class="progress-label-right">(<span id="total_one_star_review"><?php echo $TotalReview3['review'];?></span>)</div>
+                    <div class="progress-label-right">(<span id="total_one_star_review"><?php echo $TotalReview2['review'];?></span>)</div>
                     <div class="progress">
                         <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id="one_star_progress"></div>
                     </div>

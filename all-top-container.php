@@ -129,7 +129,7 @@ else $Nbpages=floor($NBP / $size) + 1;
             <div class="container large-left-sider">
                 <div class="row">
                     <div class="col-12 px-0 pt-5 pb-4 text-center pl-0">
-                        <form method="get" action="logged_in_all_top_container.php">
+                        <form method="get" action="all-top-container.php">
                             <input class="search-box" type="text" name="motcle" placeholder="Search.." ><span><button class="search-button"><i class="fa fa-search" id="search-icon"></i></button></span>
                         </form> </div>
                 </div>
@@ -370,7 +370,7 @@ else $Nbpages=floor($NBP / $size) + 1;
                             <ul class="pagination" style="display: flex;justify-content: center;">
                                 <?php for ($i=0;$i<$Nbpages;$i++) { ?>
                                     <li class="page-item <?php if($page==$i) echo("active") ?>">
-                                        <a class="page-link"  href="logged_in_all_top_container.php?page=<?php echo($i)?>&motcle=<?php echo($mc)?>"  style="color:black"><?php echo($i)?></a>
+                                        <a class="page-link"  href="all-top-container.php?page=<?php echo($i)?>&motcle=<?php echo($mc)?>"  style="color:black"><?php echo($i+1)?></a>
                                     </li>
                                 <?php } ?>
                             </ul>

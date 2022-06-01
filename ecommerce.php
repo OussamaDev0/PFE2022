@@ -137,11 +137,11 @@
         </div>
     </div>
 </div>
-<div class="container-fluid transparent pt-5 pb-5" id="parallax1" style="background-image:url('Images/desktop.jpg');background-size:cover;background-attachment:fixed;">
+<div class="container-fluid transparent pt-5 pb-5" id="parallax1" style="background-image:url('Images/1098137.jpg');background-size:cover;background-attachment:fixed;">
     <div class="container sift-couple" height="200px">
         <div class="row">
             <div class="col-xl-5 col-lg-5 col-md-6 col-sm-12 col-12 text-center">
-                <a href="ecommerce-price-men.php"><img src="Images/wedding-couple.jpg" height="230px" class="pl-5" data-aos="fade-up"></a>
+                <a href="ecommerce-price-men.php"><img src="Images/men-1-removebg-preview.png" height="230px" class="pl-5" data-aos="fade-up"></a>
             </div>
             <div class="col-xl-7 col-lg-7 col-md-6 col-sm-12 col-12 pt-4 text-center">
                   <span style="font-weight:700;font-size:20px;" data-aos="zoom-in">La plateforme vous propose de nombreux modes pour les occasions et les fêtes

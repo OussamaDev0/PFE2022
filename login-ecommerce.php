@@ -1,7 +1,12 @@
 <?php require_once 'securityProfile.php'; ?>
 <?php require_once('dbconn.php'); ?>
 <?php
-    $psPopulaire=$pdo->prepare("SELECT * FROM produit ORDER BY nb_ventes DESC LIMIT 8");//Best-seller
+    $psPopulaire=$pdo->prepare("select c.id_produit,p.prod_nom,p.prod_prix,p.prod_img,SUM(c.qty)
+                                    from commande c, produit p
+                                    where c.id_produit=p.id_produit
+                                    GROUP BY c.id_produit
+                                    ORDER BY SUM(c.qty) DESC
+                                    ");//Best-seller
     $psPopulaire->execute();
     $psRecommander=$pdo->prepare("SELECT * FROM produit  ORDER BY RAND() LIMIT 12");
     $psRecommander->execute();
@@ -96,7 +101,8 @@
 <div class="container-fluid pt-5" style="background-color:white">
     <div class="container">
         <div class="row text-center">
-            <?php $Populaire=$psPopulaire->fetch();?>
+            <?php $Populaire=$psPopulaire->fetch(); ?>
+
             <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 text-center">
                 <div class="container pl-0" height="250px" width="250px" style="overflow:hidden">
                     <a href="logged_in_for-each-image.php?productID=<?php echo($Populaire['id_produit']);?>"><img src="productimages/<?php echo($Populaire['prod_img']);?>" class="img-men" data-aos="fade-up" style="border-radius:20px;"><br></a>
@@ -420,7 +426,7 @@
     </div>
     <div class="row">
         <div class="col pt-4 pb-5 text-center">
-            <a href="Logged_in_product_page.php?cat=3"><span style="border:3px solid rgb(180, 69, 69);border-radius:10px;padding:1% 2%;background-color:rgb(177, 84, 84);" class="ml-4" data-aos="zoom-in"><span style="font-weight:700;font-size:20px;color:white;text-transform: uppercase;">plus</span><span class="pl-3" style="color:white;"><i class="fa fa-arrow-right" aria-hidden="true"></i></span></span></a>
+            <a href="logged_in_all_top_container.php?cat=3"><span style="border:3px solid rgb(180, 69, 69);border-radius:10px;padding:1% 2%;background-color:rgb(177, 84, 84);" class="ml-4" data-aos="zoom-in"><span style="font-weight:700;font-size:20px;color:white;text-transform: uppercase;">plus</span><span class="pl-3" style="color:white;"><i class="fa fa-arrow-right" aria-hidden="true"></i></span></span></a>
         </div>
     </div>
 </div>
