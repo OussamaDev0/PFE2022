@@ -347,7 +347,7 @@
     <div class="container pt-4 pb-4">
         <div class="row">
             <div class="col-sm-12 text-center pb-4">
-                <a href="Logged_in_product_page.php?cat=7"><span style="text-transform: uppercase;font-weight: 700;font-size:30px;" data-aos="zoom-in">CHAUSSURES</span></a>
+                <a href="logged_in_all_top_container.php?cat=7"><span style="text-transform: uppercase;font-weight: 700;font-size:30px;" data-aos="zoom-in">CHAUSSURES</span></a>
             </div>
         </div>
         <div class="row">
@@ -387,7 +387,7 @@
     <div class="container pr-5 text-center mt-4 pb-5">
         <div class="row pt-2 pb-3">
             <div class="col">
-                <a href="Logged_in_product_page.php?cat=7"><span style="border:3px solid rgb(180, 69, 69);border-radius:10px;padding:1% 2%;background-color:rgb(177, 84, 84);" class="ml-4" data-aos="zoom-in"><span style="font-weight:700;font-size:20px;color:white;text-transform: uppercase;">plus</span><span class="pl-3" style="color:white;"><i class="fa fa-arrow-right" aria-hidden="true"></i></span></span></a>
+                <a href="logged_in_all_top_container.php?cat=7"><span style="border:3px solid rgb(180, 69, 69);border-radius:10px;padding:1% 2%;background-color:rgb(177, 84, 84);" class="ml-4" data-aos="zoom-in"><span style="font-weight:700;font-size:20px;color:white;text-transform: uppercase;">plus</span><span class="pl-3" style="color:white;"><i class="fa fa-arrow-right" aria-hidden="true"></i></span></span></a>
             </div>
         </div>
     </div>
@@ -395,7 +395,7 @@
 <div class="container pt-4 pb-5">
     <div class="row">
         <div class="col-sm-12 text-center">
-            <a href="Logged_in_product_page.php?cat=3"><span style="text-transform: uppercase;font-weight: 700;font-size:30px;" data-aos="zoom-in">pantalons</span></a>
+            <a href="logged_in_all_top_container.php?cat=3"><span style="text-transform: uppercase;font-weight: 700;font-size:30px;" data-aos="zoom-in">pantalons</span></a>
         </div>
     </div>
 </div>

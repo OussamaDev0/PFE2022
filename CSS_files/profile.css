@@ -42,7 +42,7 @@ body {
     cursor: pointer;
     border: solid 1px #BA68C8
 }
-.show-two-hundred-page,.show-three-hundred-page,.show-four-hundred-page{display:none;}
+.show-two-hundred-page,.show-three-hundred-page,.show-four-hundred-page,.show-five-hundred-page{display:none;}
 .button-choix {
     width: 300px;
     background: #682773;

@@ -47,6 +47,14 @@ $psChaussures->execute();
 //select aliatoirement les produits
 $psAliatoire=$pdo->prepare("SELECT * FROM produit ORDER BY RAND() LIMIT 7");
 $psAliatoire->execute();
+
+//Mobile
+$psMobile=$pdo->prepare("SELECT * FROM produit ORDER BY RAND()");
+$psMobile->execute();
+
+
+//Mobile
+
 ?>
 <?php
     if(isset($_GET['cat'])){
@@ -112,6 +120,9 @@ else $Nbpages=floor($NBP / $size) + 1;
         }
         a:hover{color:black}
         a{color:black}
+        .squareee{
+            width: 20px;
+        }
 
     </style>
 </head>
@@ -394,28 +405,14 @@ else $Nbpages=floor($NBP / $size) + 1;
                 <button class="filter-toggler"><i class="fa fa-filter" aria-hidden="true"></i>filter</button>
                 <!-- The Modal -->
                 <div class="container mt-1" id="small-left-sider" style="position:absolute;z-index:5;border:0.1px solid;background-color:rgb(255, 255, 255);width:50%;transform: translateX(100%);">
-                    <div class="row">
+                    <div class="row squareee">
                         <div class="col-12 text-left pt-3">
-                            <span style="font-size:18px;text-transform: uppercase;font-weight: 600;" class="pl-4">price</span><br>
-                            <span  class="text-bold" name="select-price"><input type="radio" name="price" class="open-small-content-one-hundred"> &nbsp;100-200</span><br>
-                            <span  class="text-bold" name="select-price"><input type="radio" name="price" class="open-small-content-two-hundred"> &nbsp;200-300</span><br>
-                            <span  class="text-bold" name="select-price"><input type="radio" name="price" class="open-small-content-three-hundred"> &nbsp;300-400</span><br>
-                            <span  class="text-bold" name="select-price"><input type="radio"  name="price" class="open-small-content-four-hundred"> &nbsp;400-500</span><br>
-                            <span  class="text-bold" name="select-price"><input type="radio"  name="price" class="open-small-content-five-hundred"> &nbsp;500-600</span><br>
-                        </div>
-                        <div class="col-12  text-left pt-3 pb-3">
-                            <span style="font-size:18px;text-transform: uppercase;font-weight: 600;" class="pl-4">colour</span><br>
-                            <span class="text-bold"><input type="radio" name="color" class="open-small-content-three-hundred"> &nbsp;blue</span><br>
-                            <span class="text-bold"><input type="radio" name="color" class="open-small-content-five-hundred"> &nbsp;green</span><br>
-                            <span class="text-bold"><input type="radio" name="color" class="open-small-content-two-hundred"> &nbsp;yellow</span><br>
-                            <span class="text-bold"><input type="radio" name="color" class="open-small-content-four-hundred"> &nbsp;black</span><br>
-                        </div>
-                        <div class="col-12  text-left pb-3">
-                            <span style="font-size:18px;text-transform: uppercase;font-weight: 600;" class="pl-4">brand</span><br>
-                            <span  class="text-bold"><input type="radio" name="brand" class="open-small-content-two-hundred"> &nbsp;LOUIS VUITTON</span><br>
-                            <span  class="text-bold"><input type="radio" name="brand" class="open-small-content-three-hundred"> &nbsp;GUCCI</span><br>
-                            <span  class="text-bold"><input type="radio" name="brand" class="open-small-content-four-hundred">  <span class="ml-1">HERMES</span></span><br>
-                            <span  class="text-bold"><input type="radio" name="brand" class="open-small-content-five-hundred"> &nbsp;PRADA</span><br>
+                            <span style="font-size:18px;text-transform: uppercase;font-weight: 600;" class="pl-4"></span><br>
+                            <span  class="text-bold" name="select-price"><input type="radio" name="price" class="open-small-content-one-hundred" <?php if($cat==1) echo("checked");else echo("unchecked"); ?>> &nbsp;Chemis</span><br>
+                            <span  class="text-bold" name="select-price"><input type="radio" name="price" class="open-small-content-two-hundred" <?php if($cat==2) echo("checked");else echo("unchecked"); ?>> &nbsp;Polos</span><br>
+                            <span  class="text-bold" name="select-price"><input type="radio" name="price" class="open-small-content-three-hundred" <?php if($cat==3) echo("checked");else echo("unchecked"); ?>> &nbsp;Pantalons</span><br>
+                            <span  class="text-bold" name="select-price"><input type="radio"  name="price" class="open-small-content-four-hundred" <?php if($cat==5) echo("checked");else echo("unchecked"); ?>> &nbsp;Shorts</span><br>
+                            <span  class="text-bold" name="select-price"><input type="radio"  name="price" class="open-small-content-five-hundred" <?php if($cat==7) echo("checked");else echo("unchecked"); ?>> &nbsp;Chausseurs</span><br>
                         </div>
                     </div>
                 </div>
@@ -425,337 +422,415 @@ else $Nbpages=floor($NBP / $size) + 1;
     </div>
 </div>
 <!--filter-->
-<!--middle part-->
-<div class="container-fluid for-small-devices-2">
-    <div class="row">
-        <div class="col-12 text-center">
-            <span><img src="big-sale.jpg" height="150px"></span>
+    <!--middle part-->
+    <div class="container-fluid for-small-devices-2">
+        <div class="row">
+            <div class="col-12 text-center">
+                <span><img src="Images/big-sale.jpg" height="150px"></span>
+            </div>
         </div>
     </div>
-</div>
-<div class="container mt-5 pt-2 for-small-devices">
-    <div class="row">
-        <div class="col-md-4 col-sm-6 col-12 text-center pb-5">
-            <a href="logged_in_for-each-image.php#\"><img src="Images/mens-dress.jpg" class="img-men" data-aos="fade-up" style="border-radius:20px;height:180px"><br></a>
-            <a href="logged_in_for-each-image.php#\"><span class="image-lable" data-aos="fade-up">tradesional dress<br>150MAD</span></a>
+    <div class="container mt-5 pt-2 for-small-devices">
+        <div class="row">
+            <?php $produitMobile=$psMobile->fetch()?>
+            <div class="col-md-4 col-sm-6 col-12 text-center pb-5">
+                <a href="for-each-image.php?productID=<?php echo $produitMobile['id_produit'] ?>"><img src="productimages/<?php echo $produitMobile['prod_img'];?>" class="img-men" data-aos="fade-up" style="border-radius:20px;height:180px"><br></a>
+                <a href="for-each-image.php?productID=<?php echo $produitMobile['id_produit'] ?>"><span class="image-lable" data-aos="fade-up"><?php echo $produitMobile['prod_nom'];?><br><?php echo $produitMobile['prod_prix'];?>MAD</span></a>
+            </div>
+            <?php $produitMobile=$psMobile->fetch()?>
+            <div class="col-md-4 col-sm-6 col-12 text-center">
+                <a href="for-each-image.php?productID=<?php echo $produitMobile['id_produit'] ?>"><img src="productimages/<?php echo $produitMobile['prod_img'];?>" class="img-men" data-aos="fade-up" style="border-radius:20px;height:180px"><br></a>
+                <a href="for-each-image.php?productID=<?php echo $produitMobile['id_produit'] ?>"><span class="image-lable" data-aos="fade-up"><?php echo $produitMobile['prod_nom'];?><br><?php echo $produitMobile['prod_prix'];?>MAD</span></a>
+            </div>
+            <?php $produitMobile=$psMobile->fetch()?>
+            <div class="col-md-4 col-sm-6 col-12 text-center hide-content">
+                <a href="for-each-image.php?productID=<?php echo $produitMobile['id_produit'] ?>"><img src="productimages/<?php echo $produitMobile['prod_img'];?>" class="img-men" data-aos="fade-up" style="border-radius:20px;height:180px"><br></a>
+                <a href="for-each-image.php?productID=<?php echo $produitMobile['id_produit'] ?>"><span class="image-lable" data-aos="fade-up"><?php echo $produitMobile['prod_nom'];?><br><?php echo $produitMobile['prod_prix'];?>MAD</span></a>
+            </div>
         </div>
-        <div class="col-md-4 col-sm-6 col-12 text-center">
-            <a href="logged_in_for-each-image.php#\"><img src="Images/boys-kids.jpg" class="img-men" data-aos="fade-up" style="border-radius:20px;height:180px"><br></a>
-            <a href="logged_in_for-each-image.php#\"><span class="image-lable" data-aos="fade-up">tradesional dress<br>120MAD</span></a>
+        <!--second row-->
+        <?php $produitMobile=$psMobile->fetch()?>
+        <div class="row pt-5">
+            <div class="col-md-4 col-sm-6 col-12 text-center pb-5">
+                <a href="for-each-image.php?productID=<?php echo $produitMobile['id_produit'] ?>"><img src="productimages/<?php echo $produitMobile['prod_img'];?>" class="img-men" data-aos="fade-up" style="border-radius:20px;height:180px"><br></a>
+                <a href="for-each-image.php?productID=<?php echo $produitMobile['id_produit'] ?>"><span class="image-lable" data-aos="fade-up"><?php echo $produitMobile['prod_nom'];?><br><?php echo $produitMobile['prod_prix'];?>MAD</span></a>
+            </div>
+            <?php $produitMobile=$psMobile->fetch()?>
+            <div class="col-md-4 col-sm-6 col-12 text-center">
+                <a href="for-each-image.php?productID=<?php echo $produitMobile['id_produit'] ?>"><img src="productimages/<?php echo $produitMobile['prod_img'];?>" class="img-men" data-aos="fade-up" style="border-radius:20px;height:180px"><br></a>
+                <a href="for-each-image.php?productID=<?php echo $produitMobile['id_produit'] ?>"><span class="image-lable" data-aos="fade-up"><?php echo $produitMobile['prod_nom'];?><br><?php echo $produitMobile['prod_prix'];?>MAD</span></a>
+            </div>
+            <?php $produitMobile=$psMobile->fetch()?>
+            <div class="col-md-4 col-sm-6 col-12 text-center hide-content">
+                <a href="for-each-image.php?productID=<?php echo $produitMobile['id_produit'] ?>"><img src="productimages/<?php echo $produitMobile['prod_img'];?>" class="img-men" data-aos="fade-up" style="border-radius:20px;height:180px"><br></a>
+                <a href="for-each-image.php?productID=<?php echo $produitMobile['id_produit'] ?>"><span class="image-lable" data-aos="fade-up"><?php echo $produitMobile['prod_nom'];?><br><?php echo $produitMobile['prod_prix'];?>MAD</span></a>
+            </div>
         </div>
-        <div class="col-md-4 col-sm-6 col-12 text-center hide-content">
-            <a href="logged_in_for-each-image.php#\"><img src="Images/ladies-dress.jpg" class="img-men" data-aos="fade-up" style="border-radius:20px;height:180px"></a>
-            <a href="logged_in_for-each-image.php#\"><span class="image-lable" data-aos="fade-up">tradesional dress<br>180MAD</span></a>
+        <!--third row-->
+        <div class="row pt-5">
+            <?php $produitMobile=$psMobile->fetch()?>
+            <div class="col-md-4 col-sm-6 col-12 text-center pb-5">
+                <a href="for-each-image.php?productID=<?php echo $produitMobile['id_produit'] ?>"><img src="productimages/<?php echo $produitMobile['prod_img'];?>" class="img-men" data-aos="fade-up" style="border-radius:20px;height:180px"><br></a>
+                <a href="for-each-image.php?productID=<?php echo $produitMobile['id_produit'] ?>"><span class="image-lable" data-aos="fade-up"><?php echo $produitMobile['prod_nom'];?><br><?php echo $produitMobile['prod_prix'];?>MAD</span></a>
+            </div>
+            <?php $produitMobile=$psMobile->fetch()?>
+            <div class="col-md-4 col-sm-6 col-12 text-center">
+                <a href="for-each-image.php?productID=<?php echo $produitMobile['id_produit'] ?>"><img src="productimages/<?php echo $produitMobile['prod_img'];?>" class="img-men" data-aos="fade-up" style="border-radius:20px;height:180px"><br></a>
+                <a href="for-each-image.php?productID=<?php echo $produitMobile['id_produit'] ?>"><span class="image-lable" data-aos="fade-up"><?php echo $produitMobile['prod_nom'];?><br><?php echo $produitMobile['prod_prix'];?>MAD</span></a>
+            </div>
+            <?php $produitMobile=$psMobile->fetch()?>
+            <div class="col-md-4 col-sm-6 col-12 text-center hide-content">
+                <a href="for-each-image.php?productID=<?php echo $produitMobile['id_produit'] ?>"><img src="productimages/<?php echo $produitMobile['prod_img'];?>" class="img-men" data-aos="fade-up" style="border-radius:20px;height:180px"><br></a>
+                <a href="for-each-image.php?productID=<?php echo $produitMobile['id_produit'] ?>"><span class="image-lable" data-aos="fade-up"><?php echo $produitMobile['prod_nom'];?><br><?php echo $produitMobile['prod_prix'];?>MAD</span></a>
+            </div>
         </div>
     </div>
-    <!--second row-->
-    <div class="row pt-5">
-        <div class="col-md-4 col-sm-6 col-12 text-center pb-5">
-            <a href="logged_in_for-each-image.php#\"><img src="Images/girl.jpg" class="img-men" data-aos="fade-up" style="border-radius:20px;height:180px"><br></a>
-            <a href="logged_in_for-each-image.php#\"><span class="image-lable" data-aos="fade-up">tradesional dress<br>100MAD</span></a>
-        </div>
-        <div class="col-md-4 col-sm-6 col-12 text-center">
-            <a href="logged_in_for-each-image.php#\"><img src="Images/men.jpg" class="img-men" data-aos="fade-up" style="border-radius:20px;height:180px"><br></a>
-            <a href="logged_in_for-each-image.php#\"><span class="image-lable" data-aos="fade-up">tradesional dress<br>180MAD</span></a>
-        </div>
-        <div class="col-md-4 col-sm-6 col-12 text-center hide-content">
-            <a href="logged_in_for-each-image.php#\"><img src="Images/kids.jpg" class="img-men" data-aos="fade-up" style="border-radius:20px;height:180px"></a>
-            <a href="logged_in_for-each-image.php#\"><span class="image-lable" data-aos="fade-up">tradesional dress<br>120MAD</span></a>
-        </div>
-    </div>
-    <!--third row-->
-    <div class="row pt-5">
-        <div class="col-md-4 col-sm-6 col-12 text-center pb-5">
-            <a href="logged_in_for-each-image.php#\"><img src="Images/men-1.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
-            <a href="logged_in_for-each-image.php#\"><span class="image-lable">tradesional dress<br>180MAD</span></a>
-        </div>
-        <div class="col-md-4 col-sm-6 col-12 text-center">
-            <a href="logged_in_for-each-image.php#\"><img src="Images/men.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
-            <a href="logged_in_for-each-image.php#\"><span class="image-lable">tradesional dress<br>120MAD</span></a>
-        </div>
-        <div class="col-md-4 col-sm-6 col-12 text-center hide-content">
-            <a href="logged_in_for-each-image.php#\"><img src="Images/boys-kids-1.jpg" class="img-men" style="border-radius:20px;height:180px"></a>
-            <a href="logged_in_for-each-image.php#\"><span class="image-lable">tradesional dress<br>100MAD</span></a>
-        </div>
-    </div>
-</div>
-<!--comment-->
+    <!--comment-->
 
-<!--100-200 page start-->
-<!--header- of all the right side container--->
-<div class="hide-me-for-font">
+    <!--Chemis page start-->
+    <?php
+    $psMobileChemis=$pdo->prepare("SELECT * FROM produit WHERE id_cat=1");
+    $psMobileChemis->execute();
+    $produitMobileChemis=$psMobileChemis->fetch();
+    ?>
+
     <!--header- of all the right side container--->
-    <div class="container show-two-hundred-small-page">
-        <!--first row-->
-        <div class="row pt-5">
-            <div class="col-md-4 col-sm-6 col-12 text-center pb-5">
-                <a href="logged_in_for-each-image.php#\"><img src="Images/mens-dress-1.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
-                <a href="logged_in_for-each-image.php#\"><span class="image-lable">tradesional dress<br>130MAD</span></a>
+    <div class="hide-me-for-font">
+        <!--header- of all the right side container--->
+        <div class="container show-two-hundred-small-page">
+            <!--first row-->
+            <div class="row pt-5">
+                <div class="col-md-4 col-sm-6 col-12 text-center pb-5">
+                    <a href="for-each-image.php?productID=<?php echo $produitMobileChemis['id_produit'] ?>"><img src="productimages/<?php echo $produitMobileChemis['prod_img'];?>" class="img-men" data-aos="fade-up" style="border-radius:20px;height:180px"><br></a>
+                    <a href="for-each-image.php?productID=<?php echo $produitMobileChemis['id_produit'] ?>"><span class="image-lable" data-aos="fade-up"><?php echo $produitMobileChemis['prod_nom'];?><br><?php echo $produitMobileChemis['prod_prix'];?>MAD</span></a>
+                </div>
+                <?php $produitMobileChemis=$psMobileChemis->fetch();?>
+                <div class="col-md-4 col-sm-6 col-12 text-center">
+                    <a href="for-each-image.php?productID=<?php echo $produitMobileChemis['id_produit'] ?>"><img src="productimages/<?php echo $produitMobileChemis['prod_img'];?>" class="img-men" data-aos="fade-up" style="border-radius:20px;height:180px"><br></a>
+                    <a href="for-each-image.php?productID=<?php echo $produitMobileChemis['id_produit'] ?>"><span class="image-lable" data-aos="fade-up"><?php echo $produitMobileChemis['prod_nom'];?><br><?php echo $produitMobileChemis['prod_prix'];?>MAD</span></a>
+                </div>
+                <?php $produitMobileChemis=$psMobileChemis->fetch();?>
+                <div class="col-md-4 col-sm-6 col-12 text-center hide-content">
+                    <a href="for-each-image.php?productID=<?php echo $produitMobileChemis['id_produit'] ?>"><img src="productimages/<?php echo $produitMobileChemis['prod_img'];?>" class="img-men" data-aos="fade-up" style="border-radius:20px;height:180px"><br></a>
+                    <a href="for-each-image.php?productID=<?php echo $produitMobileChemis['id_produit'] ?>"><span class="image-lable" data-aos="fade-up"><?php echo $produitMobileChemis['prod_nom'];?><br><?php echo $produitMobileChemis['prod_prix'];?>MAD</span></a>
+                </div>
             </div>
-            <div class="col-md-4 col-sm-6 col-12 text-center">
-                <a href="logged_in_for-each-image.php#\"><img src="Images/ladies-dress-1.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
-                <a href="logged_in_for-each-image.php#\"><span class="image-lable">tradesional dress<br>120MAD</span></a>
+            <!--second row-->
+            <div class="row pt-5">
+                <?php $produitMobileChemis=$psMobileChemis->fetch();?>
+                <div class="col-md-4 col-sm-6 col-12 text-center pb-5">
+                    <a href="for-each-image.php?productID=<?php echo $produitMobileChemis['id_produit'] ?>"><img src="productimages/<?php echo $produitMobileChemis['prod_img'];?>" class="img-men" data-aos="fade-up" style="border-radius:20px;height:180px"><br></a>
+                    <a href="for-each-image.php?productID=<?php echo $produitMobileChemis['id_produit'] ?>"><span class="image-lable" data-aos="fade-up"><?php echo $produitMobileChemis['prod_nom'];?><br><?php echo $produitMobileChemis['prod_prix'];?>MAD</span></a>
+                </div>
+                <?php $produitMobileChemis=$psMobileChemis->fetch();?>
+                <div class="col-md-4 col-sm-6 col-12 text-center">
+                    <a href="for-each-image.php?productID=<?php echo $produitMobileChemis['id_produit'] ?>"><img src="productimages/<?php echo $produitMobileChemis['prod_img'];?>" class="img-men" data-aos="fade-up" style="border-radius:20px;height:180px"><br></a>
+                    <a href="for-each-image.php?productID=<?php echo $produitMobileChemis['id_produit'] ?>"><span class="image-lable" data-aos="fade-up"><?php echo $produitMobileChemis['prod_nom'];?><br><?php echo $produitMobileChemis['prod_prix'];?>MAD</span></a>
+                </div>
+                <?php $produitMobileChemis=$psMobileChemis->fetch();?>
+                <div class="col-md-4 col-sm-6 col-12 text-center hide-content">
+                    <a href="for-each-image.php?productID=<?php echo $produitMobileChemis['id_produit'] ?>"><img src="productimages/<?php echo $produitMobileChemis['prod_img'];?>" class="img-men" data-aos="fade-up" style="border-radius:20px;height:180px"><br></a>
+                    <a href="for-each-image.php?productID=<?php echo $produitMobileChemis['id_produit'] ?>"><span class="image-lable" data-aos="fade-up"><?php echo $produitMobileChemis['prod_nom'];?><br><?php echo $produitMobileChemis['prod_prix'];?>MAD</span></a>
+                </div>
             </div>
-            <div class="col-md-4 col-sm-6 col-12 text-center hide-content">
-                <a href="logged_in_for-each-image.php#\"><img src="Images/kids-dress-1.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
-                <a href="logged_in_for-each-image.php#\"><span class="image-lable">tradesional dress<br>.150MAD</span></a>
+            <!--third row-->
+            <div class="row pt-5">
+                <?php $produitMobileChemis=$psMobileChemis->fetch();?>
+                <div class="col-md-4 col-sm-6 col-12 text-center pb-5">
+                    <a href="for-each-image.php?productID=<?php echo $produitMobileChemis['id_produit'] ?>"><img src="productimages/<?php echo $produitMobileChemis['prod_img'];?>" class="img-men" data-aos="fade-up" style="border-radius:20px;height:180px"><br></a>
+                    <a href="for-each-image.php?productID=<?php echo $produitMobileChemis['id_produit'] ?>"><span class="image-lable" data-aos="fade-up"><?php echo $produitMobileChemis['prod_nom'];?><br><?php echo $produitMobileChemis['prod_prix'];?>MAD</span></a>
+                </div>
+                <?php $produitMobileChemis=$psMobileChemis->fetch();?>
+                <div class="col-md-4 col-sm-6 col-12 text-center">
+                    <a href="for-each-image.php?productID=<?php echo $produitMobileChemis['id_produit'] ?>"><img src="productimages/<?php echo $produitMobileChemis['prod_img'];?>" class="img-men" data-aos="fade-up" style="border-radius:20px;height:180px"><br></a>
+                    <a href="for-each-image.php?productID=<?php echo $produitMobileChemis['id_produit'] ?>"><span class="image-lable" data-aos="fade-up"><?php echo $produitMobileChemis['prod_nom'];?><br><?php echo $produitMobileChemis['prod_prix'];?>MAD</span></a>
+                </div>
+                <?php $produitMobileChemis=$psMobileChemis->fetch();?>
+                <div class="col-md-4 col-sm-6 col-12 text-center hide-content">
+                    <a href="for-each-image.php?productID=<?php echo $produitMobileChemis['id_produit'] ?>"><img src="productimages/<?php echo $produitMobileChemis['prod_img'];?>" class="img-men" data-aos="fade-up" style="border-radius:20px;height:180px"><br></a>
+                    <a href="for-each-image.php?productID=<?php echo $produitMobileChemis['id_produit'] ?>"><span class="image-lable" data-aos="fade-up"><?php echo $produitMobileChemis['prod_nom'];?><br><?php echo $produitMobileChemis['prod_prix'];?>MAD</span></a>
+                </div>
             </div>
         </div>
-        <!--second row-->
-        <div class="row pt-5">
-            <div class="col-md-4 col-sm-6 col-12 text-center pb-5">
-                <a href="logged_in_for-each-image.php#\"><img src="Images/kids-dress-2.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
-                <a href="logged_in_for-each-image.php#\"><span class="image-lable">tradesional dress<br>180MAD</span></a>
-            </div>
-            <div class="col-md-4 col-sm-6 col-12 text-center">
-                <a href="logged_in_for-each-image.php#\"><img src="Images/mens-dress-2.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
-                <a href="logged_in_for-each-image.php#\"><span class="image-lable">tradesional dress<br>100MAD</span></a>
-            </div>
-            <div class="col-md-4 col-sm-6 col-12 text-center hide-content">
-                <a href="logged_in_for-each-image.php#\"><img src="Images/ladies-dress-3.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
-                <a href="logged_in_for-each-image.php#\"><span class="image-lable">tradesional dress<br>135MAD</span></a>
-            </div>
-        </div>
-        <!--third row-->
-        <div class="row pt-5">
-            <div class="col-md-4 col-sm-6 col-12 text-center pb-5">
-                <a href="logged_in_for-each-image.php#\"><img src="Images/ladies-dress-4.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
-                <a href="logged_in_for-each-image.php#\"><span class="image-lable">tradesional dress<br>155MAD</span></a>
-            </div>
-            <div class="col-md-4 col-sm-6 col-12 text-center">
-                <a href="logged_in_for-each-image.php#\"><img src="Images/mens-dress-4.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
-                <a href="logged_in_for-each-image.php#\"><span class="image-lable">tradesional dress<br>176MAD</span></a>
-            </div>
-            <div class="col-md-4 col-sm-6 col-12 text-center hide-content">
-                <a href="logged_in_for-each-image.php#\"><img src="Images/boys-dress-1.jpeg" class="img-men" style="border-radius:20px;height:180px"><br></a>
-                <a href="logged_in_for-each-image.php#\"><span class="image-lable">tradesional dress<br>133MAD</span></a>
-            </div>
-        </div>
-    </div>
 
-    <!--100-200 page end-->
+        <!--Chemis page end-->
 
-    <!--200-300 page start-->
+        <!--Polos page start-->
 
-    <div class="container show-three-hundred-small-page">
-        <!--first row-->
-        <div class="row pt-5">
-            <div class="col-md-4 col-sm-6 col-12 text-center pb-5">
-                <a href="logged_in_for-each-image.php#\"><img src="Images/hundred-men.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
-                <a href="logged_in_for-each-image.php#\"><span class="image-lable">tradesional dress<br>130MAD</span></a>
+        <?php
+        $psMobilePolos=$pdo->prepare("SELECT * FROM produit WHERE id_cat=2");
+        $psMobilePolos->execute();
+        $produitMobilePolos=$psMobilePolos->fetch();
+        ?>
+
+        <div class="container show-three-hundred-small-page">
+            <!--first row-->
+            <div class="row pt-5">
+                <div class="col-md-4 col-sm-6 col-12 text-center pb-5">
+                    <a href="for-each-image.php?productID=<?php echo $produitMobilePolos['id_produit'] ?>"><img src="productimages/<?php echo $produitMobilePolos['prod_img'];?>" class="img-men" data-aos="fade-up" style="border-radius:20px;height:180px"><br></a>
+                    <a href="for-each-image.php?productID=<?php echo $produitMobilePolos['id_produit'] ?>"><span class="image-lable" data-aos="fade-up"><?php echo $produitMobilePolos['prod_nom'];?><br><?php echo $produitMobilePolos['prod_prix'];?>MAD</span></a>
+                </div>
+                <?php $produitMobilePolos=$psMobilePolos->fetch();?>
+                <div class="col-md-4 col-sm-6 col-12 text-center">
+                    <a href="for-each-image.php?productID=<?php echo $produitMobilePolos['id_produit'] ?>"><img src="productimages/<?php echo $produitMobilePolos['prod_img'];?>" class="img-men" data-aos="fade-up" style="border-radius:20px;height:180px"><br></a>
+                    <a href="for-each-image.php?productID=<?php echo $produitMobilePolos['id_produit'] ?>"><span class="image-lable" data-aos="fade-up"><?php echo $produitMobilePolos['prod_nom'];?><br><?php echo $produitMobilePolos['prod_prix'];?>MAD</span></a>
+                </div>
+                <?php $produitMobilePolos=$psMobilePolos->fetch();?>
+                <div class="col-md-4 col-sm-6 col-12 text-center hide-content">
+                    <a href="for-each-image.php?productID=<?php echo $produitMobilePolos['id_produit'] ?>"><img src="productimages/<?php echo $produitMobilePolos['prod_img'];?>" class="img-men" data-aos="fade-up" style="border-radius:20px;height:180px"><br></a>
+                    <a href="for-each-image.php?productID=<?php echo $produitMobilePolos['id_produit'] ?>"><span class="image-lable" data-aos="fade-up"><?php echo $produitMobilePolos['prod_nom'];?><br><?php echo $produitMobilePolos['prod_prix'];?>MAD</span></a>
+                </div>
             </div>
-            <div class="col-md-4 col-sm-6 col-12 text-center">
-                <a href="logged_in_for-each-image.php#\"><img src="Images/two-hundred-ladies.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
-                <a href="logged_in_for-each-image.php#\"><span class="image-lable">tradesional dress<br>120MAD</span></a>
+            <!--second row-->
+            <div class="row pt-5">
+                <?php $produitMobilePolos=$psMobilePolos->fetch();?>
+                <div class="col-md-4 col-sm-6 col-12 text-center pb-5">
+                    <a href="for-each-image.php?productID=<?php echo $produitMobilePolos['id_produit'] ?>"><img src="productimages/<?php echo $produitMobilePolos['prod_img'];?>" class="img-men" data-aos="fade-up" style="border-radius:20px;height:180px"><br></a>
+                    <a href="for-each-image.php?productID=<?php echo $produitMobilePolos['id_produit'] ?>"><span class="image-lable" data-aos="fade-up"><?php echo $produitMobilePolos['prod_nom'];?><br><?php echo $produitMobilePolos['prod_prix'];?>MAD</span></a>
+                </div>
+                <?php $produitMobilePolos=$psMobilePolos->fetch();?>
+                <div class="col-md-4 col-sm-6 col-12 text-center">
+                    <a href="for-each-image.php?productID=<?php echo $produitMobilePolos['id_produit'] ?>"><img src="productimages/<?php echo $produitMobilePolos['prod_img'];?>" class="img-men" data-aos="fade-up" style="border-radius:20px;height:180px"><br></a>
+                    <a href="for-each-image.php?productID=<?php echo $produitMobilePolos['id_produit'] ?>"><span class="image-lable" data-aos="fade-up"><?php echo $produitMobilePolos['prod_nom'];?><br><?php echo $produitMobilePolos['prod_prix'];?>MAD</span></a>
+                </div>
+                <?php $produitMobilePolos=$psMobilePolos->fetch();?>
+                <div class="col-md-4 col-sm-6 col-12 text-center hide-content">
+                    <a href="for-each-image.php?productID=<?php echo $produitMobilePolos['id_produit'] ?>"><img src="productimages/<?php echo $produitMobilePolos['prod_img'];?>" class="img-men" data-aos="fade-up" style="border-radius:20px;height:180px"><br></a>
+                    <a href="for-each-image.php?productID=<?php echo $produitMobilePolos['id_produit'] ?>"><span class="image-lable" data-aos="fade-up"><?php echo $produitMobilePolos['prod_nom'];?><br><?php echo $produitMobilePolos['prod_prix'];?>MAD</span></a>
+                </div>
             </div>
-            <div class="col-md-4 col-sm-6 col-12 text-center hide-content">
-                <a href="logged_in_for-each-image.php#\"><img src="Images/two-hundred.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
-                <a href="logged_in_for-each-image.php#\"><span class="image-lable">tradesional dress<br>.150MAD</span></a>
+            <!--third row-->
+            <div class="row pt-5">
+                <?php $produitMobilePolos=$psMobilePolos->fetch();?>
+                <div class="col-md-4 col-sm-6 col-12 text-center pb-5">
+                    <a href="for-each-image.php?productID=<?php echo $produitMobilePolos['id_produit'] ?>"><img src="productimages/<?php echo $produitMobilePolos['prod_img'];?>" class="img-men" data-aos="fade-up" style="border-radius:20px;height:180px"><br></a>
+                    <a href="for-each-image.php?productID=<?php echo $produitMobilePolos['id_produit'] ?>"><span class="image-lable" data-aos="fade-up"><?php echo $produitMobilePolos['prod_nom'];?><br><?php echo $produitMobilePolos['prod_prix'];?>MAD</span></a>
+                </div>
+                <?php $produitMobilePolos=$psMobilePolos->fetch();?>
+                <div class="col-md-4 col-sm-6 col-12 text-center">
+                    <a href="for-each-image.php?productID=<?php echo $produitMobilePolos['id_produit'] ?>"><img src="productimages/<?php echo $produitMobilePolos['prod_img'];?>" class="img-men" data-aos="fade-up" style="border-radius:20px;height:180px"><br></a>
+                    <a href="for-each-image.php?productID=<?php echo $produitMobilePolos['id_produit'] ?>"><span class="image-lable" data-aos="fade-up"><?php echo $produitMobilePolos['prod_nom'];?><br><?php echo $produitMobilePolos['prod_prix'];?>MAD</span></a>
+                </div>
+                <?php $produitMobilePolos=$psMobilePolos->fetch();?>
+                <div class="col-md-4 col-sm-6 col-12 text-center hide-content">
+                    <a href="for-each-image.php?productID=<?php echo $produitMobilePolos['id_produit'] ?>"><img src="productimages/<?php echo $produitMobilePolos['prod_img'];?>" class="img-men" data-aos="fade-up" style="border-radius:20px;height:180px"><br></a>
+                    <a href="for-each-image.php?productID=<?php echo $produitMobilePolos['id_produit'] ?>"><span class="image-lable" data-aos="fade-up"><?php echo $produitMobilePolos['prod_nom'];?><br><?php echo $produitMobilePolos['prod_prix'];?>MAD</span></a>
+                </div>
             </div>
         </div>
-        <!--second row-->
-        <div class="row pt-5">
-            <div class="col-md-4 col-sm-6 col-12 text-center pb-5">
-                <a href="logged_in_for-each-image.php#\"><img src="Images/two-hundred-men.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
-                <a href="logged_in_for-each-image.php#\"><span class="image-lable">tradesional dress<br>180MAD</span></a>
-            </div>
-            <div class="col-md-4 col-sm-6 col-12 text-center">
-                <a href="logged_in_for-each-image.php#\"><img src="Images/two-hundred-boys.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
-                <a href="logged_in_for-each-image.php#\"><span class="image-lable">tradesional dress<br>100MAD</span></a>
-            </div>
-            <div class="col-md-4 col-sm-6 col-12 text-center hide-content">
-                <a href="logged_in_for-each-image.php#\"><img src="Images/two-hundred-ladies-1.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
-                <a href="logged_in_for-each-image.php#\"><span class="image-lable">tradesional dress<br>135MAD</span></a>
-            </div>
-        </div>
-        <!--third row-->
-        <div class="row pt-5">
-            <div class="col-md-4 col-sm-6 col-12 text-center pb-5">
-                <a href="logged_in_for-each-image.php#\"><img src="Images/two-hundred-girls-1.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
-                <a href="logged_in_for-each-image.php#\"><span class="image-lable">tradesional dress<br>155MAD</span></a>
-            </div>
-            <div class="col-md-4 col-sm-6 col-12 text-center">
-                <a href="logged_in_for-each-image.php#\"><img src="Images/two-hundred-ladies-2.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
-                <a href="logged_in_for-each-image.php#\"><span class="image-lable">tradesional dress<br>176MAD</span></a>
-            </div>
-            <div class="col-md-4 col-sm-6 col-12 text-center hide-content">
-                <a href="logged_in_for-each-image.php#\"><img src="Images/two-hundred-men-2.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
-                <a href="logged_in_for-each-image.php#\"><span class="image-lable">tradesional dress<br>133MAD</span>
-            </div>
-        </div>
-    </div>
 
 
-    <!--200-300 page end-->
+        <!--Polos page end-->
 
-    <!--300-400 page start-->
+        <!--Pantalons page start-->
 
-    <div class="container show-four-hundred-small-page">
-        <!--first row-->
-        <div class="row pt-5">
-            <div class="col-md-4 col-sm-6 col-12 text-center pb-5">
-                <a href="logged_in_for-each-image.php#\"></a><img src="Images/three-hundred-boys.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
-                <a href="logged_in_for-each-image.php#\"></a><span class="image-lable">tradesional dress<br>130MAD</span></a>
-            </div>
-            <div class="col-md-4 col-sm-6 col-12 text-center">
-                <a href="logged_in_for-each-image.php#\"></a><img src="Images/three-hundred-men.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
-                <a href="logged_in_for-each-image.php#\"></a><span class="image-lable">tradesional dress<br>120MAD</span></a>
-            </div>
-            <div class="col-md-4 col-sm-6 col-12 text-center hide-content">
-                <a href="logged_in_for-each-image.php#\"></a><img src="Images/three-hundred-ladies.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
-                <a href="logged_in_for-each-image.php#\"></a><span class="image-lable">tradesional dress<br>.150MAD</span></a>
-            </div>
-        </div>
-        <!--second row-->
-        <div class="row pt-5">
-            <div class="col-md-4 col-sm-6 col-12 text-center pb-5">
-                <a href="logged_in_for-each-image.php#\"></a><img src="Images/three-hundred-men-1.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
-                <a href="logged_in_for-each-image.php#\"></a><span class="image-lable">tradesional dress<br>180MAD</span></a>
-            </div>
-            <div class="col-md-4 col-sm-6 col-12 text-center">
-                <a href="logged_in_for-each-image.php#\"></a><img src="Images/three-hundred-ladies-1.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
-                <a href="logged_in_for-each-image.php#\"></a><span class="image-lable">tradesional dress<br>100MAD</span></a>
-            </div>
-            <div class="col-md-4 col-sm-6 col-12 text-center hide-content">
-                <a href="logged_in_for-each-image.php#\"></a><img src="Images/three-hundred-boys-1.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
-                <a href="logged_in_for-each-image.php#\"></a><span class="image-lable">tradesional dress<br>135MAD</span></a>
-            </div>
-        </div>
-        <!--third row-->
-        <div class="row pt-5">
-            <div class="col-md-4 col-sm-6 col-12 text-center pb-5">
-                <a href="logged_in_for-each-image.php#\"></a><img src="Images/three-hundred-ladies-2.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
-                <a href="logged_in_for-each-image.php#\"></a><span class="image-lable">tradesional dress<br>155MAD</span></a>
-            </div>
-            <div class="col-md-4 col-sm-6 col-12 text-center">
-                <a href="logged_in_for-each-image.php#\"></a><img src="Images/three-hundred-men-3.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
-                <a href="logged_in_for-each-image.php#\"></a><span class="image-lable">tradesional dress<br>176MAD</span></a>
-            </div>
-            <div class="col-md-4 col-sm-6 col-12 text-center hide-content">
-                <a href="logged_in_for-each-image.php#\"></a><img src="Images/three-hundred-boys-2.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
-                <a href="logged_in_for-each-image.php#\"></a><span class="image-lable">tradesional dress<br>133MAD</span></a>
-            </div>
-        </div>
-    </div>
+        <?php
+        $psMobilePantalons=$pdo->prepare("SELECT * FROM produit WHERE id_cat=3");
+        $psMobilePantalons->execute();
+        $produitMobilePantalons=$psMobilePantalons->fetch();
+        ?>
 
-    <!--300-400 page end-->
+        <div class="container show-four-hundred-small-page">
+            <!--first row-->
+            <div class="row pt-5">
+                <div class="col-md-4 col-sm-6 col-12 text-center pb-5">
+                    <a href="for-each-image.php?productID=<?php echo $produitMobilePantalons['id_produit'] ?>"><img src="productimages/<?php echo $produitMobilePantalons['prod_img'];?>" class="img-men" data-aos="fade-up" style="border-radius:20px;height:180px"><br></a>
+                    <a href="for-each-image.php?productID=<?php echo $produitMobilePantalons['id_produit'] ?>"><span class="image-lable" data-aos="fade-up"><?php echo $produitMobilePantalons['prod_nom'];?><br><?php echo $produitMobilePantalons['prod_prix'];?>MAD</span></a>
+                </div>
+                <?php $produitMobilePantalons=$psMobilePantalons->fetch();?>
+                <div class="col-md-4 col-sm-6 col-12 text-center">
+                    <a href="for-each-image.php?productID=<?php echo $produitMobilePantalons['id_produit'] ?>"><img src="productimages/<?php echo $produitMobilePantalons['prod_img'];?>" class="img-men" data-aos="fade-up" style="border-radius:20px;height:180px"><br></a>
+                    <a href="for-each-image.php?productID=<?php echo $produitMobilePantalons['id_produit'] ?>"><span class="image-lable" data-aos="fade-up"><?php echo $produitMobilePantalons['prod_nom'];?><br><?php echo $produitMobilePantalons['prod_prix'];?>MAD</span></a>
+                </div>
+                <?php $produitMobilePantalons=$psMobilePantalons->fetch();?>
+                <div class="col-md-4 col-sm-6 col-12 text-center hide-content">
+                    <a href="for-each-image.php?productID=<?php echo $produitMobilePantalons['id_produit'] ?>"><img src="productimages/<?php echo $produitMobilePantalons['prod_img'];?>" class="img-men" data-aos="fade-up" style="border-radius:20px;height:180px"><br></a>
+                    <a href="for-each-image.php?productID=<?php echo $produitMobilePantalons['id_produit'] ?>"><span class="image-lable" data-aos="fade-up"><?php echo $produitMobilePantalons['prod_nom'];?><br><?php echo $produitMobilePantalons['prod_prix'];?>MAD</span></a>
+                </div>
+            </div>
+            <!--second row-->
+            <div class="row pt-5">
+                <?php $produitMobilePantalons=$psMobilePantalons->fetch();?>
+                <div class="col-md-4 col-sm-6 col-12 text-center pb-5">
+                    <a href="for-each-image.php?productID=<?php echo $produitMobilePantalons['id_produit'] ?>"><img src="productimages/<?php echo $produitMobilePantalons['prod_img'];?>" class="img-men" data-aos="fade-up" style="border-radius:20px;height:180px"><br></a>
+                    <a href="for-each-image.php?productID=<?php echo $produitMobilePantalons['id_produit'] ?>"><span class="image-lable" data-aos="fade-up"><?php echo $produitMobilePantalons['prod_nom'];?><br><?php echo $produitMobilePantalons['prod_prix'];?>MAD</span></a>
+                </div>
+                <?php $produitMobilePantalons=$psMobilePantalons->fetch();?>
+                <div class="col-md-4 col-sm-6 col-12 text-center">
+                    <a href="for-each-image.php?productID=<?php echo $produitMobilePantalons['id_produit'] ?>"><img src="productimages/<?php echo $produitMobilePantalons['prod_img'];?>" class="img-men" data-aos="fade-up" style="border-radius:20px;height:180px"><br></a>
+                    <a href="for-each-image.php?productID=<?php echo $produitMobilePantalons['id_produit'] ?>"><span class="image-lable" data-aos="fade-up"><?php echo $produitMobilePantalons['prod_nom'];?><br><?php echo $produitMobilePantalons['prod_prix'];?>MAD</span></a>
+                </div>
+                <?php $produitMobilePantalons=$psMobilePantalons->fetch();?>
+                <div class="col-md-4 col-sm-6 col-12 text-center hide-content">
+                    <a href="for-each-image.php?productID=<?php echo $produitMobilePantalons['id_produit'] ?>"><img src="productimages/<?php echo $produitMobilePantalons['prod_img'];?>" class="img-men" data-aos="fade-up" style="border-radius:20px;height:180px"><br></a>
+                    <a href="for-each-image.php?productID=<?php echo $produitMobilePantalons['id_produit'] ?>"><span class="image-lable" data-aos="fade-up"><?php echo $produitMobilePantalons['prod_nom'];?><br><?php echo $produitMobilePantalons['prod_prix'];?>MAD</span></a>
+                </div>
+            </div>
+            <!--third row-->
+            <div class="row pt-5">
+                <?php $produitMobilePantalons=$psMobilePantalons->fetch();?>
+                <div class="col-md-4 col-sm-6 col-12 text-center pb-5">
+                    <a href="for-each-image.php?productID=<?php echo $produitMobilePantalons['id_produit'] ?>"><img src="productimages/<?php echo $produitMobilePantalons['prod_img'];?>" class="img-men" data-aos="fade-up" style="border-radius:20px;height:180px"><br></a>
+                    <a href="for-each-image.php?productID=<?php echo $produitMobilePantalons['id_produit'] ?>"><span class="image-lable" data-aos="fade-up"><?php echo $produitMobilePantalons['prod_nom'];?><br><?php echo $produitMobilePantalons['prod_prix'];?>MAD</span></a>
+                </div>
+                <?php $produitMobilePantalons=$psMobilePantalons->fetch();?>
+                <div class="col-md-4 col-sm-6 col-12 text-center">
+                    <a href="for-each-image.php?productID=<?php echo $produitMobilePantalons['id_produit'] ?>"><img src="productimages/<?php echo $produitMobilePantalons['prod_img'];?>" class="img-men" data-aos="fade-up" style="border-radius:20px;height:180px"><br></a>
+                    <a href="for-each-image.php?productID=<?php echo $produitMobilePantalons['id_produit'] ?>"><span class="image-lable" data-aos="fade-up"><?php echo $produitMobilePantalons['prod_nom'];?><br><?php echo $produitMobilePantalons['prod_prix'];?>MAD</span></a>
+                </div>
+                <?php $produitMobilePantalons=$psMobilePantalons->fetch();?>
+                <div class="col-md-4 col-sm-6 col-12 text-center hide-content">
+                    <a href="for-each-image.php?productID=<?php echo $produitMobilePantalons['id_produit'] ?>"><img src="productimages/<?php echo $produitMobilePantalons['prod_img'];?>" class="img-men" data-aos="fade-up" style="border-radius:20px;height:180px"><br></a>
+                    <a href="for-each-image.php?productID=<?php echo $produitMobilePantalons['id_produit'] ?>"><span class="image-lable" data-aos="fade-up"><?php echo $produitMobilePantalons['prod_nom'];?><br><?php echo $produitMobilePantalons['prod_prix'];?>MAD</span></a>
+                </div>
+            </div>
+        </div>
 
-    <!--400-500 page start-->
+        <!--Pantalons page end-->
 
-    <div class="container show-five-hundred-small-page">
-        <!--first row-->
-        <div class="row pt-5">
-            <div class="col-md-4 col-sm-6 col-12 text-center pb-5">
-                <a href="logged_in_for-each-image.php#\"></a><img src="Images/four-hundred-men.jpeg" class="img-men" style="border-radius:20px;height:180px"><br></a>
-                <a href="logged_in_for-each-image.php#\"></a><span class="image-lable">tradesional dress<br>130MAD</span></a>
-            </div>
-            <div class="col-md-4 col-sm-6 col-12 text-center">
-                <a href="logged_in_for-each-image.php#\"></a><img src="Images/four-hundred-boys.jpeg" class="img-men" style="border-radius:20px;height:180px"><br></a>
-                <a href="logged_in_for-each-image.php#\"></a><span class="image-lable">tradesional dress<br>120MAD</span></a>
-            </div>
-            <div class="col-md-4 col-sm-6 col-12 text-center hide-content">
-                <a href="logged_in_for-each-image.php#\"></a><img src="Images/four-hundred-men-1.jpeg" class="img-men" style="border-radius:20px;height:180px"><br></a>
-                <a href="logged_in_for-each-image.php#\"></a><span class="image-lable">tradesional dress<br>.150MAD</span></a>
-            </div>
-        </div>
-        <!--second row-->
-        <div class="row pt-5">
-            <div class="col-md-4 col-sm-6 col-12 text-center pb-5">
-                <a href="logged_in_for-each-image.php#\"></a><img src="Images/four-hundred-boys-1.jpeg" class="img-men" style="border-radius:20px;height:180px"><br></a>
-                <a href="logged_in_for-each-image.php#\"></a><span class="image-lable">tradesional dress<br>180MAD</span></a>
-            </div>
-            <div class="col-md-4 col-sm-6 col-12 text-center">
-                <a href="#/"></a><img src="Images/four-hundred-ladies.jpeg" class="img-men" style="border-radius:20px;height:180px"><br></a>
-                <a href="logged_in_for-each-image.php#\"></a><span class="image-lable">tradesional dress<br>100MAD</span></a>
-            </div>
-            <div class="col-md-4 col-sm-6 col-12 text-center hide-content">
-                <a href="logged_in_for-each-image.php#\"></a><img src="Images/four-hundred-men-2.jpeg" class="img-men" style="border-radius:20px;height:180px"><br></a>
-                <a href="logged_in_for-each-image.php#\"></a><span class="image-lable">tradesional dress<br>135MAD</span></a>
-            </div>
-        </div>
-        <!--third row-->
-        <div class="row pt-5">
-            <div class="col-md-4 col-sm-6 col-12 text-center pb-5">
-                <a href="logged_in_for-each-image.php#\"></a><img src="Images/four-hundred-girls-1.jpeg" class="img-men" style="border-radius:20px;height:180px"><br></a>
-                <a href="logged_in_for-each-image.php#\"></a><span class="image-lable">tradesional dress<br>155MAD</span></a>
-            </div>
-            <div class="col-md-4 col-sm-6 col-12 text-center">
-                <a href="logged_in_for-each-image.php#\"></a><img src="Images/four-hundred-men-3.jpeg" class="img-men" style="border-radius:20px;height:180px"><br></a>
-                <a href="logged_in_for-each-image.php#\"></a><span class="image-lable">tradesional dress<br>176MAD</span></a>
-            </div>
-            <div class="col-md-4 col-sm-6 col-12 text-center hide-content">
-                <a href="logged_in_for-each-image.php#\"></a><img src="Images/four-hundred-men-4.jpeg" class="img-men" style="border-radius:20px;height:180px"><br></a>
-                <a href="logged_in_for-each-image.php#\"></a><span class="image-lable">tradesional dress<br>133MAD</span></a>
-            </div>
-        </div>
-    </div>
+        <!--Shorts page start-->
 
-    <!--400-500 page end-->
+        <?php
+        $psMobileShorts=$pdo->prepare("SELECT * FROM produit WHERE id_cat=5");
+        $psMobileShorts->execute();
+        $produitMobileShorts=$psMobileShorts->fetch();
+        ?>
 
-    <!--500-600 page start-->
+        <div class="container show-five-hundred-small-page">
+            <!--first row-->
+            <div class="row pt-5">
+                <div class="col-md-4 col-sm-6 col-12 text-center pb-5">
+                    <a href="for-each-image.php?productID=<?php echo $produitMobileShorts['id_produit'] ?>"><img src="productimages/<?php echo $produitMobileShorts['prod_img'];?>" class="img-men" data-aos="fade-up" style="border-radius:20px;height:180px"><br></a>
+                    <a href="for-each-image.php?productID=<?php echo $produitMobileShorts['id_produit'] ?>"><span class="image-lable" data-aos="fade-up"><?php echo $produitMobileShorts['prod_nom'];?><br><?php echo $produitMobileShorts['prod_prix'];?>MAD</span></a>
+                </div>
+                <?php $produitMobileShorts=$psMobileShorts->fetch();?>
+                <div class="col-md-4 col-sm-6 col-12 text-center">
+                    <a href="for-each-image.php?productID=<?php echo $produitMobileShorts['id_produit'] ?>"><img src="productimages/<?php echo $produitMobileShorts['prod_img'];?>" class="img-men" data-aos="fade-up" style="border-radius:20px;height:180px"><br></a>
+                    <a href="for-each-image.php?productID=<?php echo $produitMobileShorts['id_produit'] ?>"><span class="image-lable" data-aos="fade-up"><?php echo $produitMobileShorts['prod_nom'];?><br><?php echo $produitMobileShorts['prod_prix'];?>MAD</span></a>
+                </div>
+                <?php $produitMobileShorts=$psMobileShorts->fetch();?>
+                <div class="col-md-4 col-sm-6 col-12 text-center hide-content">
+                    <a href="for-each-image.php?productID=<?php echo $produitMobileShorts['id_produit'] ?>"><img src="productimages/<?php echo $produitMobileShorts['prod_img'];?>" class="img-men" data-aos="fade-up" style="border-radius:20px;height:180px"><br></a>
+                    <a href="for-each-image.php?productID=<?php echo $produitMobileShorts['id_produit'] ?>"><span class="image-lable" data-aos="fade-up"><?php echo $produitMobileShorts['prod_nom'];?><br><?php echo $produitMobileShorts['prod_prix'];?>MAD</span></a>
+                </div>
+            </div>
+            <!--second row-->
+            <div class="row pt-5">
+                <?php $produitMobileShorts=$psMobileShorts->fetch();?>
+                <div class="col-md-4 col-sm-6 col-12 text-center pb-5">
+                    <a href="for-each-image.php?productID=<?php echo $produitMobileShorts['id_produit'] ?>"><img src="productimages/<?php echo $produitMobileShorts['prod_img'];?>" class="img-men" data-aos="fade-up" style="border-radius:20px;height:180px"><br></a>
+                    <a href="for-each-image.php?productID=<?php echo $produitMobileShorts['id_produit'] ?>"><span class="image-lable" data-aos="fade-up"><?php echo $produitMobileShorts['prod_nom'];?><br><?php echo $produitMobileShorts['prod_prix'];?>MAD</span></a>
+                </div>
+                <?php $produitMobileShorts=$psMobileShorts->fetch();?>
+                <div class="col-md-4 col-sm-6 col-12 text-center">
+                    <a href="for-each-image.php?productID=<?php echo $produitMobileShorts['id_produit'] ?>"><img src="productimages/<?php echo $produitMobileShorts['prod_img'];?>" class="img-men" data-aos="fade-up" style="border-radius:20px;height:180px"><br></a>
+                    <a href="for-each-image.php?productID=<?php echo $produitMobileShorts['id_produit'] ?>"><span class="image-lable" data-aos="fade-up"><?php echo $produitMobileShorts['prod_nom'];?><br><?php echo $produitMobileShorts['prod_prix'];?>MAD</span></a>
+                </div>
+                <?php $produitMobileShorts=$psMobileShorts->fetch();?>
+                <div class="col-md-4 col-sm-6 col-12 text-center hide-content">
+                    <a href="for-each-image.php?productID=<?php echo $produitMobileShorts['id_produit'] ?>"><img src="productimages/<?php echo $produitMobileShorts['prod_img'];?>" class="img-men" data-aos="fade-up" style="border-radius:20px;height:180px"><br></a>
+                    <a href="for-each-image.php?productID=<?php echo $produitMobileShorts['id_produit'] ?>"><span class="image-lable" data-aos="fade-up"><?php echo $produitMobileShorts['prod_nom'];?><br><?php echo $produitMobileShorts['prod_prix'];?>MAD</span></a>
+                </div>
+            </div>
+            <!--third row-->
+            <div class="row pt-5">
+                <?php $produitMobileShorts=$psMobileShorts->fetch();?>
+                <div class="col-md-4 col-sm-6 col-12 text-center pb-5">
+                    <a href="for-each-image.php?productID=<?php echo $produitMobileShorts['id_produit'] ?>"><img src="productimages/<?php echo $produitMobileShorts['prod_img'];?>" class="img-men" data-aos="fade-up" style="border-radius:20px;height:180px"><br></a>
+                    <a href="for-each-image.php?productID=<?php echo $produitMobileShorts['id_produit'] ?>"><span class="image-lable" data-aos="fade-up"><?php echo $produitMobileShorts['prod_nom'];?><br><?php echo $produitMobileShorts['prod_prix'];?>MAD</span></a>
+                </div>
+                <?php $produitMobileShorts=$psMobileShorts->fetch();?>
+                <div class="col-md-4 col-sm-6 col-12 text-center">
+                    <a href="for-each-image.php?productID=<?php echo $produitMobileShorts['id_produit'] ?>"><img src="productimages/<?php echo $produitMobileShorts['prod_img'];?>" class="img-men" data-aos="fade-up" style="border-radius:20px;height:180px"><br></a>
+                    <a href="for-each-image.php?productID=<?php echo $produitMobileShorts['id_produit'] ?>"><span class="image-lable" data-aos="fade-up"><?php echo $produitMobileShorts['prod_nom'];?><br><?php echo $produitMobileShorts['prod_prix'];?>MAD</span></a>
+                </div>
+                <?php $produitMobileShorts=$psMobileShorts->fetch();?>
+                <div class="col-md-4 col-sm-6 col-12 text-center hide-content">
+                    <a href="for-each-image.php?productID=<?php echo $produitMobileShorts['id_produit'] ?>"><img src="productimages/<?php echo $produitMobileShorts['prod_img'];?>" class="img-men" data-aos="fade-up" style="border-radius:20px;height:180px"><br></a>
+                    <a href="for-each-image.php?productID=<?php echo $produitMobileShorts['id_produit'] ?>"><span class="image-lable" data-aos="fade-up"><?php echo $produitMobileShorts['prod_nom'];?><br><?php echo $produitMobileShorts['prod_prix'];?>MAD</span></a>
+                </div>
+            </div>
+        </div>
 
-    <div class="container show-six-hundred-small-page">
-        <!--first row-->
-        <div class="row pt-5">
-            <div class="col-md-4 col-sm-6 col-12 text-center pb-5">
-                <a href="logged_in_for-each-image.php#\"></a><img src="Images/five-hundred-men.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
-                <a href="logged_in_for-each-image.php#\"></a><span class="image-lable">tradesional dress<br>130MAD</span></a>
+        <!--Shorts page end-->
+
+        <!--Chausseurs page start-->
+
+        <?php
+        $psMobileChausseurs=$pdo->prepare("SELECT * FROM produit WHERE id_cat=7");
+        $psMobileChausseurs->execute();
+        $produitMobileChausseurs=$psMobileChausseurs->fetch();
+        ?>
+
+
+        <div class="container show-six-hundred-small-page">
+            <!--first row-->
+            <div class="row pt-5">
+                <div class="col-md-4 col-sm-6 col-12 text-center pb-5">
+                    <a href="for-each-image.php?productID=<?php echo $produitMobileChausseurs['id_produit'] ?>"><img src="productimages/<?php echo $produitMobileChausseurs['prod_img'];?>" class="img-men" data-aos="fade-up" style="border-radius:20px;height:180px"><br></a>
+                    <a href="for-each-image.php?productID=<?php echo $produitMobileChausseurs['id_produit'] ?>"><span class="image-lable" data-aos="fade-up"><?php echo $produitMobileChausseurs['prod_nom'];?><br><?php echo $produitMobileChausseurs['prod_prix'];?>MAD</span></a>
+                </div>
+                <?php $produitMobileChausseurs=$psMobileChausseurs->fetch();?>
+                <div class="col-md-4 col-sm-6 col-12 text-center">
+                    <a href="for-each-image.php?productID=<?php echo $produitMobileChausseurs['id_produit'] ?>"><img src="productimages/<?php echo $produitMobileChausseurs['prod_img'];?>" class="img-men" data-aos="fade-up" style="border-radius:20px;height:180px"><br></a>
+                    <a href="for-each-image.php?productID=<?php echo $produitMobileChausseurs['id_produit'] ?>"><span class="image-lable" data-aos="fade-up"><?php echo $produitMobileChausseurs['prod_nom'];?><br><?php echo $produitMobileChausseurs['prod_prix'];?>MAD</span></a>
+                </div>
+                <?php $produitMobileChausseurs=$psMobileChausseurs->fetch();?>
+                <div class="col-md-4 col-sm-6 col-12 text-center hide-content">
+                    <a href="for-each-image.php?productID=<?php echo $produitMobileChausseurs['id_produit'] ?>"><img src="productimages/<?php echo $produitMobileChausseurs['prod_img'];?>" class="img-men" data-aos="fade-up" style="border-radius:20px;height:180px"><br></a>
+                    <a href="for-each-image.php?productID=<?php echo $produitMobileChausseurs['id_produit'] ?>"><span class="image-lable" data-aos="fade-up"><?php echo $produitMobileChausseurs['prod_nom'];?><br><?php echo $produitMobileChausseurs['prod_prix'];?>MAD</span></a>
+                </div>
             </div>
-            <div class="col-md-4 col-sm-6 col-12 text-center">
-                <a href="logged_in_for-each-image.php#\"></a><img src="Images/five-hundred-boys.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
-                <a href="logged_in_for-each-image.php#\"></a><span class="image-lable">tradesional dress<br>120MAD</span></a>
+            <!--second row-->
+            <div class="row pt-5">
+                <?php $produitMobileChausseurs=$psMobileChausseurs->fetch();?>
+                <div class="col-md-4 col-sm-6 col-12 text-center pb-5">
+                    <a href="for-each-image.php?productID=<?php echo $produitMobileChausseurs['id_produit'] ?>"><img src="productimages/<?php echo $produitMobileChausseurs['prod_img'];?>" class="img-men" data-aos="fade-up" style="border-radius:20px;height:180px"><br></a>
+                    <a href="for-each-image.php?productID=<?php echo $produitMobileChausseurs['id_produit'] ?>"><span class="image-lable" data-aos="fade-up"><?php echo $produitMobileChausseurs['prod_nom'];?><br><?php echo $produitMobileChausseurs['prod_prix'];?>MAD</span></a>
+                </div>
+                <?php $produitMobileChausseurs=$psMobileChausseurs->fetch();?>
+                <div class="col-md-4 col-sm-6 col-12 text-center">
+                    <a href="for-each-image.php?productID=<?php echo $produitMobileChausseurs['id_produit'] ?>"><img src="productimages/<?php echo $produitMobileChausseurs['prod_img'];?>" class="img-men" data-aos="fade-up" style="border-radius:20px;height:180px"><br></a>
+                    <a href="for-each-image.php?productID=<?php echo $produitMobileChausseurs['id_produit'] ?>"><span class="image-lable" data-aos="fade-up"><?php echo $produitMobileChausseurs['prod_nom'];?><br><?php echo $produitMobileChausseurs['prod_prix'];?>MAD</span></a>
+                </div>
+                <?php $produitMobileChausseurs=$psMobileChausseurs->fetch();?>
+                <div class="col-md-4 col-sm-6 col-12 text-center hide-content">
+                    <a href="for-each-image.php?productID=<?php echo $produitMobileChausseurs['id_produit'] ?>"><img src="productimages/<?php echo $produitMobileChausseurs['prod_img'];?>" class="img-men" data-aos="fade-up" style="border-radius:20px;height:180px"><br></a>
+                    <a href="for-each-image.php?productID=<?php echo $produitMobileChausseurs['id_produit'] ?>"><span class="image-lable" data-aos="fade-up"><?php echo $produitMobileChausseurs['prod_nom'];?><br><?php echo $produitMobileChausseurs['prod_prix'];?>MAD</span></a>
+                </div>
             </div>
-            <div class="col-md-4 col-sm-6 col-12 text-center hide-content">
-                <a href="logged_in_for-each-image.php#\"></a><img src="Images/five-hundred-men-1.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
-                <a href="logged_in_for-each-image.php#\"></a><span class="image-lable">tradesional dress<br>.150MAD</span></a>
+            <!--third row-->
+            <div class="row pt-5">
+                <?php $produitMobileChausseurs=$psMobileChausseurs->fetch();?>
+                <div class="col-md-4 col-sm-6 col-12 text-center pb-5">
+                    <a href="for-each-image.php?productID=<?php echo $produitMobileChausseurs['id_produit'] ?>"><img src="productimages/<?php echo $produitMobileChausseurs['prod_img'];?>" class="img-men" data-aos="fade-up" style="border-radius:20px;height:180px"><br></a>
+                    <a href="for-each-image.php?productID=<?php echo $produitMobileChausseurs['id_produit'] ?>"><span class="image-lable" data-aos="fade-up"><?php echo $produitMobileChausseurs['prod_nom'];?><br><?php echo $produitMobileChausseurs['prod_prix'];?>MAD</span></a>
+                </div>
+                <?php $produitMobileChausseurs=$psMobileChausseurs->fetch();?>
+                <div class="col-md-4 col-sm-6 col-12 text-center">
+                    <a href="for-each-image.php?productID=<?php echo $produitMobileChausseurs['id_produit'] ?>"><img src="productimages/<?php echo $produitMobileChausseurs['prod_img'];?>" class="img-men" data-aos="fade-up" style="border-radius:20px;height:180px"><br></a>
+                    <a href="for-each-image.php?productID=<?php echo $produitMobileChausseurs['id_produit'] ?>"><span class="image-lable" data-aos="fade-up"><?php echo $produitMobileChausseurs['prod_nom'];?><br><?php echo $produitMobileChausseurs['prod_prix'];?>MAD</span></a>
+                </div>
+                <?php $produitMobileChausseurs=$psMobileChausseurs->fetch();?>
+                <div class="col-md-4 col-sm-6 col-12 text-center hide-content">
+                    <a href="for-each-image.php?productID=<?php echo $produitMobileChausseurs['id_produit'] ?>"><img src="productimages/<?php echo $produitMobileChausseurs['prod_img'];?>" class="img-men" data-aos="fade-up" style="border-radius:20px;height:180px"><br></a>
+                    <a href="for-each-image.php?productID=<?php echo $produitMobileChausseurs['id_produit'] ?>"><span class="image-lable" data-aos="fade-up"><?php echo $produitMobileChausseurs['prod_nom'];?><br><?php echo $produitMobileChausseurs['prod_prix'];?>MAD</span></a>
+                </div>
             </div>
         </div>
-        <!--second row-->
-        <div class="row pt-5">
-            <div class="col-md-4 col-sm-6 col-12 text-center pb-5">
-                <a href="logged_in_for-each-image.php#\"></a><img src="Images/five-hundred-men-2.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
-                <a href="logged_in_for-each-image.php#\"></a><span class="image-lable">tradesional dress<br>180MAD</span></a>
-            </div>
-            <div class="col-md-4 col-sm-6 col-12 text-center">
-                <a href="logged_in_for-each-image.php#\"></a><img src="Images/five-hundred-boys-1.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
-                <a href="logged_in_for-each-image.php#\"></a><span class="image-lable">tradesional dress<br>100MAD</span></a>
-            </div>
-            <div class="col-md-4 col-sm-6 col-12 text-center hide-content">
-                <a href="logged_in_for-each-image.php#\"></a><img src="Images/five-hundred-ladies.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
-                <a href="logged_in_for-each-image.php#\"></a><span class="image-lable">tradesional dress<br>135MAD</span></a>
+        <!--pagination-->
+        <div class="row next-page-header pt-5">
+            <div class="col next-page" style="z-index: 0;">
+                <ul class="pagination" style="display: flex;justify-content: center;">
+                    <?php for ($i=0;$i<$Nbpages;$i++) { ?>
+                        <li class="page-item <?php if($page==$i) echo("active") ?>">
+                            <a class="page-link"  href="logged_in_all_top_container.php?page=<?php echo($i)?>&motcle=<?php echo($mc)?>"  style="color:black"><?php echo($i+1)?></a>
+                        </li>
+                    <?php } ?>
+                </ul>
             </div>
         </div>
-        <!--third row-->
-        <div class="row pt-5">
-            <div class="col-md-4 col-sm-6 col-12 text-center pb-5">
-                <a href="logged_in_for-each-image.php#\"></a><img src="Images/five-hundred-girls-2.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
-                <a href="logged_in_for-each-image.php#\"></a><span class="image-lable">tradesional dress<br>155MAD</span></a>
-            </div>
-            <div class="col-md-4 col-sm-6 col-12 text-center">
-                <a href="logged_in_for-each-image.php#\"></a><img src="Images/five-hundred-men-3.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
-                <a href="logged_in_for-each-image.php#\"></a><span class="image-lable">tradesional dress<br>176MAD</span></a>
-            </div>
-            <div class="col-md-4 col-sm-6 col-12 text-center hide-content">
-                <a href="logged_in_for-each-image.php#\"></a><img src="Images/five-hundred-men-4.jpg" class="img-men" style="border-radius:20px;height:180px"><br></a>
-                <a href="logged_in_for-each-image.php#\"></a><span class="image-lable">tradesional dress<br>133MAD</span></a>
-            </div>
-        </div>
-    </div>
-    <!--pagination-->
-    <div class="row next-page-header pt-5">
-        <div class="col next-page" style="z-index: 0;">
-            <ul class="pagination" style="display: flex;justify-content: center;">
-                <li class="page-item prev"><a class="page-link" href="#/"  style="color:black">Previous</a></li>
-                <li class="page-item open-small-content-one-hundred "><a class="page-link" href="#/"  style="color:black">1</a></li>
-                <li class="page-item open-small-content-five-hundred active "><a class="page-link" href="#/"  style="color:black">2</a></li>
-                <li class="page-item open-small-content-three-hundred"><a class="page-link" href="#/"  style="color:black">3</a></li>
-                <li class="page-item open-small-content-four-hundred "><a class="page-link" href="#/"  style="color:black">4</a></li>
-                <li class="page-item open-small-content-five-hundred "><a class="page-link" href="#/"  style="color:black">5</a></li>
-                <li class="page-item next"><a class="page-link" href="#/"  style="color:black">Next</a></li>
-            </ul>
-        </div>
-    </div>
-    <!--pagination-->
+        <!--pagination-->
     <!--header- of all the right side container--->
 </div>
 

@@ -141,7 +141,7 @@
     <div class="container sift-couple" height="200px">
         <div class="row">
             <div class="col-xl-5 col-lg-5 col-md-6 col-sm-12 col-12 text-center">
-                <a href="ecommerce-price-men.php"><img src="Images/men-1-removebg-preview.png" height="230px" class="pl-5" data-aos="fade-up"></a>
+                <a href="all-top-container.php"><img src="Images/men-1-removebg-preview.png" height="230px" class="pl-5" data-aos="fade-up"></a>
             </div>
             <div class="col-xl-7 col-lg-7 col-md-6 col-sm-12 col-12 pt-4 text-center">
                   <span style="font-weight:700;font-size:20px;" data-aos="zoom-in">La plateforme vous propose de nombreux modes pour les occasions et les fêtes
@@ -211,7 +211,7 @@
             <?php $Chaussures=$psChaussures->fetch(); ?>
             <div class="col-xl-5 col-lg-5 text-center pt-5 hide-popular">
                 <a href="for-each-image.php?productID=<?php echo($Chaussures['id_produit']);?>"><img src="productimages/<?php echo($Chaussures['prod_img']); ?>" height="400px" data-aos="fade-up"><br></a>
-                <a href="ecommerce-price-men.php"><span class="image-lable" data-aos="zoom-in"><?php echo($Chaussures['prod_nom']); ?><br><?php echo($Chaussures['prod_prix']);?> MAD</span></a>
+                <a href="for-each-image.php?productID=<?php echo($Chaussures['id_produit']);?>"><span class="image-lable" data-aos="zoom-in"><?php echo($Chaussures['prod_nom']); ?><br><?php echo($Chaussures['prod_prix']);?> MAD</span></a>
             </div>
             <div class="col-xl-7 col-lg-7 col-md-12 col-sm-12 col-12">
                 <div class="row">

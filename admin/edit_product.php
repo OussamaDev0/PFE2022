@@ -24,7 +24,7 @@ $row_edit = mysqli_fetch_array($run_edit);
 
 $p_id = $row_edit['id_produit'];
 
-$p_title = utf8_encode($row_edit['prod_nom']);
+$p_title = $row_edit['prod_nom'];
 
 $p_cat = $row_edit['id_cat'];
 
@@ -222,8 +222,9 @@ echo "<option value='$p_cat_id' >$p_cat_title</option>";
         <div class="col-md-6" >
 
             <input type="file" name="product_img3" class="form-control" >
+            <?php if($p_image3!=""){ ?>
             <br><img src="../productimages/<?php echo $p_image3; ?>" width="70" height="70" >
-
+            <?php } ?>
         </div>
 
     </div><!-- form-group Ends -->
@@ -235,8 +236,9 @@ echo "<option value='$p_cat_id' >$p_cat_title</option>";
         <div class="col-md-6" >
 
             <input type="file" name="product_img4" class="form-control" >
+            <?php if($p_image4!=""){ ?>
             <br><img src="../productimages/<?php echo $p_image4; ?>" width="70" height="70" >
-
+            <?php } ?>
         </div>
 
     </div><!-- form-group Ends -->

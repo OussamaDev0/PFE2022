@@ -17,9 +17,24 @@ else {
 
         $confirm_order = "UPDATE commande SET com_status='Complete' where id_commande='$confirm_id'";
 
-        $run_confirm = mysqli_query($con,$confirm_order);
+       $run_confirm = mysqli_query($con,$confirm_order);
+        //get user info start
+        /*    $get_User= "select u.user_email,u.user_nom,u.user_prenom
+             from utilisateur u,commande c
+             where c.user_id=u.id_user AND id_commande='$confirm_id'
+             ";
+            $run_User=mysqli_query($con,$get_User);
+            $row_User=mysqli_fetch_array($run_User);
+            $user_email=$row_User['user_email'];
+            $user_nom=$row_User['user_nom'];
+            $user_prenom=$row_User['user_prenom'];
+        */
+        //get user info end
 
-        if($run_confirm){
+
+
+
+       if($run_confirm){
 
             echo "<script>alert('La commande est confirmer')</script>";
 

@@ -16,9 +16,6 @@
               <a href="#/"><img src="Images/profile-icon.png" class="profile-icon color"></a>
             </span>
             <ul class="dropdown-menu mt-4 text-center" style="margin-left:-6%;border-radius:10px;">
-                <li class="pre-profile-1 pt-2 pb-2"><a href="#/" class="color" style="font-weight:600">Historique des commandes</a></li>
-                <li class="pre-profile-1 pt-2 pb-2"><a href="#/" class="color" style="font-weight:600">Changer le mot de passe</a></li>
-                <li class="pre-profile-1 pt-2 pb-2"><a href="#/" class="color" style="font-weight:600">Mettre à jour le profil</a></li>
                 <li class="pre-profile-1 pt-2 pb-2"><a href="login-form.php" class="color" style="font-weight:600">Connexion</a></li>
             </ul>
             <span class="menu-1"><a href="ecommerce.php" class="color">accueil</a></span>
@@ -35,11 +32,10 @@
             <span class="close"><a href="#/" class="color">&times;</a></span>
         </div>
         <ul class="pt-5 pre-side-bar">
-            <li class="pt-4" style="margin-left:-5%;"><a href="ecommerce.php" class="color">home</a></li>
+            <li class="pt-4" style="margin-left:-5%;"><a href="ecommerce.php" class="color">Accueil</a></li>
             <li class="pt-3"style="margin-left:-5%"><a href="all-top-container.php" class="color">produits</a></li>
             <li class="pt-3"style="margin-left:-5%"><a href="about-us.php" class="color">à propos </a></li>
             <li class="pt-3"style="margin-left:-5%"><a href="contact-form.php" class="color">contact</a></li>
-            <li class="pt-3"style="margin-left:-5%"><a href="#/" class="color">Mettre à jour le profil</a></li>
             <li class="pt-3"style="margin-left:-5%"><a href="login-form.php" class="color">Connexion</a><span><a href="#" class="color"><img src="log-in..png" class="log-in"></a></span></li>
         </ul>
     </div>

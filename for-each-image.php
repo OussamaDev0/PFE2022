@@ -502,75 +502,118 @@ $produit=$psProduit->fetch();
         <div class="col-2 col-xs-3">
             <div class="row pt-3 pb-2">
                 <div class="col-xl-12 text-center">
-                    <a href="#/"><img src="Images/for-each-image-1.jpg" class="zooming"></a>
+                    <a href="#/"><img src="productimages/<?php echo $produit['prod_img'];?>" class="zooming"></a>
                 </div>
                 <div class="col-xl-12 mt-3">
-                    <a href="#/"><img src="Images/for-each-image-2.jpg" class="zooming-1"></a>
+                    <a href="#/"><img src="productimages/<?php echo $produit['prod_img1'];?>" class="zooming-1"></a>
                 </div>
                 <div class="col-xl-12 mt-3 front-show">
-                    <a href="#/"><img src="Images/for-each-image-3.jpg" height="55px" width="75%" class="zooming-2"></a>
-                    <a href="#/"><div class="pt-2 front-show block-img-for-tablate">+3</div></a>
+                    <a href="#/"><img src="productimages/<?php echo $produit['prod_img2'];?>" height="55px" width="75%" class="zooming-2"></a>
+                    <a href="#/"><div class="pt-2 front-show block-img-for-tablate">+<?php echo $nb_photos;?></div></a>
                 </div>
                 <div class="col-xl-12 mt-3 front-hide">
-                    <a href="#/"><img src="Images/for-each-image-3.jpg" class="zooming-5"></a>
+                    <a href="#/"><img src="productimages/<?php echo $produit['prod_img2'];?>" class="zooming-5"></a>
                 </div>
-                <div class="col-xl-12 mt-3 front-hide">
-                    <a href="#/"><img src="Images/for-each-image-5.jpg" class="zooming-3"></a>
-                </div>
-                <div class="col-xl-12 mt-3 front-hide">
-                    <a href="#/"><img src="Images/for-each-image-6.jpg" class="zooming-4"></a>
-                </div>
+                <?php if($produit['prod_img3']!=""){ ?>
+                    <div class="col-xl-12 mt-3 front-hide">
+                        <a href="#/"><img src="productimages/<?php echo $produit['prod_img3'];?>" class="zooming-3"></a>
+                    </div>
+                <?php }
+                if($produit['prod_img4']!=""){
+                    ?>
+                    <div class="col-xl-12 mt-3 front-hide">
+                        <a href="#/"><img src="productimages/<?php echo $produit['prod_img4'];?>" class="zooming-4"></a>
+                    </div>
+                <?php }?>
             </div>
         </div>
         <div class="col-10 col-xs-9 text-center zooming-open-head ">
-            <img src="Images/for-each-image-1.jpg" height="400px" width="95%">
+            <img src="productimages/<?php echo $produit['prod_img'];?>" height="400px" width="95%">
         </div>
         <!--hidden--> <div class="col-10 text-center zooming-open-1">
-            <img src="Images/for-each-image-2.jpg" height="400px" width="95%">
+            <img src="productimages/<?php echo $produit['prod_img1'];?>" height="400px" width="95%">
         </div>
         <!--hidden-->   <div class="col-10 text-center zooming-open-2">
-            <img src="Images/for-each-image-3.jpg" height="400px" width="95%">
+            <img src="productimages/<?php echo $produit['prod_img2'];?>" height="400px" width="95%">
         </div>
-        <!--hidden--> <div class="col-10 text-center zooming-open-3">
-            <img src="Images/for-each-image-5.jpg" height="400px" width="95%">
-        </div>
-        <!--hidden--> <div class="col-10 text-center zooming-open-4">
-            <img src="Images/for-each-image-6.jpg" height="400px" width="95%">
-        </div>
+        <?php if($produit['prod_img3']!=""){ ?>
+            <!--hidden--> <div class="col-10 text-center zooming-open-3">
+                <img src="productimages/<?php echo $produit['prod_img3'];?>" height="400px" width="95%">
+            </div>
+        <?php }
+        if($produit['prod_img4']!=""){
+            ?>
+            <!--hidden--> <div class="col-10 text-center zooming-open-4">
+                <img src="productimages/<?php echo $produit['prod_img4'];?>" height="400px" width="95%">
+            </div>
+        <?php } ?>
     </div>
-    <div class="row mt-5 pt-5">
-        <div class="col-12 pt-3">
-            <p style="font-size:25px;font-weight:600">Symbol Men's Solid Regular fit Half Sleeve Polo</p>
+        <div class="row mt-5 pt-5">
+            <div class="col-12 pt-3">
+                <p style="font-size:25px;font-weight:600"><?php echo $produit['prod_nom'];?></p>
+            </div>
+            <div class="col-12 pl-5">
+                <p style="font-weight:600;font-size:20px;"> Prix:<span style="color:red"><?php echo $produit['prod_prix'];?> MAD</span></p>
+            </div>
+            <div class="col-12 pl-5">
+                <p style="font-weight:600;font-size:20px;">size: </p><?php if($categorieProduit!=7){ ?>
+                    <span class="taille">
+                        <input class="taille-input" type="radio" id="contactChoice1"
+                               name="size" value="S" checked>
+                        <label class="taille-label" for="contactChoice1">S</label>
+
+                        <input class="taille-input" type="radio" id="contactChoice2"
+                               name="size" value="M">
+                        <label class="taille-label" for="contactChoice2">M</label>
+
+                        <input class="taille-input" type="radio" id="contactChoice3"
+                               name="size" value="L">
+                        <label class="taille-label" for="contactChoice3">L</label>
+                        <input class="taille-input" type="radio" id="contactChoice3"
+                               name="size" value="XL">
+                        <label class="taille-label" for="contactChoice3">XL</label>
+                        <input class="taille-input" type="radio" id="contactChoice3"
+                               name="size" value="XXL">
+                        <label class="taille-label" for="contactChoice3">XXL</label>
+                    </span>
+                <?php }else{ ?>
+
+                    <span class="taille">
+                        <input class="taille-input" type="radio" id="contactChoice1"
+                               name="size" value="39" checked>
+                        <label class="taille-label" for="contactChoice1">39</label>
+
+                        <input class="taille-input" type="radio" id="contactChoice2"
+                               name="size" value="40">
+                        <label class="taille-label" for="contactChoice2">40</label>
+
+                        <input class="taille-input" type="radio" id="contactChoice3"
+                               name="size" value="41">
+                        <label class="taille-label" for="contactChoice3">41</label>
+                        <input class="taille-input" type="radio" id="contactChoice3"
+                               name="size" value="42">
+                        <label class="taille-label" for="contactChoice3">42</label>
+                    </span>
+                <?php } ?>
+            </div>
+            <div class="col-12">
+                <p style="font-weight:600;font-size:20px;">Description: </p>
+                <div class="descriptionprod">
+                    <p><?php echo($produit['prod_description']) ?></p></div>
+            </div>
+        </div><br/>
+        <div class="row">
+            <div class="col">
+                <a href="login-form.php" style="color:white"><span style="width:30%;border:1px solid;padding:2% 5%;text-transform: uppercase;font-size:15px;font-weight:600;background-color:rgb(255, 174, 0);border-radius:10px;"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span class="ml-2">add to card</span></span></a>
+                <a href="login-form.php" style="color:white"><span style="width:30%;border:1px solid;padding:2% 5%;text-transform: uppercase;font-size:15px;font-weight:600;background-color:orangered;border-radius:10px;" class="ml-3"><i class="fa fa-bolt" aria-hidden="true"></i><span class="ml-2"> buy now</span></span></a>
+
+            </div>
         </div>
-        <div class="col-12 pl-5">
-            <p style="font-weight:600;font-size:20px;"> Price:<span style="color:red">&#8377;200.00-&#8377;300.00</span></p>
+        <div class="container-fluid mt-5">
+            <span style="visibility: hidden;">hi user</span>
         </div>
-        <div class="col-12 pl-5">
-            <p style="font-weight:600;font-size:20px;">size: <span style="border:1px solid;padding:1% 3%" class="ml-3">M</span> <span style="border:1px solid;padding:1% 4%" class="ml-2">L</span> <span style="border:1px solid;padding:1% 3%" class="ml-2">XL</span> <br class="break"><a href="#/" style="color:black" class="ml-3 open-pop-container">size chart <img src="size-icon.png" height="20px"></a></p>
-        </div>
-        <div class="col-12">
-            <ul>
-                <li>Care Instructions: hand wash</li>
-                <li>Fit Type: regular fit</li>
-                <li>Color:Blue Radiance</li>
-                <li>60% Polyester and 40% Cotton</li>
-                <li>Regular fit</li>
-                <li>Half sleeve</li>
-                <li>Polo with classic collar</li>
-                <li>Hand wash</li>
-            </ul>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col">
-            <a href="#/" style="color:white"><span style="width:30%;border:1px solid;padding:2% 5%;text-transform: uppercase;font-size:15px;font-weight:600;background-color:rgb(255, 174, 0);border-radius:10px;"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span class="ml-2">add to card</span></span></a><br class="break-1"><br class="break-1">
-            <a href="#/" style="color:white"><span style="width:30%;border:1px solid;padding:2% 5%;text-transform: uppercase;font-size:15px;font-weight:600;background-color:orangered;border-radius:10px;" class="ml-3"><i class="fa fa-bolt" aria-hidden="true"></i><span class="ml-2"> buy now</span></span></a>
-        </div>
-    </div>
-    <div class="container-fluid mt-5">
-        <span style="visibility: hidden;">hi user</span>
-    </div>
 </div>
+
 <!--middle part end-->
 
 <!---Commentaire et Review Start-->

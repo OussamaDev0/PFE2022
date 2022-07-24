@@ -181,7 +181,7 @@
               <a href="#/"><img src="Images/profile-icon.png" class="profile-icon color"></a>
             </span>
             <ul class="dropdown-menu mt-4 text-center" style="margin-left:-6%;border-radius:10px;">
-                <li class="pre-profile-1 pt-2 pb-2"><a href="#/" class="color" style="font-weight:600">Historique des commandes</a></li>
+                <li class="pre-profile-1 pt-2 pb-2"><a href="profile.php" class="color" style="font-weight:600">Historique des commandes</a></li>
                 <li class="pre-profile-1 pt-2 pb-2"><a href="cart.php" class="color" style="font-weight:600">Panier</a></li>
                 <li class="pre-profile-1 pt-2 pb-2"><a href="profile.php" class="color" style="font-weight:600">Mettre à jour le profil</a></li>
                 <li class="pre-profile-1 pt-2 pb-2"><a href="LougOut.php" class="color" style="font-weight:600">Se déconnecter</a></li>

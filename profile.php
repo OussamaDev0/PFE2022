@@ -153,6 +153,52 @@
             </div>
         </div>
         <!-- liste des clients end -->
+        <!-- Mes commandes start -->
+        <div class="col-md-5 border-right show-five-hundred-page">
+            <div class="p-3 py-5">
+                <table class="table table-bordered table-hover table-striped"><!-- table table-bordered table-hover table-striped Starts -->
+
+                    <thead><!-- thead Starts -->
+
+                    <tr>
+                        <th>Produit</th>
+                        <th>Qty</th>
+                        <th>Taille</th>
+                        <th>Montant total</th>
+                        <th>Statut</th>
+                        <th></th>
+
+
+                    </tr>
+
+                    </thead><!-- thead Ends -->
+
+
+                    <tbody><!-- tbody Starts -->
+                    <?php
+                        $req=$pdo->prepare("SELECT c.id_commande,p.prod_nom,c.qty,c.size,c.prix_total,c.com_status
+                        FROM produit p,commande c
+                        WHERE c.id_produit=p.id_produit AND c.user_id=?
+                        ORDER BY c.id_commande DESC");
+                        $req->execute([$profileID]);
+                        while($row_orders=$req->fetch()){
+                    ?>
+                        <tr>
+                            <td><?php echo $row_orders['prod_nom'];?></td>
+                            <td><?php echo $row_orders['qty'];?></td>
+                            <td><?php echo $row_orders['size'];?></td>
+                            <td><?php echo $row_orders['prix_total'];?></td>
+                            <td bgcolor="<?php if($row_orders['com_status']=="pending") echo "red"; else echo "green" ?>"><?php echo $row_orders['com_status'];?></td>
+                            <td><a href="order_delete_usr.php?idC=<?php echo $row_orders['id_commande'];?>&idU=<?php echo $profileID ?>"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+                        </tr>
+                    <?php } ?>
+                    </tbody><!-- tbody Ends -->
+
+                </table><!-- table table-bordered table-hover table-striped Ends -->
+
+            </div>
+        </div>
+        <!-- Mes commandes end -->
         <div class="col-md-4">
             <div class="p-3 py-5">
                 <div class="col-12 pt-3">
@@ -160,6 +206,7 @@
                     <span  class="text-bold"><button class="button-choix" onclick="two_page();">&nbsp; Changer Mot De Passe</button></span><br><br>
                     <span  class="text-bold"><button class="button-choix" onclick="three_page();" >&nbsp; Ajouter Un Adresse</button></span><br><br>
                     <span  class="text-bold"><button class="button-choix" onclick="four_page();" >&nbsp; Adresse de livraison</button></span><br><br>
+                    <span  class="text-bold"><button class="button-choix" onclick="five_page();" > Mes commandes</button></span><br><br>
                 <!--    <span  class="text-bold" name="select-price"><button name="price-cat" class="open-content-five-hundred">&nbsp; plus de 500 MAD</button></span><br> -->
                 </div>
 
@@ -173,19 +220,23 @@
 <script type="text/javascript">
     function one_page(){
         $(".show-one-hundred-page").css("display","block");
-        $(".show-two-hundred-page,.show-three-hundred-page,.show-four-hundred-page").css("display","none");
+        $(".show-two-hundred-page,.show-three-hundred-page,.show-four-hundred-page,.show-five-hundred-page").css("display","none");
     };
     function two_page(){
         $(".show-two-hundred-page").css("display","block");
-        $(".show-one-hundred-page,.show-three-hundred-page,.show-four-hundred-page").css("display","none");
+        $(".show-one-hundred-page,.show-three-hundred-page,.show-four-hundred-page,.show-five-hundred-page").css("display","none");
     };
     function three_page(){
         $(".show-three-hundred-page").css("display","block");
-        $(".show-one-hundred-page,.show-two-hundred-page,.show-four-hundred-page").css("display","none");
+        $(".show-one-hundred-page,.show-two-hundred-page,.show-four-hundred-page,.show-five-hundred-page").css("display","none");
     };
     function four_page(){
         $(".show-four-hundred-page").css("display","block");
-        $(".show-one-hundred-page,.show-two-hundred-page,.show-three-hundred-page").css("display","none");
+        $(".show-one-hundred-page,.show-two-hundred-page,.show-three-hundred-page,.show-five-hundred-page").css("display","none");
+    };
+    function  five_page(){
+        $(".show-five-hundred-page").css("display","block");
+        $(".show-one-hundred-page,.show-two-hundred-page,.show-three-hundred-page,.show-four-hundred-page").css("display","none");
     };
 
 </script>
